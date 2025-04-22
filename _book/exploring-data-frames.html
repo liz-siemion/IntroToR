@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Chapter 7 Exploring Data Frames | CDFW Introduction to R Programming Workshop" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="liz-siemion/IntroToR" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 7 Exploring Data Frames | CDFW Introduction to R Programming" />
@@ -215,10 +215,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exploring-data-frames" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Exploring Data Frames<a href="exploring-data-frames.html#exploring-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Let’s check out the data! Data exploration is one of the most important parts of working in R and it’s the first thing you should always do when looking at new data!</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exploring-data-frames.html#cb22-1" tabindex="-1"></a><span class="co"># str() shows us the structure of the data, including the data mode, </span></span>
-<span id="cb22-2"><a href="exploring-data-frames.html#cb22-2" tabindex="-1"></a><span class="co"># the dimensions of # the dataframe including the data mode, the dimensions of </span></span>
-<span id="cb22-3"><a href="exploring-data-frames.html#cb22-3" tabindex="-1"></a><span class="co"># the dataframe, and a few observations</span></span>
-<span id="cb22-4"><a href="exploring-data-frames.html#cb22-4" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="exploring-data-frames.html#cb99-1" tabindex="-1"></a><span class="co"># str() shows us the structure of the data, including the data mode, </span></span>
+<span id="cb99-2"><a href="exploring-data-frames.html#cb99-2" tabindex="-1"></a><span class="co"># the dimensions of # the dataframe including the data mode, the dimensions of </span></span>
+<span id="cb99-3"><a href="exploring-data-frames.html#cb99-3" tabindex="-1"></a><span class="co"># the dataframe, and a few observations</span></span>
+<span id="cb99-4"><a href="exploring-data-frames.html#cb99-4" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1061 obs. of  45 variables:
 ##  $ NecropDateDt              : chr  &quot;31-Jan-25&quot; &quot;21-Jan-25&quot; &quot;05-Jan-25&quot; &quot;08-Sep-24&quot; ...
 ##  $ NecropDate                : int  20250131 20250121 20250105 20240908 20240709 20240617 20240604 20240530 20240528 20240520 ...
@@ -265,38 +265,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ LionID                    : chr  &quot;&quot; &quot;&quot; &quot;267&quot; &quot;&quot; ...
 ##  $ KillLocUsingGPSData       : chr  &quot;N&quot; &quot;N&quot; &quot;Y&quot; &quot;n&quot; ...
 ##  $ LionClusterID             : chr  &quot;&quot; &quot;&quot; &quot;267_20241202&quot; &quot;&quot; ...</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="exploring-data-frames.html#cb24-1" tabindex="-1"></a><span class="fu">length</span>(mort) <span class="co"># gives the number of columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="exploring-data-frames.html#cb101-1" tabindex="-1"></a><span class="fu">length</span>(mort) <span class="co"># gives the number of columns</span></span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="exploring-data-frames.html#cb26-1" tabindex="-1"></a><span class="fu">nrow</span>(mort) <span class="co"># to get the number of rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="exploring-data-frames.html#cb103-1" tabindex="-1"></a><span class="fu">nrow</span>(mort) <span class="co"># to get the number of rows</span></span></code></pre></div>
 <pre><code>## [1] 1061</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="exploring-data-frames.html#cb28-1" tabindex="-1"></a><span class="fu">ncol</span>(mort) <span class="co"># number of columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="exploring-data-frames.html#cb105-1" tabindex="-1"></a><span class="fu">ncol</span>(mort) <span class="co"># number of columns</span></span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="exploring-data-frames.html#cb30-1" tabindex="-1"></a><span class="fu">dim</span>(mort) <span class="co"># or both at once, dim()</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="exploring-data-frames.html#cb107-1" tabindex="-1"></a><span class="fu">dim</span>(mort) <span class="co"># or both at once, dim()</span></span></code></pre></div>
 <pre><code>## [1] 1061   45</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="exploring-data-frames.html#cb32-1" tabindex="-1"></a><span class="fu">colnames</span>(mort) <span class="co"># names of the columns</span></span></code></pre></div>
-<pre><code>##  [1] &quot;NecropDateDt&quot;               &quot;NecropDate&quot;                
-##  [3] &quot;DeadDateDt&quot;                 &quot;DeadDate&quot;                  
-##  [5] &quot;Date1stHeardDt&quot;             &quot;Date1stHeard&quot;              
-##  [7] &quot;AgeCarcass&quot;                 &quot;BestDead&quot;                  
-##  [9] &quot;AnimalYear&quot;                 &quot;Recorder&quot;                  
-## [11] &quot;Herd&quot;                       &quot;Animal_ID&quot;                 
-## [13] &quot;Sex&quot;                        &quot;Age&quot;                       
-## [15] &quot;AgeEstMethod&quot;               &quot;GPS_CollarSerialNo_Date_FK&quot;
-## [17] &quot;CollarSN&quot;                   &quot;VHF_freq&quot;                  
-## [19] &quot;Location&quot;                   &quot;InvestReason&quot;              
-## [21] &quot;UTM_E&quot;                      &quot;UTM_N&quot;                     
-## [23] &quot;ElevDEM&quot;                    &quot;CarcassCon&quot;                
-## [25] &quot;Cause_Mort&quot;                 &quot;CausMortAcc&quot;               
-## [27] &quot;ConditionNotes&quot;             &quot;Evidence&quot;                  
-## [29] &quot;Comments&quot;                   &quot;CauseMortRevised&quot;          
-## [31] &quot;RevisionReason&quot;             &quot;PhotoTaken&quot;                
-## [33] &quot;Houndsmen&quot;                  &quot;RumenIntact&quot;               
-## [35] &quot;TracksFound&quot;                &quot;ScatFound&quot;                 
-## [37] &quot;DragMarks&quot;                  &quot;Latrine&quot;                   
-## [39] &quot;Femur&quot;                      &quot;Tooth&quot;                     
-## [41] &quot;Mandible&quot;                   &quot;Skull&quot;                     
-## [43] &quot;LionID&quot;                     &quot;KillLocUsingGPSData&quot;       
-## [45] &quot;LionClusterID&quot;</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="exploring-data-frames.html#cb109-1" tabindex="-1"></a><span class="fu">colnames</span>(mort) <span class="co"># names of the columns</span></span></code></pre></div>
+<pre><code>##  [1] &quot;NecropDateDt&quot;               &quot;NecropDate&quot;                 &quot;DeadDateDt&quot;                
+##  [4] &quot;DeadDate&quot;                   &quot;Date1stHeardDt&quot;             &quot;Date1stHeard&quot;              
+##  [7] &quot;AgeCarcass&quot;                 &quot;BestDead&quot;                   &quot;AnimalYear&quot;                
+## [10] &quot;Recorder&quot;                   &quot;Herd&quot;                       &quot;Animal_ID&quot;                 
+## [13] &quot;Sex&quot;                        &quot;Age&quot;                        &quot;AgeEstMethod&quot;              
+## [16] &quot;GPS_CollarSerialNo_Date_FK&quot; &quot;CollarSN&quot;                   &quot;VHF_freq&quot;                  
+## [19] &quot;Location&quot;                   &quot;InvestReason&quot;               &quot;UTM_E&quot;                     
+## [22] &quot;UTM_N&quot;                      &quot;ElevDEM&quot;                    &quot;CarcassCon&quot;                
+## [25] &quot;Cause_Mort&quot;                 &quot;CausMortAcc&quot;                &quot;ConditionNotes&quot;            
+## [28] &quot;Evidence&quot;                   &quot;Comments&quot;                   &quot;CauseMortRevised&quot;          
+## [31] &quot;RevisionReason&quot;             &quot;PhotoTaken&quot;                 &quot;Houndsmen&quot;                 
+## [34] &quot;RumenIntact&quot;                &quot;TracksFound&quot;                &quot;ScatFound&quot;                 
+## [37] &quot;DragMarks&quot;                  &quot;Latrine&quot;                    &quot;Femur&quot;                     
+## [40] &quot;Tooth&quot;                      &quot;Mandible&quot;                   &quot;Skull&quot;                     
+## [43] &quot;LionID&quot;                     &quot;KillLocUsingGPSData&quot;        &quot;LionClusterID&quot;</code></pre>
 <p>It’s a good time to ask ourselves if the structure R is reporting matches our intuition:</p>
 <ul>
 <li>Does the data type for each column make sense?</li>
@@ -304,41 +296,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Don’t run into issues down the road. Once we’re happy with our data types, we can really start digging into our data!</li>
 </ul>
 <p>We can also examine individual columns:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="exploring-data-frames.html#cb34-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="exploring-data-frames.html#cb111-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="exploring-data-frames.html#cb36-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="exploring-data-frames.html#cb113-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="exploring-data-frames.html#cb38-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
-<pre><code>##  chr [1:1061] &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Unknown not Predation&quot; &quot;Lion&quot; ...</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="exploring-data-frames.html#cb115-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
+<pre><code>##  chr [1:1061] &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Unknown not Predation&quot; &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Lion&quot; ...</code></pre>
 <div id="data-frame-manipulation" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Data Frame Manipulation<a href="exploring-data-frames.html#data-frame-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s create a new column to hold information on whether bighorn age is &lt; 5:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="exploring-data-frames.html#cb40-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> mort<span class="sc">$</span>Age <span class="sc">&lt;</span> <span class="dv">5</span></span>
-<span id="cb40-2"><a href="exploring-data-frames.html#cb40-2" tabindex="-1"></a><span class="fu">head</span>(below_five)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="exploring-data-frames.html#cb117-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> mort<span class="sc">$</span>Age <span class="sc">&lt;</span> <span class="dv">5</span></span>
+<span id="cb117-2"><a href="exploring-data-frames.html#cb117-2" tabindex="-1"></a><span class="fu">head</span>(below_five)</span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
 <p>We’ve simply created a vector with TRUE/FALSE values; but we can add this to our dataframe using:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="exploring-data-frames.html#cb42-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span>
-<span id="cb42-2"><a href="exploring-data-frames.html#cb42-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five), <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
-## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
-## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
-## 3    05-Jan-25   20250105  02-Dec-24 20241202      02-Dec-24     20241202
-##   AgeCarcass BestDead AnimalYear      Recorder           Herd Animal_ID     Sex
-## 1          9       NA         NA     C_Massing Mt. Williamson      M267    Male
-## 2        583       NA         NA M_Christopher     Mt. Baxter      M266    Male
-## 3         33 20241202       2024      L_Greene      Mt. Gibbs      M265 Unknown
-##   Age    AgeEstMethod GPS_CollarSerialNo_Date_FK CollarSN VHF_freq
-## 1   6      Horn Rings                                             
-## 2  11      Horn Rings                                             
-## 3   0 Size of Remains                                             
-##                                                     Location  InvestReason
-## 1 On Shepherd Pass trail, 1 mi up from TH, ~6800ft elevation Opportunistic
-## 2                                                   Sand Mtn Opportunistic
-## 3                                              Gibbs, S side  Lion Cluster
-##    UTM_E   UTM_N ElevDEM CarcassCon Cause_Mort CausMortAcc
-## 1 384668 4067085      NA   Consumed       Lion     Certain
-## 2 384854 4085215      NA   Consumed    Unknown            
-## 3 306232 4193944      NA   Consumed       Lion     Certain
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="exploring-data-frames.html#cb119-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span>
+<span id="cb119-2"><a href="exploring-data-frames.html#cb119-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five), <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard AgeCarcass BestDead
+## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130          9       NA
+## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA        583       NA
+## 3    05-Jan-25   20250105  02-Dec-24 20241202      02-Dec-24     20241202         33 20241202
+##   AnimalYear      Recorder           Herd Animal_ID     Sex Age    AgeEstMethod
+## 1         NA     C_Massing Mt. Williamson      M267    Male   6      Horn Rings
+## 2         NA M_Christopher     Mt. Baxter      M266    Male  11      Horn Rings
+## 3       2024      L_Greene      Mt. Gibbs      M265 Unknown   0 Size of Remains
+##   GPS_CollarSerialNo_Date_FK CollarSN VHF_freq
+## 1                                             
+## 2                                             
+## 3                                             
+##                                                     Location  InvestReason  UTM_E   UTM_N ElevDEM
+## 1 On Shepherd Pass trail, 1 mi up from TH, ~6800ft elevation Opportunistic 384668 4067085      NA
+## 2                                                   Sand Mtn Opportunistic 384854 4085215      NA
+## 3                                              Gibbs, S side  Lion Cluster 306232 4193944      NA
+##   CarcassCon Cause_Mort CausMortAcc
+## 1   Consumed       Lion     Certain
+## 2   Consumed    Unknown            
+## 3   Consumed       Lion     Certain
 ##                                                                                                        ConditionNotes
 ## 1                      skeleton intact, ribs clipped, eaten, most meat eaten but not all, legs with hair still intact
 ## 2 old carcass, bleached bones, still close together, complete skull attached to spine, couple loose ribs, jaw, pelvis
@@ -351,39 +343,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 Lion could have scavenged dead sheep. Sheep on trail, not below cliff. Collected scat in possible latrine, it was liquid (had dried), hard to know if it was lion scat. Lion hairs found in bed near carcass. Snow fell 5 days before and did not find clear tracks around carcass other than human and canine.
 ## 2                                                                                                                                                                                                    estimated date of death based on condition of bones, very unknown but skeleton still there and mostly intact
 ## 3                                                                                                                                                                                                                                     metarsus measured ~21cm which could be very small adult or more likely lamb
-##   CauseMortRevised RevisionReason PhotoTaken Houndsmen RumenIntact TracksFound
-## 1                                          Y                     Y           N
-## 2                                          Y                     N           N
-## 3                                          Y                     Y            
-##   ScatFound DragMarks Latrine Femur Tooth Mandible Skull LionID
-## 1                   N             N     N        N     N       
-## 2         N         N       N     N     N        N     N       
-## 3                                                           267
-##   KillLocUsingGPSData LionClusterID below_five below_five
-## 1                   N                    FALSE      FALSE
-## 2                   N                     TRUE       TRUE
-## 3                   Y  267_20241202       TRUE       TRUE</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="exploring-data-frames.html#cb44-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
-## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
-## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
-## 3    05-Jan-25   20250105  02-Dec-24 20241202      02-Dec-24     20241202
-##   AgeCarcass BestDead AnimalYear      Recorder           Herd Animal_ID     Sex
-## 1          9       NA         NA     C_Massing Mt. Williamson      M267    Male
-## 2        583       NA         NA M_Christopher     Mt. Baxter      M266    Male
-## 3         33 20241202       2024      L_Greene      Mt. Gibbs      M265 Unknown
-##   Age    AgeEstMethod GPS_CollarSerialNo_Date_FK CollarSN VHF_freq
-## 1   6      Horn Rings                                             
-## 2  11      Horn Rings                                             
-## 3   0 Size of Remains                                             
-##                                                     Location  InvestReason
-## 1 On Shepherd Pass trail, 1 mi up from TH, ~6800ft elevation Opportunistic
-## 2                                                   Sand Mtn Opportunistic
-## 3                                              Gibbs, S side  Lion Cluster
-##    UTM_E   UTM_N ElevDEM CarcassCon Cause_Mort CausMortAcc
-## 1 384668 4067085      NA   Consumed       Lion     Certain
-## 2 384854 4085215      NA   Consumed    Unknown            
-## 3 306232 4193944      NA   Consumed       Lion     Certain
+##   CauseMortRevised RevisionReason PhotoTaken Houndsmen RumenIntact TracksFound ScatFound DragMarks
+## 1                                          Y                     Y           N                   N
+## 2                                          Y                     N           N         N         N
+## 3                                          Y                     Y                                
+##   Latrine Femur Tooth Mandible Skull LionID KillLocUsingGPSData LionClusterID below_five
+## 1             N     N        N     N                          N                    FALSE
+## 2       N     N     N        N     N                          N                     TRUE
+## 3                                       267                   Y  267_20241202       TRUE
+##   below_five
+## 1      FALSE
+## 2       TRUE
+## 3       TRUE</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="exploring-data-frames.html#cb121-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard AgeCarcass BestDead
+## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130          9       NA
+## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA        583       NA
+## 3    05-Jan-25   20250105  02-Dec-24 20241202      02-Dec-24     20241202         33 20241202
+##   AnimalYear      Recorder           Herd Animal_ID     Sex Age    AgeEstMethod
+## 1         NA     C_Massing Mt. Williamson      M267    Male   6      Horn Rings
+## 2         NA M_Christopher     Mt. Baxter      M266    Male  11      Horn Rings
+## 3       2024      L_Greene      Mt. Gibbs      M265 Unknown   0 Size of Remains
+##   GPS_CollarSerialNo_Date_FK CollarSN VHF_freq
+## 1                                             
+## 2                                             
+## 3                                             
+##                                                     Location  InvestReason  UTM_E   UTM_N ElevDEM
+## 1 On Shepherd Pass trail, 1 mi up from TH, ~6800ft elevation Opportunistic 384668 4067085      NA
+## 2                                                   Sand Mtn Opportunistic 384854 4085215      NA
+## 3                                              Gibbs, S side  Lion Cluster 306232 4193944      NA
+##   CarcassCon Cause_Mort CausMortAcc
+## 1   Consumed       Lion     Certain
+## 2   Consumed    Unknown            
+## 3   Consumed       Lion     Certain
 ##                                                                                                        ConditionNotes
 ## 1                      skeleton intact, ribs clipped, eaten, most meat eaten but not all, legs with hair still intact
 ## 2 old carcass, bleached bones, still close together, complete skull attached to spine, couple loose ribs, jaw, pelvis
@@ -396,31 +388,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 Lion could have scavenged dead sheep. Sheep on trail, not below cliff. Collected scat in possible latrine, it was liquid (had dried), hard to know if it was lion scat. Lion hairs found in bed near carcass. Snow fell 5 days before and did not find clear tracks around carcass other than human and canine.
 ## 2                                                                                                                                                                                                    estimated date of death based on condition of bones, very unknown but skeleton still there and mostly intact
 ## 3                                                                                                                                                                                                                                     metarsus measured ~21cm which could be very small adult or more likely lamb
-##   CauseMortRevised RevisionReason PhotoTaken Houndsmen RumenIntact TracksFound
-## 1                                          Y                     Y           N
-## 2                                          Y                     N           N
-## 3                                          Y                     Y            
-##   ScatFound DragMarks Latrine Femur Tooth Mandible Skull LionID
-## 1                   N             N     N        N     N       
-## 2         N         N       N     N     N        N     N       
-## 3                                                           267
-##   KillLocUsingGPSData LionClusterID below_five
-## 1                   N                    FALSE
-## 2                   N                     TRUE
-## 3                   Y  267_20241202       TRUE</code></pre>
+##   CauseMortRevised RevisionReason PhotoTaken Houndsmen RumenIntact TracksFound ScatFound DragMarks
+## 1                                          Y                     Y           N                   N
+## 2                                          Y                     N           N         N         N
+## 3                                          Y                     Y                                
+##   Latrine Femur Tooth Mandible Skull LionID KillLocUsingGPSData LionClusterID below_five
+## 1             N     N        N     N                          N                    FALSE
+## 2       N     N     N        N     N                          N                     TRUE
+## 3                                       267                   Y  267_20241202       TRUE</code></pre>
 <p>Note that if we try to add a vector of below_average with a different number of entries then the number of rows in our data frame, it would fail:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="exploring-data-frames.html#cb46-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb46-2"><a href="exploring-data-frames.html#cb46-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five))</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="exploring-data-frames.html#cb123-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb123-2"><a href="exploring-data-frames.html#cb123-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five))</span></code></pre></div>
 <p>The sequence TRUE,TRUE,FALSE is repeated over all the gapminder rows. Let’s overwite the content of gapminder with our new data frame.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="exploring-data-frames.html#cb47-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span>  <span class="fu">as.logical</span>(mort<span class="sc">$</span>Age<span class="sc">&lt;</span><span class="dv">5</span>)</span>
-<span id="cb47-2"><a href="exploring-data-frames.html#cb47-2" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="exploring-data-frames.html#cb124-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span>  <span class="fu">as.logical</span>(mort<span class="sc">$</span>Age<span class="sc">&lt;</span><span class="dv">5</span>)</span>
+<span id="cb124-2"><a href="exploring-data-frames.html#cb124-2" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span></code></pre></div>
 <p>How about adding rows?</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="exploring-data-frames.html#cb48-1" tabindex="-1"></a><span class="co"># first let&#39;s make a mortality dataframe of 3 columns</span></span>
-<span id="cb48-2"><a href="exploring-data-frames.html#cb48-2" tabindex="-1"></a>mort_short <span class="ot">&lt;-</span> mort[,<span class="fu">c</span>(<span class="st">&quot;Animal_ID&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cause_Mort&quot;</span>)]</span>
-<span id="cb48-3"><a href="exploring-data-frames.html#cb48-3" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;S781&#39;</span>, <span class="dv">3</span>, <span class="st">&quot;Lion&quot;</span>) </span>
-<span id="cb48-4"><a href="exploring-data-frames.html#cb48-4" tabindex="-1"></a><span class="co"># note that we have to make the row a list, since each column has a different data type</span></span>
-<span id="cb48-5"><a href="exploring-data-frames.html#cb48-5" tabindex="-1"></a>mort_new <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mort_short, new_row)</span>
-<span id="cb48-6"><a href="exploring-data-frames.html#cb48-6" tabindex="-1"></a><span class="fu">tail</span>(mort_new) <span class="co"># lets you look at the last 6 lines of data</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="exploring-data-frames.html#cb125-1" tabindex="-1"></a><span class="co"># first let&#39;s make a mortality dataframe of 3 columns</span></span>
+<span id="cb125-2"><a href="exploring-data-frames.html#cb125-2" tabindex="-1"></a>mort_short <span class="ot">&lt;-</span> mort[,<span class="fu">c</span>(<span class="st">&quot;Animal_ID&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cause_Mort&quot;</span>)]</span>
+<span id="cb125-3"><a href="exploring-data-frames.html#cb125-3" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;S781&#39;</span>, <span class="dv">3</span>, <span class="st">&quot;Lion&quot;</span>) </span>
+<span id="cb125-4"><a href="exploring-data-frames.html#cb125-4" tabindex="-1"></a><span class="co"># note that we have to make the row a list, since each column has a different data type</span></span>
+<span id="cb125-5"><a href="exploring-data-frames.html#cb125-5" tabindex="-1"></a>mort_new <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mort_short, new_row)</span>
+<span id="cb125-6"><a href="exploring-data-frames.html#cb125-6" tabindex="-1"></a><span class="fu">tail</span>(mort_new) <span class="co"># lets you look at the last 6 lines of data</span></span></code></pre></div>
 
 </div>
 </div>
