@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Making Readable R Code | CDFW Introduction to R Programming</title>
-  <meta name="description" content="Chapter 11 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
+  <title>Chapter 4 Tidy Data | CDFW Introduction to R Programming</title>
+  <meta name="description" content="Chapter 4 Tidy Data | CDFW Introduction to R Programming Workshop" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Making Readable R Code | CDFW Introduction to R Programming" />
+  <meta property="og:title" content="Chapter 4 Tidy Data | CDFW Introduction to R Programming" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Chapter 11 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
+  <meta property="og:description" content="Chapter 4 Tidy Data | CDFW Introduction to R Programming Workshop" />
   <meta name="github-repo" content="liz-siemion/IntroToR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Making Readable R Code | CDFW Introduction to R Programming" />
+  <meta name="twitter:title" content="Chapter 4 Tidy Data | CDFW Introduction to R Programming" />
   
-  <meta name="twitter:description" content="Chapter 11 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
+  <meta name="twitter:description" content="Chapter 4 Tidy Data | CDFW Introduction to R Programming Workshop" />
   
 
 <meta name="author" content="Liz Siemion" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="exploring-data-frames.html"/>
-<link rel="next" href="stats.html"/>
+<link rel="prev" href="filepaths.html"/>
+<link rel="next" href="using-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,37 +246,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="making-readable-r-code" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Making Readable R Code<a href="making-readable-r-code.html#making-readable-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="outlining-r-scripts" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Outlining R Scripts<a href="making-readable-r-code.html#outlining-r-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R scripts can get long, and it can get a bit unwieldy to navigate between different sections of your script. One neat way to outline your script is by using comment headers as bookmarks. This can be accomplished by either putting <code>----</code> or <code>####</code> after a commented line.</p>
-<p><code># 1. Section ----</code> <br>
-<code>## a. Subsection ####</code> <br>
-<code>### i. Sub-subsection ----</code></p>
-<p><img src="docs/files/bookmarks.png" /></p>
+<div id="tidy-data" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Tidy Data<a href="tidy-data.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="spreadsheets-and-database-tables" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Spreadsheets and Database Tables<a href="tidy-data.html#spreadsheets-and-database-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="making-readable-r-code-1" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Making Readable R Code<a href="making-readable-r-code.html#making-readable-r-code-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Start each script with a brief description of what it does, who wrote it, and the last date it was edited.</li>
-<li>Then load all required packages, define functions, and set any variables used consistently throughout your script.</li>
-</ol>
-<ul>
-<li>Example: If you are going to be exporting many plots during the course of your script, you could set a variable to the output folder. Setting variables allows you to not have repeat code.
-<code>output_plots &lt;- "output/plots/"</code></li>
-<li>You can source functions from a separate script using <code>source()</code>. Remember what working directory you are in when sourcing a script.</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Use comments to mark off sections of code.</li>
-<li>Outline your script</li>
-<li>Name and style code consistently. Spacing can make code more readable, but it’s really up to personal preference.</li>
-<li>Break code into small, discrete pieces.</li>
-<li>Think about the best way to organize your directory given your objectives. I often have sub folders for data, output, and docs.</li>
-<li>Start with a clean environment instead of saving the work space.</li>
-<li>Consider using version control (i.e. Github).</li>
-</ol>
+<div id="computer-readable-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Computer Readable Data<a href="tidy-data.html#computer-readable-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="tidy-data-1" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Tidy Data<a href="tidy-data.html#tidy-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div style="text-align: center;">
+<img src="docs/files/TidyData.jpeg" alt="Tidy Data Illustration" width="80%">
+<p style="font-size: 50%;">
+<em>Illustrations from the Openscapes blog <a href='https://www.openscapes.org/blog/2020/10/12/tidy-data/'>Tidy Data for reproducibility, efficiency, and collaboration</a> by Julia Lowndes and Allison Horst</em>
+</p>
+</div>
+</div>
+<div id="document" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Document<a href="tidy-data.html#document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="rows-for-variables-columns-for-observations" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Rows for variables, columns for observations<a href="tidy-data.html#rows-for-variables-columns-for-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="problemmatic-practices" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Problemmatic Practices<a href="tidy-data.html#problemmatic-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="multiple-tables-in-a-single-spreadsheet" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Multiple tables in a single spreadsheet<a href="tidy-data.html#multiple-tables-in-a-single-spreadsheet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="putting-units-in-cells" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Putting units in cells<a href="tidy-data.html#putting-units-in-cells" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="using-problematic-column-names" class="section level3 hasAnchor" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> Using Problematic Column Names<a href="tidy-data.html#using-problematic-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="zeros-vs-missing-values" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> Zeros vs Missing Values<a href="tidy-data.html#zeros-vs-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="using-problematic-null-values" class="section level3 hasAnchor" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Using Problematic Null Values<a href="tidy-data.html#using-problematic-null-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="inconsistent-value-formatting" class="section level3 hasAnchor" number="4.6.6">
+<h3><span class="header-section-number">4.6.6</span> Inconsistent Value Formatting<a href="tidy-data.html#inconsistent-value-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
+</div>
 </div>
 </div>
             </section>
@@ -284,8 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="exploring-data-frames.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="stats.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="filepaths.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -316,7 +329,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/09-ReadableR.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-TidyData.Rmd",
 "text": "Edit"
 },
 "history": {
