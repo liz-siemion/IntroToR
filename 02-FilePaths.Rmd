@@ -1,4 +1,4 @@
-# File paths {#FilePaths}
+# File paths {#filepaths}
 To manually set the working directory or load a file from a specific location, it's important to understand how file paths work.
 
 ## What is a file path?

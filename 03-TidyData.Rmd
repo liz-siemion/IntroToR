@@ -1,4 +1,4 @@
-# Tidy Data {#TidyData}
+# Tidy Data {#tidy-data}
 
 ## Spreadsheets and Database Tables
 

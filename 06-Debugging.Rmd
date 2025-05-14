@@ -1,4 +1,4 @@
-# Debugging Code
+# Debugging Code {#debugging}
 
 <div style="text-align: center;">
   <img src="./docs/files/DebuggingImage.png" alt="Debugging" width="80%">

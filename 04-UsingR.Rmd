@@ -1,6 +1,6 @@
 # Using R
 
-## Installing Packages {#Packages}
+## Installing Packages {#packages}
 
 Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as `packages`. A package is a collection of functions, data, and documentation bundled together for a specific function. An R package can help with data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console
 
@@ -83,7 +83,7 @@ Notice how R evaluates each of these lines of code as TRUE or FALSE. We are esse
 
 *** 
 
-## Use R to assign objects {#RObjects}
+## Use R to assign objects {#r-objects}
 
 Objects are a bit of an abstract concept. All you really need to know for now is that objects are things that we make in R that can take on a variety of structures with different data types, and when we assign them a name, they get saved in our global environment. They are data structures with associated data attributes. 
 
@@ -120,7 +120,7 @@ Your choice of convention is up to you, *JUST BE CONSISTENT*.
 
 ***
 
-## Data Types (Modes) {#DataTypes}
+## Data Types (Modes) {#data-types}
 
 There are 6 main classes of common data modes (i.e. data types): `numeric`, `character`, `logical`, `complex`, and `raw`. Data modes refers to the basic type of data stored in an object. For example, numeric mode stores numbers (integers or decimals), and character mode stores text. We typically only use  `factor`, `numeric`, `character`, and `logical` data modes. 
 
@@ -318,7 +318,7 @@ capt_dat <- data.frame(
 print(capt_dat)
 ```
 
-## Functions {#Functions}
+## Functions {#functions}
 
 We've used several functions in the previous code. So what is a function? A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
 
@@ -329,7 +329,7 @@ We've used several functions in the previous code. So what is a function? A func
  The order that we put the arguments into the function matters. It can be helpful to define the arguments in the function. You can use the help function to ensure that your arguments are correct.
 `?seq`
 
-## Indexing {#Index}
+## Indexing {#index}
 
 So now that we’ve created dummy vectors to play with, how do we get at its contents?
 

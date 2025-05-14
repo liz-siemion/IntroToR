@@ -1,4 +1,4 @@
-# Intro to R and R-Studio {#Intro}
+# Intro to R and R-Studio {#intro}
 
 ## What is R?
 R is both the name of the programming language and the software used for data storage and manipulation. 
@@ -6,7 +6,7 @@ R is both the name of the programming language and the software used for data st
 RStudio is the Integrated Development Environment (IDE) for the R programming language that
 makes writing, running, and organizing R code more efficient. RStudio provides a centralized interface where you can manage your code, working directory, data, output, and environment all in one place. On my MacBook, I keep R and RStudio in the Applications folder, and on Windows, I store them on the C drive. You will need to download [R](https://cran.r-project.org) before downloading [RStudio](https://posit.co/downloads/). 
 
-## Directory Structure {#DirectoryStructure}
+## Directory Structure {#directory-structure}
 Before creating an RStudio Project, it's important to think about how your project is structured, as this will shape your directory (i.e. folder) organization. I typically create a separate folder for each analysis, and within each, I include subfolders for data, output, and scripts. Other folders might include figures, results, and documents. You may want to consider housing two projects in the same directory if they utilize the same data. All files need to be readable by the computer and should not contain white spaces, punctuation, or special characters. I generally follow the same naming conventions for my files (e.g., camelCase, snake_case, kebab-case, PascalCase).
 
 ![](./docs/files/DirectoryStructure.png)
