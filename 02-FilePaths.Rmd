@@ -1,5 +1,5 @@
 # File paths {#FilePaths}
-What about if we want to manually set the working directory directory or tell R to load a file from a specified location? How would we do that? We need to first know the file path...
+To manually set the working directory or load a file from a specific location, it's important to understand how file paths work.
 
 ## What is a file path?
 
@@ -79,3 +79,23 @@ Let's look at an example. Say our folder structure resembles the structure below
  
   `read.csv("../../Coursework/ecologycenter/example_file.txt")`
 
+***
+
+## Useing the Tab Shortcut in RStudio
+The Tab shortcut in RStudio is a powerful shortcut that helps you write code faster and with fewer errors. It’s especially helpful for auto-completing file paths, function names, object names, and more. When you’re loading a file (e.g., using read.csv()), you can use the Tab key to help you find and insert the correct relative file path. 
+
+For example: `read.csv("data/`
+
+Then press the Tab key. A drop down list will appear showing the contents of the data/ folder (if it exists). You can then use the arrow keys to select a file and select Enter to insert it into the code. The Tab key shortcut helps avoid typos and ensures you're referencing the correct file.
+
+![](./docs/files/TabShortcut.png)
+
+***
+
+**`EXERCISE 1: FILE PATHS`**
+
+1. Type `getwd() into the console to return the absolute file path
+2. Use a relative file path to load the bighorn capture table using read.csv("TYPE_RELATIVE_FILE_PATH").
+The read.csv() function tells R to load the CSV file into your Environment. Make sure the file path is placed inside quotes and within the parentheses. Tip: Try using the Tab key after typing the opening quote to help you navigate and generate the correct relative file path.
+
+***

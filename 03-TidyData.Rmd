@@ -1,0 +1,30 @@
+# Tidy Data {#TidyData}
+
+## Spreadsheets and Database Tables
+
+## Computer Readable Data
+
+## Tidy Data 
+
+<div style="text-align: center;">
+  <img src="./docs/files/TidyData.jpeg" alt="Tidy Data Illustration" width="80%">
+  <p style="font-size: 50%;"><em>Illustrations from the Openscapes blog <a href='https://www.openscapes.org/blog/2020/10/12/tidy-data/'>Tidy Data for reproducibility, efficiency, and collaboration</a> by Julia Lowndes and Allison Horst</em></p>
+</div>
+ 
+## Document
+
+## Rows for variables, columns for observations
+
+## Problemmatic Practices
+
+### Multiple tables in a single spreadsheet
+
+### Putting units in cells
+
+### Using Problematic Column Names
+
+### Zeros vs Missing Values
+
+### Using Problematic Null Values
+
+### Inconsistent Value Formatting

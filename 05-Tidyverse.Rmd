@@ -1,0 +1,57 @@
+# Tidyverse
+
+## Why Tidyverse?
+
+The `tidyverse` is a collection of R packages designed to simplify and streamline data science tasks. It promotes the concept of "tidy data," where each column is a variable and each row is an observation, which simplifies analysis and visualization. Core tidyverse packages include `ggplot2` for plotting, `dplyr` for data manipulation, and `tidyr` for reshaping data. One of the key strengths of the tidyverse is its readable syntax, especially with the use of the pipe operator (%>%), which allows users to chain together multiple steps in a clear, logical order. Learning the tidyverse equips beginners with practical tools and workflows that are essential for modern data analysis in R.
+
+One of the most commonly used packages within the `tidyverse` is `dplyr` (data plier), which provides a set of powerful and intuitive functions for manipulating data frames. With dplyr, you can easily filter rows, select columns, create new variables, group data, and summarize it—all using clear, readable code.
+
+**Key Features:**
+
+* Consistent syntax across packages, making code easier to write and read.
+* Tidy data structure, where each variable is a column and each observation is a row.
+* Readable workflows using the pipe operator (%>%) to chain commands clearly.
+* Integrated tools for the entire data science process—importing, cleaning, transforming, visualizing, and modeling data.
+* User-friendly functions with intuitive names and logical default argument values.
+* Open-source and widely supported, with ample online learning resources
+* Provides tools for data manipulation, exploration, and visualization.
+* Uses piping (%>%) to create readable, fluent workflows (through the magrittr package)
+
+## Main dplyr functions:
+`dplyr`, a main package of the `tidyverse`, consists of five main functions:
+
+1. `filter()`
+2. `select()`
+3. `mutate()`
+4. `summarize()`
+5. `arrange()`
+6. `group_by()`
+
+***
+
+**`EXERCISES`**
+
+1. (Use filter to...)
+2. (Use mutate to...)
+3. (Select x columns)
+4. (group by sheep and summarize data)
+
+
+***
+
+## GGPLOT2
+ggplot2 is a powerful and flexible R package used for data visualization. It is part of the tidyverse and is built on the Grammar of Graphics—a layered approach to building plots that allows you to combine data, visual elements, and aesthetics step by step.
+
+**Key Features**
+
+1. Layered plotting system: Build plots by adding layers (e.g., points, lines, bars).
+2. Aesthetic mapping: Easily map variables to visual properties like color, size, and shape.
+3. Customizable: Control themes, labels, scales, and more for polished, publication-ready graphics.
+4. Works seamlessly with tidy data and other tidyverse tools.
+
+Example of using ggplot to plot some bighorn thing
+
+***
+
+**EXERCISE 2**
+1. 

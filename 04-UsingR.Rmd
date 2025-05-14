@@ -1,0 +1,384 @@
+# Using R
+
+## Installing Packages {#Packages}
+
+Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as `packages`. A package is a collection of functions, data, and documentation bundled together for a specific function. An R package can help with data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console
+
+```{r error=FALSE, eval=FALSE}
+install.packages("amt") # install a new package
+library(amt) # call a package you previously downloaded
+```
+
+***
+
+**`EXERCISE 4: LOAD TIDYVERSE PACKAGE USING RSTUDIO`**
+
+1. Select `Packages`
+2. Select `Install`
+3. Type `tidyverse`
+4. Select `Install`
+5. Bonus: Install tidyverse in the code editor using the example code above.
+**We will go over what tidyverse is later on in this course**
+
+***
+
+If two different packages contain functions with the same name, R will mask one with the other based on the order they are loaded. To avoid confusion, you can explicitly tell R which package to use by using the `package::function()` format. For example, the `filter()` function exists in both `stats` and `dplyr` packages. If you specifically want the version from dplyr, you can write dplyr::filter() in your code. We will talk more about this later on. 
+
+## Use R as a calculator
+
+Remember, order of operations matters. The order is the same as you learned back in school.
+  
+From highest to lowest precedence:
+  
+| Operator     | Symbol(s)   | Description                 |
+|:--------------|-------------|----------------------------|
+| Parentheses  | `(` `)`     | Controls the order of operations |
+| Exponents    | `^`, `**`   | Raises a number to a power       |
+| Divide       | `/`         | Division                        |
+| Multiply     | `*`         | Multiplication                  |
+| Add          | `+`         | Addition                        |
+| Subtract     | `-`         | Subtraction                     |`
+
+```{r eval=TRUE, include=TRUE}
+1 + 100
+3 + 5 * 2 # performs multiplication before addition
+(3 + 5) * 2 # performs addition in () before multiplication 
+2/10000 
+2^3 # text after a code line is called a "comment"
+```
+
+## Use R to compare things
+To compare things in R, we use logical operators. Below is a brief list. 
+
+Summary of logical operators
+`==`    is equal to
+`>`     greater than
+`<`     less than
+`>=`    greater than or equal
+`<=`    less than or equal
+`!`     not
+`|`     or
+`%in%`  is contained
+
+```{r}
+1 == 9  # equality (note two equals signs, read as "is equal to")
+1 != 1  # inequality (read as "is not equal to")
+1 < 2  # less than
+1 <= 1  # less than or equal to
+```
+Notice how R evaluates each of these lines of code as TRUE or FALSE. We are essentially asking R if the above comparison is TRUE or FALSE.
+
+***
+
+**`EXCERCIZE 1`**
+
+1. In your code editor, write the following lines of code. Then execute the lines of code so you see the output in your console. 
+    a. 67 * 9
+    b. 7 + 9 + 10
+    c. 4399 - 871 * (9 + 1) 
+2. Bonus: What is wrong with the following code? 
+    a. Type `87(9 + 1)` into your console
+    b. Execute that specific line of code by placing the cursor on that line and selecting `Run`. 
+    c. What error do you see? What do you think is happening? How might you fix this?  
+
+*** 
+
+## Use R to assign objects {#RObjects}
+
+Objects are a bit of an abstract concept. All you really need to know for now is that objects are things that we make in R that can take on a variety of structures with different data types, and when we assign them a name, they get saved in our global environment. They are data structures with associated data attributes. 
+
+Object assignment allows us to assign a variable name to the object for later use. This helps prevent writing redundant code. We assign an object to a variable using the assignment arrow `<-` or the `=` so that R knows that x is an object that we can use. So when we run, x <- 6, it reads "make x contain 6." It's recommended to use the `<-` since the `=` can get mixed up with assigning values to function arguments (more on this later). Once we assign an object to a variable, it is stored in our global environment (upper right hand panel of R studio).
+
+```{r}
+x <- 1/40 # here we are telling R to assign 1/40 to the variable x so that it recognizes x as an object in our global environment
+x 
+x = 24 # variables can easily be re-assigned/over-written
+y <- x * 2
+
+rm(y) # you can also remove objects from the environment
+```
+
+### Variable names
+Variable names can contain letters, numbers, underscores and periods. 
+They CANNOT start with a number OR contain spaces (**at all**). Remember that R is case sensitive.
+
+A few different conventions for longer variable names:
+
+- periods.between.words
+- underscores_between_words
+- camelCaseToSeparateWords
+
+Your choice of convention is up to you, *JUST BE CONSISTENT*.
+
+***
+
+**`EXERCISE 2`**
+
+1. Assign `1+56` to a variable called `x1_a`
+2. Assign `sqrt(24)` to a variable called `x1_b`
+3. Bonus: Chained assignments. What happens when you execute `x3.c <- y3.c <- 9/10` into your console? Are `x3.c` and `y3.c` different or equal values? 
+
+***
+
+## Data Types (Modes) {#DataTypes}
+
+There are 6 main classes of common data modes (i.e. data types): `numeric`, `character`, `logical`, `complex`, and `raw`. Data modes refers to the basic type of data stored in an object. For example, numeric mode stores numbers (integers or decimals), and character mode stores text. We typically only use  `factor`, `numeric`, `character`, and `logical` data modes. 
+
+| Mode        | Description                                | Example                    |
+|:------------|:-------------------------------------------|:---------------------------|
+| factor      | Categorical data                           | "Sheep", "Lion", "Deer"    |
+| numeric     | Numbers (includes integers and decimals)   | 3.14, 42                   |
+| character   | Text strings                               | "Lion180"                    |
+| logical     | TRUE or FALSE values                       | TRUE, FALSE                |
+
+<br>
+
+To ask R what `class` a data mode or object is, we use the function `class()`.
+
+```{r eval=FALSE}
+class(1.11) # numeric: any real number
+class(1L) # integer: any integer. The L suffix forces the number to be an integer
+class(TRUE) # logical: binary TRUE or FALSE 
+# You can have data that look essentially the same, but have different classes. 
+class('1') # character: words; "" denote words
+class(1) # numeric; any real number
+class(factor("1a")) # factor: denotes categorical variables, they can be words or numbers
+```
+
+You can coerce to a desired data type, as long as they follow the rules
+using the functions `as.<desired data type>`
+
+Coercian Hierarchy from general to specific: Logical -> Numeric -> Factor -> Character
+
+1. logical (least general, cannot turn turn character or numeric into a logical type without correctly specifying the value)
+2. numeric (can read integer and logical types as numbers)
+3. character (most general: anything can be turned into a character by adding "quotes")
+
+```{r}
+# Convert from numeric to integer
+a <- 45.6
+class(a)
+
+# Convert from numeric to character
+a_character <- as.character(a)
+class(a_character)
+
+# Create factored variable
+lion <- factor(c("194"), levels = c("194"))
+lion # print value into console
+as.numeric(lion) # coerced to numeric
+as.character(lion) # coerced to character
+as.numeric(as.character(lion)) # coerced to character, then numeric
+```
+
+A common mistake in R is using data of the wrong type. In the example below, an error occurs because R cannot convert a character value into a numeric one. It's important to ensure that the data you're working with is of the correct type. Also, remember that each column in a data frame should contain values of the same type.
+
+```{r}
+# convert from character to numeric
+b <- "banana"
+b_numeric <- as.numeric(b)
+```
+
+***
+
+**`EXERCISE 3`**
+
+1. Assign `"S437"` to a variable called "sheep". Make sure to include the `""`.
+2. What type of data class is sheep?
+3. Create an object with a value of `45`. Coerce to a character class using `as.character()`.
+4. Execute S1 <- `as.numeric(as.character(1))` and S2 <- `as.logical(as.numeric("1"))`. Do the values change? Why or why not? Think about this answer in the context of the coercian hierarchy.
+5. Bonus: What happens when you execute sheep <- S437 without `""`? Explain the error. 
+
+***
+## Data Structure Classes
+
+Remember when we talked about objects as data with attributes? Well, R offers several ways to store data, depending on what kind of structure you need. The most common types are vectors, data frames, and lists. Each of these can store different types of information and are useful in different contexts when working with data. Think of them as different types of containers for data that are designed to hold and organize data in specific ways. We will be discussing `Scalar`, `Vector`, `Data Frames`, `Matrices`, and `Lists`. Below is a summary of each of these data structures, and we will also go through each of these individually. 
+
+<br>
+
+| Data Structure | Description                                              | Can Contain Different Types? | Dimensions      | Example                  |
+|:---------------|:----------------------------------------------------------|:------------------------------|:----------------|:--------------------------|
+| Scalar         | A single value (a vector of length 1)                    | No                            | 1 (length = 1)  | `x <- 42`               |
+| Vector         | A sequence of elements of the same type                  | No                           | 1 (length > 1)  | `c(1, 2, 3)`             |
+| Data Frame     | Table-like structure with columns of equal length        | Yes (by column)              | 2 (rows × cols) | `data.frame(a = 1:3, b = c("x", "y", "z"))` |
+| Matrix         | 2D array with all elements of the same type              | No                           | 2 (rows × cols) | `matrix(1:6, nrow = 2)`  |
+| List           | A collection of elements that can be of different types  | Yes                          | 1 (named or not)| `list(name = "A", age = 25, scores = c(1,2,3))` |
+
+<br>
+
+### Scalar
+A vector has one element with length 1. 
+```{r}
+x <- 3
+```
+
+### Vector
+A vector in R is essentially a collection of items **of the same basic 
+data type**. Each 'thing' in the vector is called an element. If you don’t 
+choose the data type, it’ll default to logical; or, you can declare an 
+empty vector of whatever type you like. You can also make vectors with 
+explicit contents using the concatenate function `c()`.
+```{r}
+my.deer <- c("GDL256", "RVD1011", "CDB567")
+my_vector <- vector(length = 3)
+my_vector  # this is a logical vector
+num_vector <- c(101, 222, 323, 435, 556) # numeric vector
+# what happens when we add elements of different data types to a vector?
+combine_vector <- c(211, "CDB678", TRUE)
+combine_vector
+class(combine_vector) 
+```
+
+R interprets the whole vector as character. It can't make "banana" into a number but it can turn 2 and TRUE into text strings. This logic follows the coercian hierarchy. 
+
+You can also assign NA values to a vector of defined length as well. R is able to handle missing values, and these missing values are given NA. When
+you read in an csv file with empty cells, R will assign these values as NA. A 0 
+is not the same as NA, since R treats 0 as a numeric data class.   
+
+```{r}
+x <- rep(NA, 10)
+x[1] <- 0
+# test if zero is NA
+is.na(x)
+```
+
+We can also make a series of numbers using `:` or the `seq()` function.
+```{r}
+my_series <- 1:10 # just integers
+my_series
+# make series of numbers from 1 to 10 by increments of 0.1
+my_seq <- seq(from = 1, to = 10, by = 0.1) 
+my_seq
+```
+
+### Lists
+A list in R is essentially an object with data that can be in different data types/modes.
+
+```{r}
+# list with numeric, character, and logical classes
+my_list <- list(1, "banana", TRUE)
+your_list <- list(2, "apple", FALSE)
+my_list
+# we can also append to a list with c() like we did to a vector
+my_list <- c(my_list, c("Lion171", "S222"))
+```
+
+The `$` is called the operator, and it is used for indexing named elements in a list. It allows you to access part of a data object for extracting or subsetting data.
+
+```{r}
+my_lions <- list("L211", c("L194", "S789"), "L180")
+names(my_lions) # are names automatically assigned? Nope, so let's assign names with the names() function.
+names(my_lions) <- c("Lion211", "LionsAndSheep", "Lion180")
+my_lions$LionsAndSheep
+```
+
+If you wanted to index a specific element in the list, you could also use brackets
+```{r}
+# index second list [[2]] and second element [2] of the second list
+my_lions[[2]][2]
+```
+
+### Matrix
+A matrix in R is a two-dimensional data structure that stores elements of the same type (usually numbers). You can think of it like a spreadsheet or a table with rows and columns, but every value must be the same type (e.g., all numeric or all character).
+
+Matrices are useful when you want to perform mathematical operations on tables of numbers, like multiplying rows and columns, or applying functions across rows or columns.
+
+```{r}
+MyMatrix <- matrix(1:6, nrow = 2, ncol = 3)
+MyMatrix
+```
+
+### Data Frames
+A data frame in R is a like a list or generalized matrix but with the constraints that:
+
+(1) all list elements are vectors (i.e. they have 1 mode), 
+(2) all vectors have the same length
+(3) all columns (the list elements) have names
+
+Essentially, imagine each column in the dataframe as a vector, and the dataframe is just a big list of all those vectors. Unlike actual lists however, in dataframes all of the columns/vectors MUST be the same length and have names.
+
+``` {r}
+# Create vectors for each column
+sheep_id <- c("S601", "S602", "S603")
+sex <- c("F", "M", "F")
+age <- c(4, 6, 3) 
+capt_date <- as.Date(c("2024-03-15", "2024-03-16", "2024-03-18"))
+capt_loc <- c("Acrodectes Peak", "Sawmill Canyon", "Goodale Canyon")
+# Combine into a data frame
+capt_dat <- data.frame(
+  ID = sheep_id,
+  Sex = sex,
+  Age = age,
+  CaptureDate = capt_date,
+  CaptureLoc = capt_loc,
+  stringsAsFactors = FALSE  # Ensures character columns are maintained as characters (not factors)
+)
+
+# View the data frame
+print(capt_dat)
+```
+
+## Functions {#Functions}
+
+We've used several functions in the previous code. So what is a function? A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
+
+* Arguments: information that goes inside the parenthesis to tell the function what to do. For example, when we used the `seq` function above, the arguments are `from = 1`, `to = 10`, and `by = 0.1`.
+* Pass: We pass a value to a function argument. Above, we pass the value 1 to the argument `from`, and the value 10 to the argument `to` and the value 0.1 to the argument `by`
+* Return: This is the terminology to say that the function gives us an output. So with the `seq(from = 1, to = 10, by = 0.1)`, the function <em>returns</em> a sequence of numbers
+
+ The order that we put the arguments into the function matters. It can be helpful to define the arguments in the function. You can use the help function to ensure that your arguments are correct.
+`?seq`
+
+## Indexing {#Index}
+
+So now that we’ve created dummy vectors to play with, how do we get at its contents?
+
+To extract elements of a vector we can give their corresponding index (square brackets `[]` are used for indexing). R uses 1-based indexing, so the
+first element of a vector, list, or dataframe is accessed using the index 1 (Python and C use 0-based indexing).
+
+```{r}
+my_seq[1] # extract first element out of the my_seq vector
+my_series[4] # extract 4th element out of the my_series vector
+my_seq[c(2:4)] # extract elements 2 to 4 from the my_seq vector
+```
+
+We can also extract elements by using their name instead of extracting by index. Names are another attribute that you can give to data. They are often useful so that you don't have to type out a lot of numbers.
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5) # create vector
+names(x) <- c("a", "b", "c", "d", "e") # assign names to vector
+# we can also name a vector 'on the fly'
+x <- c(a = 5.4, b = 6.2, c = 7.1, d = 4.8, e = 7.5) 
+x[c("a", "c")]
+```
+
+Since comparison operators (e.g. >, <, ==) evaluate to logical vectors, we can also use them to succinctly subset vectors: the following statement gives the same result as the previous one.
+
+```{r}
+x[x > 7] # this statement first evaluates x>7, generating a logical vector 
+# c(FALSE, FALSE, TRUE, FALSE, TRUE), and then selects the elements of x 
+# corresponding to the TRUE values.
+```
+
+If we use a negative number as the index of a vector, R will return every element except for the one specified:
+
+```{r}
+x[-2]
+# we can skip multiple elements
+x[c(-1, -5)]  
+# or 
+x[-c(1,5)]
+# a common mistake would be to ask R x[-1:3] # but there isn't a negative first row
+# But remember the order of operations. 
+# : is really a function. It takes its first argument as -1, 
+# and its second as 3, so generates the sequence of 
+# numbers: c(-1, 0, 1, 2, 3).
+x[-(1:3)]
+# To remove elements from a vector, we need to assign the result 
+# back into the variable:
+x <- x[-4]
+x
+```
+
+
+

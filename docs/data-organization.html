@@ -4,33 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Organization | CDFW Introduction to R Programming</title>
-  <meta name="description" content="Chapter 6 Data Organization | CDFW Introduction to R Programming Workshop" />
+  <title>Chapter 9 Data Organization | CDFW Introduction to R Programming</title>
+  <meta name="description" content="Chapter 9 Data Organization | CDFW Introduction to R Programming Workshop" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Organization | CDFW Introduction to R Programming" />
+  <meta property="og:title" content="Chapter 9 Data Organization | CDFW Introduction to R Programming" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Chapter 6 Data Organization | CDFW Introduction to R Programming Workshop" />
+  <meta property="og:description" content="Chapter 9 Data Organization | CDFW Introduction to R Programming Workshop" />
   <meta name="github-repo" content="liz-siemion/IntroToR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Organization | CDFW Introduction to R Programming" />
+  <meta name="twitter:title" content="Chapter 9 Data Organization | CDFW Introduction to R Programming" />
   
-  <meta name="twitter:description" content="Chapter 6 Data Organization | CDFW Introduction to R Programming Workshop" />
+  <meta name="twitter:description" content="Chapter 9 Data Organization | CDFW Introduction to R Programming Workshop" />
   
 
 <meta name="author" content="Liz Siemion" />
 
 
-<meta name="date" content="2025-04-22" />
+<meta name="date" content="2025-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="debugging-code.html"/>
+<link rel="prev" href="for-loops.html"/>
 <link rel="next" href="exploring-data-frames.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -140,19 +140,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">CDFW Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> CDFW Introduction to R Programming</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workshop-goals"><i class="fa fa-check"></i><b>1.2</b> Workshop Goals</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#workshop-content"><i class="fa fa-check"></i><b>1.3</b> Workshop Content</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#workshop-goals"><i class="fa fa-check"></i><b>1.1</b> Workshop Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workshop-content"><i class="fa fa-check"></i><b>1.2</b> Workshop Content</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Intro to R and R-Studio</a>
+<li class="chapter" data-level="2" data-path="Intro.html"><a href="Intro.html"><i class="fa fa-check"></i><b>2</b> Intro to R and R-Studio</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#learning-r"><i class="fa fa-check"></i><b>2.1</b> Learning R</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.2</b> What is R?</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.3</b> RStudio Projects</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#using-comments"><i class="fa fa-check"></i><b>2.4</b> Using Comments</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5</b> Installing Packages</a></li>
+<li class="chapter" data-level="2.1" data-path="Intro.html"><a href="Intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="Intro.html"><a href="Intro.html#DirectoryStructure"><i class="fa fa-check"></i><b>2.2</b> Directory Structure</a></li>
+<li class="chapter" data-level="2.3" data-path="Intro.html"><a href="Intro.html#r-studio"><i class="fa fa-check"></i><b>2.3</b> R Studio</a></li>
+<li class="chapter" data-level="2.4" data-path="Intro.html"><a href="Intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.4</b> RStudio Projects</a></li>
+<li class="chapter" data-level="2.5" data-path="Intro.html"><a href="Intro.html#using-comments"><i class="fa fa-check"></i><b>2.5</b> Using Comments</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="FilePaths.html"><a href="FilePaths.html"><i class="fa fa-check"></i><b>3</b> File paths</a>
 <ul>
@@ -160,38 +159,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="FilePaths.html"><a href="FilePaths.html#different-separators-between-operating-systems"><i class="fa fa-check"></i><b>3.2</b> Different separators between operating systems</a></li>
 <li class="chapter" data-level="3.3" data-path="FilePaths.html"><a href="FilePaths.html#absolute-and-relative-file-paths"><i class="fa fa-check"></i><b>3.3</b> Absolute and Relative file paths</a></li>
 <li class="chapter" data-level="3.4" data-path="FilePaths.html"><a href="FilePaths.html#navigating-outside-the-working-directory"><i class="fa fa-check"></i><b>3.4</b> Navigating outside the working directory</a></li>
+<li class="chapter" data-level="3.5" data-path="FilePaths.html"><a href="FilePaths.html#useing-the-tab-shortcut-in-rstudio"><i class="fa fa-check"></i><b>3.5</b> Useing the Tab Shortcut in RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>4</b> Using R</a>
+<li class="chapter" data-level="4" data-path="TidyData.html"><a href="TidyData.html"><i class="fa fa-check"></i><b>4</b> Tidy Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="using-r.html"><a href="using-r.html#use-r-as-a-calculator"><i class="fa fa-check"></i><b>4.1</b> Use R as a calculator</a></li>
-<li class="chapter" data-level="4.2" data-path="using-r.html"><a href="using-r.html#use-r-to-compare-things"><i class="fa fa-check"></i><b>4.2</b> Use R to compare things</a></li>
-<li class="chapter" data-level="4.3" data-path="using-r.html"><a href="using-r.html#use-r-to-assign-objects"><i class="fa fa-check"></i><b>4.3</b> Use R to assign objects</a>
+<li class="chapter" data-level="4.1" data-path="TidyData.html"><a href="TidyData.html#spreadsheets-and-database-tables"><i class="fa fa-check"></i><b>4.1</b> Spreadsheets and Database Tables</a></li>
+<li class="chapter" data-level="4.2" data-path="TidyData.html"><a href="TidyData.html#computer-readable-data"><i class="fa fa-check"></i><b>4.2</b> Computer Readable Data</a></li>
+<li class="chapter" data-level="4.3" data-path="TidyData.html"><a href="TidyData.html#tidy-data"><i class="fa fa-check"></i><b>4.3</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.4" data-path="TidyData.html"><a href="TidyData.html#document"><i class="fa fa-check"></i><b>4.4</b> Document</a></li>
+<li class="chapter" data-level="4.5" data-path="TidyData.html"><a href="TidyData.html#rows-for-variables-columns-for-observations"><i class="fa fa-check"></i><b>4.5</b> Rows for variables, columns for observations</a></li>
+<li class="chapter" data-level="4.6" data-path="TidyData.html"><a href="TidyData.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.6</b> Problemmatic Practices</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>4.3.1</b> Variable names</a></li>
+<li class="chapter" data-level="4.6.1" data-path="TidyData.html"><a href="TidyData.html#multiple-tables-in-a-single-spreadsheet"><i class="fa fa-check"></i><b>4.6.1</b> Multiple tables in a single spreadsheet</a></li>
+<li class="chapter" data-level="4.6.2" data-path="TidyData.html"><a href="TidyData.html#putting-units-in-cells"><i class="fa fa-check"></i><b>4.6.2</b> Putting units in cells</a></li>
+<li class="chapter" data-level="4.6.3" data-path="TidyData.html"><a href="TidyData.html#using-problematic-column-names"><i class="fa fa-check"></i><b>4.6.3</b> Using Problematic Column Names</a></li>
+<li class="chapter" data-level="4.6.4" data-path="TidyData.html"><a href="TidyData.html#zeros-vs-missing-values"><i class="fa fa-check"></i><b>4.6.4</b> Zeros vs Missing Values</a></li>
+<li class="chapter" data-level="4.6.5" data-path="TidyData.html"><a href="TidyData.html#using-problematic-null-values"><i class="fa fa-check"></i><b>4.6.5</b> Using Problematic Null Values</a></li>
+<li class="chapter" data-level="4.6.6" data-path="TidyData.html"><a href="TidyData.html#inconsistent-value-formatting"><i class="fa fa-check"></i><b>4.6.6</b> Inconsistent Value Formatting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="using-r.html"><a href="using-r.html#data-types-modes"><i class="fa fa-check"></i><b>4.4</b> Data Types (Modes)</a></li>
-<li class="chapter" data-level="4.5" data-path="using-r.html"><a href="using-r.html#data-structure-classes"><i class="fa fa-check"></i><b>4.5</b> Data Structure Classes</a>
+</ul></li>
+<li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>4.5.1</b> Scalar</a></li>
-<li class="chapter" data-level="4.5.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>4.5.2</b> Vector</a></li>
-</ul></li>
-<li class="chapter" data-level="4.6" data-path="using-r.html"><a href="using-r.html#lists"><i class="fa fa-check"></i><b>4.6</b> Lists</a></li>
-<li class="chapter" data-level="4.7" data-path="using-r.html"><a href="using-r.html#data-frames"><i class="fa fa-check"></i><b>4.7</b> Data Frames</a></li>
-<li class="chapter" data-level="4.8" data-path="using-r.html"><a href="using-r.html#playing-with-different-data-types"><i class="fa fa-check"></i><b>4.8</b> Playing with different data types</a></li>
-<li class="chapter" data-level="4.9" data-path="using-r.html"><a href="using-r.html#functions"><i class="fa fa-check"></i><b>4.9</b> Functions</a></li>
-<li class="chapter" data-level="4.10" data-path="using-r.html"><a href="using-r.html#indexing"><i class="fa fa-check"></i><b>4.10</b> Indexing</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="debugging-code.html"><a href="debugging-code.html"><i class="fa fa-check"></i><b>5</b> Debugging Code</a></li>
-<li class="chapter" data-level="6" data-path="data-organization.html"><a href="data-organization.html"><i class="fa fa-check"></i><b>6</b> Data Organization</a></li>
-<li class="chapter" data-level="7" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html"><i class="fa fa-check"></i><b>7</b> Exploring Data Frames</a>
+<li class="chapter" data-level="5.1" data-path="using-r.html"><a href="using-r.html#Packages"><i class="fa fa-check"></i><b>5.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="using-r.html"><a href="using-r.html#use-r-as-a-calculator"><i class="fa fa-check"></i><b>5.2</b> Use R as a calculator</a></li>
+<li class="chapter" data-level="5.3" data-path="using-r.html"><a href="using-r.html#use-r-to-compare-things"><i class="fa fa-check"></i><b>5.3</b> Use R to compare things</a></li>
+<li class="chapter" data-level="5.4" data-path="using-r.html"><a href="using-r.html#use-r-to-assign-objects"><i class="fa fa-check"></i><b>5.4</b> Use R to assign objects</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#data-frame-manipulation"><i class="fa fa-check"></i><b>7.1</b> Data Frame Manipulation</a></li>
+<li class="chapter" data-level="5.4.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>5.4.1</b> Variable names</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html"><i class="fa fa-check"></i><b>8</b> Making Readable R Code</a>
+<li class="chapter" data-level="5.5" data-path="using-r.html"><a href="using-r.html#data-types-modes"><i class="fa fa-check"></i><b>5.5</b> Data Types (Modes)</a></li>
+<li class="chapter" data-level="5.6" data-path="using-r.html"><a href="using-r.html#data-structure-classes"><i class="fa fa-check"></i><b>5.6</b> Data Structure Classes</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#outlining-r-scripts"><i class="fa fa-check"></i><b>8.1</b> Outlining R Scripts</a></li>
-<li class="chapter" data-level="8.2" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#making-readable-r-code-1"><i class="fa fa-check"></i><b>8.2</b> Making Readable R Code</a></li>
+<li class="chapter" data-level="5.6.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>5.6.1</b> Scalar</a></li>
+<li class="chapter" data-level="5.6.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>5.6.2</b> Vector</a></li>
 </ul></li>
+<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#lists"><i class="fa fa-check"></i><b>5.7</b> Lists</a></li>
+<li class="chapter" data-level="5.8" data-path="using-r.html"><a href="using-r.html#matrix"><i class="fa fa-check"></i><b>5.8</b> Matrix</a></li>
+<li class="chapter" data-level="5.9" data-path="using-r.html"><a href="using-r.html#data-frames"><i class="fa fa-check"></i><b>5.9</b> Data Frames</a></li>
+<li class="chapter" data-level="5.10" data-path="using-r.html"><a href="using-r.html#functions"><i class="fa fa-check"></i><b>5.10</b> Functions</a></li>
+<li class="chapter" data-level="5.11" data-path="using-r.html"><a href="using-r.html#indexing"><i class="fa fa-check"></i><b>5.11</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>6</b> Tidyverse</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tidyverse.html"><a href="tidyverse.html#why-tidyverse"><i class="fa fa-check"></i><b>6.1</b> Why Tidyverse?</a></li>
+<li class="chapter" data-level="6.2" data-path="tidyverse.html"><a href="tidyverse.html#main-dplyr-functions"><i class="fa fa-check"></i><b>6.2</b> Main dplyr functions:</a></li>
+<li class="chapter" data-level="6.3" data-path="tidyverse.html"><a href="tidyverse.html#ggplot2"><i class="fa fa-check"></i><b>6.3</b> GGPLOT2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debugging-code.html"><a href="debugging-code.html"><i class="fa fa-check"></i><b>7</b> Debugging Code</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="debugging-code.html"><a href="debugging-code.html#check-your-parenthesis"><i class="fa fa-check"></i><b>7.1</b> Check Your Parenthesis!</a></li>
+<li class="chapter" data-level="7.2" data-path="debugging-code.html"><a href="debugging-code.html#coercian-problems"><i class="fa fa-check"></i><b>7.2</b> Coercian Problems</a></li>
+<li class="chapter" data-level="7.3" data-path="debugging-code.html"><a href="debugging-code.html#do-you-need-to-label-your-arguments-in-your-function"><i class="fa fa-check"></i><b>7.3</b> Do you need to label your arguments in your function?</a></li>
+<li class="chapter" data-level="7.4" data-path="debugging-code.html"><a href="debugging-code.html#use-the-help-function-in-rstudio"><i class="fa fa-check"></i><b>7.4</b> Use the help function in RStudio!</a></li>
+<li class="chapter" data-level="7.5" data-path="debugging-code.html"><a href="debugging-code.html#section"><i class="fa fa-check"></i><b>7.5</b> …</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="for-loops.html"><a href="for-loops.html"><i class="fa fa-check"></i><b>8</b> For Loops</a></li>
+<li class="chapter" data-level="9" data-path="data-organization.html"><a href="data-organization.html"><i class="fa fa-check"></i><b>9</b> Data Organization</a></li>
+<li class="chapter" data-level="10" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html"><i class="fa fa-check"></i><b>10</b> Exploring Data Frames</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#data-frame-manipulation"><i class="fa fa-check"></i><b>10.1</b> Data Frame Manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html"><i class="fa fa-check"></i><b>11</b> Making Readable R Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#outlining-r-scripts"><i class="fa fa-check"></i><b>11.1</b> Outlining R Scripts</a></li>
+<li class="chapter" data-level="11.2" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#making-readable-r-code-1"><i class="fa fa-check"></i><b>11.2</b> Making Readable R Code</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stats.html"><a href="stats.html"><i class="fa fa-check"></i><b>12</b> Stats</a></li>
+<li class="chapter" data-level="13" data-path="wip.html"><a href="wip.html"><i class="fa fa-check"></i><b>13</b> WIP</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -212,16 +246,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-organization" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Data Organization<a href="data-organization.html#data-organization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-organization" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Data Organization<a href="data-organization.html#data-organization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Let’s download some data and look at a dataframe</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-organization.html#cb78-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./docs/data/BighornMortTable.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-organization.html#cb87-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./docs/data/BighornMortTable.csv&quot;</span>)</span></code></pre></div>
 <p>If we look at the data, we can see that each column is a specific data type,
 and we can index it with the operator.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-organization.html#cb79-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-organization.html#cb88-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;M267&quot;</code></pre>
 <p>We can use the functions <code>head()</code> and <code>tail()</code> to look at the first or last 6 rows of the data frame.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-organization.html#cb81-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-organization.html#cb90-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>) </span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -267,18 +301,18 @@ and we can index it with the operator.</p>
 ## 2                   N              
 ## 3                   Y  267_20241202</code></pre>
 <p>Similarly, <code>[[</code> will act to extract a single column:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-organization.html#cb83-1" tabindex="-1"></a>mort[[<span class="st">&quot;AnimalYear&quot;</span>]][<span class="dv">500</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-organization.html#cb92-1" tabindex="-1"></a>mort[[<span class="st">&quot;AnimalYear&quot;</span>]][<span class="dv">500</span>]</span></code></pre></div>
 <pre><code>## [1] 2016</code></pre>
 <p>We could also use brackets to index specific elements of the dataframe. Remember that when you index a dataframe using square brackets, the order is rows, columns.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-organization.html#cb85-1" tabindex="-1"></a><span class="co"># [rows, columns]</span></span>
-<span id="cb85-2"><a href="data-organization.html#cb85-2" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># grab element at first row and second column</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-organization.html#cb94-1" tabindex="-1"></a><span class="co"># [rows, columns]</span></span>
+<span id="cb94-2"><a href="data-organization.html#cb94-2" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># grab element at first row and second column</span></span></code></pre></div>
 <pre><code>## [1] 20250131</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-organization.html#cb87-1" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1 in columns 1-6</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-organization.html#cb96-1" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1 in columns 1-6</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-organization.html#cb89-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">5</span>] <span class="co"># grab row 1-6 in column 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-organization.html#cb98-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">5</span>] <span class="co"># grab row 1-6 in column 5</span></span></code></pre></div>
 <pre><code>## [1] &quot;30-Jan-25&quot; &quot;&quot;          &quot;02-Dec-24&quot; &quot;&quot;          &quot;08-May-24&quot; &quot;08-Mar-24&quot;</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-organization.html#cb91-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1-6 in columns 1-6</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-organization.html#cb100-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1-6 in columns 1-6</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -286,7 +320,7 @@ and we can index it with the operator.</p>
 ## 4    08-Sep-24   20240908  26-Feb-17 20170226                          NA
 ## 5    09-Jul-24   20240709  11-Mar-24 20240311      08-May-24     20240508
 ## 6    17-Jun-24   20240617  08-Mar-24 20240308      08-Mar-24     20240308</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-organization.html#cb93-1" tabindex="-1"></a><span class="fu">head</span>(mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">5</span>) <span class="co"># grab all rows from columns 1-3, show me the first 5 rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-organization.html#cb102-1" tabindex="-1"></a><span class="fu">head</span>(mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">5</span>) <span class="co"># grab all rows from columns 1-3, show me the first 5 rows</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt
 ## 1    31-Jan-25   20250131  22-Jan-25
 ## 2    21-Jan-25   20250121  25-Jun-23
@@ -294,11 +328,11 @@ and we can index it with the operator.</p>
 ## 4    08-Sep-24   20240908  26-Feb-17
 ## 5    09-Jul-24   20240709  11-Mar-24</code></pre>
 <p>You can coerce lists to data.frames, assuming they follow the data frame rules.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-organization.html#cb95-1" tabindex="-1"></a>test.list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">&quot;banana&quot;</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb95-2"><a href="data-organization.html#cb95-2" tabindex="-1"></a><span class="fu">class</span>(test.list)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-organization.html#cb104-1" tabindex="-1"></a>test.list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">&quot;banana&quot;</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb104-2"><a href="data-organization.html#cb104-2" tabindex="-1"></a><span class="fu">class</span>(test.list)</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-organization.html#cb97-1" tabindex="-1"></a>my_seq <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test.list)</span>
-<span id="cb97-2"><a href="data-organization.html#cb97-2" tabindex="-1"></a><span class="fu">class</span>(my_seq)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-organization.html#cb106-1" tabindex="-1"></a>my_seq <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test.list)</span>
+<span id="cb106-2"><a href="data-organization.html#cb106-2" tabindex="-1"></a><span class="fu">class</span>(my_seq)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <p>R is a natively vectorized language. Meaning it automatically performs
 vector operations. All of this starts to make sense if you’re having trouble
@@ -309,7 +343,7 @@ subsetting with <code>$</code> or even <code>[]</code> or <code>[[]]</code>.</p>
           </div>
         </div>
       </div>
-<a href="debugging-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="for-loops.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="exploring-data-frames.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -341,7 +375,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-DataOrg.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-DataOrg.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -88,15 +88,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -104,9 +106,6 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 \usepackage{bookmark}
@@ -120,7 +119,7 @@
 
 \title{CDFW Introduction to R Programming}
 \author{Liz Siemion}
-\date{2025-04-22}
+\date{2025-05-13}
 
 \begin{document}
 \maketitle
@@ -194,7 +193,7 @@ RStudio is the interface. You will need to download \href{https://cran.r-project
 
 When you first open RStudio, you will be greeted by three panels:
 
-\includegraphics{./docs/files/RStudio.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./docs/files/RStudio.png}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -251,7 +250,7 @@ RProjects are a self-contained, portable work space where you can have your data
 
 \textbf{Steps for Making an RProject}
 
-\includegraphics{./docs/files/RProject.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./docs/files/RProject.png}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -311,7 +310,7 @@ File paths are addresses to different locations or files on a computer. Your com
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth,height=\textheight]{./docs/files/file_path_hierarchy.png}
+\includegraphics[width=0.4\linewidth,height=\textheight,keepaspectratio]{./docs/files/file_path_hierarchy.png}
 \caption{Nested file system on your computer -- image from R for epidemiology (\url{https://www.r4epi.com})}
 \end{figure}
 
@@ -359,7 +358,7 @@ We can use \texttt{Absolute} or \texttt{Relative} file paths to give R direction
   \texttt{IntroR/data/Intro-to-R-Workshop.csv}
 \end{itemize}
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{./docs/files/RProjectFilePath.png})
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{./docs/files/RProjectFilePath.png})
 
 It can be a bit cumbersome to work with absolute file paths. Since R Projects automatically sets the working directory as the project folder, we can use relative paths without any sort of additional set-up. Using relative paths also makes our code more readable, and easier to share and maintain. If we want to set our working directory manually, we can either use absolute or relative file paths. I recommend not changing the working directory within your script, as this can limit reproducibility.
 
@@ -387,7 +386,7 @@ The absolute path is the full file path from our computer's root directory. If w
 
 Let's look at an example. Say our folder structure resembles the structure below and our RProject is located in the Intro-to-R-Workshop folder.
 
-\includegraphics[width=0.5\textwidth,height=\textheight]{./docs/files/folder_hierarchy.png}
+\includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{./docs/files/folder_hierarchy.png}
 
 \begin{itemize}
 \item
@@ -1587,7 +1586,7 @@ R scripts can get long, and it can get a bit unwieldy to navigate between differ
 \texttt{\#\#\ a.\ Subsection\ \#\#\#\#}
 \texttt{\#\#\#\ i.\ Sub-subsection\ -\/-\/-\/-}
 
-\includegraphics{./docs/files/bookmarks.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./docs/files/bookmarks.png}}
 
 \section{Making Readable R Code}\label{making-readable-r-code-1}
 

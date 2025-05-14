@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Using R | CDFW Introduction to R Programming</title>
+  <meta name="description" content="Chapter 6 Using R | CDFW Introduction to R Programming Workshop" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Using R | CDFW Introduction to R Programming" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Chapter 6 Using R | CDFW Introduction to R Programming Workshop" />
+  <meta name="github-repo" content="liz-siemion/IntroToR" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Using R | CDFW Introduction to R Programming" />
+  
+  <meta name="twitter:description" content="Chapter 6 Using R | CDFW Introduction to R Programming Workshop" />
+  
+
+<meta name="author" content="Liz Siemion" />
+
+
+<meta name="date" content="2025-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="using-r.html"/>
+<link rel="next" href="debugging-code.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CDFW Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#workshop-goals"><i class="fa fa-check"></i><b>1.1</b> Workshop Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workshop-content"><i class="fa fa-check"></i><b>1.2</b> Workshop Content</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Intro.html"><a href="Intro.html"><i class="fa fa-check"></i><b>2</b> Intro to R and R-Studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Intro.html"><a href="Intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="Intro.html"><a href="Intro.html#DirectoryStructure"><i class="fa fa-check"></i><b>2.2</b> Directory Structure</a></li>
+<li class="chapter" data-level="2.3" data-path="Intro.html"><a href="Intro.html#r-studio"><i class="fa fa-check"></i><b>2.3</b> R Studio</a></li>
+<li class="chapter" data-level="2.4" data-path="Intro.html"><a href="Intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.4</b> RStudio Projects</a></li>
+<li class="chapter" data-level="2.5" data-path="Intro.html"><a href="Intro.html#using-comments"><i class="fa fa-check"></i><b>2.5</b> Using Comments</a></li>
+<li class="chapter" data-level="2.6" data-path="Intro.html"><a href="Intro.html#Packages"><i class="fa fa-check"></i><b>2.6</b> Installing Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="FilePaths.html"><a href="FilePaths.html"><i class="fa fa-check"></i><b>3</b> File paths</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="FilePaths.html"><a href="FilePaths.html#what-is-a-file-path"><i class="fa fa-check"></i><b>3.1</b> What is a file path?</a></li>
+<li class="chapter" data-level="3.2" data-path="FilePaths.html"><a href="FilePaths.html#different-separators-between-operating-systems"><i class="fa fa-check"></i><b>3.2</b> Different separators between operating systems</a></li>
+<li class="chapter" data-level="3.3" data-path="FilePaths.html"><a href="FilePaths.html#absolute-and-relative-file-paths"><i class="fa fa-check"></i><b>3.3</b> Absolute and Relative file paths</a></li>
+<li class="chapter" data-level="3.4" data-path="FilePaths.html"><a href="FilePaths.html#navigating-outside-the-working-directory"><i class="fa fa-check"></i><b>3.4</b> Navigating outside the working directory</a></li>
+<li class="chapter" data-level="3.5" data-path="FilePaths.html"><a href="FilePaths.html#useing-the-tab-shortcut-in-rstudio"><i class="fa fa-check"></i><b>3.5</b> Useing the Tab Shortcut in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="TidyData.html"><a href="TidyData.html"><i class="fa fa-check"></i><b>4</b> Tidy Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="TidyData.html"><a href="TidyData.html#spreadsheets-and-database-tables"><i class="fa fa-check"></i><b>4.1</b> Spreadsheets and Database Tables</a></li>
+<li class="chapter" data-level="4.2" data-path="TidyData.html"><a href="TidyData.html#computer-readable-data"><i class="fa fa-check"></i><b>4.2</b> Computer Readable Data</a></li>
+<li class="chapter" data-level="4.3" data-path="TidyData.html"><a href="TidyData.html#tidy-data"><i class="fa fa-check"></i><b>4.3</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.4" data-path="TidyData.html"><a href="TidyData.html#document"><i class="fa fa-check"></i><b>4.4</b> Document</a></li>
+<li class="chapter" data-level="4.5" data-path="TidyData.html"><a href="TidyData.html#rows-for-variables-columns-for-observations"><i class="fa fa-check"></i><b>4.5</b> Rows for variables, columns for observations</a></li>
+<li class="chapter" data-level="4.6" data-path="TidyData.html"><a href="TidyData.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.6</b> Problemmatic Practices</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="TidyData.html"><a href="TidyData.html#multiple-tables-in-a-single-spreadsheet"><i class="fa fa-check"></i><b>4.6.1</b> Multiple tables in a single spreadsheet</a></li>
+<li class="chapter" data-level="4.6.2" data-path="TidyData.html"><a href="TidyData.html#putting-units-in-cells"><i class="fa fa-check"></i><b>4.6.2</b> Putting units in cells</a></li>
+<li class="chapter" data-level="4.6.3" data-path="TidyData.html"><a href="TidyData.html#using-problematic-column-names"><i class="fa fa-check"></i><b>4.6.3</b> Using Problematic Column Names</a></li>
+<li class="chapter" data-level="4.6.4" data-path="TidyData.html"><a href="TidyData.html#zeros-vs-missing-values"><i class="fa fa-check"></i><b>4.6.4</b> Zeros vs Missing Values</a></li>
+<li class="chapter" data-level="4.6.5" data-path="TidyData.html"><a href="TidyData.html#using-problematic-null-values"><i class="fa fa-check"></i><b>4.6.5</b> Using Problematic Null Values</a></li>
+<li class="chapter" data-level="4.6.6" data-path="TidyData.html"><a href="TidyData.html#inconsistent-value-formatting"><i class="fa fa-check"></i><b>4.6.6</b> Inconsistent Value Formatting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="using-r.html"><a href="using-r.html#use-r-as-a-calculator"><i class="fa fa-check"></i><b>5.1</b> Use R as a calculator</a></li>
+<li class="chapter" data-level="5.2" data-path="using-r.html"><a href="using-r.html#use-r-to-compare-things"><i class="fa fa-check"></i><b>5.2</b> Use R to compare things</a></li>
+<li class="chapter" data-level="5.3" data-path="using-r.html"><a href="using-r.html#use-r-to-assign-objects"><i class="fa fa-check"></i><b>5.3</b> Use R to assign objects</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>5.3.1</b> Variable names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="using-r.html"><a href="using-r.html#data-types-modes"><i class="fa fa-check"></i><b>5.4</b> Data Types (Modes)</a></li>
+<li class="chapter" data-level="5.5" data-path="using-r.html"><a href="using-r.html#data-structure-classes"><i class="fa fa-check"></i><b>5.5</b> Data Structure Classes</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>5.5.1</b> Scalar</a></li>
+<li class="chapter" data-level="5.5.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>5.5.2</b> Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="using-r.html"><a href="using-r.html#lists"><i class="fa fa-check"></i><b>5.6</b> Lists</a></li>
+<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#data-frames"><i class="fa fa-check"></i><b>5.7</b> Data Frames</a></li>
+<li class="chapter" data-level="5.8" data-path="using-r.html"><a href="using-r.html#playing-with-different-data-types"><i class="fa fa-check"></i><b>5.8</b> Playing with different data types</a></li>
+<li class="chapter" data-level="5.9" data-path="using-r.html"><a href="using-r.html#functions"><i class="fa fa-check"></i><b>5.9</b> Functions</a></li>
+<li class="chapter" data-level="5.10" data-path="using-r.html"><a href="using-r.html#indexing"><i class="fa fa-check"></i><b>5.10</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="using-r-1.html"><a href="using-r-1.html"><i class="fa fa-check"></i><b>6</b> Using R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="using-r-1.html"><a href="using-r-1.html#why-tidyverse"><i class="fa fa-check"></i><b>6.1</b> Why Tidyverse?</a></li>
+<li class="chapter" data-level="6.2" data-path="using-r-1.html"><a href="using-r-1.html#main-dplyr-functions"><i class="fa fa-check"></i><b>6.2</b> Main dplyr functions:</a></li>
+<li class="chapter" data-level="6.3" data-path="using-r-1.html"><a href="using-r-1.html#ggplot2"><i class="fa fa-check"></i><b>6.3</b> GGPLOT2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debugging-code.html"><a href="debugging-code.html"><i class="fa fa-check"></i><b>7</b> Debugging Code</a></li>
+<li class="chapter" data-level="8" data-path="data-organization.html"><a href="data-organization.html"><i class="fa fa-check"></i><b>8</b> Data Organization</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-organization.html"><a href="data-organization.html#data-frame-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Frame Manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html"><i class="fa fa-check"></i><b>9</b> Making Readable R Code</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#outlining-r-scripts"><i class="fa fa-check"></i><b>9.1</b> Outlining R Scripts</a></li>
+<li class="chapter" data-level="9.2" data-path="making-readable-r-code.html"><a href="making-readable-r-code.html#making-readable-r-code-1"><i class="fa fa-check"></i><b>9.2</b> Making Readable R Code</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CDFW Introduction to R Programming</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="using-r-1" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Using R<a href="using-r-1.html#using-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-tidyverse" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Why Tidyverse?<a href="using-r-1.html#why-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>tidyverse</code> is a collection of R packages designed to simplify and streamline data science tasks. It promotes the concept of “tidy data,” where each column is a variable and each row is an observation, which simplifies analysis and visualization. Core tidyverse packages include <code>ggplot2</code> for plotting, <code>dplyr</code> for data manipulation, and <code>tidyr</code> for reshaping data. One of the key strengths of the tidyverse is its readable syntax, especially with the use of the pipe operator (%&gt;%), which allows users to chain together multiple steps in a clear, logical order. Learning the tidyverse equips beginners with practical tools and workflows that are essential for modern data analysis in R.</p>
+<p>One of the most commonly used packages within the <code>tidyverse</code> is <code>dplyr</code> (data plier), which provides a set of powerful and intuitive functions for manipulating data frames. With dplyr, you can easily filter rows, select columns, create new variables, group data, and summarize it—all using clear, readable code.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Consistent syntax across packages, making code easier to write and read.</li>
+<li>Tidy data structure, where each variable is a column and each observation is a row.</li>
+<li>Readable workflows using the pipe operator (%&gt;%) to chain commands clearly.</li>
+<li>Integrated tools for the entire data science process—importing, cleaning, transforming, visualizing, and modeling data.</li>
+<li>User-friendly functions with intuitive names and logical default argument values.</li>
+<li>Open-source and widely supported, with ample online learning resources</li>
+<li>Provides tools for data manipulation, exploration, and visualization.</li>
+<li>Uses piping (%&gt;%) to create readable, fluent workflows (through the magrittr package)</li>
+</ul>
+</div>
+<div id="main-dplyr-functions" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Main dplyr functions:<a href="using-r-1.html#main-dplyr-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>dplyr</code>, a main package of the <code>tidyverse</code>, consists of five main functions:</p>
+<ol style="list-style-type: decimal">
+<li><code>filter()</code></li>
+<li><code>select()</code></li>
+<li><code>mutate()</code></li>
+<li><code>summarize()</code></li>
+<li><code>arrange()</code></li>
+<li><code>group_by()</code></li>
+</ol>
+<hr />
+<p><strong><code>EXERCISES</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>(Use filter to…)</li>
+<li>(Use mutate to…)</li>
+<li>(Select x columns)</li>
+<li>(group by sheep and summarize data)</li>
+</ol>
+<hr />
+</div>
+<div id="ggplot2" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> GGPLOT2<a href="using-r-1.html#ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ggplot2 is a powerful and flexible R package used for data visualization. It is part of the tidyverse and is built on the Grammar of Graphics—a layered approach to building plots that allows you to combine data, visual elements, and aesthetics step by step.</p>
+<p><strong>Key Features</strong></p>
+<ol style="list-style-type: decimal">
+<li>Layered plotting system: Build plots by adding layers (e.g., points, lines, bars).</li>
+<li>Aesthetic mapping: Easily map variables to visual properties like color, size, and shape.</li>
+<li>Customizable: Control themes, labels, scales, and more for polished, publication-ready graphics.</li>
+<li>Works seamlessly with tidy data and other tidyverse tools.</li>
+</ol>
+<p>Example of using ggplot to plot some bighorn thing</p>
+<hr />
+<p><strong>EXERCISE 2</strong>
+1.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="using-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="debugging-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-Tidyverse.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["intro-to-r.pdf", "intro-to-r.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
