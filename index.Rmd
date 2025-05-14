@@ -1,6 +1,6 @@
 --- 
 title: "CDFW Introduction to R Programming"
-author: "Liz Siemion"
+author: "Liz Siemion & Dave German"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -23,7 +23,7 @@ I reference course materials from USU's ecology center workshop, and Dr. Simona 
 
 ## Workshop Goals
 
-This course is designed to teach the foundational programming concepts of R and how to use RStudio. Our goal is to equip you with the skills to continue learning R independently and to integrate R programming into your analyses and workflows.
+This course introduces the foundational concepts of programming in R and using RStudio, with a focus on producing reproducible and well-documented workflows.Our goal is to equip you with the skills to continue learning R independently and to integrate R programming into your analyses and workflows.
 
 <div style="text-align: center;">
   <img src="./docs/files/HowMuchIKnowAboutR.png" alt="How Much I Know in R" width="80%">
@@ -36,16 +36,17 @@ This course is designed to teach the foundational programming concepts of R and 
 1. [Intro to R and R-Studio](#intro) <br> 
 2. [Directory Structure](#directory-structure) <br>
 3. [File paths](#filepaths) <br>
-4. [Packages](#packages) <br>
-5. [Working with R objects](#r-objects) <br>
-6. [Data types](#data-types) (character, numeric, logical, etc.) and classes (scalar, vector, data frames, matrices, lists, etc.) <br>
-7. [Functions](#functions) (arguments, function workflow) <br>
-8. [Indexing](#index) <br>
-9. [Importing and exporting data files](#import-export) (csv, xlsx, mdb, rds)] <br>
-10. [Data organization and manipulation](#data-org) (base R and tidyverse) <br>
-11. [Basic plotting](#plotting) <br>
-12. [Tidy Data](#tidy-data) <br>
-13. [For-loops](#for-loops) <br>
-14 [Basic statistics & statistical summaries](#stats) <br>
-15. [Introduction to debugging](#debugging) (how to ask the right questions) <br>
-16. [Making readable R code](#readable-r) (commenting, outlining, etc.)
+4. [Tidy Data](#tidy-data) <br>
+5. [Packages](#packages) <br>
+6. [Working with R objects](#r-objects) <br>
+7. [Data types](#data-types) (character, numeric, logical, etc.) and classes (scalar, vector, data frames, matrices, lists, etc.) <br>
+8. [Functions](#functions) (arguments, function workflow) <br>
+9. [Indexing](#index) <br>
+10. [Importing and exporting data files](#import-export) (csv, xlsx, mdb, rds)] <br>
+11. [Data organization and manipulation](#data-org) (base R and tidyverse) <br>
+12. [Vectorized Operations](#vectorized)
+13. [Basic plotting](#plotting) <br>
+14. [For-loops](#for-loops) <br>
+15. [Basic statistics & statistical summaries](#stats) <br>
+16. [Debugging](#debugging) (how to ask the right questions) <br>
+17. [Making readable R code](#readable-r) (commenting, outlining, etc.)

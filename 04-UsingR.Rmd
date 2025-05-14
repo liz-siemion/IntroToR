@@ -318,6 +318,11 @@ capt_dat <- data.frame(
 print(capt_dat)
 ```
 
+***
+
+**`EXERCISE 4`**
+
+***
 ## Functions {#functions}
 
 We've used several functions in the previous code. So what is a function? A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
@@ -380,5 +385,9 @@ x <- x[-4]
 x
 ```
 
+***
 
+**`EXERCISE 5`**
+
+***
 

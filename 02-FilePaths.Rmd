@@ -5,7 +5,10 @@ To manually set the working directory or load a file from a specific location, i
 
 File paths are addresses to different locations or files on a computer. Your computer uses a system of nested folders.
 
-![Nested file system on your computer -- image from R for epidemiology (https://www.r4epi.com)](./docs/files/file_path_hierarchy.png){width=40%}
+<div style="text-align: center;">
+  <img src="./docs/files/file_path_hierarchy.png" alt="Nested file system on your computer" width="40%">
+  <p style="font-size: 50%;"><em>Image from R for Epidemiology (https://www.r4epi.com)</em></p>
+</div>
 
 <br>
 
@@ -81,7 +84,7 @@ Let's look at an example. Say our folder structure resembles the structure below
 
 ***
 
-## Useing the Tab Shortcut in RStudio
+## Using the Tab Shortcut in RStudio
 The Tab shortcut in RStudio is a powerful shortcut that helps you write code faster and with fewer errors. It’s especially helpful for auto-completing file paths, function names, object names, and more. When you’re loading a file (e.g., using read.csv()), you can use the Tab key to help you find and insert the correct relative file path. 
 
 For example: `read.csv("data/`
@@ -94,7 +97,7 @@ Then press the Tab key. A drop down list will appear showing the contents of the
 
 **`EXERCISE 1: FILE PATHS`**
 
-1. Type `getwd() into the console to return the absolute file path
+1. Enter `getwd()` into the console to return the absolute file path
 2. Use a relative file path to load the bighorn capture table using read.csv("TYPE_RELATIVE_FILE_PATH").
 The read.csv() function tells R to load the CSV file into your Environment. Make sure the file path is placed inside quotes and within the parentheses. Tip: Try using the Tab key after typing the opening quote to help you navigate and generate the correct relative file path.
 

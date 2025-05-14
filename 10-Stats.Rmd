@@ -1,3 +1,10 @@
-# Stats
+# Statistical Summaries
 
-WIP
+## Look at summary of weight data
+
+## plot bighorn weight using ggplot2
+
+## Statistical Analysis
+Compare if bighorn weights differ between Gibbs and Baxter using a T-test
+
+## Plot Results

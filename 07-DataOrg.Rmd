@@ -1,0 +1,129 @@
+# Data Organization {#data-org}
+
+Let’s start by downloading some data and exploring it in a data frame. In this example, we’ll load a CSV file. We’ll cover how to import and export different types of data files in more detail later.
+
+```{r}
+mort <- read.csv("./docs/data/BighornMortTable.csv")
+```
+
+# Exploring Data Frames
+
+Let’s take a look at the data. Exploring your dataset is one of the most important first steps when working in R. It helps you understand the structure, types of variables, and potential issues before doing any analysis. A good place to start is by examining the structure of the data to see what you’re working with.
+
+```{r}
+# str() shows us the structure of the data, including the data mode, 
+# the dimensions of # the dataframe including the data mode, the dimensions of 
+# the dataframe, and a few observations
+str(mort)  
+length(mort) # gives the number of columns
+nrow(mort) # to get the number of rows
+ncol(mort) # number of columns
+dim(mort) # or both at once, dim()
+names(mort) # names of the columns
+```
+
+It's a good time to ask ourselves if the structure R is reporting matches our intuition:
+
+* Does the data type for each column make sense? 
+* If not, we need to sort out those issues now so we 
+* Don't run into issues down the road. Once we're happy with our data types, we can really start digging into our data!
+
+We can also examine individual columns: 
+
+```{r}
+class(mort$AnimalYear) 
+class(mort$Animal_ID)
+str(mort$Cause_Mort)
+```
+
+We can also index a dataframe column using the operator.
+
+```{r}
+mort$Animal_ID[1]
+```
+
+We can use the functions `head()` and `tail()` to look at the first or last 6 rows of the data frame. 
+
+```{r}
+head(mort, n = 3) # n = refers to how many rows to print 
+```
+
+Similarly, `[[` will act to extract a single column:
+```{r}
+mort[["AnimalYear"]][500] # extract the 500th row of the AnimalYear column
+```
+
+We can also use square brackets to extract specific elements from a data frame. Remember that data frame indexing follows the format [rows, columns], so the first number refers to the row, and the second to the column.
+
+```{r}
+# [rows, columns]
+mort[1,2] # grab element at first row and second column
+mort[1,1:6] # grab row 1 in columns 1-6
+mort[1:6,5] # grab row 1-6 in column 5
+mort[1:6,1:6] # grab row 1-6 in columns 1-6
+head(mort[,1:3], 5) # grab all rows from columns 1-3, show me the first 5 rows
+```
+
+## Vectorized Operations {#vectorized}
+R is a natively vectorized language, which means it can automatically perform operations on entire vectors (columns of data) without the need for explicit loops. This makes data manipulation in R efficient and concise. 
+
+For example, let’s say all the ages in our bighorn mortality dataset are off by one year. To correct this, we can simply add 1 to the entire Age column. This works because R applies the operation to each element of the vector. But first, we need to make sure the Age column is numeric. If it’s stored as character or factor, we need to coerce it to numeric before performing the math. Because R vectorizes math operations, the + 1 is automatically applied to every value in the Age column, and the result is stored in the new AgeNew column—no loop required.
+
+```{r}
+class(mort$Age)
+mort$AgeNew <- as.numeric(mort$Age)
+mort$AgeNew <- mort$AgeNew + 1
+
+```
+
+We see a warning about NAs being introduced when coercing values to a numeric data type. This happens because some entries in the Age column aren’t purely numeric—for example, values like "4+" or ">7" contain extra characters. Since R can’t interpret these as numbers, it replaces them with NA.
+
+In practice, we could clean this column so it contains only numeric values. One way to do that is by using the gsub() function along with a regular expression to remove non-numeric characters. I’ll show you the code below for reference, but we won’t be covering regular expressions in detail during this workshop.
+
+```{r}
+mort$AgeNew <- gsub("[^0-9.]", "", mort$Age)  # Remove all non-numeric characters
+mort$AgeNew <- as.numeric(mort$AgeNew) # Coerce from character to numeric data mode
+head(mort$AgeNew, n = 10)
+mort$AgeNew <- mort$AgeNew + 1
+head(mort$AgeNew, n = 10)
+```
+
+## Data Frame Manipulation
+
+Let's create a new column to hold information on whether bighorn age is < 5:
+
+```{r}
+below_five <- mort$Age < 5
+head(below_five)
+```
+
+We've created a simple vector of TRUE/FALSE values. To add it to our data frame, we can use the cbind() function, which binds columns together. In this case, it combines our existing data frame with the new logical vector as an additional column.
+
+```{r}
+mort <- cbind(mort, below_five)
+head(cbind(mort, below_five), 3)
+head(mort, 3)
+```
+
+If we try to add the below_average vector to our data frame but it has a different number of elements than there are rows in the data frame, R will return an error. The number of entries must match for the columns to align correctly.
+
+```{r error=FALSE, eval=FALSE}
+below_five <- c(TRUE, TRUE, TRUE, TRUE, TRUE)
+head(cbind(mort, below_five))
+```
+
+Now let's look at how we might add rows to a data frame. 
+```{r error=FALSE, eval=FALSE}
+# first let's make a mortality dataframe of 3 columns
+mort_short <- mort[,c("Animal_ID", "Age", "Cause_Mort")]
+new_row <- list('S781', 3, "Lion") 
+# note that we have to make the row a list, since each column has a different data type
+mort_new <- rbind(mort_short, new_row)
+tail(mort_new) # lets you look at the last 6 lines of data
+```
+
+***
+
+**`EXERCISE`**
+
+***

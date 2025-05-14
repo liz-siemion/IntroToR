@@ -1,0 +1,9 @@
+# For Loops {#for-loops}
+
+Easy for loop is to get mean weight by herd, or something like that. This will be a for-loop related to whatever basic statistical analysis we are doing.
+
+***
+
+**`EXERCISE`**
+
+***

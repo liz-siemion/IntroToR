@@ -1,0 +1,20 @@
+# Importing and Exporting data files {#import-export}
+
+## Load and export basic files
+csv, xlsx, mdb, rds
+
+***
+
+**`EXERCISE`**
+
+***
+
+## Connect to a database on Windows OS
+
+## Load database files on a Macbook
+
+***
+
+**`EXERCISE`**
+
+***

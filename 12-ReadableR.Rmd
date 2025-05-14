@@ -1,4 +1,4 @@
-# Making Readable R Code
+# Making Readable R Code {#readable-r}
 
 ## Outlining R Scripts
 R scripts can get long, and it can get a bit unwieldy to navigate between different sections of your script. One neat way to outline your script is by using comment headers as bookmarks. This can be accomplished by either putting  `----` or  `####` after a commented line.

@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Debugging Code | CDFW Introduction to R Programming</title>
-  <meta name="description" content="Chapter 13 Debugging Code | CDFW Introduction to R Programming Workshop" />
+  <title>Chapter 14 Making Readable R Code | CDFW Introduction to R Programming</title>
+  <meta name="description" content="Chapter 14 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Debugging Code | CDFW Introduction to R Programming" />
+  <meta property="og:title" content="Chapter 14 Making Readable R Code | CDFW Introduction to R Programming" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Chapter 13 Debugging Code | CDFW Introduction to R Programming Workshop" />
+  <meta property="og:description" content="Chapter 14 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
   <meta name="github-repo" content="liz-siemion/IntroToR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Debugging Code | CDFW Introduction to R Programming" />
+  <meta name="twitter:title" content="Chapter 14 Making Readable R Code | CDFW Introduction to R Programming" />
   
-  <meta name="twitter:description" content="Chapter 13 Debugging Code | CDFW Introduction to R Programming Workshop" />
+  <meta name="twitter:description" content="Chapter 14 Making Readable R Code | CDFW Introduction to R Programming Workshop" />
   
 
 <meta name="author" content="Liz Siemion &amp; Dave German" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-summaries.html"/>
-<link rel="next" href="readable-r.html"/>
+<link rel="prev" href="debugging.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -266,33 +266,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="debugging" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Debugging Code<a href="debugging.html#debugging" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div style="text-align: center;">
-<img src="docs/files/DebuggingImage.png" alt="Debugging" width="80%">
-<p style="font-size: 50%;">
-<em>Artwork by Allison Horst</em>
-</p>
+<div id="readable-r" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Making Readable R Code<a href="readable-r.html#readable-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="outlining-r-scripts" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Outlining R Scripts<a href="readable-r.html#outlining-r-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R scripts can get long, and it can get a bit unwieldy to navigate between different sections of your script. One neat way to outline your script is by using comment headers as bookmarks. This can be accomplished by either putting <code>----</code> or <code>####</code> after a commented line.</p>
+<p><code># 1. Section ----</code> <br>
+<code>## a. Subsection ####</code> <br>
+<code>### i. Sub-subsection ----</code></p>
+<p><img src="docs/files/bookmarks.png" /></p>
 </div>
-<p>Even when you know R well, you will inevitably find yourself in a situation where you don’t understand a package, have an error, don’t know the right function to use, or need ideas of how to write the correct code.</p>
-<div id="check-your-parenthesis" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Check Your Parenthesis!<a href="debugging.html#check-your-parenthesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="coercian-problems" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Coercian Problems<a href="debugging.html#coercian-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="do-you-need-to-label-your-arguments-in-your-function" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Do you need to label your arguments in your function?<a href="debugging.html#do-you-need-to-label-your-arguments-in-your-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="use-the-help-function-in-rstudio" class="section level2 hasAnchor" number="13.4">
-<h2><span class="header-section-number">13.4</span> Use the help function in RStudio!<a href="debugging.html#use-the-help-function-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="section" class="section level2 hasAnchor" number="13.5">
-<h2><span class="header-section-number">13.5</span> …<a href="debugging.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>USE GOOGLE!</strong>
-Using a google search will most often give you results that can answer your questions. Most packages have a documentation page that you can google if you don’t understand how it works too. For example, I could google, “how do I use the seq function in R to return a sequence of numbers by 0.5?” It’s important to note that you are using the programming language R, and the objective that you want to take.</p>
-<p><strong>Never be afraid to google if you run into trouble! The website <a href="https://stackoverflow.com">stackoverflow</a> is your friend.</strong></p>
-<p>ChatGPT can be very useful, but it can sometimes be correct. Overuse of AI can also prevent you from developing your coding skills.</p>
+<div id="making-readable-r-code" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Making Readable R Code<a href="readable-r.html#making-readable-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Start each script with a brief description of what it does, who wrote it, and the last date it was edited.</li>
+<li>Then load all required packages, define functions, and set any variables used consistently throughout your script.</li>
+</ol>
+<ul>
+<li>Example: If you are going to be exporting many plots during the course of your script, you could set a variable to the output folder. Setting variables allows you to not have repeat code.
+<code>output_plots &lt;- "output/plots/"</code></li>
+<li>You can source functions from a separate script using <code>source()</code>. Remember what working directory you are in when sourcing a script.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Use comments to mark off sections of code.</li>
+<li>Outline your script</li>
+<li>Name and style code consistently. Spacing can make code more readable, but it’s really up to personal preference.</li>
+<li>Break code into small, discrete pieces.</li>
+<li>Think about the best way to organize your directory given your objectives. I often have sub folders for data, output, and docs.</li>
+<li>Start with a clean environment instead of saving the work space.</li>
+<li>Consider using version control (i.e. Github).</li>
+</ol>
 
 </div>
 </div>
@@ -301,8 +304,8 @@ Using a google search will most often give you results that can answer your ques
           </div>
         </div>
       </div>
-<a href="statistical-summaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="readable-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="debugging.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -333,7 +336,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/11-Debugging.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/12-ReadableR.Rmd",
 "text": "Edit"
 },
 "history": {

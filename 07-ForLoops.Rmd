@@ -1,5 +1,0 @@
-# For Loops {#for-loops}
-
-WIP
-
-Easy for loop is to get mean weight by herd, or something like that
