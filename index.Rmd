@@ -35,7 +35,7 @@ This course introduces the foundational concepts of programming in R and using R
 ## Workshop Content
 1. [Intro to R and R-Studio](#intro) <br> 
 2. [Directory Structure](#directory-structure) <br>
-3. [File paths](#filepaths) <br>
+3. [File paths](#file-paths)
 4. [Tidy Data](#tidy-data) <br>
 5. [Packages](#packages) <br>
 6. [Working with R objects](#r-objects) <br>

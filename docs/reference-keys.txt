@@ -74,3 +74,5 @@ section
 readable-r
 outlining-r-scripts
 making-readable-r-code
+file-paths
+file
