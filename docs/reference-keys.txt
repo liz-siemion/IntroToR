@@ -7,7 +7,7 @@ directory-structure
 r-studio
 rstudio-projects
 using-comments
-filepaths
+file
 what-is-a-file-path
 different-separators-between-operating-systems
 absolute-and-relative-file-paths
@@ -74,5 +74,3 @@ section
 readable-r
 outlining-r-scripts
 making-readable-r-code
-file-paths
-file
