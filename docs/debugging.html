@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>5.5.1</b> Variable names</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="using-r.html"><a href="using-r.html#data-types"><i class="fa fa-check"></i><b>5.6</b> Data Types (Modes)</a></li>
-<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#data-structure-classes"><i class="fa fa-check"></i><b>5.7</b> Data Structure Classes</a>
+<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#data-classes"><i class="fa fa-check"></i><b>5.7</b> Data Structure Classes</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>5.7.1</b> Scalar</a></li>
 <li class="chapter" data-level="5.7.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>5.7.2</b> Vector</a></li>
@@ -256,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#syntax-errors"><i class="fa fa-check"></i><b>12.2</b> Syntax errors</a></li>
 <li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.3</b> Coercian Problems</a></li>
 <li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.4</b> Labeling function arguments</a></li>
-<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#duplicate-function-names-in-different-libraries"><i class="fa fa-check"></i><b>12.5</b> Duplicate function names in different libraries?</a></li>
+<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.5</b> Conflicting Functions</a></li>
 <li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.6</b> Use the Help <code>?</code> Function!</a></li>
 <li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.7</b> Google</a></li>
 <li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.8</b> AI</a></li>
@@ -264,8 +264,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13" data-path="readable-r.html"><a href="readable-r.html"><i class="fa fa-check"></i><b>13</b> Making Readable R Code</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="readable-r.html"><a href="readable-r.html#outlining-r-scripts"><i class="fa fa-check"></i><b>13.1</b> Outlining R Scripts</a></li>
-<li class="chapter" data-level="13.2" data-path="readable-r.html"><a href="readable-r.html#making-readable-r-code"><i class="fa fa-check"></i><b>13.2</b> Making Readable R Code</a></li>
+<li class="chapter" data-level="13.2" data-path="readable-r.html"><a href="readable-r.html#pseudocoding"><i class="fa fa-check"></i><b>13.2</b> Pseudocoding</a></li>
+<li class="chapter" data-level="13.3" data-path="readable-r.html"><a href="readable-r.html#making-readable-r-code"><i class="fa fa-check"></i><b>13.3</b> Making Readable R Code</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="class-wrap-up.html"><a href="class-wrap-up.html"><i class="fa fa-check"></i><b>14</b> Class Wrap Up</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -326,29 +328,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.3</span> Coercian Problems<a href="debugging.html#coercian-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R, coercion occurs when elements of different types are combined, and R automatically converts them to a common type to maintain consistency. This can lead to unintended results if not handled carefully. Always check your data types with <code>str()</code>, <code>typeof()</code>, or <code>classs()</code> to avoid coercion issues.</p>
 <p>A common coercion error in R occurs when you convert a factor to numeric without first converting it to a character. Doing as.numeric() directly on a factor returns the internal integer codes of the factor levels, not the actual numeric values you might expect.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="debugging.html#cb1-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
-<span id="cb1-2"><a href="debugging.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="debugging.html#cb1-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
-<span id="cb1-4"><a href="debugging.html#cb1-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="debugging.html#cb140-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
+<span id="cb140-2"><a href="debugging.html#cb140-2" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="debugging.html#cb140-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
+<span id="cb140-4"><a href="debugging.html#cb140-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="debugging.html#cb3-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
-<span id="cb3-2"><a href="debugging.html#cb3-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="debugging.html#cb142-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
+<span id="cb142-2"><a href="debugging.html#cb142-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
 </div>
 <div id="labeling-function-arguments" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Labeling function arguments<a href="debugging.html#labeling-function-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Labeling function arguments in R improves clarity and reduces errors. While you can pass arguments by position (e.g., <code>seq(1, 10, 2)</code>), naming them explicitly (e.g., <code>seq(from = 1, to = 10, by = 2)</code>) makes your code easier to read and avoids mistakes—especially when argument order is unclear or changes.</p>
 </div>
-<div id="duplicate-function-names-in-different-libraries" class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Duplicate function names in different libraries?<a href="debugging.html#duplicate-function-names-in-different-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="conflicting-functions" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Conflicting Functions<a href="debugging.html#conflicting-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Duplicate function names in different libraries can create confusion and lead to errors in R because when multiple packages define functions with the same name, R will prioritize one function over another. This can cause unintended behavior and errors if a different function from a different package to be executed. For example, if two packages define a function called <code>filter()</code>, and one is from <code>dplyr</code> and the other from <code>stats</code>, R might use one by default, potentially breaking the code or leading to incorrect results if the wrong version is applied. Managing these conflicts is essential for ensuring that the correct function is used in the desired context.</p>
 <p><strong>Option 1: Using <code>::</code> Syntax</strong></p>
 <p>To specify which package’s function to use, you can use the <code>::</code> syntax. For example, to use the <code>select()</code> function from <code>dplyr</code>, write <code>dplyr::select()</code>. This ensures you are explicitly calling the correct function from the right package.</p>
 <p><strong>Option 2: Using the Conflict Package</strong></p>
 <p>The conflict package in R is designed to help manage situations where two or more loaded packages have functions with the same name. When you load multiple packages that contain functions with identical names, R will prioritize one function over another, which can lead to confusion or errors in your analysis. For example, both <code>amt</code> and <code>dplyr</code> have a <code>select()</code>. The conflict package provides tools to manage these conflicts explicitly and prevent unexpected behavior.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="debugging.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
-<span id="cb5-2"><a href="debugging.html#cb5-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the filter() function from the dplyr package.</span></span></code></pre></div>
-<pre><code>## [conflicted] Will prefer dplyr::select over any other package.</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="debugging.html#cb144-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
+<span id="cb144-2"><a href="debugging.html#cb144-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the select() function </span></span></code></pre></div>
+<pre><code>## [conflicted] Will prefer dplyr::select over any other
+## package.</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="debugging.html#cb146-1" tabindex="-1"></a><span class="co"># from the dplyr package.</span></span></code></pre></div>
 </div>
 <div id="use-the-help-function" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Use the Help <code>?</code> Function!<a href="debugging.html#use-the-help-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>

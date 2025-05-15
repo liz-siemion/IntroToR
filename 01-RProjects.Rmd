@@ -1,10 +1,9 @@
 # Intro to R and R-Studio {#intro}
 
 ## What is R?
-R is both the name of the programming language and the software used for data storage and manipulation. 
+**R** is both the name of the programming language and the software used for data storage and manipulation. 
 
-RStudio is the Integrated Development Environment (IDE) for the R programming language that
-makes writing, running, and organizing R code more efficient. RStudio provides a centralized interface where you can manage your code, working directory, data, output, and environment all in one place. On my MacBook, I keep R and RStudio in the Applications folder, and on Windows, I store them on the C drive. You will need to download [R](https://cran.r-project.org) before downloading [RStudio](https://posit.co/downloads/). 
+**RStudio** is the Integrated Development Environment (IDE) for the R programming language that makes writing, running, and organizing R code more efficient. RStudio provides a centralized interface where you can manage your code, working directory, data, output, and environment all in one place. On my MacBook, I keep R and RStudio in the Applications folder, and on Windows, I store them on the C drive. You will need to download [R](https://cran.r-project.org) before downloading [RStudio](https://posit.co/downloads/). 
 
 ## Directory Structure {#directory-structure}
 Before creating an RStudio Project, it's important to think about how your project is structured, as this will shape your directory (i.e. folder) organization. I typically create a separate folder for each analysis, and within each, I include subfolders for data, output, and scripts. Other folders might include figures, results, and documents. You may want to consider housing two projects in the same directory if they utilize the same data. All files need to be readable by the computer and should not contain white spaces, punctuation, or special characters. I generally follow the same naming conventions for my files (e.g., camelCase, snake_case, kebab-case, PascalCase).
@@ -30,10 +29,10 @@ First let's go over the basics of RStudio. When you first open RStudio, you will
 ![](./docs/files/RStudio.png)
 
 1) **The Interactive R Console (entire left)**
-* R scripts appear in the top left. This is where you write your code. When you execute this code, it appears in the Console (bottom left). You can run code from the console, but it will be erased once you close R (unless you save your R history). It's best to write a saveable script in the code editor where you can send lines of code to the console to be executed.
+*The top-left panel in RStudio is the script editor, where you write and save your code. When you run a line of code from the script, the output appears in the Console (bottom-left panel). While you can type and run code directly in the Console, it won’t be saved when you close R unless you explicitly save your R history. That’s why it’s best to write your code in the script editor—so you have a permanent, editable copy—and send lines to the Console to execute as needed.
 2) **Environment/History (tabbed in upper right)**
 * Environment: collection of objects (i.e. variables, data frames, functions, etc.) that we define during our R session
-* History: this contains every line of code executed during the session
+* History: a record of every line of code executed during the session
 3) **Files/Plots/Packages/Help/Viewer (tabbed in lower right)**
   + **Files** shows all the files in your working directory. A **working directory** is essentially the default folder that R is reading data from/putting output into. We will go through setting the working directory below. You can also create, delete, and rename files and folders from this tab.
   + **Plots** displays figures that you generate
@@ -54,7 +53,7 @@ Now that we understand the basics of RStudio, let's create an RStudio Project th
 3) Navigate to the directory folder
 4) Select `Create Project`
 
-Each time you open this RStudio project, the working directory will automatically be set to the `IntroR` folder. The working directory is automatically set to the folder where your RStudio Project is stored. RStudio Projects remove the need to manually set the working directory. 
+Each time you open this RStudio project, the working directory is automatically set to the `IntroR` folder, where the project is saved. This means you don’t need to manually set the working directory, as RStudio Projects handle it for you, helping keep your files and code organized and consistent.
 
 For example, if my RStudio Project is located in <em>C:/Teaching/IntroR/</em>, my working directory is also located <em>C:/Teaching/IntroR/</em>. 
 
@@ -62,6 +61,7 @@ For example, if my RStudio Project is located in <em>C:/Teaching/IntroR/</em>, m
 
 **`EXERCISE 2: CREATE AN RSTUDIO PROJECT`**
 
-1. Create an RStudio PRoject using the instructions above.
+1. Create an RStudio PRoject in your `IntroR` folder. 
+2. Set a new editor theme. To change the editor theme, go to **<em>Tools > Global Options</em>**, click on the **<em>Appearance tab</em>**, and choose a new **<em>editor theme</em>** from the list. Each theme will be previewed in the right window.
 
 ***

@@ -2,7 +2,7 @@
 
 ## Installing Packages {#packages}
 
-Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as `packages`. A package is a collection of functions, data, and documentation bundled together for a specific function. An R package can help with data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console
+Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as `packages`. A package is a collection of functions, data, and documentation bundled together for a specific function. An R package can help with tasks such as data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console.
 
 ```{r error=FALSE, eval=FALSE}
 install.packages("amt") # install a new package
@@ -11,13 +11,16 @@ library(amt) # call a package you previously downloaded
 
 ***
 
-**`EXERCISE 4: LOAD TIDYVERSE PACKAGE USING RSTUDIO`**
+**`EXERCISE`** 
+
+Load Tidyverse package using RStudio
 
 1. Select `Packages`
 2. Select `Install`
 3. Type `tidyverse`
 4. Select `Install`
 5. Bonus: Install tidyverse in the code editor using the example code above.
+
 **We will go over what tidyverse is later on in this course**
 
 ***
@@ -36,12 +39,12 @@ Sometimes you want to comment out large sections of code, and this can be done u
 
 ***
 
-**`EXERCISE 3: USING COMMENTS`**
+**`EXERCISE`**
 
-1. Create a new script (File > New File > R Script)
+1. Create a new script (<em>File > New File > R Script</em>)
 2. In the first line, type `# Intro R`
 3. On line 2, type ` 1 + 1`
-4. select `Run` in the upper right corner of the console
+4. Select `Run` in the upper right corner of the console. You can also use the shortcut `control + enter` on Windows and `command + enter` on a Macbook. If the keyboard shortcuts aren’t working, navigate to **<em>Tools > Modify Keyboard Shortcuts </em>**, type **<em>Run Current Line or Section</em>** into the search bar, double-click the shortcut, remove the current key combination, and enter your preferred shortcut.
 
 ***
 
@@ -66,21 +69,24 @@ From highest to lowest precedence:
 3 + 5 * 2 # performs multiplication before addition
 (3 + 5) * 2 # performs addition in () before multiplication 
 2/10000 
-2^3 # text after a code line is called a "comment"
+2^3 
 ```
 
 ## Use R to compare things
 To compare things in R, we use logical operators. Below is a brief list. 
 
-Summary of logical operators
-`==`    is equal to
-`>`     greater than
-`<`     less than
-`>=`    greater than or equal
-`<=`    less than or equal
-`!`     not
-`|`     or
-`%in%`  is contained
+| Operator | Meaning                    |
+|:---------|:---------------------------|
+| `==`     | is equal to                |
+| `>`      | greater than               |
+| `<`      | less than                  |
+| `>=`     | greater than or equal to   |
+| `<=`     | less than or equal to      |
+| `!`      | not                        |
+| `|`      | or                         |
+| `%in%`   | is contained in            |
+
+Let's go through a few examples of using logical operators. Notice how R evaluates each of these lines of code as TRUE or FALSE. We are essentially asking R if the above comparison is TRUE or FALSE. We will go over `%in%` in the data organization section of this class. 
 
 ```{r}
 1 == 9  # equality (note two equals signs, read as "is equal to")
@@ -88,16 +94,19 @@ Summary of logical operators
 1 < 2  # less than
 1 <= 1  # less than or equal to
 ```
-Notice how R evaluates each of these lines of code as TRUE or FALSE. We are essentially asking R if the above comparison is TRUE or FALSE.
 
 ***
 
-**`EXCERCIZE 1`**
+**`EXERCISE`**
 
-1. In your code editor, write the following lines of code. Then execute the lines of code so you see the output in your console. 
+1. In your code editor, enter the following lines of code. Then run them to view each line of code's output in your console. 
     a. 67 * 9
     b. 7 + 9 + 10
     c. 4399 - 871 * (9 + 1) 
+2. Evaluate whether the following logical conditions are TRUE or FALSE
+    a. `(380*3) == (190*6)`
+    b. `567 > 890`
+    c. `30 >= (27 + 1 + 2)`
 2. Bonus: What is wrong with the following code? 
     a. Type `87(9 + 1)` into your console
     b. Execute that specific line of code by placing the cursor on that line and selecting `Run`. 
@@ -109,7 +118,7 @@ Notice how R evaluates each of these lines of code as TRUE or FALSE. We are esse
 
 Objects are a bit of an abstract concept. All you really need to know for now is that objects are things that we make in R that can take on a variety of structures with different data types, and when we assign them a name, they get saved in our global environment. They are data structures with associated data attributes. 
 
-Object assignment allows us to assign a variable name to the object for later use. This helps prevent writing redundant code. We assign an object to a variable using the assignment arrow `<-` or the `=` so that R knows that x is an object that we can use. So when we run, x <- 6, it reads "make x contain 6." It's recommended to use the `<-` since the `=` can get mixed up with assigning values to function arguments (more on this later). Once we assign an object to a variable, it is stored in our global environment (upper right hand panel of R studio).
+Object assignment allows us to assign a variable name to the object for later use. This helps prevent writing redundant code. We assign an object to a variable using the assignment arrow `<-` or the `=` so that R knows that x is an object that we can use. So when we run, `x <- 6`, it reads <em>make x contain 6 </em> It's recommended to use the `<-` since the `=` can get mixed up with assigning values to function arguments (more on this later). Once we assign an object to a variable, it is stored in our global environment (upper right hand panel of RStudio).
 
 ```{r}
 x <- 1/40 # here we are telling R to assign 1/40 to the variable x so that it recognizes x as an object in our global environment
@@ -121,6 +130,7 @@ rm(y) # you can also remove objects from the environment
 ```
 
 ### Variable names
+
 Variable names can contain letters, numbers, underscores and periods. 
 They CANNOT start with a number OR contain spaces (**at all**). Remember that R is case sensitive.
 
@@ -134,7 +144,7 @@ Your choice of convention is up to you, *JUST BE CONSISTENT*.
 
 ***
 
-**`EXERCISE 2`**
+**`EXERCISE`**
 
 1. Assign `1+56` to a variable called `x1_a`
 2. Assign `sqrt(24)` to a variable called `x1_b`
@@ -144,18 +154,18 @@ Your choice of convention is up to you, *JUST BE CONSISTENT*.
 
 ## Data Types (Modes) {#data-types}
 
-There are 6 main classes of common data modes (i.e. data types): `numeric`, `character`, `logical`, `complex`, and `raw`. Data modes refers to the basic type of data stored in an object. For example, numeric mode stores numbers (integers or decimals), and character mode stores text. We typically only use  `factor`, `numeric`, `character`, and `logical` data modes. 
+There are 6 main classes of common data modes (i.e. data types): `numeric`, `character`, `logical`, `integer`, `complex`, and `factor`. Data modes refers to the basic type of data stored in an object. For example, numeric mode stores numbers (integers or decimals), and character mode stores text. We typically only use  `factor`, `numeric`, `character`, and `logical` data modes. 
 
 | Mode        | Description                                | Example                    |
 |:------------|:-------------------------------------------|:---------------------------|
 | factor      | Categorical data                           | "Sheep", "Lion", "Deer"    |
 | numeric     | Numbers (includes integers and decimals)   | 3.14, 42                   |
-| character   | Text strings                               | "Lion180"                    |
+| character   | Text strings                               | "Lion180"                  |
 | logical     | TRUE or FALSE values                       | TRUE, FALSE                |
 
 <br>
 
-To ask R what `class` a data mode or object is, we use the function `class()`.
+To ask R what `class` a data mode or object is, we use the `class()` function.
 
 ```{r eval=FALSE}
 class(1.11) # numeric: any real number
@@ -203,7 +213,7 @@ b_numeric <- as.numeric(b)
 
 ***
 
-**`EXERCISE 3`**
+**`EXERCISE`**
 
 1. Assign `"S437"` to a variable called "sheep". Make sure to include the `""`.
 2. What type of data class is sheep?
@@ -212,7 +222,7 @@ b_numeric <- as.numeric(b)
 5. Bonus: What happens when you execute sheep <- S437 without `""`? Explain the error. 
 
 ***
-## Data Structure Classes
+## Data Structure Classes {#data-classes}
 
 Remember when we talked about objects as data with attributes? Well, R offers several ways to store data, depending on what kind of structure you need. The most common types are vectors, data frames, and lists. Each of these can store different types of information and are useful in different contexts when working with data. Think of them as different types of containers for data that are designed to hold and organize data in specific ways. We will be discussing `Scalar`, `Vector`, `Data Frames`, `Matrices`, and `Lists`. Below is a summary of each of these data structures, and we will also go through each of these individually. 
 
@@ -236,7 +246,7 @@ x <- 3
 
 ***
 
-**`EXERCISE 4`**
+**`EXERCISE`**
 
 ***
 
@@ -281,7 +291,7 @@ my_seq
 
 ***
 
-**`EXERCISE 4`**
+**`EXERCISE`**
 
 ***
 
@@ -314,7 +324,7 @@ my_lions[[2]][2]
 
 ***
 
-**`EXERCISE 4`**
+**`EXERCISE`**
 
 ***
 
@@ -330,7 +340,7 @@ MyMatrix
 
 ***
 
-**`EXERCISE 4`**
+**`EXERCISE`**
 
 ***
 
@@ -366,7 +376,7 @@ print(capt_dat)
 
 ***
 
-**`EXERCISE 4`**
+**`EXERCISE`**
 
 ***
 
@@ -386,7 +396,7 @@ The order of arguments in a function call matters, especially when you don't nam
 
 ***
 
-**`EXERCISE x`**
+**`EXERCISE`**
 
 1. Use the `?` function to look up the seq() function. 
 2. Why does `seq(from = 1, by = 3)` return a sequence successfully, while `seq(from = 40, by = 3)` results in an error? What is causing the difference in behavior?
@@ -476,7 +486,7 @@ The which() function returns the indices of elements that satisfy a given condit
 
 ***
 
-**`EXERCISE 5`**
+**`EXERCISE`**
 
 ***
 
@@ -495,7 +505,7 @@ Different object types in R require distinct indexing syntax, as each type has i
 
 ***
 
-**`EXERCISE 5`**
+**`EXERCISE`**
 
 ***
 

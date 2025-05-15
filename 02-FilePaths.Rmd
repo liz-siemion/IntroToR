@@ -3,7 +3,7 @@ To manually set the working directory or load a file from a specific location, i
 
 ## What is a file path?
 
-File paths are addresses to different locations or files on a computer. Your computer uses a system of nested folders.
+Your computer organizes files using a system of nested folders (i.e. directory structure), where each folder can contain other folders or files.
 
 <div style="text-align: center;">
   <img src="./docs/files/file_path_hierarchy.png" alt="Nested file system on your computer" width="40%">
@@ -12,7 +12,7 @@ File paths are addresses to different locations or files on a computer. Your com
 
 <br>
 
-File paths are addresses to different locations or files within this nested framework. They represents the order of nested folders that the computer must go through to find that particular item. Each folder is separated by a slash. We can use `Absolute` or `Relative` file paths in R to locate files. Knowing the file path is important when you need to set your working directory. See [this website](https://www.r4epi.com/file-paths) for a detailed explanation.  
+File paths are addresses to different locations (e.g. files, documents) within this nested framework. They represents the order of nested folders that the computer must go through to find that particular item. Each folder is separated by a slash. We can use `Absolute` or `Relative` file paths in R to locate files. Knowing the file path is important when you need to set your working directory. See [this website](https://www.r4epi.com/file-paths) for a detailed explanation.  
 
 ## Different separators between operating systems
 
@@ -21,7 +21,7 @@ Different operating systems use different separators between folders of a file p
 * On windows, it is `\`
 * On Mac/Linux, it is `/`
 
-R uses the `/` separator, so in windows, remember to either use a backward slash `\\` or change all `\` to `/` between your folders of your file path.
+R uses the / as the folder separator, even on Windows. So if you copy a file path from File Explorer (which uses \), be sure to either replace all backslashes (\) with forward slashes (/), or use double backslashes (\\) so R can read the path correctly.
 
 ## Absolute and Relative file paths
 

@@ -59,7 +59,7 @@ as.numeric(as.character(f))
 
 Labeling function arguments in R improves clarity and reduces errors. While you can pass arguments by position (e.g., `seq(1, 10, 2)`), naming them explicitly (e.g., `seq(from = 1, to = 10, by = 2)`) makes your code easier to read and avoids mistakes—especially when argument order is unclear or changes.
 
-## Duplicate function names in different libraries?
+## Conflicting Functions
 
 Duplicate function names in different libraries can create confusion and lead to errors in R because when multiple packages define functions with the same name, R will prioritize one function over another. This can cause unintended behavior and errors if a different function from a different package to be executed. For example, if two packages define a function called `filter()`, and one is from `dplyr` and the other from `stats`, R might use one by default, potentially breaking the code or leading to incorrect results if the wrong version is applied. Managing these conflicts is essential for ensuring that the correct function is used in the desired context.
 
@@ -73,7 +73,8 @@ The conflict package in R is designed to help manage situations where two or mor
 
 ```{r}
 library(conflicted)
-conflict_prefer("select", "dplyr")  # This will prefer the filter() function from the dplyr package.
+conflict_prefer("select", "dplyr")  # This will prefer the select() function 
+# from the dplyr package.
 ```
 
 ## Use the Help `?` Function!

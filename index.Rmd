@@ -17,13 +17,9 @@ github-repo: liz-siemion/IntroToR
   <img src="./docs/files/RLogo.png" alt="RLogo" width="30%">
 </div>
 
-I reference course materials from USU's ecology center workshop, and Dr. Simona Picardi's  [Reproducible data science website](https://ecorepsci.github.io/reproducible-science/index.html). 
-
-***
-
 ## Workshop Goals
 
-This course introduces the foundational concepts of programming in R and using RStudio, with a focus on producing reproducible and well-documented workflows.Our goal is to equip you with the skills to continue learning R independently and to integrate R programming into your analyses and workflows.
+This course introduces the foundational concepts of programming in R and using RStudio, with a focus on producing reproducible and well-documented workflows. Our goal is to equip you with the skills to continue learning R independently and to integrate R programming into your analyses and workflows.
 
 <div style="text-align: center;">
   <img src="./docs/files/HowMuchIKnowAboutR.png" alt="How Much I Know in R" width="80%">
@@ -39,15 +35,22 @@ This course introduces the foundational concepts of programming in R and using R
 4. [Tidy Data](#tidy-data) <br>
 5. [Packages](#packages) <br>
 6. [Working with R objects](#r-objects) <br>
-7. [Data types](#data-types) (character, numeric, logical, etc.) and classes (scalar, vector, data frames, matrices, lists, etc.) <br>
-8. [Functions](#functions) (arguments, function workflow) <br>
-9. [Indexing](#index) <br>
-10. [Importing and exporting data files](#import-export) (csv, xlsx, mdb, rds)] <br>
-11. [Data organization and manipulation](#data-org) (base R and tidyverse) <br>
-12. [Vectorized Operations](#vectorized)
-13. [Basic plotting](#plotting) <br>
-14. [Control Structures](#control) <br>
-15. [For-loops](#for-loops) <br>
-16. [Basic statistics & statistical summaries](#stats) <br>
-17. [Debugging](#debugging) (how to ask the right questions) <br>
-18. [Making readable R code](#readable-r) (commenting, outlining, etc.)
+7. [Data types](#data-types) (factor, numeric, character, and logical) <br>
+8. [Data classes](#data-classes) (scalar, vector, data frames, matrices, lists) <br>
+9. [Functions](#functions) (arguments, function workflow) <br>
+10. [Indexing](#index) <br>
+12. [Importing and exporting data files](#import-export) (csv, xlsx, mdb, rds)] <br>
+13. [Data organization and manipulation](#data-org) (baseR and tidyverse) <br>
+14. [Vectorized Operations](#vectorized)
+15. [Basic plotting](#plotting) <br>
+16. [Control Structures](#control) <br>
+17. [For-loops](#for-loops) <br>
+18. [Basic statistics & statistical summaries](#stats) <br>
+19. [Debugging](#debugging) <br>
+20. [Making readable R code](#readable-r)
+
+***
+
+**I reference course materials from USU's ecology center workshops, and Dr. Simona Picardi's  [Reproducible data science website](https://ecorepsci.github.io/reproducible-science/index.html) throughout this course.**
+
+***

@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-14" />
+<meta name="date" content="2025-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="import-export.html"/>
-<link rel="next" href="for-loops.html"/>
+<link rel="next" href="functional.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -151,7 +151,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#directory-structure"><i class="fa fa-check"></i><b>2.2</b> Directory Structure</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>2.3</b> R Studio</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.4</b> RStudio Projects</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#using-comments"><i class="fa fa-check"></i><b>2.5</b> Using Comments</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="file.html"><a href="file.html"><i class="fa fa-check"></i><b>3</b> File paths</a>
 <ul>
@@ -181,23 +180,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="using-r.html"><a href="using-r.html#packages"><i class="fa fa-check"></i><b>5.1</b> Installing Packages</a></li>
-<li class="chapter" data-level="5.2" data-path="using-r.html"><a href="using-r.html#use-r-as-a-calculator"><i class="fa fa-check"></i><b>5.2</b> Use R as a calculator</a></li>
-<li class="chapter" data-level="5.3" data-path="using-r.html"><a href="using-r.html#use-r-to-compare-things"><i class="fa fa-check"></i><b>5.3</b> Use R to compare things</a></li>
-<li class="chapter" data-level="5.4" data-path="using-r.html"><a href="using-r.html#r-objects"><i class="fa fa-check"></i><b>5.4</b> Use R to assign objects</a>
+<li class="chapter" data-level="5.2" data-path="using-r.html"><a href="using-r.html#using-comments"><i class="fa fa-check"></i><b>5.2</b> Using Comments</a></li>
+<li class="chapter" data-level="5.3" data-path="using-r.html"><a href="using-r.html#use-r-as-a-calculator"><i class="fa fa-check"></i><b>5.3</b> Use R as a calculator</a></li>
+<li class="chapter" data-level="5.4" data-path="using-r.html"><a href="using-r.html#use-r-to-compare-things"><i class="fa fa-check"></i><b>5.4</b> Use R to compare things</a></li>
+<li class="chapter" data-level="5.5" data-path="using-r.html"><a href="using-r.html#r-objects"><i class="fa fa-check"></i><b>5.5</b> Use R to assign objects</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>5.4.1</b> Variable names</a></li>
+<li class="chapter" data-level="5.5.1" data-path="using-r.html"><a href="using-r.html#variable-names"><i class="fa fa-check"></i><b>5.5.1</b> Variable names</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="using-r.html"><a href="using-r.html#data-types"><i class="fa fa-check"></i><b>5.5</b> Data Types (Modes)</a></li>
-<li class="chapter" data-level="5.6" data-path="using-r.html"><a href="using-r.html#data-structure-classes"><i class="fa fa-check"></i><b>5.6</b> Data Structure Classes</a>
+<li class="chapter" data-level="5.6" data-path="using-r.html"><a href="using-r.html#data-types"><i class="fa fa-check"></i><b>5.6</b> Data Types (Modes)</a></li>
+<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#data-classes"><i class="fa fa-check"></i><b>5.7</b> Data Structure Classes</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>5.6.1</b> Scalar</a></li>
-<li class="chapter" data-level="5.6.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>5.6.2</b> Vector</a></li>
-<li class="chapter" data-level="5.6.3" data-path="using-r.html"><a href="using-r.html#lists"><i class="fa fa-check"></i><b>5.6.3</b> Lists</a></li>
-<li class="chapter" data-level="5.6.4" data-path="using-r.html"><a href="using-r.html#matrix"><i class="fa fa-check"></i><b>5.6.4</b> Matrix</a></li>
-<li class="chapter" data-level="5.6.5" data-path="using-r.html"><a href="using-r.html#data-frames"><i class="fa fa-check"></i><b>5.6.5</b> Data Frames</a></li>
+<li class="chapter" data-level="5.7.1" data-path="using-r.html"><a href="using-r.html#scalar"><i class="fa fa-check"></i><b>5.7.1</b> Scalar</a></li>
+<li class="chapter" data-level="5.7.2" data-path="using-r.html"><a href="using-r.html#vector"><i class="fa fa-check"></i><b>5.7.2</b> Vector</a></li>
+<li class="chapter" data-level="5.7.3" data-path="using-r.html"><a href="using-r.html#lists"><i class="fa fa-check"></i><b>5.7.3</b> Lists</a></li>
+<li class="chapter" data-level="5.7.4" data-path="using-r.html"><a href="using-r.html#matrix"><i class="fa fa-check"></i><b>5.7.4</b> Matrix</a></li>
+<li class="chapter" data-level="5.7.5" data-path="using-r.html"><a href="using-r.html#data-frames"><i class="fa fa-check"></i><b>5.7.5</b> Data Frames</a></li>
+<li class="chapter" data-level="5.7.6" data-path="using-r.html"><a href="using-r.html#other-object-types"><i class="fa fa-check"></i><b>5.7.6</b> Other Object Types</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="using-r.html"><a href="using-r.html#functions"><i class="fa fa-check"></i><b>5.7</b> Functions</a></li>
-<li class="chapter" data-level="5.8" data-path="using-r.html"><a href="using-r.html#index"><i class="fa fa-check"></i><b>5.8</b> Indexing</a></li>
+<li class="chapter" data-level="5.8" data-path="using-r.html"><a href="using-r.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
+<li class="chapter" data-level="5.9" data-path="using-r.html"><a href="using-r.html#index"><i class="fa fa-check"></i><b>5.9</b> Indexing</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="using-r.html"><a href="using-r.html#numerical-indexing"><i class="fa fa-check"></i><b>5.9.1</b> Numerical Indexing</a></li>
+<li class="chapter" data-level="5.9.2" data-path="using-r.html"><a href="using-r.html#named-indexing"><i class="fa fa-check"></i><b>5.9.2</b> Named Indexing</a></li>
+<li class="chapter" data-level="5.9.3" data-path="using-r.html"><a href="using-r.html#logical-indexing"><i class="fa fa-check"></i><b>5.9.3</b> Logical Indexing</a></li>
+<li class="chapter" data-level="5.9.4" data-path="using-r.html"><a href="using-r.html#range-or-sequence-indexing"><i class="fa fa-check"></i><b>5.9.4</b> Range or Sequence Indexing</a></li>
+<li class="chapter" data-level="5.9.5" data-path="using-r.html"><a href="using-r.html#negative-indexing"><i class="fa fa-check"></i><b>5.9.5</b> Negative Indexing</a></li>
+<li class="chapter" data-level="5.9.6" data-path="using-r.html"><a href="using-r.html#which-indexing"><i class="fa fa-check"></i><b>5.9.6</b> Which Indexing</a></li>
+<li class="chapter" data-level="5.9.7" data-path="using-r.html"><a href="using-r.html#indexing-different-data-types"><i class="fa fa-check"></i><b>5.9.7</b> Indexing different data types</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>6</b> Tidyverse</a>
 <ul>
@@ -216,8 +226,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="data-org.html"><a href="data-org.html#exploring-data-frames"><i class="fa fa-check"></i><b>8.1</b> Exploring Data Frames</a></li>
 <li class="chapter" data-level="8.2" data-path="data-org.html"><a href="data-org.html#vectorized"><i class="fa fa-check"></i><b>8.2</b> Vectorized Operations</a></li>
 <li class="chapter" data-level="8.3" data-path="data-org.html"><a href="data-org.html#data-frame-manipulation"><i class="fa fa-check"></i><b>8.3</b> Data Frame Manipulation</a></li>
+<li class="chapter" data-level="8.4" data-path="data-org.html"><a href="data-org.html#subsetting"><i class="fa fa-check"></i><b>8.4</b> Subsetting</a></li>
+<li class="chapter" data-level="8.5" data-path="data-org.html"><a href="data-org.html#ifelse-statements"><i class="fa fa-check"></i><b>8.5</b> ifelse Statements</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="for-loops.html"><a href="for-loops.html"><i class="fa fa-check"></i><b>9</b> For Loops</a></li>
+<li class="chapter" data-level="9" data-path="functional.html"><a href="functional.html"><i class="fa fa-check"></i><b>9</b> Functional Programming</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="functional.html"><a href="functional.html#control"><i class="fa fa-check"></i><b>9.1</b> Control Structures</a></li>
+<li class="chapter" data-level="9.2" data-path="functional.html"><a href="functional.html#for-loops"><i class="fa fa-check"></i><b>9.2</b> For Loops</a></li>
+<li class="chapter" data-level="9.3" data-path="functional.html"><a href="functional.html#troubleshooting-for-loops"><i class="fa fa-check"></i><b>9.3</b> Troubleshooting For-loops</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>10</b> Basic Plotting</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="plotting.html"><a href="plotting.html#load-bighorn-capture-table"><i class="fa fa-check"></i><b>10.1</b> load bighorn capture table</a></li>
@@ -235,17 +252,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>12</b> Debugging Code</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="debugging.html"><a href="debugging.html#check-your-parenthesis"><i class="fa fa-check"></i><b>12.1</b> Check Your Parenthesis!</a></li>
-<li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.2</b> Coercian Problems</a></li>
-<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#do-you-need-to-label-your-arguments-in-your-function"><i class="fa fa-check"></i><b>12.3</b> Do you need to label your arguments in your function?</a></li>
-<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#use-the-help-function-in-rstudio"><i class="fa fa-check"></i><b>12.4</b> Use the help function in RStudio!</a></li>
-<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#section"><i class="fa fa-check"></i><b>12.5</b> …</a></li>
+<li class="chapter" data-level="12.1" data-path="debugging.html"><a href="debugging.html#locating-problematic-code"><i class="fa fa-check"></i><b>12.1</b> Locating Problematic Code</a></li>
+<li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#syntax-errors"><i class="fa fa-check"></i><b>12.2</b> Syntax errors</a></li>
+<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.3</b> Coercian Problems</a></li>
+<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.4</b> Labeling function arguments</a></li>
+<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.5</b> Conflicting Functions</a></li>
+<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.6</b> Use the Help <code>?</code> Function!</a></li>
+<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.7</b> Google</a></li>
+<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.8</b> AI</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="readable-r.html"><a href="readable-r.html"><i class="fa fa-check"></i><b>13</b> Making Readable R Code</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="readable-r.html"><a href="readable-r.html#outlining-r-scripts"><i class="fa fa-check"></i><b>13.1</b> Outlining R Scripts</a></li>
-<li class="chapter" data-level="13.2" data-path="readable-r.html"><a href="readable-r.html#making-readable-r-code"><i class="fa fa-check"></i><b>13.2</b> Making Readable R Code</a></li>
+<li class="chapter" data-level="13.2" data-path="readable-r.html"><a href="readable-r.html#pseudocoding"><i class="fa fa-check"></i><b>13.2</b> Pseudocoding</a></li>
+<li class="chapter" data-level="13.3" data-path="readable-r.html"><a href="readable-r.html#making-readable-r-code"><i class="fa fa-check"></i><b>13.3</b> Making Readable R Code</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="class-wrap-up.html"><a href="class-wrap-up.html"><i class="fa fa-check"></i><b>14</b> Class Wrap Up</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -269,14 +291,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-org" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Data Organization<a href="data-org.html#data-org" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Let’s start by downloading some data and exploring it in a data frame. In this example, we’ll load a CSV file. We’ll cover how to import and export different types of data files in more detail later.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-org.html#cb1-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./docs/data/BighornMortTable.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-org.html#cb88-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./docs/data/BighornMortTable.csv&quot;</span>)</span></code></pre></div>
 <div id="exploring-data-frames" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Exploring Data Frames<a href="data-org.html#exploring-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s take a look at the data. Exploring your dataset is one of the most important first steps when working in R. It helps you understand the structure, types of variables, and potential issues before doing any analysis. A good place to start is by examining the structure of the data to see what you’re working with.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-org.html#cb2-1" tabindex="-1"></a><span class="co"># str() shows us the structure of the data, including the data mode, </span></span>
-<span id="cb2-2"><a href="data-org.html#cb2-2" tabindex="-1"></a><span class="co"># the dimensions of # the dataframe including the data mode, the dimensions of </span></span>
-<span id="cb2-3"><a href="data-org.html#cb2-3" tabindex="-1"></a><span class="co"># the dataframe, and a few observations</span></span>
-<span id="cb2-4"><a href="data-org.html#cb2-4" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-org.html#cb89-1" tabindex="-1"></a><span class="co"># str() shows us the structure of the data, including the data mode, </span></span>
+<span id="cb89-2"><a href="data-org.html#cb89-2" tabindex="-1"></a><span class="co"># the dimensions of # the dataframe including the data mode, the dimensions of </span></span>
+<span id="cb89-3"><a href="data-org.html#cb89-3" tabindex="-1"></a><span class="co"># the dataframe, and a few observations</span></span>
+<span id="cb89-4"><a href="data-org.html#cb89-4" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1061 obs. of  45 variables:
 ##  $ NecropDateDt              : chr  &quot;31-Jan-25&quot; &quot;21-Jan-25&quot; &quot;05-Jan-25&quot; &quot;08-Sep-24&quot; ...
 ##  $ NecropDate                : int  20250131 20250121 20250105 20240908 20240709 20240617 20240604 20240530 20240528 20240520 ...
@@ -323,15 +345,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ LionID                    : chr  &quot;&quot; &quot;&quot; &quot;267&quot; &quot;&quot; ...
 ##  $ KillLocUsingGPSData       : chr  &quot;N&quot; &quot;N&quot; &quot;Y&quot; &quot;n&quot; ...
 ##  $ LionClusterID             : chr  &quot;&quot; &quot;&quot; &quot;267_20241202&quot; &quot;&quot; ...</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-org.html#cb4-1" tabindex="-1"></a><span class="fu">length</span>(mort) <span class="co"># gives the number of columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-org.html#cb91-1" tabindex="-1"></a><span class="fu">length</span>(mort) <span class="co"># gives the number of columns</span></span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-org.html#cb6-1" tabindex="-1"></a><span class="fu">nrow</span>(mort) <span class="co"># to get the number of rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-org.html#cb93-1" tabindex="-1"></a><span class="fu">nrow</span>(mort) <span class="co"># to get the number of rows</span></span></code></pre></div>
 <pre><code>## [1] 1061</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-org.html#cb8-1" tabindex="-1"></a><span class="fu">ncol</span>(mort) <span class="co"># number of columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-org.html#cb95-1" tabindex="-1"></a><span class="fu">ncol</span>(mort) <span class="co"># number of columns</span></span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-org.html#cb10-1" tabindex="-1"></a><span class="fu">dim</span>(mort) <span class="co"># or both at once, dim()</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-org.html#cb97-1" tabindex="-1"></a><span class="fu">dim</span>(mort) <span class="co"># or both at once, dim()</span></span></code></pre></div>
 <pre><code>## [1] 1061   45</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-org.html#cb12-1" tabindex="-1"></a><span class="fu">names</span>(mort) <span class="co"># names of the columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-org.html#cb99-1" tabindex="-1"></a><span class="fu">names</span>(mort) <span class="co"># names of the columns</span></span></code></pre></div>
 <pre><code>##  [1] &quot;NecropDateDt&quot;               &quot;NecropDate&quot;                
 ##  [3] &quot;DeadDateDt&quot;                 &quot;DeadDate&quot;                  
 ##  [5] &quot;Date1stHeardDt&quot;             &quot;Date1stHeard&quot;              
@@ -362,17 +384,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Don’t run into issues down the road. Once we’re happy with our data types, we can really start digging into our data!</li>
 </ul>
 <p>We can also examine individual columns:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-org.html#cb14-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-org.html#cb101-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-org.html#cb16-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-org.html#cb103-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-org.html#cb18-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-org.html#cb105-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
 <pre><code>##  chr [1:1061] &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Unknown not Predation&quot; &quot;Lion&quot; ...</code></pre>
 <p>We can also index a dataframe column using the operator.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-org.html#cb20-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-org.html#cb107-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;M267&quot;</code></pre>
 <p>We can use the functions <code>head()</code> and <code>tail()</code> to look at the first or last 6 rows of the data frame.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-org.html#cb22-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="at">n =</span> <span class="dv">3</span>) <span class="co"># n = refers to how many rows to print </span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-org.html#cb109-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="at">n =</span> <span class="dv">3</span>) <span class="co"># n = refers to how many rows to print </span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -418,18 +440,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2                   N              
 ## 3                   Y  267_20241202</code></pre>
 <p>Similarly, <code>[[</code> will act to extract a single column:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-org.html#cb24-1" tabindex="-1"></a>mort[[<span class="st">&quot;AnimalYear&quot;</span>]][<span class="dv">500</span>] <span class="co"># extract the 500th row of the AnimalYear column</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-org.html#cb111-1" tabindex="-1"></a>mort[[<span class="st">&quot;AnimalYear&quot;</span>]][<span class="dv">500</span>] <span class="co"># extract the 500th row of the AnimalYear column</span></span></code></pre></div>
 <pre><code>## [1] 2016</code></pre>
 <p>We can also use square brackets to extract specific elements from a data frame. Remember that data frame indexing follows the format [rows, columns], so the first number refers to the row, and the second to the column.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-org.html#cb26-1" tabindex="-1"></a><span class="co"># [rows, columns]</span></span>
-<span id="cb26-2"><a href="data-org.html#cb26-2" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># grab element at first row and second column</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-org.html#cb113-1" tabindex="-1"></a><span class="co"># [rows, columns]</span></span>
+<span id="cb113-2"><a href="data-org.html#cb113-2" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># grab element at first row and second column</span></span></code></pre></div>
 <pre><code>## [1] 20250131</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-org.html#cb28-1" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1 in columns 1-6</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-org.html#cb115-1" tabindex="-1"></a>mort[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1 in columns 1-6</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-org.html#cb30-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">5</span>] <span class="co"># grab row 1-6 in column 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-org.html#cb117-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">5</span>] <span class="co"># grab row 1-6 in column 5</span></span></code></pre></div>
 <pre><code>## [1] &quot;30-Jan-25&quot; &quot;&quot;          &quot;02-Dec-24&quot; &quot;&quot;          &quot;08-May-24&quot; &quot;08-Mar-24&quot;</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-org.html#cb32-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1-6 in columns 1-6</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-org.html#cb119-1" tabindex="-1"></a>mort[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># grab row 1-6 in columns 1-6</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -437,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4    08-Sep-24   20240908  26-Feb-17 20170226                          NA
 ## 5    09-Jul-24   20240709  11-Mar-24 20240311      08-May-24     20240508
 ## 6    17-Jun-24   20240617  08-Mar-24 20240308      08-Mar-24     20240308</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-org.html#cb34-1" tabindex="-1"></a><span class="fu">head</span>(mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">n =</span> <span class="dv">5</span>) <span class="co"># grab all rows from columns 1-3, show me the first 5 rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-org.html#cb121-1" tabindex="-1"></a><span class="fu">head</span>(mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">n =</span> <span class="dv">5</span>) <span class="co"># grab all rows from columns 1-3, show me the first 5 rows</span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt
 ## 1    31-Jan-25   20250131  22-Jan-25
 ## 2    21-Jan-25   20250121  25-Jun-23
@@ -449,30 +471,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.2</span> Vectorized Operations<a href="data-org.html#vectorized" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is a natively vectorized language, which means it can automatically perform operations on entire vectors (columns of data) without the need for explicit loops. This makes data manipulation in R efficient and concise.</p>
 <p>For example, let’s say all the ages in our bighorn mortality dataset are off by one year. To correct this, we can simply add 1 to the entire Age column. This works because R applies the operation to each element of the vector. But first, we need to make sure the Age column is numeric. If it’s stored as character or factor, we need to coerce it to numeric before performing the math. Because R vectorizes math operations, the + 1 is automatically applied to every value in the Age column, and the result is stored in the new AgeNew column—no loop required.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-org.html#cb36-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-org.html#cb123-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-org.html#cb38-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-org.html#cb125-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-org.html#cb40-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> mort<span class="sc">$</span>AgeNew <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-org.html#cb127-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> mort<span class="sc">$</span>AgeNew <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <p>We see a warning about NAs being introduced when coercing values to a numeric data type. This happens because some entries in the Age column aren’t purely numeric—for example, values like “4+” or “&gt;7” contain extra characters. Since R can’t interpret these as numbers, it replaces them with NA.</p>
 <p>In practice, we could clean this column so it contains only numeric values. One way to do that is by using the gsub() function along with a regular expression to remove non-numeric characters. I’ll show you the code below for reference, but we won’t be covering regular expressions in detail during this workshop.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-org.html#cb41-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[^0-9.]&quot;</span>, <span class="st">&quot;&quot;</span>, mort<span class="sc">$</span>Age)  <span class="co"># Remove all non-numeric characters</span></span>
-<span id="cb41-2"><a href="data-org.html#cb41-2" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>AgeNew) <span class="co"># Coerce from character to numeric data mode</span></span>
-<span id="cb41-3"><a href="data-org.html#cb41-3" tabindex="-1"></a><span class="fu">head</span>(mort<span class="sc">$</span>AgeNew, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-org.html#cb128-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[^0-9.]&quot;</span>, <span class="st">&quot;&quot;</span>, mort<span class="sc">$</span>Age)  <span class="co"># Remove all non-numeric characters</span></span>
+<span id="cb128-2"><a href="data-org.html#cb128-2" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>AgeNew) <span class="co"># Coerce from character to numeric data mode</span></span>
+<span id="cb128-3"><a href="data-org.html#cb128-3" tabindex="-1"></a><span class="fu">head</span>(mort<span class="sc">$</span>AgeNew, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1]  6 11  0  5  4  9  0  3 10  2</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-org.html#cb43-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> mort<span class="sc">$</span>AgeNew <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb43-2"><a href="data-org.html#cb43-2" tabindex="-1"></a><span class="fu">head</span>(mort<span class="sc">$</span>AgeNew, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-org.html#cb130-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> mort<span class="sc">$</span>AgeNew <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb130-2"><a href="data-org.html#cb130-2" tabindex="-1"></a><span class="fu">head</span>(mort<span class="sc">$</span>AgeNew, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1]  7 12  1  6  5 10  1  4 11  3</code></pre>
 </div>
 <div id="data-frame-manipulation" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Data Frame Manipulation<a href="data-org.html#data-frame-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s create a new column to hold information on whether bighorn age is &lt; 5:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-org.html#cb45-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> mort<span class="sc">$</span>Age <span class="sc">&lt;</span> <span class="dv">5</span></span>
-<span id="cb45-2"><a href="data-org.html#cb45-2" tabindex="-1"></a><span class="fu">head</span>(below_five)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-org.html#cb132-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> mort<span class="sc">$</span>Age <span class="sc">&lt;</span> <span class="dv">5</span></span>
+<span id="cb132-2"><a href="data-org.html#cb132-2" tabindex="-1"></a><span class="fu">head</span>(below_five)</span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
 <p>We’ve created a simple vector of TRUE/FALSE values. To add it to our data frame, we can use the cbind() function, which binds columns together. In this case, it combines our existing data frame with the new logical vector as an additional column.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-org.html#cb47-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span>
-<span id="cb47-2"><a href="data-org.html#cb47-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five), <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-org.html#cb134-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span>
+<span id="cb134-2"><a href="data-org.html#cb134-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -517,7 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1                   N                    7      FALSE      FALSE
 ## 2                   N                   12       TRUE       TRUE
 ## 3                   Y  267_20241202      1       TRUE       TRUE</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-org.html#cb49-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data-org.html#cb136-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -563,19 +585,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2                   N                   12       TRUE
 ## 3                   Y  267_20241202      1       TRUE</code></pre>
 <p>If we try to add the below_average vector to our data frame but it has a different number of elements than there are rows in the data frame, R will return an error. The number of entries must match for the columns to align correctly.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-org.html#cb51-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb51-2"><a href="data-org.html#cb51-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five))</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-org.html#cb138-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb138-2"><a href="data-org.html#cb138-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five))</span></code></pre></div>
 <p>Now let’s look at how we might add rows to a data frame.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-org.html#cb52-1" tabindex="-1"></a><span class="co"># first let&#39;s make a mortality dataframe of 3 columns</span></span>
-<span id="cb52-2"><a href="data-org.html#cb52-2" tabindex="-1"></a>mort_short <span class="ot">&lt;-</span> mort[,<span class="fu">c</span>(<span class="st">&quot;Animal_ID&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cause_Mort&quot;</span>)]</span>
-<span id="cb52-3"><a href="data-org.html#cb52-3" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;S781&#39;</span>, <span class="dv">3</span>, <span class="st">&quot;Lion&quot;</span>) </span>
-<span id="cb52-4"><a href="data-org.html#cb52-4" tabindex="-1"></a><span class="co"># note that we have to make the row a list, since each column has a different data type</span></span>
-<span id="cb52-5"><a href="data-org.html#cb52-5" tabindex="-1"></a>mort_new <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mort_short, new_row)</span>
-<span id="cb52-6"><a href="data-org.html#cb52-6" tabindex="-1"></a><span class="fu">tail</span>(mort_new) <span class="co"># lets you look at the last 6 lines of data</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-org.html#cb139-1" tabindex="-1"></a><span class="co"># first let&#39;s make a mortality dataframe of 3 columns</span></span>
+<span id="cb139-2"><a href="data-org.html#cb139-2" tabindex="-1"></a>mort_short <span class="ot">&lt;-</span> mort[,<span class="fu">c</span>(<span class="st">&quot;Animal_ID&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cause_Mort&quot;</span>)]</span>
+<span id="cb139-3"><a href="data-org.html#cb139-3" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;S781&#39;</span>, <span class="dv">3</span>, <span class="st">&quot;Lion&quot;</span>) </span>
+<span id="cb139-4"><a href="data-org.html#cb139-4" tabindex="-1"></a><span class="co"># note that we have to make the row a list, since each column has a different data type</span></span>
+<span id="cb139-5"><a href="data-org.html#cb139-5" tabindex="-1"></a>mort_new <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mort_short, new_row)</span>
+<span id="cb139-6"><a href="data-org.html#cb139-6" tabindex="-1"></a><span class="fu">tail</span>(mort_new) <span class="co"># lets you look at the last 6 lines of data</span></span></code></pre></div>
 <hr />
 <p><strong><code>EXERCISE</code></strong>
-1. vecotr vs df vs list in adding a new row what works?</p>
+1. vector vs df vs list in adding a new row what works?</p>
 <hr />
+</div>
+<div id="subsetting" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Subsetting<a href="data-org.html#subsetting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="ifelse-statements" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> ifelse Statements<a href="data-org.html#ifelse-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -585,7 +613,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="import-export.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="for-loops.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
