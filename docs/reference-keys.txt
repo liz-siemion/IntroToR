@@ -98,3 +98,4 @@ check-your-commas
 use-the-help-function
 locating-problematic-code
 troubleshooting-for-loops
+pseudocoding

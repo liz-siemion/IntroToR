@@ -9,6 +9,17 @@ R scripts can get long, and it can get a bit unwieldy to navigate between differ
 
 ![](./docs/files/bookmarks.png)
 
+## Pseudocoding
+
+Pseudocoding is basically a way to map out your code by writing down the logic in plain English. It helps you figure out what you're trying to do, organize your ideas, and spot potential issues before you actually start coding. It's like sketching a rough draft before creating the final version. Pseudo coding can also be used to identify problematic code.
+
+To write pseudocode:
+
+1. Define the problem: Understand what you want to solve.
+2. Outline the steps: Break down the problem into logical, sequential steps.
+3. Use simple language: Write instructions in a clear and understandable format, avoiding technical jargon.
+4. Focus on logic: Focus on the flow of data, control structures (loops, conditionals), and key operations.
+
 ## Making Readable R Code
 
 1) Start each script with a brief description of what it does, who wrote it, and the last date it was edited.
