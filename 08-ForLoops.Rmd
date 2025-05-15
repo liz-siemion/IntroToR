@@ -1,4 +1,12 @@
-# For Loops {#for-loops}
+# Functional Programming {#functional}
+
+## Control Structures {#control}
+
+Indenting
+
+## For Loops {#for-loops}
+
+Indenting
 
 Easy for loop is to get mean weight by herd, or something like that. This will be a for-loop related to whatever basic statistical analysis we are doing.
 
@@ -7,3 +15,5 @@ Easy for loop is to get mean weight by herd, or something like that. This will b
 **`EXERCISE`**
 
 ***
+
+## Troubleshooting For-loops

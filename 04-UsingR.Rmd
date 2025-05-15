@@ -22,7 +22,29 @@ library(amt) # call a package you previously downloaded
 
 ***
 
-If two different packages contain functions with the same name, R will mask one with the other based on the order they are loaded. To avoid confusion, you can explicitly tell R which package to use by using the `package::function()` format. For example, the `filter()` function exists in both `stats` and `dplyr` packages. If you specifically want the version from dplyr, you can write dplyr::filter() in your code. We will talk more about this later on. 
+If two different packages contain functions with the same name, R will mask one with the other based on the order they are loaded. To avoid confusion, you can explicitly tell R which package to use by using the `package::function()` format. For example, the `filter()` function exists in both `stats` and `dplyr` packages. If you specifically want the version from dplyr, you can write dplyr::filter() in your code. We will talk more about this later on.
+
+## Using Comments
+
+Use the `#` to tell R you are making a comment. Comments are used to explain code and allow someone unfamiliar with your code to follow more easily. Commenting can also be used to prevent R from running specific lines of code since R ignores anything that follows the `#` mark.
+
+```{r}
+# 567*5 tells R that 567*5 is a comment, and so R knows not to execute this line of code.
+```
+
+Sometimes you want to comment out large sections of code, and this can be done using `control + shift + c` on windows or `command + shift + c` on a macbook.
+
+***
+
+**`EXERCISE 3: USING COMMENTS`**
+
+1. Create a new script (File > New File > R Script)
+2. In the first line, type `# Intro R`
+3. On line 2, type ` 1 + 1`
+4. select `Run` in the upper right corner of the console
+
+***
+
 
 ## Use R as a calculator
 
@@ -212,6 +234,12 @@ A vector has one element with length 1.
 x <- 3
 ```
 
+***
+
+**`EXERCISE 4`**
+
+***
+
 ### Vector
 A vector in R is essentially a collection of items **of the same basic 
 data type**. Each 'thing' in the vector is called an element. If you don’t 
@@ -251,6 +279,12 @@ my_seq <- seq(from = 1, to = 10, by = 0.1)
 my_seq
 ```
 
+***
+
+**`EXERCISE 4`**
+
+***
+
 ### Lists
 A list in R is essentially an object with data that can be in different data types/modes.
 
@@ -278,6 +312,12 @@ If you wanted to index a specific element in the list, you could also use bracke
 my_lions[[2]][2]
 ```
 
+***
+
+**`EXERCISE 4`**
+
+***
+
 ### Matrix
 A matrix in R is a two-dimensional data structure that stores elements of the same type (usually numbers). You can think of it like a spreadsheet or a table with rows and columns, but every value must be the same type (e.g., all numeric or all character).
 
@@ -287,6 +327,12 @@ Matrices are useful when you want to perform mathematical operations on tables o
 MyMatrix <- matrix(1:6, nrow = 2, ncol = 3)
 MyMatrix
 ```
+
+***
+
+**`EXERCISE 4`**
+
+***
 
 ### Data Frames
 A data frame in R is a like a list or generalized matrix but with the constraints that:
@@ -323,6 +369,11 @@ print(capt_dat)
 **`EXERCISE 4`**
 
 ***
+
+### Other Object Types
+
+R includes many other object types that we won't cover in detail during this course. For instance, spatial object types are used to represent and work with geographic data. The specific structure depends on the package ecosystem—most commonly the older sp system or the more modern, tidyverse-friendly sf package.
+
 ## Functions {#functions}
 
 We've used several functions in the previous code. So what is a function? A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
@@ -331,59 +382,116 @@ We've used several functions in the previous code. So what is a function? A func
 * Pass: We pass a value to a function argument. Above, we pass the value 1 to the argument `from`, and the value 10 to the argument `to` and the value 0.1 to the argument `by`
 * Return: This is the terminology to say that the function gives us an output. So with the `seq(from = 1, to = 10, by = 0.1)`, the function <em>returns</em> a sequence of numbers
 
- The order that we put the arguments into the function matters. It can be helpful to define the arguments in the function. You can use the help function to ensure that your arguments are correct.
-`?seq`
+The order of arguments in a function call matters, especially when you don't name them. To avoid confusion, it's often helpful to explicitly name the arguments. You can use the help system to check the correct usage of a function. For example, to learn more about the rep() function, you can type ?rep in the Console.
+
+***
+
+**`EXERCISE x`**
+
+1. Use the `?` function to look up the seq() function. 
+2. Why does `seq(from = 1, by = 3)` return a sequence successfully, while `seq(from = 40, by = 3)` results in an error? What is causing the difference in behavior?
+
+***
 
 ## Indexing {#index}
 
-So now that we’ve created dummy vectors to play with, how do we get at its contents?
+Indexing in R refers to the process of accessing specific elements from data structures like vectors, lists, or data frames. The type of indexing you use depends on the structure of your data and the task at hand, making it a versatile tool for data manipulation. To extract elements from a vector, use their index inside square brackets `[]`. 
 
-To extract elements of a vector we can give their corresponding index (square brackets `[]` are used for indexing). R uses 1-based indexing, so the
-first element of a vector, list, or dataframe is accessed using the index 1 (Python and C use 0-based indexing).
+| **Indexing Method**       | **Description**                                                                                   | **Example**                             |
+|---------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **Positional Indexing**    | Use numeric positions (1-based) to access elements in a vector, list, or data frame.              | `my_vector[2]` returns the 2nd element. |
+| **Named Indexing**         | Access elements by their name, making the code more readable.                                      | `my_vector["b"]` returns the value associated with `b`. |
+| **Logical Indexing**       | Use a logical vector (TRUE/FALSE) to subset elements. Only elements corresponding to TRUE are selected. | `my_vector[c(TRUE, FALSE, TRUE)]` returns elements where TRUE is present. |
+| **Range Indexing**         | Extract a range or sequence of elements using a colon or vector of indices.                       | `my_vector[2:4]` returns elements from positions 2 to 4. |
+| **Negative Indexing**      | Exclude elements by using negative indices.                                                       | `my_vector[-2]` excludes the 2nd element. |
+| **Indexing with `which()`**| Find the indices of elements that satisfy a condition, and use those indices for subsetting.      | `which(my_vector > 20)` returns indices where the values are greater than 20. |
+
+### Numerical Indexing
+
+This method involves using the position of elements in a vector, list, or other data structures. R uses 1-based indexing, meaning the first element has an index of 1, not 0 (as in some other programming languages like Python or C).
 
 ```{r}
-my_seq[1] # extract first element out of the my_seq vector
-my_series[4] # extract 4th element out of the my_series vector
-my_seq[c(2:4)] # extract elements 2 to 4 from the my_seq vector
+lion_list <- c("194", "228", "267", "272")
+lion_list[1] # extract first element out of the lion_list vector
+lion_list[4] # extract 4th element out of the lion_list vector
+lion_list[c(2:4)] # extract elements 2 to 4 from the my_seq vector
 ```
 
-We can also extract elements by using their name instead of extracting by index. Names are another attribute that you can give to data. They are often useful so that you don't have to type out a lot of numbers.
+### Named Indexing
+
+You can also extract elements by name rather than by index. Using names for indexing is particularly useful when you want to avoid relying on numeric positions, which may change as new data is added.
 
 ```{r}
-x <- c(5.4, 6.2, 7.1, 4.8, 7.5) # create vector
-names(x) <- c("a", "b", "c", "d", "e") # assign names to vector
+horn_length <- c(10, 30, 90, 50, 30) # create vector of horn lengths
+names(horn_length) <- c("S4", "S567", "S489", "S488", "S89") # assign sheep names to vector
 # we can also name a vector 'on the fly'
-x <- c(a = 5.4, b = 6.2, c = 7.1, d = 4.8, e = 7.5) 
-x[c("a", "c")]
+horn_length <- c(S4 = 5.4, S567 = 6.2, S489 = 7.1, S488 = 4.8, S89 = 7.5) 
+horn_length[c("S489", "S488")]
 ```
 
-Since comparison operators (e.g. >, <, ==) evaluate to logical vectors, we can also use them to succinctly subset vectors: the following statement gives the same result as the previous one.
+### Logical Indexing
+
+Since comparison operators (e.g. >, <, ==) evaluate to logical vectors, we can also use them to succinctly subset vectors: the following statement gives the same result as the previous one. This involves using logical vectors (TRUE/FALSE) to index elements. The logical vector must be of the same length as the data structure you’re indexing. Only elements corresponding to TRUE are selected.
 
 ```{r}
-x[x > 7] # this statement first evaluates x>7, generating a logical vector 
-# c(FALSE, FALSE, TRUE, FALSE, TRUE), and then selects the elements of x 
-# corresponding to the TRUE values.
+horn_length[horn_length > 30] # this statement first evaluates horn_length > 7, generating a logical vector c(FALSE, FALSE, TRUE, FALSE, TRUE), and then selects the elements of horn_length corresponding to the TRUE values.
 ```
 
-If we use a negative number as the index of a vector, R will return every element except for the one specified:
+### Range or Sequence Indexing
+
+You can extract a range or sequence of elements using a colon : to specify a range or a vector of indices.
 
 ```{r}
-x[-2]
+horn_length[1:3]
+```
+
+### Negative Indexing
+
+Negative indexing is used to exclude elements from a data structure. When you use a negative index, R excludes the element at that specific position. Note that negative indexing only applies to numeric positions, not named elements.
+
+```{r}
+horn_length[-2]
 # we can skip multiple elements
-x[c(-1, -5)]  
+horn_length[c(-1, -2)]  
 # or 
-x[-c(1,5)]
+horn_length[-c(1,5)]
 # a common mistake would be to ask R x[-1:3] # but there isn't a negative first row
 # But remember the order of operations. 
 # : is really a function. It takes its first argument as -1, 
 # and its second as 3, so generates the sequence of 
 # numbers: c(-1, 0, 1, 2, 3).
-x[-(1:3)]
+horn_length[-(1:3)]
 # To remove elements from a vector, we need to assign the result 
 # back into the variable:
-x <- x[-4]
-x
+horn_length <- horn_length[-4]
+horn_length
 ```
+
+### Which Indexing
+
+The which() function returns the indices of elements that satisfy a given condition (useful in combination with logical operations).
+
+```{r}
+```
+
+***
+
+**`EXERCISE 5`**
+
+***
+
+### Indexing different data types
+
+Different object types in R require distinct indexing syntax, as each type has its own structure and behavior. For instance, vectors are indexed using [], while lists require [[]] to extract individual elements. Data frames can be subsetted using both [] and [[]], but the syntax varies depending on whether you're accessing rows, columns, or individual elements. Understanding the proper indexing method for each object type is crucial for effectively manipulating and extracting data in R.
+
+| **Data Structure**   | **Indexing with `[]`**                                                                                  | **Indexing with `[[]]`**                                                                                             | **Description**                                                                                          |
+|----------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Vector**           | `my_vector[2]` - Accesses the 2nd element.                                                               | Not applicable (use `[]` for vectors).                                                                                  | `[]` returns a subset (vector), and `[]` is used to extract individual elements by their position.       |
+| **Data Frame**       | `my_df[2, ]` - Accesses the 2nd row (returns a data frame).                                               | `my_df[[2]]` - Accesses the 2nd column (returns a vector).                                                            | `[]` keeps the result as a data frame, while `[[]]` extracts a specific column or element.               |
+| **Matrix**           | `my_matrix[2, 3]` - Accesses the element in the 2nd row and 3rd column.                                 | Not applicable (use `[]` for matrices).                                                                                | `[]` is used to index both rows and columns, but `[[]]` is not used with matrices.                        |
+| **List**             | `my_list[2]` - Returns the 2nd element of the list (as a list).                                           | `my_list[[2]]` - Returns the 2nd element of the list (as the actual object, not as a list).                           | `[]` returns a sublist, while `[[]]` extracts the actual object at that index.                           |
+| **List of Lists**    | `my_list_of_lists[2]` - Returns the 2nd list in the list of lists (as a list).                           | `my_list_of_lists[[2]]` - Returns the 2nd list (the entire list, not just an element).                               | `[]` returns a sublist, while `[[]]` extracts the entire second list when using a list of lists.         |
+| **Nested List**      | `my_list[[2]][[2]]` - Returns the 2nd element of the 2nd list in the list of lists (after first subsetting). | `my_list[[2]][[2]]` - Extracts the 2nd element from the 2nd list in the list.                                         | `[]` can be used to subset lists, and `[[]]` extracts elements within the nested list structure.         |
 
 ***
 

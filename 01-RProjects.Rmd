@@ -65,24 +65,3 @@ For example, if my RStudio Project is located in <em>C:/Teaching/IntroR/</em>, m
 1. Create an RStudio PRoject using the instructions above.
 
 ***
-
-## Using Comments
-
-Use the `#` to tell R you are making a comment. Comments are used to explain code and allow someone unfamiliar with your code to follow more easily. Commenting can also be used to prevent R from running specific lines of code since R ignores anything that follows the `#` mark.
-
-```{r}
-# 567*5 tells R that 567*5 is a comment, and so R knows not to execute this line of code.
-```
-
-Sometimes you want to comment out large sections of code, and this can be done using `control + shift + c` on windows or `command + shift + c` on a macbook.
-
-***
-
-**`EXERCISE 3: USING COMMENTS`**
-
-1. Create a new script (File > New File > R Script)
-2. In the first line, type `# Intro R`
-3. On line 2, type ` 1 + 1`
-4. select `Run` in the upper right corner of the console
-
-***

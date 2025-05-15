@@ -46,7 +46,8 @@ This course introduces the foundational concepts of programming in R and using R
 11. [Data organization and manipulation](#data-org) (base R and tidyverse) <br>
 12. [Vectorized Operations](#vectorized)
 13. [Basic plotting](#plotting) <br>
-14. [For-loops](#for-loops) <br>
-15. [Basic statistics & statistical summaries](#stats) <br>
-16. [Debugging](#debugging) (how to ask the right questions) <br>
-17. [Making readable R code](#readable-r) (commenting, outlining, etc.)
+14. [Control Structures](#control) <br>
+15. [For-loops](#for-loops) <br>
+16. [Basic statistics & statistical summaries](#stats) <br>
+17. [Debugging](#debugging) (how to ask the right questions) <br>
+18. [Making readable R code](#readable-r) (commenting, outlining, etc.)

@@ -6,7 +6,7 @@ Let’s start by downloading some data and exploring it in a data frame. In this
 mort <- read.csv("./docs/data/BighornMortTable.csv")
 ```
 
-# Exploring Data Frames
+## Exploring Data Frames
 
 Let’s take a look at the data. Exploring your dataset is one of the most important first steps when working in R. It helps you understand the structure, types of variables, and potential issues before doing any analysis. A good place to start is by examining the structure of the data to see what you’re working with.
 
@@ -61,7 +61,7 @@ mort[1,2] # grab element at first row and second column
 mort[1,1:6] # grab row 1 in columns 1-6
 mort[1:6,5] # grab row 1-6 in column 5
 mort[1:6,1:6] # grab row 1-6 in columns 1-6
-head(mort[,1:3], 5) # grab all rows from columns 1-3, show me the first 5 rows
+head(mort[,1:3], n = 5) # grab all rows from columns 1-3, show me the first 5 rows
 ```
 
 ## Vectorized Operations {#vectorized}
@@ -125,5 +125,10 @@ tail(mort_new) # lets you look at the last 6 lines of data
 ***
 
 **`EXERCISE`**
+1. vector vs df vs list in adding a new row what works?
 
 ***
+
+## Subsetting
+
+## ifelse Statements

@@ -5,21 +5,86 @@
   <p style="font-size: 50%;"><em>Artwork by Allison Horst</em></p>
 </div>
 
-Even when you know R well, you will inevitably find yourself in a situation where you don't understand a package, have an error, don't know the right function to use, or need ideas of how to write the correct code.
+Even when you know R well, you will inevitably find yourself in situations where you don’t understand how a package works, encounter an unexpected error, aren’t sure which function to use, or need ideas for how to write the correct code. This is a normal part of coding and problem-solving. Experienced R users frequently search documentation, check forums like Stack Overflow, read vignettes, and experiment with small pieces of code to troubleshoot issues or explore new approaches. The key is knowing how to identify the problematic code, ask good questions, and know where to look for help.
 
-## Check Your Parenthesis! 
+## Locating Problematic Code
+If your code throws an error, begin by finding the line where it occurs. Run your code one line at a time until the error shows up. If the issue isn’t clear on that line, break it into smaller parts and test each section individually. This step-by-step process helps you pinpoint the exact source of the problem. 
+
+***
+
+**`EXERCISE 1`**
+
+1. Trouble shoot the following code. 
+<br>`x <- c(1, 2, 3)`
+<br>`y <- c(4, 5, "six")`
+<br>`result <- x + y`
+
+***
+
+## Syntax errors
+
+**Check Your Parenthesis!**
+
+A common error in R occurs when parentheses are not properly balanced. Every opening parenthesis `(` must have a corresponding closing parenthesis `)`. If they don't match, R will throw an error or hang while waiting for the rest of the expression to be executed. For example, mean(c(1, 3, 5, 6)) works correctly because the parentheses are balanced, while mean(c(1, 3, 5, 6) will result in an error due to the missing closing parenthesis. R will highlight the matching parenthesis when you place your cursor just before an opening `(` or just after a closing `)`, helping you check that your parentheses are properly balanced.
+
+**Check your commas!**
+
+In R, syntax errors related to commas often occur when they are either missing or misplaced. Commas are used to separate function arguments or elements in vectors, lists, and other data structures. A missing comma can cause R to misinterpret the code, leading to errors.
+
+**`EXERCISE 2`**
+
+1. Trouble shoot the following code. Start by running each line of code to understand where the error occurs. 
+<br>`x <- c(1, 2, 3`
+<br>`y <- c(4, 5 "six")`
+
+***
 
 ## Coercian Problems
 
-## Do you need to label your arguments in your function?
+In R, coercion occurs when elements of different types are combined, and R automatically converts them to a common type to maintain consistency. This can lead to unintended results if not handled carefully. Always check your data types with `str()`, `typeof()`, or `classs()` to avoid coercion issues.
 
-## Use the help function in RStudio!
+A common coercion error in R occurs when you convert a factor to numeric without first converting it to a character. Doing as.numeric() directly on a factor returns the internal integer codes of the factor levels, not the actual numeric values you might expect.
 
-## ...
+```{r}
+f <- factor(c("10", "20", "30"))
 
-**USE GOOGLE!**
-Using a google search will most often give you results that can answer your questions. Most packages have a documentation page that you can google if you don't understand how it works too. For example, I could google, "how do I use the seq function in R to return a sequence of numbers by 0.5?" It's important to note that you are using the programming language R, and the objective that you want to take.
+# incorrect coercian
+as.numeric(f)
 
-**Never be afraid to google if you run into trouble! The website [stackoverflow](https://stackoverflow.com) is your friend.**
+# correct coercian
+as.numeric(as.character(f))
+```
 
-ChatGPT can be very useful, but it can sometimes be correct. Overuse of AI can also prevent you from developing your coding skills.
+## Labeling function arguments
+
+Labeling function arguments in R improves clarity and reduces errors. While you can pass arguments by position (e.g., `seq(1, 10, 2)`), naming them explicitly (e.g., `seq(from = 1, to = 10, by = 2)`) makes your code easier to read and avoids mistakes—especially when argument order is unclear or changes.
+
+## Duplicate function names in different libraries?
+
+Duplicate function names in different libraries can create confusion and lead to errors in R because when multiple packages define functions with the same name, R will prioritize one function over another. This can cause unintended behavior and errors if a different function from a different package to be executed. For example, if two packages define a function called `filter()`, and one is from `dplyr` and the other from `stats`, R might use one by default, potentially breaking the code or leading to incorrect results if the wrong version is applied. Managing these conflicts is essential for ensuring that the correct function is used in the desired context.
+
+**Option 1: Using `::` Syntax**
+
+To specify which package’s function to use, you can use the `::` syntax. For example, to use the `select()` function from `dplyr`, write `dplyr::select()`. This ensures you are explicitly calling the correct function from the right package.
+
+**Option 2: Using the Conflict Package**
+
+The conflict package in R is designed to help manage situations where two or more loaded packages have functions with the same name. When you load multiple packages that contain functions with identical names, R will prioritize one function over another, which can lead to confusion or errors in your analysis. For example, both `amt` and `dplyr` have a `select()`. The conflict package provides tools to manage these conflicts explicitly and prevent unexpected behavior.
+
+```{r}
+library(conflicted)
+conflict_prefer("select", "dplyr")  # This will prefer the filter() function from the dplyr package.
+```
+
+## Use the Help `?` Function!
+In R, you can use the ? function to access R documentation for functions, packages, or datasets. For example, `?select` will bring up the documentation for the `select()` function. If you want information about a specific package, you can use `?package_name`, such as `?dplyr`, to view its documentation. This is a quick way to learn about function arguments, usage, and examples directly within R.
+
+## Google
+
+A quick Google search often leads to answers, and most R packages include vignettes or documentation to explain how functions work. For example, if you're unsure how to use the seq function in R to generate a sequence with a step size of 0.5, you could search for "how do I use the seq function in R to generate a sequence of numbers by 0.5?" It's important to specify that you're working with R and clearly describe your problem to get better results.
+
+Another invaluable resource is Stack Overflow, a community-driven Q&A website where developers and data scientists share knowledge. On Stack Overflow, you can search for similar issues, or if your question hasn't been asked yet, you can post your own.
+
+## AI
+
+AI (e.g. ChatGPT) can be a valuable tool for debuggin code, but it's important to remember that it's not always correct. Relying too heavily on AI can also hinder your ability to develop and strengthen your coding skills.
