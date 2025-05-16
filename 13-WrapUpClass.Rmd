@@ -7,9 +7,10 @@
 
 We hope that you have picked up some useful skills in this IntroR course and are motivated to keep learning R. If you run into questions down the road, feel free to reach out to either one of us. 
 
-We're also planning a second workshop on spatial data manipulation and analysis, which will include:
+We're also planning a second workshop emphasizing spatial data manipulation and analysis, which will include:
 
-1. Wrangling Spatial Data using the simple feature package
-2. Wrangling dates and times
-3. Mapping spatial data (e.g. leaflet, baseR, etc.)
+1. The apply family
+2. Wrangling Spatial Data using the simple feature package
+2. Using dates and times
+3. Mapping spatial data (e.g. leaflet, baseR plotting, etc.)
 4. Implementing and exploring key differences between Kaplan Meier and Cox Proportional Hazard survival analyses. 

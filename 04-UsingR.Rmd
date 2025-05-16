@@ -41,13 +41,42 @@ Sometimes you want to comment out large sections of code, and this can be done u
 
 **`EXERCISE`**
 
-1. Create a new script (<em>File > New File > R Script</em>)
+1. Create a new script (**<em>File > New File > R Script</em>**)
 2. In the first line, type `# Intro R`
 3. On line 2, type ` 1 + 1`
 4. Select `Run` in the upper right corner of the console. You can also use the shortcut `control + enter` on Windows and `command + enter` on a Macbook. If the keyboard shortcuts aren’t working, navigate to **<em>Tools > Modify Keyboard Shortcuts </em>**, type **<em>Run Current Line or Section</em>** into the search bar, double-click the shortcut, remove the current key combination, and enter your preferred shortcut.
 
 ***
 
+## Functions {#functions}
+
+A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. R provides built-in functions, such as mean(), sum(), and plot(), which perform commonly used operations. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
+
+* Arguments: information that goes inside the parenthesis to tell the function what to do. For example, when we used the `seq` function, the arguments are `from`, `to`, and `by`.
+* Pass: We pass a value to a function argument. We can pass the value 1 to the argument `from`, and the value 10 to the argument `to` and the value 0.1 to the argument `by`.
+* Return: This is the terminology to say that the function gives us an output. So with the `seq(from = 1, to = 10, by = 0.1)`, the function <em>returns</em> a sequence of numbers
+
+The order of arguments in a function call matters, especially when you don't name them. To avoid confusion, it's often helpful to explicitly name the arguments. You can use the help system to check the correct usage of a function. For example, to learn more about the rep() function, you can type ?rep in the Console.
+
+Additionally, you can define your own functions to solve specific problems and use them across multiple analyses. Functions are an essential part of R programming, as they allow for cleaner, more efficient, and modular code. Although we won’t be covering custom functions in this course, it’s important to note that creating your own functions is a common and useful practice in programming.
+
+```{r eval=FALSE}
+function_name <- function(arg1, arg2) { # arg1 and arg2 are inputs
+  # Code that processes the inputs
+  result <- arg1 + arg2
+  return(result)  # return() provides the output of the function
+}
+```
+
+
+***
+
+**`EXERCISE`**
+
+1. Use the `?` function to look up the seq() function. 
+2. Why does `seq(from = 1, by = 3)` return a sequence successfully, while `seq(from = 40, by = 3)` results in an error? What is causing the difference in behavior? Hint: look up `seq` using the help function. Are there any default values? How might that affect the behavior of the function?
+
+***
 
 ## Use R as a calculator
 
@@ -383,25 +412,6 @@ print(capt_dat)
 ### Other Object Types
 
 R includes many other object types that we won't cover in detail during this course. For instance, spatial object types are used to represent and work with geographic data. The specific structure depends on the package ecosystem—most commonly the older sp system or the more modern, tidyverse-friendly sf package.
-
-## Functions {#functions}
-
-We've used several functions in the previous code. So what is a function? A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.
-
-* Arguments: information that goes inside the parenthesis to tell the function what to do. For example, when we used the `seq` function above, the arguments are `from = 1`, `to = 10`, and `by = 0.1`.
-* Pass: We pass a value to a function argument. Above, we pass the value 1 to the argument `from`, and the value 10 to the argument `to` and the value 0.1 to the argument `by`
-* Return: This is the terminology to say that the function gives us an output. So with the `seq(from = 1, to = 10, by = 0.1)`, the function <em>returns</em> a sequence of numbers
-
-The order of arguments in a function call matters, especially when you don't name them. To avoid confusion, it's often helpful to explicitly name the arguments. You can use the help system to check the correct usage of a function. For example, to learn more about the rep() function, you can type ?rep in the Console.
-
-***
-
-**`EXERCISE`**
-
-1. Use the `?` function to look up the seq() function. 
-2. Why does `seq(from = 1, by = 3)` return a sequence successfully, while `seq(from = 40, by = 3)` results in an error? What is causing the difference in behavior?
-
-***
 
 ## Indexing {#index}
 
