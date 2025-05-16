@@ -28,6 +28,7 @@ inconsistent-value-formatting
 using-r
 packages
 using-comments
+functions
 use-r-as-a-calculator
 use-r-to-compare-things
 r-objects
@@ -40,7 +41,6 @@ lists
 matrix
 data-frames
 other-object-types
-functions
 index
 numerical-indexing
 named-indexing
@@ -63,10 +63,11 @@ vectorized
 data-frame-manipulation
 subsetting
 ifelse-statements
-functional
 control
 for-loops
 troubleshooting-for-loops
+if-else-and-ifelse-statements
+next-and-break
 plotting
 load-bighorn-capture-table
 organize-data

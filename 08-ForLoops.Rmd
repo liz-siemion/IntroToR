@@ -1,19 +1,265 @@
-# Functional Programming {#functional}
+# Control Structures {#control}
 
-## Control Structures {#control}
+Control structures are important tools for writing clear and efficient code by using conditional statements and repeated actions. Common control structures in R include `if`, `else`, and `ifelse()` for making decisions, and loops `for`, `while`, and `repeat` for running code multiple times. For example, <em>if</em> statements run code only when a condition is true, while <em>for loops</em> repeat actions for each item. 
 
-Indenting
 
-## For Loops {#for-loops}
+## Loops {#for-loops}
 
-Indenting
+There are three main types of loops: `for` (most common), `while`, and `repeat`. For loops are not always the most efficient way to perform repetitive tasks. In many cases, vectorized operations (e.g. apply functions) are faster and more efficient. Vectorized operations apply to entire vectors (or arrays) at once, whereas for loops iterate through individual elements sequentially. We will not be covering vectorization operations in this course, but it is good to be aware that they exist.
 
-Easy for loop is to get mean weight by herd, or something like that. This will be a for-loop related to whatever basic statistical analysis we are doing.
+```{r eval=FALSE}
+for(i in 1:n) { # n = number of times you run the loop
+  # execute a task
+} # end loop
+```
+
+It's good practice to indent the code inside your loop and add a comment at the end to mark that the loop is finished. This becomes especially helpful when you have nested loops, as it makes your code easier to read and understand.
+
+```{r}
+for(i in 1:10) {
+  print(i + 3) # indented code chunk
+} # comment that this is the end of the ith loop
+```
+
+When using a for loop, you often need to store the results from each iteration. Start by creating an empty object before the loop begins. Inside the loop, assign each result to a specific index of that object. To aid in debugging, use the cat() function to print the current iteration number. This allows you to track the loop's progress and easily identify issues by running it step by step.
+
+```{r}
+# create empty vector of desired dimensions
+my_vector <- rep(NA, length = 10)
+
+for(i in 1:10) {
+  cat(i) # print current iteration of loop
+  my_vector[i] <- i + 3 * (i-1) # save output in the ith position of my_vector
+} # end i loop
+
+my_vector
+```
+
+## Troubleshooting For-loops
+
+Troubleshooting for-loops can be tricky. Below are a few hints for troubleshooting code in a for-loop. 
+
+1. Check loop syntax
+2. Print iteration progress
+3. Check object dimensions
+4. Check variable types
+5. Avoid indexing errors
+6. Check loop boundaries
+7. Validate conditional statements
+8. Use try-catch for errors
+9. Ensure proper object initialization
+10. Check for missing values
+
+**Example: Converting Sheep Weight from Kilograms to Pounds**
+
+Let's start by creating a sample capture data frame that includes sheep IDs and their weight in kilograms.
+
+```{r}
+capt <- data.frame(animal_id = c("S431", "S488", "S490", "S511"),
+                   weight_kg = c(43, 55, 48, "50kg"))
+
+```
+
+Next, we'll run a for loop to convert the weight from kilograms to pounds. Before doing so, we need to create a new column in the data frame to store the converted weight in pounds.
+
+```{r}
+capt$weight_lb <- NA # R automatically assigns each of the 4 rows as NA
+```
+
+Now, here's a for loop that attempts to transform the weight from kilograms to pounds. This loop has two issues that we need to address:
+
+```{r error=TRUE}
+for (i in 1:nrow(capt)) { 
+  pounds <- capt$weight_kg[i] * 2.20462
+  capt$weight_lb <- pounds
+}
+```
+
+**Issue 1: Error in the First Iteration**
+
+It looks like the loop threw an error. To find where the error occurred, we can print the current iteration value (i), which will help identify the problem:
+
+```{r}
+i
+```
+
+The error occurs in the first iteration. To debug further, we can execute the loop's code step by step. Let's start with the first line:
+
+```{r error=TRUE}
+pounds <- capt$weight_kg[i] * 2.20462
+```
+
+**Issue 2: Non-Numeric Data in weight_kg**
+
+The error occurs because the weight_kg column contains a non-numeric entry: "50kg". Let's check the data type of capt$weight_kg:
+
+```{r}
+class(capt$weight_kg)
+```
+
+Because the `weight_kg` column is of character type, we cannot perform an arithmetic operation, and the code throws an error. To fix this, we need to convert the weight_kg column to numeric.
+
+```{r}
+capt$weight_kg_new <- as.numeric(capt$weight_kg)
+```
+
+Looks like an NA was thrown.  Let's check the original weight_kg column to understand why:
+
+```{r}
+capt$weight_kg
+```
+
+The fifth row contains "50kg", which causes the entire column to be treated as character data. To fix this, we can remove any alphabetic characters from the weight_kg column using regular expressions (regex). Although we won’t cover regex in detail here, it’s a useful tool for cleaning data.
+
+```{r}
+capt$weight_kg <- gsub("[A-Za-z]", "", capt$weight_kg)
+capt$weight_kg <- as.numeric(capt$weight_kg)
+```
+
+**Issue 3: Incorrect Weight Conversion in the Loop**
+
+Now that the first issue is resolved, let’s try running the for loop again:
+
+```{r}
+for (i in 1:nrow(capt)) { 
+  pounds <- capt$weight_kg[i] * 2.20462
+  capt$weight_lb <- pounds
+}
+```
+
+
+```{r}
+capt$weight_lb
+```
+
+This time, the loop runs, but it appears that the same weight value was applied to all rows. Let’s debug this by running through the loop step by step.
+
+First, we'll reset the weight_lb column to NA and set i = 1 to check the output for the first row:
+
+```{r}
+capt$weight_lb <- NA # R automatically assigns each of the 4 rows as NA
+
+for (i in 1:nrow(capt)) { 
+  pounds <- capt$weight_kg[i] * 2.20462
+  capt$weight_lb <- pounds
+}
+
+```
+
+**Issue 4: Forgetting to Index the weight_lb Column Correctly**
+
+The problem is that we forgot to properly index the `capt$weight_lb` column with `i` to ensure the calculated pounds value is assigned to the correct row. Let's fix the loop by updating the assignment to `capt$weight_lb[i]`:
+
+```{r}
+capt$weight_lb <- NA  # Reset the weight_lb column to NA
+
+# Correct the loop
+for (i in 1:nrow(capt)) { 
+  pounds <- capt$weight_kg[i] * 2.20462
+  capt$weight_lb[i] <- pounds  # Use indexing to assign pounds to the correct row
+}
+
+```
+
+**Additional Debugging Tip: Experiment with Iteration Values**
+
+A helpful debugging trick is to manually set the value of `i` to different numbers to observe how the behavior of the loop changes with different data. For example:
+
+```{r}
+i <- 2  # Test with a specific iteration
+capt$weight_kg[i] * 2.20462  # Check the result for the second iteration
+```
+
+This allows you to understand how the loop behaves with specific input values.
 
 ***
 
 **`EXERCISE`**
 
+1. Write a for loop that runs for 10 iterations, adding 3 to the loop index during each iteration
+
 ***
 
-## Troubleshooting For-loops
+## if, else, and ifelse statements
+
+If, else, and ifelse statements allow you to control the flow of your code by making decisions based on specific conditions. This can be particularly helpful in for loops, where you might want to execute different actions depending on the iteration.
+
+For instance, conditional statements allow you to alternate between different operations or calculations during each iteration of a loop. This provides flexibility, enabling you to adjust the behavior of your code based on dynamic factors like the loop index or other variables. Below is an example where a for loop and ifelse statement are used to store a logical value in a vector if a randomly generated number is less than or equal to 50.
+
+```{r}
+# create vector of length 10 with random numbers
+my_vect <- sample(x = 1:100, size = 15)
+output_vect <- NULL
+for (i in 1:length(my_vect)) {
+  if(my_vect[i] <= 50) {
+    output_vect[i] <- TRUE
+  }
+  else{
+    output_vect[i] <- FALSE
+  }
+}
+
+my_vect
+output_vect
+```
+
+You can also use the ifelse() statement for a conditional statement.
+
+```{r}
+species <- c("snbs", "lion", "deer", "deer")
+
+# Use ifelse to label values as "small" or "large"
+result <- ifelse(species %in% c("snbs", "deer"), "prey", "predator")
+
+result
+```
+
+**Why use ifelse() instead of if-else?**
+
+While both ifelse() and traditional if-else statements perform conditional logic, ifelse() is often preferred when you need to apply conditions element-wise (e.g., to vectors or columns in a data frame) and so is better for vectorized operations.
+
+For example, ifelse() is faster and simpler when you want to apply a condition across an entire vector or column at once, without having to explicitly loop over each element.
+
+In contrast, a traditional if-else statement is typically used when you need more complex or multi-step conditions and is better suited for situations that involve single-value conditional logic within control structures like loops.
+
+### next and break
+In a for loop, the `next` and `break` commands provide control over the loop's behavior:
+
+* next: Skips the current iteration and moves to the next one. It's useful when you want to bypass certain iterations based on a condition without exiting the entire loop.
+
+```{r} 
+for (i in 1:5) {
+  if (i == 3) next  # Skip iteration when i is 3
+  print(i)
+}
+```
+
+* break: Immediately exits the loop, stopping further iterations. This is useful when you want to terminate the loop early based on a specific condition.
+
+```{r}
+for (i in 1:5) {
+  if (i == 3) break  # Exit the loop when i reaches 3
+  print(i)
+}
+```
+
+Both `next` and `break` give you fine-grained control over loop behavior, allowing you to skip unnecessary steps or stop the loop early when certain conditions are met.
+
+***
+
+**`EXERCISE`**
+
+1. **Create a data frame**
+Create a data frame that includes the following columns:
+* deer_id: a unique identifier for each deer (as a character)
+* month: the month the data was recorded (as a number from 1 to 12)
+* year: the calendar year of the observation (as a number)
+2. **Add an animal year column using a for loop and ifelse**
+Using a for loop, add a new column called animal_year to the data frame.
+* If the month is between May (5) and December (12), add 1 to the year
+* If the month is between January (1) and April (4), keep the year unchanged
+Use an `ifelse()` statement inside the loop to apply this logic.
+
+***
+
+
