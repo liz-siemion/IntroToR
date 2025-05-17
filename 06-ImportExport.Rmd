@@ -1,20 +1,122 @@
-# Importing and Exporting data files {#import-export}
+# Importing & Exporting Data {#import-export}
 
-## Load and export basic files
-csv, xlsx, mdb, rds
+## csv files
+```{r eval=FALSE}
+# Load csv file into R
+lion_crosstab <- read.csv("path/to/your/file.csv")
+
+# Save it as a csv file
+write.csv(lion_crosstab, "path/to/save/your_new_file.csv", row.names = FALSE)
+# row.names = FALSE makes sure a column of row numbers isn't created
+
+```
 
 ***
 
-**`EXERCISE`**
+**`Exercise`**
+
+1. Load the lion crosstab table
+2. Use head() to examine the first 3 rows of the dataset.
+
+***
+
+## xlsx files
+To read an xlsx file into R, we first need to install the `readxl` package. If the Excel file contains multiple sheets, you can specify the sheet you want to load by name or by index. 
+
+```{r eval=FALSE}
+install.packages("readxl")
+library(readxl)
+
+# read data
+data <- read_excel("path/to/your/file.xlsx", sheet = "Sheet1")
+
+# save data
+write.xlsx(data, "path/to/save/your_new_file.xlsx", sheetName = "Sheet1")
+
+```
+
+***
+
+**`Exercise`**
+1. Load the lion crosstab xlsx table
+2. Use head() to examine the first 3 rows of the dataset.
+
+***
+
+### rds files
+An RDS file is a file format in R used to store a single R object, such as a data frame, vector, or model. It's a convenient way to save your R work so you don't lose data or have to recreate complex objects. You can use saveRDS() to save an object and readRDS() to load it back into your R session. RDS files preserve the exact data structure, including data types (e.g., factors, dates, lists, and complex objects), and metadata.
+
+```{r eval=FALSE}
+
+# Load RDS file into R
+my_data <- readRDS("path/to/your/file.RDS")
+
+# Save it as an RDS file
+saveRDS(my_data, "path/to/save/your_new_file.RDS")
+
+# View the loaded data
+print(loaded_data)
+```
+
+
+***
+
+**`Exercise`**
+
+1. Load the lion RDS capture table
+2. Use head() to examine the first 3 rows of the dataset.
+3. Export capture table as an RDS file using a different name
+4. Export capture table as a csv file using a different name 
 
 ***
 
 ## Connect to a database on Windows OS
 
+To connect to a Microsoft Access database in R on a Windows computer, you can use the `RODBC package`. You will need the Access ODBC driver installed, and then use `odbcDriverConnect()` with the correct file path to the `.mdb` or `.accdb` file. Once connected, you can use `sqlFetch()` to load tables or `sqlQuery()` to run custom SQL queries.
+
+```{r eval=FALSE}
+library(RODBC)
+
+# 1. Connect to the bighorn database
+conAV <- RODBC::odbcDriverConnect("Driver={Microsoft Access Driver (*.mdb, *.accdb)};
+                                DBQ=C:/R/MigrationEnergeticsModel/20181109_bighorn.mdb")
+
+# 2. Fetch desired database tables: grab database tables from bighorn database
+collar.data <- RODBC::sqlFetch(conAV,"AllCollarLocations", colnames=F, rownames=F)
+capt.data <- RODBC::sqlFetch(conAV, "BighornCapt", colnames=F, rownames=F)
+
+# 2. SQL Query for Custom Data Extraction: Write query using SQL syntax. This code can be grabbed from the access database if the query already exists.
+sql.qry_GPS_Parm <- "SELECT GPSParameters.ProgramName_Descrip, BigHornCapt.AnimalID, BigHornCapt.DateDt, BigHornCapt.GPSCollarSerialNo_Date_FK,
+  LU_GPS_Programs.FixesPerWeek, BigHornCapt.Herd_Rels, BigHornCapt.Herd_Capt,BigHornCapt.Sex
+                FROM LU_GPS_Programs INNER JOIN (GPSParameters INNER JOIN BigHornCapt ON
+  GPSParameters.CollarSerialNo_Date = BigHornCapt.GPSCollarSerialNo_Date_FK) ON
+  LU_GPS_Programs.ProgramName_Descrip = GPSParameters.ProgramName_Descrip
+                WHERE ((LU_GPS_Programs.FixesPerWeek)>27 And (LU_GPS_Programs.FixesPerWeek)<250));"
+
+# Execute query
+high.fix <- RODBC::sqlQuery(conAV, sql.qry_GPS_Parm)
+
+# Remove query after run
+rm(sql.qry_GPS_Parm)  
+ 
+# Close database connection
+close(conAV) 
+
+```
+
 ## Load database files on a Macbook
+
+You can’t use Access databases on a Mac in the same way you can on a Windows machine. Microsoft Access `.mdb` and `.accdb` files aren’t natively supported on macOS because the required ODBC drivers are Windows-only. On my MacBook, I typically load individual tables using R and then join them within R, rather than querying directly through Access. (Note: we won’t cover joins in this class.) Another option is to convert the Access database into a SQL-compatible format (such as `SQLite` or `PostgreSQL`) and then write SQL queries against that database.
+
+```{r eval=FALSE}
+# export Capture Table
+system("mdb-export /Users/a02399564/Documents/Research/PhD-SNBS/data/snbs/databases/bighorn.mdb BigHornCapt > /Users/a02399564/Documents/Research/PhD-SNBS/data/snbs/databases/BigHornCaptTable.csv")
+```
 
 ***
 
 **`EXERCISE`**
+
+1. Import the bighorn mortality table and store it in a data frame named bighorn_mort.
 
 ***

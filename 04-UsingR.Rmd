@@ -463,7 +463,7 @@ Indexing in R refers to the process of accessing specific elements from data str
 | **Logical Indexing**       | Use a logical vector (TRUE/FALSE) to subset elements. Only elements corresponding to TRUE are selected. | `my_vector[c(TRUE, FALSE, TRUE)]` returns elements where TRUE is present. |
 | **Range Indexing**         | Extract a range or sequence of elements using a colon or vector of indices.                       | `my_vector[2:4]` returns elements from positions 2 to 4. |
 | **Negative Indexing**      | Exclude elements by using negative indices.                                                       | `my_vector[-2]` excludes the 2nd element. |
-| **Indexing with `which()`**| Find the indices of elements that satisfy a condition, and use those indices for subsetting.      | `which(my_vector > 20)` returns indices where the values are greater than 20. |
+| **which() Indexing**| Find the indices of elements that satisfy a condition, and use those indices for subsetting.      | `which(my_vector > 20)` returns indices where the values are greater than 20. |
 
 ### Numerical Indexing
 
@@ -565,6 +565,7 @@ Different object types in R require distinct indexing syntax, as each type has i
 ***
 
 **`EXERCISE`**
+
 1. Create the following object.
 
 * `elk_df <- data.frame(`  
@@ -576,5 +577,81 @@ Different object types in R require distinct indexing syntax, as each type has i
 2. Remove the elk ids "E001" and "E002" from the data frame using negative indexing.
 3. Use which() indexing to subset the `elk_df` to include only elk from the "North" herd. Assign this to a new object called "elk_north. 
 4. BONUS: Use a which() statement to subset `elk_df` to elk in the "North" and "East" herds
+
+***
+
+## BaseR Plotting
+
+BaseR plotting is an efficient way to visualize a dataset. 
+
+```{r}
+# Create a fake data frame for bighorn sheep
+bighorn_df <- data.frame(
+  ID = paste0("S", 500:530),      # ID for each sheep
+  Age = sample(1:15, 31, replace = TRUE),  # Random ages between 1 and 10
+  Weight = round(rnorm(31, mean = 75, sd = 15), 1),  # Random weights with mean of 75 kg and sd of 15
+  Sex = factor(sample(c("M", "F"), 31, replace = TRUE), labels = c("M", "F")),     # Random sexes (Male, Female)
+  Herd = sample(c("North", "South", "East", "West"), 31, replace = TRUE)  # Random herd names
+)
+
+# Define grey tones based on levels of the 'Sex' factor
+grey_tones <- c("blue", "orange")  # grey50 for males, grey80 for females
+```
+
+
+```{r}
+# create a scatterplot
+plot(x = bighorn_df$Age, # x-axis
+     y = bighorn_df$Weight, # y-axis
+     main = "Bighorn Sheep: Weight by Age", # title
+     xlab = "Age (years)", # x-axis label
+     ylab = "Weight (kg)", # y-axis label
+     col = grey_tones[bighorn_df$Sex],  # point color (sex needs to be a factor)
+     pch = 19,              # solid circle
+     cex = 1.2)             # slightly larger points
+# Add separate trend lines for each Sex group
+# Males
+abline(lm(Weight ~ Age, data = subset(bighorn_df, Sex == "M")), col = "blue", lwd = 2)  
+# Females
+abline(lm(Weight ~ Age, data = subset(bighorn_df, Sex == "F")), col = "orange", lwd = 2) 
+
+# Add a legend
+legend("topright", 
+       legend = levels(bighorn_df$Sex),  # Use the levels of the factor for legend
+       col = c("blue", "orange"),      # Different tones for trend lines
+       pch = 16) # solid circle point type
+```
+
+```{r}
+hist(bighorn_df$Weight,
+     main = "Distribution of Bighorn Sheep Weights",
+     xlab = "Weight (kg)",
+     ylab = "Frequency",
+     col = "skyblue",        # fill color of the bars
+     border = "black",       # outline color of the bars
+     breaks = 10)            # number of bins (adjust as needed)
+```
+
+***
+
+**`EXERCISE`**
+
+1. Create the following object: 
+```{r eval=FALSE}
+# Create a fake data frame for bighorn sheep
+bighorn_df <- data.frame(
+  ID = paste0("S", 500:530),      # ID for each sheep
+  Age = sample(1:15, 31, replace = TRUE),  # Random ages between 1 and 10
+  Weight = round(rnorm(31, mean = 75, sd = 15), 1),  # Random weights with mean of 75 kg and sd of 15
+  Sex = sample(c("M", "F"), 31, replace = TRUE),     # Random sexes (Male, Female)
+  Herd = sample(c("North", "South", "East", "West"), 31, replace = TRUE)  # Random herd names
+)
+```
+
+2. Create a histogram to visualize the age distribution of bighorn sheep.
+* Set the bins to be maroon.
+* Add a black border to the bins.
+* Include a title and labels for the x and y axes.
+* Adjust the breaks (number of bins) as needed
 
 ***

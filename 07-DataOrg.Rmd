@@ -113,6 +113,7 @@ head(cbind(mort, below_five))
 ```
 
 Now let's look at how we might add rows to a data frame. 
+
 ```{r error=FALSE, eval=FALSE}
 # first let's make a mortality dataframe of 3 columns
 mort_short <- mort[,c("Animal_ID", "Age", "Cause_Mort")]
@@ -125,10 +126,24 @@ tail(mort_new) # lets you look at the last 6 lines of data
 ***
 
 **`EXERCISE`**
-1. vector vs df vs list in adding a new row what works?
+
+1. Load the bighorn mort table from the bighorn database and assign it the variable name of "mort"
+2. Print the names of the mort dataframe using `names()` and `dput(names(mort))`. Why might using dput(names(mort)) be helpful?
+2. Select these columns: DeadDate, Animal_ID, COM, Sex, Age, Herd, Recorder
+3. Subset to just females using the `subset()`, which indexing, and the `filter()` function.
+4. Subset to herds that are not Cathedral or Big Arroyo. You will need to use `!` and the `%in%`. Any subsetting method is ok to use
+4. Subset to herds in the Souther Recovery Unit: Mt. Baxter, Mt. Langley, Taboose Creek, Sawmill Canyon, Bubbs Creek, Mt. Williamson. You will need to use `%in%`. Any subsetting method is ok to use
+5. Subset to only lion caused mortalities. Use the `unique()` function on the column `COM` to print the category names in the `COM` column. This will provide information on the correct syntax to use for subsetting. For example, is it "Lion", "lion", or "mountain lion". Syntax matters in R. 
+6. How many rows and columns are in the mort data frame. 
+8. Use `View()` to view you data frame
+
+***
+
 
 ***
 
 ## Subsetting
 
-## ifelse Statements
+### baseR
+
+### Tidyverse

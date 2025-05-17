@@ -222,7 +222,7 @@ For example, ifelse() is faster and simpler when you want to apply a condition a
 
 In contrast, a traditional if-else statement is typically used when you need more complex or multi-step conditions and is better suited for situations that involve single-value conditional logic within control structures like loops.
 
-### next and break
+## next and break
 In a for loop, the `next` and `break` commands provide control over the loop's behavior:
 
 * next: Skips the current iteration and moves to the next one. It's useful when you want to bypass certain iterations based on a condition without exiting the entire loop.

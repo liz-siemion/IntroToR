@@ -267,6 +267,5 @@ bighorn_df <- data.frame(
 * Add a black outline to the bins.
 * Include a title as well as labels for the x and y axes.
 * Apply a theme to enhance the plot’s appearance.
-3. Create a similar baseR plot
 
 ***

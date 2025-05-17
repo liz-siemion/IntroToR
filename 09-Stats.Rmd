@@ -1,0 +1,16 @@
+# Statistical Summaries
+
+This is a work in progress and will be updated.
+
+The following exercise can be done on your own or in groups. You’ll need to use what we’ve covered so far and make use of the help function in R. Don’t hesitate to ask questions—if anyone gets stuck, we’ll work through it together as a class.
+
+1. Load the bighorn capture table from the bighorn database
+2. Select the following collumns: Animal_ID, Sex, Herd_Rels, BCS score, and weight
+3. Rename the Herd_Rels column to Herd: use `rename()` in tidyverse or names(df) <- c(<list of new df column names> in baseR)
+4. Are there any NA values? Use sum(is.na(<df>)). Remove NA values with `na.omit()` or `is.na()`
+5. Use the baseR `table()` function to tabulate the number of captures by herd across time
+6. Group by herd using `group_by()`
+4. Use the summarize function to calculate the sample size, mean, and median of BCS by herd
+5. Create a scatterplot in baseR or ggplot2 of bighorn by BCS and weight
+6. Create a boxplot of weight in each herd
+7. Compare if bighorn weights differ between Gibbs and Baxter using a T-test.
