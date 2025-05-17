@@ -33,4 +33,6 @@ To write pseudocode:
 7) Break code into small, discrete pieces. 
 9) Think about the best way to organize your directory given your objectives. I often have sub folders for data, output, and docs.
 10) Start with a clean environment instead of saving the work space.
-11) Consider using version control (i.e. Github).
+11) Consider using version control (i.e. Github). to track changes and collaborate
+11) Indent your code chunks
+12) Don't write past the page margin

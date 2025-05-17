@@ -39,6 +39,17 @@ In R, syntax errors related to commas often occur when they are either missing o
 
 ***
 
+## Missing and Undefined Data
+
+There are three common types of missing or undefined data in R: `Null`, `NA`, and `NaN`. Knowing the differences in these data types can help with interpreting error messages. 
+
+| **Type** | **Description** | **Use Case** | **Example** |
+|:---------|----------------|-------------|------------|
+| **NA**   | Represents a missing or unavailable value in data. | Used in data frames or vectors to indicate missing data. | `x <- c(1, 2, NA, 4)` |
+| **NaN**  | Stands for "Not a Number". Represents undefined numerical results (e.g., division by zero). | Typically appears when performing invalid mathematical operations. | `x <- 0 / 0` (Results in `NaN`) |
+| **NULL** | Represents the absence of a value or object. | Used to indicate an empty object or no value assigned. | `x <- NULL` |
+
+
 ## Coercian Problems
 
 In R, coercion occurs when elements of different types are combined, and R automatically converts them to a common type to maintain consistency. This can lead to unintended results if not handled carefully. Always check your data types with `str()`, `typeof()`, or `classs()` to avoid coercion issues.

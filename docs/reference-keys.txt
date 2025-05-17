@@ -82,6 +82,7 @@ plot-results
 debugging
 locating-problematic-code
 syntax-errors
+missing-and-undefined-data
 coercian-problems
 labeling-function-arguments
 conflicting-functions
@@ -93,3 +94,8 @@ outlining-r-scripts
 pseudocoding
 making-readable-r-code
 class-wrap-up
+tidyverse-vs-baser
+understanding-the-parts-of-a-ggplot
+ggplot
+different-plots-in-ggplot
+components-of-ggplot

@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-16" />
+<meta name="date" content="2025-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,12 +257,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="12.1" data-path="debugging.html"><a href="debugging.html#locating-problematic-code"><i class="fa fa-check"></i><b>12.1</b> Locating Problematic Code</a></li>
 <li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#syntax-errors"><i class="fa fa-check"></i><b>12.2</b> Syntax errors</a></li>
-<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.3</b> Coercian Problems</a></li>
-<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.4</b> Labeling function arguments</a></li>
-<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.5</b> Conflicting Functions</a></li>
-<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.6</b> Use the Help <code>?</code> Function!</a></li>
-<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.7</b> Google</a></li>
-<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.8</b> AI</a></li>
+<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#missing-and-undefined-data"><i class="fa fa-check"></i><b>12.3</b> Missing and Undefined Data</a></li>
+<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.4</b> Coercian Problems</a></li>
+<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.5</b> Labeling function arguments</a></li>
+<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.6</b> Conflicting Functions</a></li>
+<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.7</b> Use the Help <code>?</code> Function!</a></li>
+<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.8</b> Google</a></li>
+<li class="chapter" data-level="12.9" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.9</b> AI</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="readable-r.html"><a href="readable-r.html"><i class="fa fa-check"></i><b>13</b> Making Readable R Code</a>
 <ul>
@@ -327,46 +328,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <hr />
 </div>
-<div id="coercian-problems" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Coercian Problems<a href="debugging.html#coercian-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="missing-and-undefined-data" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Missing and Undefined Data<a href="debugging.html#missing-and-undefined-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are three common types of missing or undefined data in R: <code>Null</code>, <code>NA</code>, and <code>NaN</code>. Knowing the differences in these data types can help with interpreting error messages.</p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="31%" />
+<col width="25%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr>
+<th align="left"><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Use Case</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>NA</strong></td>
+<td>Represents a missing or unavailable value in data.</td>
+<td>Used in data frames or vectors to indicate missing data.</td>
+<td><code>x &lt;- c(1, 2, NA, 4)</code></td>
+</tr>
+<tr>
+<td align="left"><strong>NaN</strong></td>
+<td>Stands for “Not a Number”. Represents undefined numerical results (e.g., division by zero).</td>
+<td>Typically appears when performing invalid mathematical operations.</td>
+<td><code>x &lt;- 0 / 0</code> (Results in <code>NaN</code>)</td>
+</tr>
+<tr>
+<td align="left"><strong>NULL</strong></td>
+<td>Represents the absence of a value or object.</td>
+<td>Used to indicate an empty object or no value assigned.</td>
+<td><code>x &lt;- NULL</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coercian-problems" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Coercian Problems<a href="debugging.html#coercian-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R, coercion occurs when elements of different types are combined, and R automatically converts them to a common type to maintain consistency. This can lead to unintended results if not handled carefully. Always check your data types with <code>str()</code>, <code>typeof()</code>, or <code>classs()</code> to avoid coercion issues.</p>
 <p>A common coercion error in R occurs when you convert a factor to numeric without first converting it to a character. Doing as.numeric() directly on a factor returns the internal integer codes of the factor levels, not the actual numeric values you might expect.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="debugging.html#cb180-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
-<span id="cb180-2"><a href="debugging.html#cb180-2" tabindex="-1"></a></span>
-<span id="cb180-3"><a href="debugging.html#cb180-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
-<span id="cb180-4"><a href="debugging.html#cb180-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="debugging.html#cb192-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
+<span id="cb192-2"><a href="debugging.html#cb192-2" tabindex="-1"></a></span>
+<span id="cb192-3"><a href="debugging.html#cb192-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
+<span id="cb192-4"><a href="debugging.html#cb192-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="debugging.html#cb182-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
-<span id="cb182-2"><a href="debugging.html#cb182-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="debugging.html#cb194-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
+<span id="cb194-2"><a href="debugging.html#cb194-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
 </div>
-<div id="labeling-function-arguments" class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> Labeling function arguments<a href="debugging.html#labeling-function-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="labeling-function-arguments" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Labeling function arguments<a href="debugging.html#labeling-function-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Labeling function arguments in R improves clarity and reduces errors. While you can pass arguments by position (e.g., <code>seq(1, 10, 2)</code>), naming them explicitly (e.g., <code>seq(from = 1, to = 10, by = 2)</code>) makes your code easier to read and avoids mistakes—especially when argument order is unclear or changes.</p>
 </div>
-<div id="conflicting-functions" class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Conflicting Functions<a href="debugging.html#conflicting-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="conflicting-functions" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Conflicting Functions<a href="debugging.html#conflicting-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Duplicate function names in different libraries can create confusion and lead to errors in R because when multiple packages define functions with the same name, R will prioritize one function over another. This can cause unintended behavior and errors if a different function from a different package to be executed. For example, if two packages define a function called <code>filter()</code>, and one is from <code>dplyr</code> and the other from <code>stats</code>, R might use one by default, potentially breaking the code or leading to incorrect results if the wrong version is applied. Managing these conflicts is essential for ensuring that the correct function is used in the desired context.</p>
 <p><strong>Option 1: Using <code>::</code> Syntax</strong></p>
 <p>To specify which package’s function to use, you can use the <code>::</code> syntax. For example, to use the <code>select()</code> function from <code>dplyr</code>, write <code>dplyr::select()</code>. This ensures you are explicitly calling the correct function from the right package.</p>
 <p><strong>Option 2: Using the Conflict Package</strong></p>
 <p>The conflict package in R is designed to help manage situations where two or more loaded packages have functions with the same name. When you load multiple packages that contain functions with identical names, R will prioritize one function over another, which can lead to confusion or errors in your analysis. For example, both <code>amt</code> and <code>dplyr</code> have a <code>select()</code>. The conflict package provides tools to manage these conflicts explicitly and prevent unexpected behavior.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="debugging.html#cb184-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
-<span id="cb184-2"><a href="debugging.html#cb184-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the select() function </span></span></code></pre></div>
-<pre><code>## [conflicted] Will prefer dplyr::select over any other package.</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="debugging.html#cb186-1" tabindex="-1"></a><span class="co"># from the dplyr package.</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="debugging.html#cb196-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
+<span id="cb196-2"><a href="debugging.html#cb196-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the select() function </span></span></code></pre></div>
+<pre><code>## [conflicted] Will prefer dplyr::select over any other
+## package.</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="debugging.html#cb198-1" tabindex="-1"></a><span class="co"># from the dplyr package.</span></span></code></pre></div>
 </div>
-<div id="use-the-help-function" class="section level2 hasAnchor" number="12.6">
-<h2><span class="header-section-number">12.6</span> Use the Help <code>?</code> Function!<a href="debugging.html#use-the-help-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="use-the-help-function" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> Use the Help <code>?</code> Function!<a href="debugging.html#use-the-help-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R, you can use the ? function to access R documentation for functions, packages, or datasets. For example, <code>?select</code> will bring up the documentation for the <code>select()</code> function. If you want information about a specific package, you can use <code>?package_name</code>, such as <code>?dplyr</code>, to view its documentation. This is a quick way to learn about function arguments, usage, and examples directly within R.</p>
 </div>
-<div id="google" class="section level2 hasAnchor" number="12.7">
-<h2><span class="header-section-number">12.7</span> Google<a href="debugging.html#google" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="google" class="section level2 hasAnchor" number="12.8">
+<h2><span class="header-section-number">12.8</span> Google<a href="debugging.html#google" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A quick Google search often leads to answers, and most R packages include vignettes or documentation to explain how functions work. For example, if you’re unsure how to use the seq function in R to generate a sequence with a step size of 0.5, you could search for “how do I use the seq function in R to generate a sequence of numbers by 0.5?” It’s important to specify that you’re working with R and clearly describe your problem to get better results.</p>
 <p>Another invaluable resource is Stack Overflow, a community-driven Q&amp;A website where developers and data scientists share knowledge. On Stack Overflow, you can search for similar issues, or if your question hasn’t been asked yet, you can post your own.</p>
 </div>
-<div id="ai" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> AI<a href="debugging.html#ai" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ai" class="section level2 hasAnchor" number="12.9">
+<h2><span class="header-section-number">12.9</span> AI<a href="debugging.html#ai" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>AI (e.g. ChatGPT) can be a valuable tool for debuggin code, but it’s important to remember that it’s not always correct. Relying too heavily on AI can also hinder your ability to develop and strengthen your coding skills.</p>
 
 </div>

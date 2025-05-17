@@ -6,7 +6,7 @@
 **RStudio** is the Integrated Development Environment (IDE) for the R programming language that makes writing, running, and organizing R code more efficient. RStudio provides a centralized interface where you can manage your code, working directory, data, output, and environment all in one place. On my MacBook, I keep R and RStudio in the Applications folder, and on Windows, I store them on the C drive. You will need to download [R](https://cran.r-project.org) before downloading [RStudio](https://posit.co/downloads/). 
 
 ## Directory Structure {#directory-structure}
-Before creating an RStudio Project, it's important to think about how your project is structured, as this will shape your directory (i.e. folder) organization. I typically create a separate folder for each analysis, and within each, I include subfolders for data, output, and scripts. Other folders might include figures, results, and documents. You may want to consider housing two projects in the same directory if they utilize the same data. All files need to be readable by the computer and should not contain white spaces, punctuation, or special characters. I generally follow the same naming conventions for my files (e.g., camelCase, snake_case, kebab-case, PascalCase).
+Before creating an RStudio Project, it's important to think about how your project is structured, as this will shape your directory (i.e. folder) organization. I typically create a separate folder for each analysis, and within each, I include subfolders for data, output, and scripts. Other folders might include figures, results, and documents. You may want to consider housing two projects in the same directory if they utilize the same data. **All files need to be readable by the computer and should not contain white spaces, punctuation, or special characters.** I generally follow the same naming conventions for my files (e.g., camelCase, snake_case, kebab-case, PascalCase).
 
 ![](./docs/files/DirectoryStructure.png)
 
@@ -29,8 +29,11 @@ First let's go over the basics of RStudio. When you first open RStudio, you will
 ![](./docs/files/RStudio.png)
 
 1) **The Interactive R Console (entire left)**
-*The top-left panel in RStudio is the script editor, where you write and save your code. When you run a line of code from the script, the output appears in the Console (bottom-left panel). While you can type and run code directly in the Console, it won’t be saved when you close R unless you explicitly save your R history. That’s why it’s best to write your code in the script editor—so you have a permanent, editable copy—and send lines to the Console to execute as needed.
+
+* The top-left panel in RStudio is the code editor, where you write and save your code. When you run a line of code from the code editor (i.e. script), the output appears in the Console (bottom-left panel). While you can type and run code directly in the Console, it won’t be saved when you close R unless you explicitly save your R history. That’s why it’s best to write your code in the code editor—so you have a permanent, editable copy—and send lines to the Console to execute as needed. 
+
 2) **Environment/History (tabbed in upper right)**
+
 * Environment: collection of objects (i.e. variables, data frames, functions, etc.) that we define during our R session
 * History: a record of every line of code executed during the session
 3) **Files/Plots/Packages/Help/Viewer (tabbed in lower right)**
@@ -42,7 +45,7 @@ First let's go over the basics of RStudio. When you first open RStudio, you will
   + **Presentation** displays slide-style documents created using R Markdown
 
 ## RStudio Projects
-Now that we understand the basics of RStudio, let's create an RStudio Project that will live in the directory folder of the analysis. RStudio Projects are a self-contained, portable work space where you can have your data, code, and output all in one place. RStudio Projects are also great to use for reproducibility because they are self-contained and easy to share with collaborators. This means you can compress the entire RStudio Project into a ZIP file and share it with a collaborator, who should then be able to run your code and reproduce the same results. Let's go through how to set up an RStudio Project.
+Now that we understand the basics of RStudio, let's create an RStudio Project that will live in the directory folder of the project. RStudio Projects are a self-contained, portable work space where you can have your data, code, and output all in one place. RStudio Projects are also great to use for reproducibility because they are self-contained and easy to share with collaborators. This means you can compress the entire RStudio Project into a ZIP file and share it with a collaborator, who should then be able to run your code and reproduce the same results. Let's go through how to set up an RStudio Project.
 
 **Steps for Making an RProject**
 

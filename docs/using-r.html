@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-16" />
+<meta name="date" content="2025-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,12 +257,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="12.1" data-path="debugging.html"><a href="debugging.html#locating-problematic-code"><i class="fa fa-check"></i><b>12.1</b> Locating Problematic Code</a></li>
 <li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#syntax-errors"><i class="fa fa-check"></i><b>12.2</b> Syntax errors</a></li>
-<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.3</b> Coercian Problems</a></li>
-<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.4</b> Labeling function arguments</a></li>
-<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.5</b> Conflicting Functions</a></li>
-<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.6</b> Use the Help <code>?</code> Function!</a></li>
-<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.7</b> Google</a></li>
-<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.8</b> AI</a></li>
+<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#missing-and-undefined-data"><i class="fa fa-check"></i><b>12.3</b> Missing and Undefined Data</a></li>
+<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.4</b> Coercian Problems</a></li>
+<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.5</b> Labeling function arguments</a></li>
+<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.6</b> Conflicting Functions</a></li>
+<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.7</b> Use the Help <code>?</code> Function!</a></li>
+<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.8</b> Google</a></li>
+<li class="chapter" data-level="12.9" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.9</b> AI</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="readable-r.html"><a href="readable-r.html"><i class="fa fa-check"></i><b>13</b> Making Readable R Code</a>
 <ul>
@@ -295,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> Using R<a href="using-r.html#using-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="packages" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Installing Packages<a href="using-r.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as <code>packages</code>. A package is a collection of functions, data, and documentation bundled together for a specific function. An R package can help with tasks such as data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console.</p>
+<p>Sometimes you will want to use tools that are not built into the baseR code. You can download these tools from R repositories as <code>packages</code>. A package is a collection of functions, data, and documentation designed to accomplish a particular task. An R package can help with tasks such as data visualization, statistical modeling, or data cleaning. You can install an R package through the RStudio interface, or through entering code into the console.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="using-r.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;amt&quot;</span>) <span class="co"># install a new package</span></span>
 <span id="cb2-2"><a href="using-r.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(amt) <span class="co"># call a package you previously downloaded</span></span></code></pre></div>
 <hr />
@@ -310,13 +311,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><strong>We will go over what tidyverse is later on in this course</strong></p>
 <hr />
-<p>If two different packages contain functions with the same name, R will mask one with the other based on the order they are loaded. To avoid confusion, you can explicitly tell R which package to use by using the <code>package::function()</code> format. For example, the <code>filter()</code> function exists in both <code>stats</code> and <code>dplyr</code> packages. If you specifically want the version from dplyr, you can write dplyr::filter() in your code. We will talk more about this later on.</p>
+<p>If two different packages contain functions with the same name, R will mask one with the other based on the order they are loaded. To avoid confusion, you can explicitly tell R which package to use with the <code>package::function()</code> format. For example, the <code>filter()</code> function exists in both <code>stats</code> and <code>dplyr</code> packages. If you specifically want the version from <code>dplyr</code>, you can write <code>dplyr::filter()</code> in your code. We will talk more about this later on.</p>
 </div>
 <div id="using-comments" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Using Comments<a href="using-r.html#using-comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use the <code>#</code> to tell R you are making a comment. Comments are used to explain code and allow someone unfamiliar with your code to follow more easily. Commenting can also be used to prevent R from running specific lines of code since R ignores anything that follows the <code>#</code> mark.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="using-r.html#cb3-1" tabindex="-1"></a><span class="co"># 567*5 tells R that 567*5 is a comment, and so R knows not to execute this line of code.</span></span></code></pre></div>
-<p>Sometimes you want to comment out large sections of code, and this can be done using <code>control + shift + c</code> on windows or <code>command + shift + c</code> on a macbook.</p>
+<p>Sometimes you want to comment out large sections of code, and this can be done using <code>control + shift + c</code> on windows or <code>command + shift + c</code> on a Macbook.</p>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
 <ol style="list-style-type: decimal">
@@ -329,19 +330,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="functions" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Functions<a href="using-r.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. R provides built-in functions, such as mean(), sum(), and plot(), which perform commonly used operations. Every function has arguments that determine what kind of inputs are needed to make the function run. The inputs in a function are called arguments.</p>
+<p>A function is a defined script that is used to accomplish a particular task. Functions use an input to give a desired output. R provides built-in functions, such as <code>mean()</code>, <code>sum()</code>, and <code>plot()</code>, which perform commonly used operations. Every function has arguments that determine what kind of inputs are needed to make the function run.</p>
 <ul>
-<li>Arguments: information that goes inside the parenthesis to tell the function what to do. For example, when we used the <code>seq</code> function, the arguments are <code>from</code>, <code>to</code>, and <code>by</code>.</li>
+<li>Arguments: information that goes inside the parenthesis to tell the function what to do. For example, when we used the <code>seq</code> function, the arguments are <code>from</code>, <code>to</code>, and <code>by</code>. Many arguments have a default value, which is a value that is automatically used for an argument if you don’t provide your own. For example, in <code>seq()</code>, the default value for the <code>from</code> argument is 1.</li>
 <li>Pass: We pass a value to a function argument. We can pass the value 1 to the argument <code>from</code>, and the value 10 to the argument <code>to</code> and the value 0.1 to the argument <code>by</code>.</li>
 <li>Return: This is the terminology to say that the function gives us an output. So with the <code>seq(from = 1, to = 10, by = 0.1)</code>, the function <em>returns</em> a sequence of numbers</li>
 </ul>
-<p>The order of arguments in a function call matters, especially when you don’t name them. To avoid confusion, it’s often helpful to explicitly name the arguments. You can use the help system to check the correct usage of a function. For example, to learn more about the rep() function, you can type ?rep in the Console.</p>
-<p>Additionally, you can define your own functions to solve specific problems and use them across multiple analyses. Functions are an essential part of R programming, as they allow for cleaner, more efficient, and modular code. Although we won’t be covering custom functions in this course, it’s important to note that creating your own functions is a common and useful practice in programming.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="using-r.html#cb4-1" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2) { <span class="co"># arg1 and arg2 are inputs</span></span>
 <span id="cb4-2"><a href="using-r.html#cb4-2" tabindex="-1"></a>  <span class="co"># Code that processes the inputs</span></span>
 <span id="cb4-3"><a href="using-r.html#cb4-3" tabindex="-1"></a>  result <span class="ot">&lt;-</span> arg1 <span class="sc">+</span> arg2</span>
 <span id="cb4-4"><a href="using-r.html#cb4-4" tabindex="-1"></a>  <span class="fu">return</span>(result)  <span class="co"># return() provides the output of the function</span></span>
 <span id="cb4-5"><a href="using-r.html#cb4-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>The order of arguments in a function call matters, especially when you don’t name them. To avoid confusion, it’s often helpful to explicitly name the arguments. You can use the help function <code>?</code> to check the correct usage of a function. For example, to learn more about the <code>rep()</code> function, you can execute the command <code>?rep</code> in your Console.</p>
+<p>Additionally, you can define your own functions to solve specific problems and use them repeatedly in your code without having to repeat the code multiple times. For example, if you need to convert elevation from meters to feet in several places in your script, you can write a function to do it once and then use that function whenever you need it. Functions are an essential part of R programming, as they allow for cleaner, more efficient, and modular code. Although we won’t be covering custom functions in this course, it’s important to note that creating your own functions is a common and useful practice in programming.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="using-r.html#cb5-1" tabindex="-1"></a><span class="co"># Write a function to convert a column of elevation in meters to feet</span></span>
+<span id="cb5-2"><a href="using-r.html#cb5-2" tabindex="-1"></a>convert_elevation_to_feet <span class="ot">&lt;-</span> <span class="cf">function</span>(elev_m) { <span class="co"># vector of elevation in meters is input (argument)</span></span>
+<span id="cb5-3"><a href="using-r.html#cb5-3" tabindex="-1"></a>  elev_ft <span class="ot">&lt;-</span> elev_m <span class="sc">*</span> <span class="fl">3.28084</span> <span class="co"># code to process elevation in meters to feet</span></span>
+<span id="cb5-4"><a href="using-r.html#cb5-4" tabindex="-1"></a>  <span class="fu">return</span>(elev_ft) <span class="co"># return output of function</span></span>
+<span id="cb5-5"><a href="using-r.html#cb5-5" tabindex="-1"></a>}</span></code></pre></div>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
 <ol style="list-style-type: decimal">
@@ -395,15 +401,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="using-r.html#cb5-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="using-r.html#cb6-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 101</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="using-r.html#cb7-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="co"># performs multiplication before addition</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="using-r.html#cb8-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="co"># performs multiplication before addition</span></span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="using-r.html#cb9-1" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="co"># performs addition in () before multiplication </span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="using-r.html#cb10-1" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="co"># performs addition in () before multiplication </span></span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="using-r.html#cb11-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">/</span><span class="dv">10000</span> </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="using-r.html#cb12-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">/</span><span class="dv">10000</span> <span class="co"># division</span></span></code></pre></div>
 <pre><code>## [1] 2e-04</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="using-r.html#cb13-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span> </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="using-r.html#cb14-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span> <span class="co"># exponentiation: 2 raised to the power of 3</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 </div>
 <div id="use-r-to-compare-things" class="section level2 hasAnchor" number="5.5">
@@ -451,14 +457,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Let’s go through a few examples of using logical operators. Notice how R evaluates each of these lines of code as TRUE or FALSE. We are essentially asking R if the above comparison is TRUE or FALSE. We will go over <code>%in%</code> in the data organization section of this class.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="using-r.html#cb15-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">9</span>  <span class="co"># equality (note two equals signs, read as &quot;is equal to&quot;)</span></span></code></pre></div>
+<p>Let’s go through a few examples of using logical operators. Notice how R evaluates each of these lines of code as TRUE or FALSE. We are essentially asking R if the above comparison is TRUE or FALSE. We will go over <code>%in%</code> later in this class.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="using-r.html#cb16-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">9</span>  <span class="co"># equality (note two equals signs, read as &quot;is equal to&quot;)</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="using-r.html#cb17-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">1</span>  <span class="co"># inequality (read as &quot;is not equal to&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="using-r.html#cb18-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">1</span>  <span class="co"># inequality (read as &quot;is not equal to&quot;)</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="using-r.html#cb19-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span>  <span class="co"># less than</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="using-r.html#cb20-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span>  <span class="co"># less than</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="using-r.html#cb21-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;=</span> <span class="dv">1</span>  <span class="co"># less than or equal to</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="using-r.html#cb22-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;=</span> <span class="dv">1</span>  <span class="co"># less than or equal to</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
@@ -486,19 +492,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="r-objects" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Use R to assign objects<a href="using-r.html#r-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Objects are a bit of an abstract concept. All you really need to know for now is that objects are things that we make in R that can take on a variety of structures with different data types, and when we assign them a name, they get saved in our global environment. They are data structures with associated data attributes.</p>
-<p>Object assignment allows us to assign a variable name to the object for later use. This helps prevent writing redundant code. We assign an object to a variable using the assignment arrow <code>&lt;-</code> or the <code>=</code> so that R knows that x is an object that we can use. So when we run, <code>x &lt;- 6</code>, it reads <em>make x contain 6 </em> It’s recommended to use the <code>&lt;-</code> since the <code>=</code> can get mixed up with assigning values to function arguments (more on this later). Once we assign an object to a variable, it is stored in our global environment (upper right hand panel of RStudio).</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="using-r.html#cb23-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span> <span class="co"># here we are telling R to assign 1/40 to the variable x so that it recognizes x as an object in our global environment</span></span>
-<span id="cb23-2"><a href="using-r.html#cb23-2" tabindex="-1"></a>x </span></code></pre></div>
-<pre><code>## [1] 0.025</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="using-r.html#cb25-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">24</span> <span class="co"># variables can easily be re-assigned/over-written</span></span>
-<span id="cb25-2"><a href="using-r.html#cb25-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb25-3"><a href="using-r.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="using-r.html#cb25-4" tabindex="-1"></a><span class="fu">rm</span>(y) <span class="co"># you can also remove objects from the environment</span></span></code></pre></div>
+<p>Objects are a bit of an abstract concept. All you really need to know for now is that objects are things that we make in R that can take on a variety of structures with different data types, and when we assign them a name, they get saved in our global environment. <strong>Objects are data structures with associated data attributes.</strong></p>
+<p>Object assignment lets us assign a name to a value, making it easier to use later. This helps avoid repeating code. We assign a value to a variable using the assignment arrow <code>&lt;-</code> or the <code>=</code> so that R recognizes the name as a reference to the object. So when we run, <code>x &lt;- 6</code>, it reads <em>make x contain 6 </em> It’s recommended to use the <code>&lt;-</code> since the <code>=</code> can get mixed up with assigning values to function arguments. Once we assign an object to a variable, it is stored in our global environment (upper right hand panel of RStudio).</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="using-r.html#cb24-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span> <span class="co"># here we are telling R to assign 1/40 to the variable x so that it recognizes x as an object in our global environment</span></span>
+<span id="cb24-2"><a href="using-r.html#cb24-2" tabindex="-1"></a>x <span class="ot">&lt;-</span>  <span class="dv">24</span> <span class="co"># variables can easily be re-assigned/over-written</span></span>
+<span id="cb24-3"><a href="using-r.html#cb24-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb24-4"><a href="using-r.html#cb24-4" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="using-r.html#cb24-5" tabindex="-1"></a><span class="fu">rm</span>(y) <span class="co"># you can also remove objects from the environment</span></span></code></pre></div>
 <div id="variable-names" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Variable names<a href="using-r.html#variable-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Variable names can contain letters, numbers, underscores and periods.
-They CANNOT start with a number OR contain spaces (<strong>at all</strong>). Remember that R is case sensitive.</p>
+<strong>They CANNOT start with a number OR contain any spaces.</strong> Recall that R is case sensitive.</p>
 <p>A few different conventions for longer variable names:</p>
 <ul>
 <li>periods.between.words</li>
@@ -510,7 +514,7 @@ They CANNOT start with a number OR contain spaces (<strong>at all</strong>). Rem
 <p><strong><code>EXERCISE</code></strong></p>
 <ol style="list-style-type: decimal">
 <li>Assign <code>1+56</code> to a variable called <code>x1_a</code></li>
-<li>Assign <code>sqrt(24)</code> to a variable called <code>x1_b</code></li>
+<li>Assign <code>sqrt(24)</code> to a variable called <code>x1_b</code>. Use <code>?sqrt</code> to learn more about the <code>sqrt()</code> function. What is the name of the argument of the <code>sqrt()</code> function?</li>
 <li>Bonus: Chained assignments. What happens when you execute <code>x3.c &lt;- y3.c &lt;- 9/10</code> into your console? Are <code>x3.c</code> and <code>y3.c</code> different or equal values?</li>
 </ol>
 <hr />
@@ -535,7 +539,7 @@ They CANNOT start with a number OR contain spaces (<strong>at all</strong>). Rem
 <tbody>
 <tr>
 <td align="left">factor</td>
-<td align="left">Categorical data</td>
+<td align="left">Categorical data (special class of integer with labels stored as characters)</td>
 <td align="left">“Sheep”, “Lion”, “Deer”</td>
 </tr>
 <tr>
@@ -557,44 +561,54 @@ They CANNOT start with a number OR contain spaces (<strong>at all</strong>). Rem
 </table>
 <p><br></p>
 <p>To ask R what <code>class</code> a data mode or object is, we use the <code>class()</code> function.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="using-r.html#cb26-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.11</span>) <span class="co"># numeric: any real number</span></span>
-<span id="cb26-2"><a href="using-r.html#cb26-2" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">1</span><span class="dt">L</span>) <span class="co"># integer: any integer. The L suffix forces the number to be an integer</span></span>
-<span id="cb26-3"><a href="using-r.html#cb26-3" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>) <span class="co"># logical: binary TRUE or FALSE </span></span>
-<span id="cb26-4"><a href="using-r.html#cb26-4" tabindex="-1"></a><span class="co"># You can have data that look essentially the same, but have different classes. </span></span>
-<span id="cb26-5"><a href="using-r.html#cb26-5" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&#39;1&#39;</span>) <span class="co"># character: words; &quot;&quot; denote words</span></span>
-<span id="cb26-6"><a href="using-r.html#cb26-6" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">1</span>) <span class="co"># numeric; any real number</span></span>
-<span id="cb26-7"><a href="using-r.html#cb26-7" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">factor</span>(<span class="st">&quot;1a&quot;</span>)) <span class="co"># factor: denotes categorical variables, they can be words or numbers</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="using-r.html#cb25-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.11</span>) <span class="co"># numeric: any real number</span></span>
+<span id="cb25-2"><a href="using-r.html#cb25-2" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">1</span><span class="dt">L</span>) <span class="co"># integer: any integer. The L suffix forces the number to be an integer</span></span>
+<span id="cb25-3"><a href="using-r.html#cb25-3" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>) <span class="co"># logical: binary TRUE or FALSE </span></span>
+<span id="cb25-4"><a href="using-r.html#cb25-4" tabindex="-1"></a><span class="co"># You can have data that look essentially the same, but have different classes. </span></span>
+<span id="cb25-5"><a href="using-r.html#cb25-5" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&#39;1&#39;</span>) <span class="co"># character: words; &quot;&quot; denote words</span></span>
+<span id="cb25-6"><a href="using-r.html#cb25-6" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">1</span>) <span class="co"># numeric; any real number</span></span>
+<span id="cb25-7"><a href="using-r.html#cb25-7" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">factor</span>(<span class="st">&quot;1a&quot;</span>)) <span class="co"># factor: denotes categorical variables, they can be words or numbers</span></span></code></pre></div>
 <p>You can coerce to a desired data type, as long as they follow the rules
 using the functions <code>as.&lt;desired data type&gt;</code></p>
-<p>Coercian Hierarchy from general to specific: Logical -&gt; Numeric -&gt; Factor -&gt; Character</p>
+<p><strong>Coercion Hierarchy (from general to specific): Character → Numeric → Logical</strong></p>
 <ol style="list-style-type: decimal">
-<li>logical (least general, cannot turn turn character or numeric into a logical type without correctly specifying the value)</li>
-<li>numeric (can read integer and logical types as numbers)</li>
-<li>character (most general: anything can be turned into a character by adding “quotes”)</li>
+<li>character most general: anything can be turned into a character by adding “quotes”
+<ul>
+<li>e.g. as.character(TRUE) → “TRUE”</li>
+</ul></li>
+<li>numeric: can read integer and logical types as numbers. Cannot reliably coerce character strings unless they represent valid numbers
+<ul>
+<li>e.g. “3.14” → 3.14, TRUE → 1; FALSE → 0; “S438” → NA</li>
+</ul></li>
+<li>logical: most specific, cannot turn turn character or numeric into a logical type without correctly specifying the value. Coercing a character or invalid numeric value to logical produces an NA
+<ul>
+<li>e.g. as.logical(“sheep” → NA); as.logical(3.14 → TRUE)</li>
+</ul></li>
+<li>Factor: (special case) internally stored as integers with labels. To get the original numeric value, you must coerce factor to character first, then to numeric. Direct coercion from factor to numeric returns internal integer codes (not labels)</li>
 </ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="using-r.html#cb27-1" tabindex="-1"></a><span class="co"># Convert from numeric to integer</span></span>
-<span id="cb27-2"><a href="using-r.html#cb27-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">45.6</span></span>
-<span id="cb27-3"><a href="using-r.html#cb27-3" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="using-r.html#cb26-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">45.6</span></span>
+<span id="cb26-2"><a href="using-r.html#cb26-2" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="using-r.html#cb29-1" tabindex="-1"></a><span class="co"># Convert from numeric to character</span></span>
-<span id="cb29-2"><a href="using-r.html#cb29-2" tabindex="-1"></a>a_character <span class="ot">&lt;-</span> <span class="fu">as.character</span>(a)</span>
-<span id="cb29-3"><a href="using-r.html#cb29-3" tabindex="-1"></a><span class="fu">class</span>(a_character)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="using-r.html#cb28-1" tabindex="-1"></a><span class="co"># Convert from numeric to character</span></span>
+<span id="cb28-2"><a href="using-r.html#cb28-2" tabindex="-1"></a>a_character <span class="ot">&lt;-</span> <span class="fu">as.character</span>(a)</span>
+<span id="cb28-3"><a href="using-r.html#cb28-3" tabindex="-1"></a><span class="fu">class</span>(a_character)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="using-r.html#cb31-1" tabindex="-1"></a><span class="co"># Create factored variable</span></span>
-<span id="cb31-2"><a href="using-r.html#cb31-2" tabindex="-1"></a>lion <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;194&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;194&quot;</span>))</span>
-<span id="cb31-3"><a href="using-r.html#cb31-3" tabindex="-1"></a>lion <span class="co"># print value into console</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="using-r.html#cb30-1" tabindex="-1"></a><span class="co"># Create factored variable</span></span>
+<span id="cb30-2"><a href="using-r.html#cb30-2" tabindex="-1"></a>lion <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;194&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;194&quot;</span>))</span>
+<span id="cb30-3"><a href="using-r.html#cb30-3" tabindex="-1"></a>lion <span class="co"># print value into console</span></span></code></pre></div>
 <pre><code>## [1] 194
 ## Levels: 194</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="using-r.html#cb33-1" tabindex="-1"></a><span class="fu">as.numeric</span>(lion) <span class="co"># coerced to numeric</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="using-r.html#cb35-1" tabindex="-1"></a><span class="fu">as.character</span>(lion) <span class="co"># coerced to character</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="using-r.html#cb32-1" tabindex="-1"></a><span class="fu">as.character</span>(lion) <span class="co"># coerced to character</span></span></code></pre></div>
 <pre><code>## [1] &quot;194&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="using-r.html#cb37-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(lion)) <span class="co"># coerced to character, then numeric</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="using-r.html#cb34-1" tabindex="-1"></a><span class="fu">as.numeric</span>(lion) <span class="co"># coerced to numeric</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>You can coerce from factor to character to numeric in one call</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="using-r.html#cb36-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(lion))</span></code></pre></div>
 <pre><code>## [1] 194</code></pre>
-<p>A common mistake in R is using data of the wrong type. In the example below, an error occurs because R cannot convert a character value into a numeric one. It’s important to ensure that the data you’re working with is of the correct type. Also, remember that each column in a data frame should contain values of the same type.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="using-r.html#cb39-1" tabindex="-1"></a><span class="co"># convert from character to numeric</span></span>
-<span id="cb39-2"><a href="using-r.html#cb39-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;banana&quot;</span></span>
-<span id="cb39-3"><a href="using-r.html#cb39-3" tabindex="-1"></a>b_numeric <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(b)</span></code></pre></div>
+<p>A common mistake in R is using data of the wrong type. In the example below, an error occurs because R cannot convert a character value into a numeric one. It’s important to ensure that the data you’re working with is of the correct type.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="using-r.html#cb38-1" tabindex="-1"></a><span class="co"># convert from character to numeric</span></span>
+<span id="cb38-2"><a href="using-r.html#cb38-2" tabindex="-1"></a>L262 <span class="ot">&lt;-</span> <span class="st">&quot;Lion262&quot;</span></span>
+<span id="cb38-3"><a href="using-r.html#cb38-3" tabindex="-1"></a>L262_numeric <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(L262)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
@@ -602,8 +616,9 @@ using the functions <code>as.&lt;desired data type&gt;</code></p>
 <li>Assign <code>"S437"</code> to a variable called “sheep”. Make sure to include the <code>""</code>.</li>
 <li>What type of data class is sheep?</li>
 <li>Create an object with a value of <code>45</code>. Coerce to a character class using <code>as.character()</code>.</li>
-<li>Execute S1 &lt;- <code>as.numeric(as.character(1))</code> and S2 &lt;- <code>as.logical(as.numeric("1"))</code>. Do the values change? Why or why not? Think about this answer in the context of the coercian hierarchy.</li>
-<li>Bonus: What happens when you execute sheep &lt;- S437 without <code>""</code>? Explain the error.</li>
+<li>Create the following objects: <code>S1 &lt;- as.numeric(as.character(1))</code> and <code>S2 &lt;- as.logical(as.numeric("1"))</code>.</li>
+<li>Do the values change? Why or why not? Think about this answer in the context of the coercian hierarchy.</li>
+<li>Bonus: What happens when you execute <code>sheep &lt;- S437</code> without <code>""</code>? Explain the error.</li>
 </ol>
 <hr />
 </div>
@@ -669,34 +684,31 @@ using the functions <code>as.&lt;desired data type&gt;</code></p>
 <p><br></p>
 <div id="scalar" class="section level3 hasAnchor" number="5.8.1">
 <h3><span class="header-section-number">5.8.1</span> Scalar<a href="using-r.html#scalar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A vector has one element with length 1.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="using-r.html#cb41-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
+<p>A scalar object contains only one element (length is 1). An element is an individual value or item within a data structure</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="using-r.html#cb40-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a scalar object named my_scalar and assign it the value 87</li>
+</ol>
 <hr />
 </div>
 <div id="vector" class="section level3 hasAnchor" number="5.8.2">
 <h3><span class="header-section-number">5.8.2</span> Vector<a href="using-r.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A vector in R is essentially a collection of items <strong>of the same basic
-data type</strong>. Each ‘thing’ in the vector is called an element. If you don’t
-choose the data type, it’ll default to logical; or, you can declare an
-empty vector of whatever type you like. You can also make vectors with
-explicit contents using the concatenate function <code>c()</code>.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="using-r.html#cb42-1" tabindex="-1"></a>my.deer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;GDL256&quot;</span>, <span class="st">&quot;RVD1011&quot;</span>, <span class="st">&quot;CDB567&quot;</span>)</span>
-<span id="cb42-2"><a href="using-r.html#cb42-2" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">3</span>)</span>
-<span id="cb42-3"><a href="using-r.html#cb42-3" tabindex="-1"></a>my_vector  <span class="co"># this is a logical vector</span></span></code></pre></div>
+<p>A scalar object is a special case of a vector with a length of 1. A vector in R is essentially a collection of elements <strong>of the same basic data type</strong>. Each ‘thing’ in the vector is called an element. You can combine values into one vector with different values using the concatenate function <code>c()</code>. You can also create an empty vector. If you don’t specify a data type, R will default to logical, or, you can declare an empty vector of whatever type you like.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="using-r.html#cb41-1" tabindex="-1"></a>my.deer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;GDL256&quot;</span>, <span class="st">&quot;RVD1011&quot;</span>, <span class="st">&quot;CDB567&quot;</span>)</span>
+<span id="cb41-2"><a href="using-r.html#cb41-2" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">3</span>)</span>
+<span id="cb41-3"><a href="using-r.html#cb41-3" tabindex="-1"></a>my_vector  <span class="co"># this is a logical vector</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="using-r.html#cb44-1" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">101</span>, <span class="dv">222</span>, <span class="dv">323</span>, <span class="dv">435</span>, <span class="dv">556</span>) <span class="co"># numeric vector</span></span>
-<span id="cb44-2"><a href="using-r.html#cb44-2" tabindex="-1"></a><span class="co"># what happens when we add elements of different data types to a vector?</span></span>
-<span id="cb44-3"><a href="using-r.html#cb44-3" tabindex="-1"></a>combine_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="st">&quot;CDB678&quot;</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb44-4"><a href="using-r.html#cb44-4" tabindex="-1"></a>combine_vector</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="using-r.html#cb43-1" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">101</span>, <span class="dv">222</span>, <span class="dv">323</span>, <span class="dv">435</span>, <span class="dv">556</span>) <span class="co"># numeric vector</span></span></code></pre></div>
+<p>What happens when we add elements of different data types to a vector?</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="using-r.html#cb44-1" tabindex="-1"></a>combine_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="st">&quot;CDB678&quot;</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb44-2"><a href="using-r.html#cb44-2" tabindex="-1"></a>combine_vector</span></code></pre></div>
 <pre><code>## [1] &quot;211&quot;    &quot;CDB678&quot; &quot;TRUE&quot;</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="using-r.html#cb46-1" tabindex="-1"></a><span class="fu">class</span>(combine_vector) </span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>R interprets the whole vector as character. It can’t make “banana” into a number but it can turn 2 and TRUE into text strings. This logic follows the coercian hierarchy.</p>
-<p>You can also assign NA values to a vector of defined length as well. R is able to handle missing values, and these missing values are given NA. When
-you read in an csv file with empty cells, R will assign these values as NA. A 0
-is not the same as NA, since R treats 0 as a numeric data class.</p>
+<p>R coerces all the elements in “combine_vector” to character. It can’t make “CDB678” into a number but it can turn 211 and TRUE into text strings (think about the coercion hierarchy)</p>
+<p>You can also assign <code>NA</code> values to a vector of defined length as well. R is able to handle missing values, and these missing values are given NA. When you read in an csv file with empty cells, R will assign these values as NA. A 0 is not the same as NA, since R treats 0 as a numeric data class.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="using-r.html#cb48-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>)</span>
 <span id="cb48-2"><a href="using-r.html#cb48-2" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb48-3"><a href="using-r.html#cb48-3" tabindex="-1"></a><span class="co"># test if zero is NA</span></span>
@@ -717,12 +729,17 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 ## [76]  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9
 ## [91] 10.0</code></pre>
 <hr />
-<p><strong><code>EXERCISE</code></strong></p>
+<p><strong><code>EXERCISE</code></strong>
+1. Make a character vector of lion ids into a vector called <code>my_lion</code>
+2. Make a vector of deer ages into a vector called <code>deer_ages</code>
+3. Create a vector with name of your choice wish a sequence of numbers from 1 to 100 using both the <code>seq()</code> and <code>:</code> method
+4. BONUS 1: Explain the logic behind coercian that occurs in making this vector. <code>a.new.vector &lt;- c(FALSE, TRUE, 0)</code>. Check the class of <code>a.new.vector</code> using the <code>class()</code> function.
+5. BONUS 2: Create the following object: <code>animals &lt;- factor(c("sheep", "lion", "deer", "deer"), labels = c("sheep", "lion", "deer"))</code>. Use the <code>class()</code> and <code>str()</code> functions to examine the <code>animals</code> vector. Use the <code>?</code> function to understand what <code>str()</code> does. What values are assigned to “sheep”, “lion”, and “deer”? Now convert (coerce) this vector of factors to show the label values instead of the internal codes.</p>
 <hr />
 </div>
 <div id="lists" class="section level3 hasAnchor" number="5.8.3">
 <h3><span class="header-section-number">5.8.3</span> Lists<a href="using-r.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A list in R is essentially an object with data that can be in different data types/modes.</p>
+<p>A list in R is essentially an object with data that can be in different data types/modes. Many functions in R return outputs as lists.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="using-r.html#cb54-1" tabindex="-1"></a><span class="co"># list with numeric, character, and logical classes</span></span>
 <span id="cb54-2"><a href="using-r.html#cb54-2" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">&quot;banana&quot;</span>, <span class="cn">TRUE</span>)</span>
 <span id="cb54-3"><a href="using-r.html#cb54-3" tabindex="-1"></a>your_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">2</span>, <span class="st">&quot;apple&quot;</span>, <span class="cn">FALSE</span>)</span>
@@ -750,11 +767,17 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 <pre><code>## [1] &quot;S789&quot;</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a list of length 3 with at least two different data types.</li>
+<li>Use the <code>class</code>, <code>str</code>, and <code>dim</code> functions to explore the contents of your list.</li>
+<li>What does the `dim function do?</li>
+<li>Print the list you create into the Console.</li>
+</ol>
 <hr />
 </div>
 <div id="matrix" class="section level3 hasAnchor" number="5.8.4">
 <h3><span class="header-section-number">5.8.4</span> Matrix<a href="using-r.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A matrix in R is a two-dimensional data structure that stores elements of the same type (usually numbers). You can think of it like a spreadsheet or a table with rows and columns, but every value must be the same type (e.g., all numeric or all character).</p>
+<p>A matrix in R is a two-dimensional data structure that stores elements of the same type (usually numbers). You can think of it like a spreadsheet or a table with rows and columns, but every value must be the same type (e.g., all numeric or all character). Matrices are structured in terms of rows and columns. For example, a 3x4 matrix has 3 rows and 4 columns.</p>
 <p>Matrices are useful when you want to perform mathematical operations on tables of numbers, like multiplying rows and columns, or applying functions across rows or columns.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="using-r.html#cb63-1" tabindex="-1"></a>MyMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
 <span id="cb63-2"><a href="using-r.html#cb63-2" tabindex="-1"></a>MyMatrix</span></code></pre></div>
@@ -763,6 +786,10 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 ## [2,]    2    4    6</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a 3x1 matrix representing deer population estimates for Round Valley.
+Each row should represent the total number of individuals in the fawn, yearling, and adult age classes. The column represents a single year.</li>
+</ol>
 <hr />
 </div>
 <div id="data-frames" class="section level3 hasAnchor" number="5.8.5">
@@ -773,7 +800,7 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 <li>all vectors have the same length</li>
 <li>all columns (the list elements) have names</li>
 </ol>
-<p>Essentially, imagine each column in the dataframe as a vector, and the dataframe is just a big list of all those vectors. Unlike actual lists however, in dataframes all of the columns/vectors MUST be the same length and have names.</p>
+<p>Essentially, imagine each column in the dataframe as a vector, and the dataframe is just a big list of all those vectors. Unlike actual lists however, in dataframes all of the columns/vectors MUST be the same length and have names. Data frames are also also structured in terms of rows and columns.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="using-r.html#cb65-1" tabindex="-1"></a><span class="co"># Create vectors for each column</span></span>
 <span id="cb65-2"><a href="using-r.html#cb65-2" tabindex="-1"></a>sheep_id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;S601&quot;</span>, <span class="st">&quot;S602&quot;</span>, <span class="st">&quot;S603&quot;</span>)</span>
 <span id="cb65-3"><a href="using-r.html#cb65-3" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)</span>
@@ -798,6 +825,18 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 ## 3 S603   F   3  2024-03-18  Goodale Canyon</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a data frame with three columns and three rows to represent deer mortalities.
+The columns should be named “deer_id”, “COM”, and “Age”. Assign it a variable name of your choice.</li>
+</ol>
+<ul>
+<li>“deer_id” and “COM” should be character</li>
+<li>“Age” should be numeric</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>What are the dimensions of this data frame? What function can you use to check this?</li>
+<li>Use the <code>nrow()</code> and <code>ncol()</code> functions to display the number of rows and columns in your data frame</li>
+</ol>
 <hr />
 </div>
 <div id="other-object-types" class="section level3 hasAnchor" number="5.8.6">
@@ -868,41 +907,42 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 <div id="named-indexing" class="section level3 hasAnchor" number="5.9.2">
 <h3><span class="header-section-number">5.9.2</span> Named Indexing<a href="using-r.html#named-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can also extract elements by name rather than by index. Using names for indexing is particularly useful when you want to avoid relying on numeric positions, which may change as new data is added.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="using-r.html#cb73-1" tabindex="-1"></a>horn_length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">50</span>, <span class="dv">30</span>) <span class="co"># create vector of horn lengths</span></span>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="using-r.html#cb73-1" tabindex="-1"></a>horn_length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="fl">30.4</span>, <span class="dv">90</span>, <span class="fl">50.8</span>, <span class="dv">30</span>) <span class="co"># create vector of horn lengths</span></span>
 <span id="cb73-2"><a href="using-r.html#cb73-2" tabindex="-1"></a><span class="fu">names</span>(horn_length) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;S4&quot;</span>, <span class="st">&quot;S567&quot;</span>, <span class="st">&quot;S489&quot;</span>, <span class="st">&quot;S488&quot;</span>, <span class="st">&quot;S89&quot;</span>) <span class="co"># assign sheep names to vector</span></span>
 <span id="cb73-3"><a href="using-r.html#cb73-3" tabindex="-1"></a><span class="co"># we can also name a vector &#39;on the fly&#39;</span></span>
-<span id="cb73-4"><a href="using-r.html#cb73-4" tabindex="-1"></a>horn_length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S4 =</span> <span class="fl">5.4</span>, <span class="at">S567 =</span> <span class="fl">6.2</span>, <span class="at">S489 =</span> <span class="fl">7.1</span>, <span class="at">S488 =</span> <span class="fl">4.8</span>, <span class="at">S89 =</span> <span class="fl">7.5</span>) </span>
+<span id="cb73-4"><a href="using-r.html#cb73-4" tabindex="-1"></a>horn_length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S4 =</span> <span class="dv">10</span>, <span class="at">S567 =</span> <span class="fl">30.4</span>, <span class="at">S489 =</span> <span class="dv">90</span>, <span class="at">S488 =</span> <span class="fl">50.8</span>, <span class="at">S89 =</span> <span class="dv">30</span>) </span>
 <span id="cb73-5"><a href="using-r.html#cb73-5" tabindex="-1"></a>horn_length[<span class="fu">c</span>(<span class="st">&quot;S489&quot;</span>, <span class="st">&quot;S488&quot;</span>)]</span></code></pre></div>
 <pre><code>## S489 S488 
-##  7.1  4.8</code></pre>
+## 90.0 50.8</code></pre>
 </div>
 <div id="logical-indexing" class="section level3 hasAnchor" number="5.9.3">
 <h3><span class="header-section-number">5.9.3</span> Logical Indexing<a href="using-r.html#logical-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Since comparison operators (e.g. &gt;, &lt;, ==) evaluate to logical vectors, we can also use them to succinctly subset vectors: the following statement gives the same result as the previous one. This involves using logical vectors (TRUE/FALSE) to index elements. The logical vector must be of the same length as the data structure you’re indexing. Only elements corresponding to TRUE are selected.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="using-r.html#cb75-1" tabindex="-1"></a>horn_length[horn_length <span class="sc">&gt;</span> <span class="dv">30</span>] <span class="co"># this statement first evaluates horn_length &gt; 7, generating a logical vector c(FALSE, FALSE, TRUE, FALSE, TRUE), and then selects the elements of horn_length corresponding to the TRUE values.</span></span></code></pre></div>
-<pre><code>## named numeric(0)</code></pre>
+<pre><code>## S567 S489 S488 
+## 30.4 90.0 50.8</code></pre>
 </div>
 <div id="range-or-sequence-indexing" class="section level3 hasAnchor" number="5.9.4">
 <h3><span class="header-section-number">5.9.4</span> Range or Sequence Indexing<a href="using-r.html#range-or-sequence-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can extract a range or sequence of elements using a colon : to specify a range or a vector of indices.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="using-r.html#cb77-1" tabindex="-1"></a>horn_length[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##   S4 S567 S489 
-##  5.4  6.2  7.1</code></pre>
+## 10.0 30.4 90.0</code></pre>
 </div>
 <div id="negative-indexing" class="section level3 hasAnchor" number="5.9.5">
 <h3><span class="header-section-number">5.9.5</span> Negative Indexing<a href="using-r.html#negative-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Negative indexing is used to exclude elements from a data structure. When you use a negative index, R excludes the element at that specific position. Note that negative indexing only applies to numeric positions, not named elements.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="using-r.html#cb79-1" tabindex="-1"></a>horn_length[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##   S4 S489 S488  S89 
-##  5.4  7.1  4.8  7.5</code></pre>
+## 10.0 90.0 50.8 30.0</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="using-r.html#cb81-1" tabindex="-1"></a><span class="co"># we can skip multiple elements</span></span>
 <span id="cb81-2"><a href="using-r.html#cb81-2" tabindex="-1"></a>horn_length[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>)]  </span></code></pre></div>
 <pre><code>## S489 S488  S89 
-##  7.1  4.8  7.5</code></pre>
+## 90.0 50.8 30.0</code></pre>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="using-r.html#cb83-1" tabindex="-1"></a><span class="co"># or </span></span>
 <span id="cb83-2"><a href="using-r.html#cb83-2" tabindex="-1"></a>horn_length[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
 <pre><code>## S567 S489 S488 
-##  6.2  7.1  4.8</code></pre>
+## 30.4 90.0 50.8</code></pre>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="using-r.html#cb85-1" tabindex="-1"></a><span class="co"># a common mistake would be to ask R x[-1:3] # but there isn&#39;t a negative first row</span></span>
 <span id="cb85-2"><a href="using-r.html#cb85-2" tabindex="-1"></a><span class="co"># But remember the order of operations. </span></span>
 <span id="cb85-3"><a href="using-r.html#cb85-3" tabindex="-1"></a><span class="co"># : is really a function. It takes its first argument as -1, </span></span>
@@ -910,19 +950,34 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 <span id="cb85-5"><a href="using-r.html#cb85-5" tabindex="-1"></a><span class="co"># numbers: c(-1, 0, 1, 2, 3).</span></span>
 <span id="cb85-6"><a href="using-r.html#cb85-6" tabindex="-1"></a>horn_length[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>## S488  S89 
-##  4.8  7.5</code></pre>
+## 50.8 30.0</code></pre>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="using-r.html#cb87-1" tabindex="-1"></a><span class="co"># To remove elements from a vector, we need to assign the result </span></span>
 <span id="cb87-2"><a href="using-r.html#cb87-2" tabindex="-1"></a><span class="co"># back into the variable:</span></span>
 <span id="cb87-3"><a href="using-r.html#cb87-3" tabindex="-1"></a>horn_length <span class="ot">&lt;-</span> horn_length[<span class="sc">-</span><span class="dv">4</span>]</span>
 <span id="cb87-4"><a href="using-r.html#cb87-4" tabindex="-1"></a>horn_length</span></code></pre></div>
 <pre><code>##   S4 S567 S489  S89 
-##  5.4  6.2  7.1  7.5</code></pre>
+## 10.0 30.4 90.0 30.0</code></pre>
 </div>
 <div id="which-indexing" class="section level3 hasAnchor" number="5.9.6">
 <h3><span class="header-section-number">5.9.6</span> Which Indexing<a href="using-r.html#which-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The which() function returns the indices of elements that satisfy a given condition (useful in combination with logical operations).</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="using-r.html#cb89-1" tabindex="-1"></a>to_remove <span class="ot">&lt;-</span> <span class="fu">which</span>(horn_length <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb89-2"><a href="using-r.html#cb89-2" tabindex="-1"></a>to_remove <span class="co"># index of elements to remove from the to_remove vector</span></span></code></pre></div>
+<pre><code>## S567 S489 
+##    2    3</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="using-r.html#cb91-1" tabindex="-1"></a>horn_length[to_remove]</span></code></pre></div>
+<pre><code>## S567 S489 
+## 30.4 90.0</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
+<ol style="list-style-type: decimal">
+<li>Create the following object. new_deer &lt;- c(“RVD1”, “CDB222”, “EWR343”, “WWR526”)</li>
+<li>Print the first three elements of new_deer into the Console using the sequence indexing</li>
+<li>Remove the second element (“CDB222”) using negative indexing, and update the new_deer object.</li>
+<li>Use the <code>which()</code> function to identify the index of the element equal to “WWR526” and print the result.</li>
+<li>Create the following object. <code>age &lt;- c(43, 44, 33, 22)</code></li>
+<li>Use logical indexing to print the elements of <code>age</code> that are less than 44. Display the result in the Console.</li>
+</ol>
 <hr />
 </div>
 <div id="indexing-different-data-types" class="section level3 hasAnchor" number="5.9.7">
@@ -983,7 +1038,20 @@ is not the same as NA, since R treats 0 as a numeric data class.</p>
 </tbody>
 </table>
 <hr />
-<p><strong><code>EXERCISE</code></strong></p>
+<p><strong><code>EXERCISE</code></strong>
+1. Create the following object.</p>
+<ul>
+<li><code>elk_df &lt;- data.frame(</code><br />
+<code>elk_id = c("E001", "E002", "E003", "E004", "E005"),</code><br />
+<code>weight = c(350, 410, 290, 500, 375),</code><br />
+<code>herd = c("North", "South", "East", "West", "North"))</code></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Print rows 1 to 3 and the second column of <code>elk_df</code> to the Console. Recall that to index data frames, you use df[rows, columns].</li>
+<li>Remove the elk ids “E001” and “E002” from the data frame using negative indexing.</li>
+<li>Use which() indexing to subset the <code>elk_df</code> to include only elk from the “North” herd. Assign this to a new object called “elk_north.</li>
+<li>BONUS: Use a which() statement to subset <code>elk_df</code> to elk in the “North” and “East” herds</li>
+</ol>
 <hr />
 
 </div>

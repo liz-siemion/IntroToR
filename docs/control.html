@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-16" />
+<meta name="date" content="2025-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,12 +257,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="12.1" data-path="debugging.html"><a href="debugging.html#locating-problematic-code"><i class="fa fa-check"></i><b>12.1</b> Locating Problematic Code</a></li>
 <li class="chapter" data-level="12.2" data-path="debugging.html"><a href="debugging.html#syntax-errors"><i class="fa fa-check"></i><b>12.2</b> Syntax errors</a></li>
-<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.3</b> Coercian Problems</a></li>
-<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.4</b> Labeling function arguments</a></li>
-<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.5</b> Conflicting Functions</a></li>
-<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.6</b> Use the Help <code>?</code> Function!</a></li>
-<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.7</b> Google</a></li>
-<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.8</b> AI</a></li>
+<li class="chapter" data-level="12.3" data-path="debugging.html"><a href="debugging.html#missing-and-undefined-data"><i class="fa fa-check"></i><b>12.3</b> Missing and Undefined Data</a></li>
+<li class="chapter" data-level="12.4" data-path="debugging.html"><a href="debugging.html#coercian-problems"><i class="fa fa-check"></i><b>12.4</b> Coercian Problems</a></li>
+<li class="chapter" data-level="12.5" data-path="debugging.html"><a href="debugging.html#labeling-function-arguments"><i class="fa fa-check"></i><b>12.5</b> Labeling function arguments</a></li>
+<li class="chapter" data-level="12.6" data-path="debugging.html"><a href="debugging.html#conflicting-functions"><i class="fa fa-check"></i><b>12.6</b> Conflicting Functions</a></li>
+<li class="chapter" data-level="12.7" data-path="debugging.html"><a href="debugging.html#use-the-help-function"><i class="fa fa-check"></i><b>12.7</b> Use the Help <code>?</code> Function!</a></li>
+<li class="chapter" data-level="12.8" data-path="debugging.html"><a href="debugging.html#google"><i class="fa fa-check"></i><b>12.8</b> Google</a></li>
+<li class="chapter" data-level="12.9" data-path="debugging.html"><a href="debugging.html#ai"><i class="fa fa-check"></i><b>12.9</b> AI</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="readable-r.html"><a href="readable-r.html"><i class="fa fa-check"></i><b>13</b> Making Readable R Code</a>
 <ul>
@@ -297,13 +298,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="for-loops" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Loops<a href="control.html#for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are three main types of loops: <code>for</code> (most common), <code>while</code>, and <code>repeat</code>. For loops are not always the most efficient way to perform repetitive tasks. In many cases, vectorized operations (e.g. apply functions) are faster and more efficient. Vectorized operations apply to entire vectors (or arrays) at once, whereas for loops iterate through individual elements sequentially. We will not be covering vectorization operations in this course, but it is good to be aware that they exist.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="control.html#cb141-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) { <span class="co"># n = number of times you run the loop</span></span>
-<span id="cb141-2"><a href="control.html#cb141-2" tabindex="-1"></a>  <span class="co"># execute a task</span></span>
-<span id="cb141-3"><a href="control.html#cb141-3" tabindex="-1"></a>} <span class="co"># end loop</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="control.html#cb153-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) { <span class="co"># n = number of times you run the loop</span></span>
+<span id="cb153-2"><a href="control.html#cb153-2" tabindex="-1"></a>  <span class="co"># execute a task</span></span>
+<span id="cb153-3"><a href="control.html#cb153-3" tabindex="-1"></a>} <span class="co"># end loop</span></span></code></pre></div>
 <p>It’s good practice to indent the code inside your loop and add a comment at the end to mark that the loop is finished. This becomes especially helpful when you have nested loops, as it makes your code easier to read and understand.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="control.html#cb142-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb142-2"><a href="control.html#cb142-2" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">+</span> <span class="dv">3</span>) <span class="co"># indented code chunk</span></span>
-<span id="cb142-3"><a href="control.html#cb142-3" tabindex="-1"></a>} <span class="co"># comment that this is the end of the ith loop</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="control.html#cb154-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb154-2"><a href="control.html#cb154-2" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">+</span> <span class="dv">3</span>) <span class="co"># indented code chunk</span></span>
+<span id="cb154-3"><a href="control.html#cb154-3" tabindex="-1"></a>} <span class="co"># comment that this is the end of the ith loop</span></span></code></pre></div>
 <pre><code>## [1] 4
 ## [1] 5
 ## [1] 6
@@ -315,15 +316,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 12
 ## [1] 13</code></pre>
 <p>When using a for loop, you often need to store the results from each iteration. Start by creating an empty object before the loop begins. Inside the loop, assign each result to a specific index of that object. To aid in debugging, use the cat() function to print the current iteration number. This allows you to track the loop’s progress and easily identify issues by running it step by step.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="control.html#cb144-1" tabindex="-1"></a><span class="co"># create empty vector of desired dimensions</span></span>
-<span id="cb144-2"><a href="control.html#cb144-2" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="at">length =</span> <span class="dv">10</span>)</span>
-<span id="cb144-3"><a href="control.html#cb144-3" tabindex="-1"></a></span>
-<span id="cb144-4"><a href="control.html#cb144-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb144-5"><a href="control.html#cb144-5" tabindex="-1"></a>  <span class="fu">cat</span>(i) <span class="co"># print current iteration of loop</span></span>
-<span id="cb144-6"><a href="control.html#cb144-6" tabindex="-1"></a>  my_vector[i] <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> (i<span class="dv">-1</span>) <span class="co"># save output in the ith position of my_vector</span></span>
-<span id="cb144-7"><a href="control.html#cb144-7" tabindex="-1"></a>} <span class="co"># end i loop</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="control.html#cb156-1" tabindex="-1"></a><span class="co"># create empty vector of desired dimensions</span></span>
+<span id="cb156-2"><a href="control.html#cb156-2" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb156-3"><a href="control.html#cb156-3" tabindex="-1"></a></span>
+<span id="cb156-4"><a href="control.html#cb156-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb156-5"><a href="control.html#cb156-5" tabindex="-1"></a>  <span class="fu">cat</span>(i) <span class="co"># print current iteration of loop</span></span>
+<span id="cb156-6"><a href="control.html#cb156-6" tabindex="-1"></a>  my_vector[i] <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> (i<span class="dv">-1</span>) <span class="co"># save output in the ith position of my_vector</span></span>
+<span id="cb156-7"><a href="control.html#cb156-7" tabindex="-1"></a>} <span class="co"># end i loop</span></span></code></pre></div>
 <pre><code>## 12345678910</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="control.html#cb146-1" tabindex="-1"></a>my_vector</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="control.html#cb158-1" tabindex="-1"></a>my_vector</span></code></pre></div>
 <pre><code>##  [1]  1  5  9 13 17 21 25 29 33 37</code></pre>
 </div>
 <div id="troubleshooting-for-loops" class="section level2 hasAnchor" number="9.2">
@@ -343,65 +344,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><strong>Example: Converting Sheep Weight from Kilograms to Pounds</strong></p>
 <p>Let’s start by creating a sample capture data frame that includes sheep IDs and their weight in kilograms.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="control.html#cb148-1" tabindex="-1"></a>capt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">animal_id =</span> <span class="fu">c</span>(<span class="st">&quot;S431&quot;</span>, <span class="st">&quot;S488&quot;</span>, <span class="st">&quot;S490&quot;</span>, <span class="st">&quot;S511&quot;</span>),</span>
-<span id="cb148-2"><a href="control.html#cb148-2" tabindex="-1"></a>                   <span class="at">weight_kg =</span> <span class="fu">c</span>(<span class="dv">43</span>, <span class="dv">55</span>, <span class="dv">48</span>, <span class="st">&quot;50kg&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="control.html#cb160-1" tabindex="-1"></a>capt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">animal_id =</span> <span class="fu">c</span>(<span class="st">&quot;S431&quot;</span>, <span class="st">&quot;S488&quot;</span>, <span class="st">&quot;S490&quot;</span>, <span class="st">&quot;S511&quot;</span>),</span>
+<span id="cb160-2"><a href="control.html#cb160-2" tabindex="-1"></a>                   <span class="at">weight_kg =</span> <span class="fu">c</span>(<span class="dv">43</span>, <span class="dv">55</span>, <span class="dv">48</span>, <span class="st">&quot;50kg&quot;</span>))</span></code></pre></div>
 <p>Next, we’ll run a for loop to convert the weight from kilograms to pounds. Before doing so, we need to create a new column in the data frame to store the converted weight in pounds.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="control.html#cb149-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># R automatically assigns each of the 4 rows as NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="control.html#cb161-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># R automatically assigns each of the 4 rows as NA</span></span></code></pre></div>
 <p>Now, here’s a for loop that attempts to transform the weight from kilograms to pounds. This loop has two issues that we need to address:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="control.html#cb150-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
-<span id="cb150-2"><a href="control.html#cb150-2" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
-<span id="cb150-3"><a href="control.html#cb150-3" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
-<span id="cb150-4"><a href="control.html#cb150-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="control.html#cb162-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
+<span id="cb162-2"><a href="control.html#cb162-2" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
+<span id="cb162-3"><a href="control.html#cb162-3" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
+<span id="cb162-4"><a href="control.html#cb162-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Error in capt$weight_kg[i] * 2.20462: non-numeric argument to binary operator</code></pre>
 <p><strong>Issue 1: Error in the First Iteration</strong></p>
 <p>It looks like the loop threw an error. To find where the error occurred, we can print the current iteration value (i), which will help identify the problem:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="control.html#cb152-1" tabindex="-1"></a>i</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="control.html#cb164-1" tabindex="-1"></a>i</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>The error occurs in the first iteration. To debug further, we can execute the loop’s code step by step. Let’s start with the first line:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="control.html#cb154-1" tabindex="-1"></a>pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="control.html#cb166-1" tabindex="-1"></a>pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span></code></pre></div>
 <pre><code>## Error in capt$weight_kg[i] * 2.20462: non-numeric argument to binary operator</code></pre>
 <p><strong>Issue 2: Non-Numeric Data in weight_kg</strong></p>
 <p>The error occurs because the weight_kg column contains a non-numeric entry: “50kg”. Let’s check the data type of capt$weight_kg:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="control.html#cb156-1" tabindex="-1"></a><span class="fu">class</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="control.html#cb168-1" tabindex="-1"></a><span class="fu">class</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>Because the <code>weight_kg</code> column is of character type, we cannot perform an arithmetic operation, and the code throws an error. To fix this, we need to convert the weight_kg column to numeric.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="control.html#cb158-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg_new <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="control.html#cb170-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg_new <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <p>Looks like an NA was thrown. Let’s check the original weight_kg column to understand why:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="control.html#cb160-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="control.html#cb172-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg</span></code></pre></div>
 <pre><code>## [1] &quot;43&quot;   &quot;55&quot;   &quot;48&quot;   &quot;50kg&quot;</code></pre>
 <p>The fifth row contains “50kg”, which causes the entire column to be treated as character data. To fix this, we can remove any alphabetic characters from the weight_kg column using regular expressions (regex). Although we won’t cover regex in detail here, it’s a useful tool for cleaning data.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="control.html#cb162-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, capt<span class="sc">$</span>weight_kg)</span>
-<span id="cb162-2"><a href="control.html#cb162-2" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="control.html#cb174-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, capt<span class="sc">$</span>weight_kg)</span>
+<span id="cb174-2"><a href="control.html#cb174-2" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(capt<span class="sc">$</span>weight_kg)</span></code></pre></div>
 <p><strong>Issue 3: Incorrect Weight Conversion in the Loop</strong></p>
 <p>Now that the first issue is resolved, let’s try running the for loop again:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="control.html#cb163-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
-<span id="cb163-2"><a href="control.html#cb163-2" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
-<span id="cb163-3"><a href="control.html#cb163-3" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
-<span id="cb163-4"><a href="control.html#cb163-4" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="control.html#cb164-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="control.html#cb175-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
+<span id="cb175-2"><a href="control.html#cb175-2" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
+<span id="cb175-3"><a href="control.html#cb175-3" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
+<span id="cb175-4"><a href="control.html#cb175-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="control.html#cb176-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb</span></code></pre></div>
 <pre><code>## [1] 110.231 110.231 110.231 110.231</code></pre>
 <p>This time, the loop runs, but it appears that the same weight value was applied to all rows. Let’s debug this by running through the loop step by step.</p>
 <p>First, we’ll reset the weight_lb column to NA and set i = 1 to check the output for the first row:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="control.html#cb166-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># R automatically assigns each of the 4 rows as NA</span></span>
-<span id="cb166-2"><a href="control.html#cb166-2" tabindex="-1"></a></span>
-<span id="cb166-3"><a href="control.html#cb166-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
-<span id="cb166-4"><a href="control.html#cb166-4" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
-<span id="cb166-5"><a href="control.html#cb166-5" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
-<span id="cb166-6"><a href="control.html#cb166-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="control.html#cb178-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># R automatically assigns each of the 4 rows as NA</span></span>
+<span id="cb178-2"><a href="control.html#cb178-2" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="control.html#cb178-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
+<span id="cb178-4"><a href="control.html#cb178-4" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
+<span id="cb178-5"><a href="control.html#cb178-5" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> pounds</span>
+<span id="cb178-6"><a href="control.html#cb178-6" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>Issue 4: Forgetting to Index the weight_lb Column Correctly</strong></p>
 <p>The problem is that we forgot to properly index the <code>capt$weight_lb</code> column with <code>i</code> to ensure the calculated pounds value is assigned to the correct row. Let’s fix the loop by updating the assignment to <code>capt$weight_lb[i]</code>:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="control.html#cb167-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span>  <span class="co"># Reset the weight_lb column to NA</span></span>
-<span id="cb167-2"><a href="control.html#cb167-2" tabindex="-1"></a></span>
-<span id="cb167-3"><a href="control.html#cb167-3" tabindex="-1"></a><span class="co"># Correct the loop</span></span>
-<span id="cb167-4"><a href="control.html#cb167-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
-<span id="cb167-5"><a href="control.html#cb167-5" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
-<span id="cb167-6"><a href="control.html#cb167-6" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb[i] <span class="ot">&lt;-</span> pounds  <span class="co"># Use indexing to assign pounds to the correct row</span></span>
-<span id="cb167-7"><a href="control.html#cb167-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="control.html#cb179-1" tabindex="-1"></a>capt<span class="sc">$</span>weight_lb <span class="ot">&lt;-</span> <span class="cn">NA</span>  <span class="co"># Reset the weight_lb column to NA</span></span>
+<span id="cb179-2"><a href="control.html#cb179-2" tabindex="-1"></a></span>
+<span id="cb179-3"><a href="control.html#cb179-3" tabindex="-1"></a><span class="co"># Correct the loop</span></span>
+<span id="cb179-4"><a href="control.html#cb179-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(capt)) { </span>
+<span id="cb179-5"><a href="control.html#cb179-5" tabindex="-1"></a>  pounds <span class="ot">&lt;-</span> capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span></span>
+<span id="cb179-6"><a href="control.html#cb179-6" tabindex="-1"></a>  capt<span class="sc">$</span>weight_lb[i] <span class="ot">&lt;-</span> pounds  <span class="co"># Use indexing to assign pounds to the correct row</span></span>
+<span id="cb179-7"><a href="control.html#cb179-7" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>Additional Debugging Tip: Experiment with Iteration Values</strong></p>
 <p>A helpful debugging trick is to manually set the value of <code>i</code> to different numbers to observe how the behavior of the loop changes with different data. For example:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="control.html#cb168-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Test with a specific iteration</span></span>
-<span id="cb168-2"><a href="control.html#cb168-2" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span>  <span class="co"># Check the result for the second iteration</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="control.html#cb180-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Test with a specific iteration</span></span>
+<span id="cb180-2"><a href="control.html#cb180-2" tabindex="-1"></a>capt<span class="sc">$</span>weight_kg[i] <span class="sc">*</span> <span class="fl">2.20462</span>  <span class="co"># Check the result for the second iteration</span></span></code></pre></div>
 <pre><code>## [1] 121.2541</code></pre>
 <p>This allows you to understand how the loop behaves with specific input values.</p>
 <hr />
@@ -415,30 +416,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.3</span> if, else, and ifelse statements<a href="control.html#if-else-and-ifelse-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If, else, and ifelse statements allow you to control the flow of your code by making decisions based on specific conditions. This can be particularly helpful in for loops, where you might want to execute different actions depending on the iteration.</p>
 <p>For instance, conditional statements allow you to alternate between different operations or calculations during each iteration of a loop. This provides flexibility, enabling you to adjust the behavior of your code based on dynamic factors like the loop index or other variables. Below is an example where a for loop and ifelse statement are used to store a logical value in a vector if a randomly generated number is less than or equal to 50.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="control.html#cb170-1" tabindex="-1"></a><span class="co"># create vector of length 10 with random numbers</span></span>
-<span id="cb170-2"><a href="control.html#cb170-2" tabindex="-1"></a>my_vect <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">15</span>)</span>
-<span id="cb170-3"><a href="control.html#cb170-3" tabindex="-1"></a>output_vect <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb170-4"><a href="control.html#cb170-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_vect)) {</span>
-<span id="cb170-5"><a href="control.html#cb170-5" tabindex="-1"></a>  <span class="cf">if</span>(my_vect[i] <span class="sc">&lt;=</span> <span class="dv">50</span>) {</span>
-<span id="cb170-6"><a href="control.html#cb170-6" tabindex="-1"></a>    output_vect[i] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb170-7"><a href="control.html#cb170-7" tabindex="-1"></a>  }</span>
-<span id="cb170-8"><a href="control.html#cb170-8" tabindex="-1"></a>  <span class="cf">else</span>{</span>
-<span id="cb170-9"><a href="control.html#cb170-9" tabindex="-1"></a>    output_vect[i] <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb170-10"><a href="control.html#cb170-10" tabindex="-1"></a>  }</span>
-<span id="cb170-11"><a href="control.html#cb170-11" tabindex="-1"></a>}</span>
-<span id="cb170-12"><a href="control.html#cb170-12" tabindex="-1"></a></span>
-<span id="cb170-13"><a href="control.html#cb170-13" tabindex="-1"></a>my_vect</span></code></pre></div>
-<pre><code>##  [1] 11 75 95 96 30 32 33 28 59 79 18 82  8 50 83</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="control.html#cb172-1" tabindex="-1"></a>output_vect</span></code></pre></div>
-<pre><code>##  [1]  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE
-## [13]  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="control.html#cb182-1" tabindex="-1"></a><span class="co"># create vector of length 10 with random numbers</span></span>
+<span id="cb182-2"><a href="control.html#cb182-2" tabindex="-1"></a>my_vect <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">15</span>)</span>
+<span id="cb182-3"><a href="control.html#cb182-3" tabindex="-1"></a>output_vect <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb182-4"><a href="control.html#cb182-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_vect)) {</span>
+<span id="cb182-5"><a href="control.html#cb182-5" tabindex="-1"></a>  <span class="cf">if</span>(my_vect[i] <span class="sc">&lt;=</span> <span class="dv">50</span>) {</span>
+<span id="cb182-6"><a href="control.html#cb182-6" tabindex="-1"></a>    output_vect[i] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb182-7"><a href="control.html#cb182-7" tabindex="-1"></a>  }</span>
+<span id="cb182-8"><a href="control.html#cb182-8" tabindex="-1"></a>  <span class="cf">else</span>{</span>
+<span id="cb182-9"><a href="control.html#cb182-9" tabindex="-1"></a>    output_vect[i] <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb182-10"><a href="control.html#cb182-10" tabindex="-1"></a>  }</span>
+<span id="cb182-11"><a href="control.html#cb182-11" tabindex="-1"></a>}</span>
+<span id="cb182-12"><a href="control.html#cb182-12" tabindex="-1"></a></span>
+<span id="cb182-13"><a href="control.html#cb182-13" tabindex="-1"></a>my_vect</span></code></pre></div>
+<pre><code>##  [1] 76 97 28 13 68 30 75 85 17 80  8 39 11 92 38</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="control.html#cb184-1" tabindex="-1"></a>output_vect</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+## [13]  TRUE FALSE  TRUE</code></pre>
 <p>You can also use the ifelse() statement for a conditional statement.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="control.html#cb174-1" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;lion&quot;</span>, <span class="st">&quot;deer&quot;</span>, <span class="st">&quot;deer&quot;</span>)</span>
-<span id="cb174-2"><a href="control.html#cb174-2" tabindex="-1"></a></span>
-<span id="cb174-3"><a href="control.html#cb174-3" tabindex="-1"></a><span class="co"># Use ifelse to label values as &quot;small&quot; or &quot;large&quot;</span></span>
-<span id="cb174-4"><a href="control.html#cb174-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;deer&quot;</span>), <span class="st">&quot;prey&quot;</span>, <span class="st">&quot;predator&quot;</span>)</span>
-<span id="cb174-5"><a href="control.html#cb174-5" tabindex="-1"></a></span>
-<span id="cb174-6"><a href="control.html#cb174-6" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="control.html#cb186-1" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;lion&quot;</span>, <span class="st">&quot;deer&quot;</span>, <span class="st">&quot;deer&quot;</span>)</span>
+<span id="cb186-2"><a href="control.html#cb186-2" tabindex="-1"></a></span>
+<span id="cb186-3"><a href="control.html#cb186-3" tabindex="-1"></a><span class="co"># Use ifelse to label values as &quot;small&quot; or &quot;large&quot;</span></span>
+<span id="cb186-4"><a href="control.html#cb186-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;deer&quot;</span>), <span class="st">&quot;prey&quot;</span>, <span class="st">&quot;predator&quot;</span>)</span>
+<span id="cb186-5"><a href="control.html#cb186-5" tabindex="-1"></a></span>
+<span id="cb186-6"><a href="control.html#cb186-6" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>## [1] &quot;prey&quot;     &quot;predator&quot; &quot;prey&quot;     &quot;prey&quot;</code></pre>
 <p><strong>Why use ifelse() instead of if-else?</strong></p>
 <p>While both ifelse() and traditional if-else statements perform conditional logic, ifelse() is often preferred when you need to apply conditions element-wise (e.g., to vectors or columns in a data frame) and so is better for vectorized operations.</p>
@@ -450,10 +451,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>next: Skips the current iteration and moves to the next one. It’s useful when you want to bypass certain iterations based on a condition without exiting the entire loop.</li>
 </ul>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="control.html#cb176-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb176-2"><a href="control.html#cb176-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) <span class="cf">next</span>  <span class="co"># Skip iteration when i is 3</span></span>
-<span id="cb176-3"><a href="control.html#cb176-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb176-4"><a href="control.html#cb176-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="control.html#cb188-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb188-2"><a href="control.html#cb188-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) <span class="cf">next</span>  <span class="co"># Skip iteration when i is 3</span></span>
+<span id="cb188-3"><a href="control.html#cb188-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb188-4"><a href="control.html#cb188-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 4
@@ -461,10 +462,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>break: Immediately exits the loop, stopping further iterations. This is useful when you want to terminate the loop early based on a specific condition.</li>
 </ul>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="control.html#cb178-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb178-2"><a href="control.html#cb178-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) <span class="cf">break</span>  <span class="co"># Exit the loop when i reaches 3</span></span>
-<span id="cb178-3"><a href="control.html#cb178-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb178-4"><a href="control.html#cb178-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="control.html#cb190-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb190-2"><a href="control.html#cb190-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) <span class="cf">break</span>  <span class="co"># Exit the loop when i reaches 3</span></span>
+<span id="cb190-3"><a href="control.html#cb190-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb190-4"><a href="control.html#cb190-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2</code></pre>
 <p>Both <code>next</code> and <code>break</code> give you fine-grained control over loop behavior, allowing you to skip unnecessary steps or stop the loop early when certain conditions are met.</p>
