@@ -1,7 +1,5 @@
 # Tidy Data {#tidy-data}
 
-## Spreadsheets and Database Tables
-
 ## Computer Readable Data
 
 ## Tidy Data 
@@ -11,20 +9,16 @@
   <p style="font-size: 50%;"><em>Illustrations from the Openscapes blog <a href='https://www.openscapes.org/blog/2020/10/12/tidy-data/'>Tidy Data for reproducibility, efficiency, and collaboration</a> by Julia Lowndes and Allison Horst</em></p>
 </div>
  
-## Document
+## Document your code
+It's good practice to include comments and documentation explaining what your code is doing and why. This makes it easier to understand your code, which can be useful if your code is complex or you haven't worked with it in awhile. Good documentation helps with debugging, collaboration, and keeping your workflow organized and reproducible. RMarkdown and README files are useful methods for documenting your progress.  
 
-## Rows for variables, columns for observations
+## Rows for Observations, Columns for Variables
+When organizing your data, it is best to keep it in long format, where each row represents a new observation and each column represents a new variable. 
 
 ## Problemmatic Practices
 
-### Multiple tables in a single spreadsheet
+* Avoid putting units in cells
+* Avoid using problematic column Names with white spaces
+* Recognize the difference between zero and a missing value
+* Ensure that you consistently format your values in your spreadsheets
 
-### Putting units in cells
-
-### Using Problematic Column Names
-
-### Zeros vs Missing Values
-
-### Using Problematic Null Values
-
-### Inconsistent Value Formatting

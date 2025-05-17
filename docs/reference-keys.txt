@@ -91,3 +91,5 @@ outlining-r-scripts
 pseudocoding
 making-readable-r-code
 class-wrap-up
+document-your-code
+rows-for-observations-columns-for-variables
