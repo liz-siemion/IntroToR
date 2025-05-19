@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-17" />
+<meta name="date" content="2025-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,20 +162,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>4</b> Tidy Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#spreadsheets-and-database-tables"><i class="fa fa-check"></i><b>4.1</b> Spreadsheets and Database Tables</a></li>
-<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.2</b> Computer Readable Data</a></li>
-<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.3</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#document"><i class="fa fa-check"></i><b>4.4</b> Document</a></li>
-<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-variables-columns-for-observations"><i class="fa fa-check"></i><b>4.5</b> Rows for variables, columns for observations</a></li>
-<li class="chapter" data-level="4.6" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.6</b> Problemmatic Practices</a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="tidy-data.html"><a href="tidy-data.html#multiple-tables-in-a-single-spreadsheet"><i class="fa fa-check"></i><b>4.6.1</b> Multiple tables in a single spreadsheet</a></li>
-<li class="chapter" data-level="4.6.2" data-path="tidy-data.html"><a href="tidy-data.html#putting-units-in-cells"><i class="fa fa-check"></i><b>4.6.2</b> Putting units in cells</a></li>
-<li class="chapter" data-level="4.6.3" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-column-names"><i class="fa fa-check"></i><b>4.6.3</b> Using Problematic Column Names</a></li>
-<li class="chapter" data-level="4.6.4" data-path="tidy-data.html"><a href="tidy-data.html#zeros-vs-missing-values"><i class="fa fa-check"></i><b>4.6.4</b> Zeros vs Missing Values</a></li>
-<li class="chapter" data-level="4.6.5" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-null-values"><i class="fa fa-check"></i><b>4.6.5</b> Using Problematic Null Values</a></li>
-<li class="chapter" data-level="4.6.6" data-path="tidy-data.html"><a href="tidy-data.html#inconsistent-value-formatting"><i class="fa fa-check"></i><b>4.6.6</b> Inconsistent Value Formatting</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.1</b> Computer Readable Data</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#document-your-code"><i class="fa fa-check"></i><b>4.3</b> Document your code</a></li>
+<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-observations-columns-for-variables"><i class="fa fa-check"></i><b>4.4</b> Rows for Observations, Columns for Variables</a></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.5</b> Problemmatic Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
 <ul>
@@ -369,13 +360,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">11.4</span> Coercian Problems<a href="debugging.html#coercian-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R, coercion occurs when elements of different types are combined, and R automatically converts them to a common type to maintain consistency. This can lead to unintended results if not handled carefully. Always check your data types with <code>str()</code>, <code>typeof()</code>, or <code>classs()</code> to avoid coercion issues.</p>
 <p>A common coercion error in R occurs when you convert a factor to numeric without first converting it to a character. Doing as.numeric() directly on a factor returns the internal integer codes of the factor levels, not the actual numeric values you might expect.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="debugging.html#cb217-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
-<span id="cb217-2"><a href="debugging.html#cb217-2" tabindex="-1"></a></span>
-<span id="cb217-3"><a href="debugging.html#cb217-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
-<span id="cb217-4"><a href="debugging.html#cb217-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="debugging.html#cb218-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;10&quot;</span>, <span class="st">&quot;20&quot;</span>, <span class="st">&quot;30&quot;</span>))</span>
+<span id="cb218-2"><a href="debugging.html#cb218-2" tabindex="-1"></a></span>
+<span id="cb218-3"><a href="debugging.html#cb218-3" tabindex="-1"></a><span class="co"># incorrect coercian</span></span>
+<span id="cb218-4"><a href="debugging.html#cb218-4" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="debugging.html#cb219-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
-<span id="cb219-2"><a href="debugging.html#cb219-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="debugging.html#cb220-1" tabindex="-1"></a><span class="co"># correct coercian</span></span>
+<span id="cb220-2"><a href="debugging.html#cb220-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
 </div>
 <div id="labeling-function-arguments" class="section level2 hasAnchor" number="11.5">
@@ -389,11 +380,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To specify which package’s function to use, you can use the <code>::</code> syntax. For example, to use the <code>select()</code> function from <code>dplyr</code>, write <code>dplyr::select()</code>. This ensures you are explicitly calling the correct function from the right package.</p>
 <p><strong>Option 2: Using the Conflict Package</strong></p>
 <p>The conflict package in R is designed to help manage situations where two or more loaded packages have functions with the same name. When you load multiple packages that contain functions with identical names, R will prioritize one function over another, which can lead to confusion or errors in your analysis. For example, both <code>amt</code> and <code>dplyr</code> have a <code>select()</code>. The conflict package provides tools to manage these conflicts explicitly and prevent unexpected behavior.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="debugging.html#cb221-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
-<span id="cb221-2"><a href="debugging.html#cb221-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the select() function </span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="debugging.html#cb222-1" tabindex="-1"></a><span class="fu">library</span>(conflicted)</span>
+<span id="cb222-2"><a href="debugging.html#cb222-2" tabindex="-1"></a><span class="fu">conflict_prefer</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)  <span class="co"># This will prefer the select() function </span></span></code></pre></div>
 <pre><code>## [conflicted] Will prefer dplyr::select over any other
 ## package.</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="debugging.html#cb223-1" tabindex="-1"></a><span class="co"># from the dplyr package.</span></span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="debugging.html#cb224-1" tabindex="-1"></a><span class="co"># from the dplyr package.</span></span></code></pre></div>
 </div>
 <div id="use-the-help-function" class="section level2 hasAnchor" number="11.7">
 <h2><span class="header-section-number">11.7</span> Use the Help <code>?</code> Function!<a href="debugging.html#use-the-help-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>

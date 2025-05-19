@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-17" />
+<meta name="date" content="2025-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,20 +162,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>4</b> Tidy Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#spreadsheets-and-database-tables"><i class="fa fa-check"></i><b>4.1</b> Spreadsheets and Database Tables</a></li>
-<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.2</b> Computer Readable Data</a></li>
-<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.3</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#document"><i class="fa fa-check"></i><b>4.4</b> Document</a></li>
-<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-variables-columns-for-observations"><i class="fa fa-check"></i><b>4.5</b> Rows for variables, columns for observations</a></li>
-<li class="chapter" data-level="4.6" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.6</b> Problemmatic Practices</a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="tidy-data.html"><a href="tidy-data.html#multiple-tables-in-a-single-spreadsheet"><i class="fa fa-check"></i><b>4.6.1</b> Multiple tables in a single spreadsheet</a></li>
-<li class="chapter" data-level="4.6.2" data-path="tidy-data.html"><a href="tidy-data.html#putting-units-in-cells"><i class="fa fa-check"></i><b>4.6.2</b> Putting units in cells</a></li>
-<li class="chapter" data-level="4.6.3" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-column-names"><i class="fa fa-check"></i><b>4.6.3</b> Using Problematic Column Names</a></li>
-<li class="chapter" data-level="4.6.4" data-path="tidy-data.html"><a href="tidy-data.html#zeros-vs-missing-values"><i class="fa fa-check"></i><b>4.6.4</b> Zeros vs Missing Values</a></li>
-<li class="chapter" data-level="4.6.5" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-null-values"><i class="fa fa-check"></i><b>4.6.5</b> Using Problematic Null Values</a></li>
-<li class="chapter" data-level="4.6.6" data-path="tidy-data.html"><a href="tidy-data.html#inconsistent-value-formatting"><i class="fa fa-check"></i><b>4.6.6</b> Inconsistent Value Formatting</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.1</b> Computer Readable Data</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#document-your-code"><i class="fa fa-check"></i><b>4.3</b> Document your code</a></li>
+<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-observations-columns-for-variables"><i class="fa fa-check"></i><b>4.4</b> Rows for Observations, Columns for Variables</a></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.5</b> Problemmatic Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
 <ul>
@@ -308,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Different separators between operating systems<a href="file.html#different-separators-between-operating-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Different operating systems use different separators between folders of a file path.</p>
 <ul>
-<li>On windows, it is <code>\</code></li>
+<li>On windows, it is <code>\</code> or <code>//</code></li>
 <li>On Mac/Linux, it is <code>/</code></li>
 </ul>
 <p>R uses the / as the folder separator, even on Windows. So if you copy a file path from File Explorer (which uses ), be sure to either replace all backslashes () with forward slashes (/), or use double backslashes (\) so R can read the path correctly.</p>

@@ -18,7 +18,7 @@ File paths are addresses to different locations (e.g. files, documents) within t
 
 Different operating systems use different separators between folders of a file path.
 
-* On windows, it is `\`
+* On windows, it is `\` or `//`
 * On Mac/Linux, it is `/`
 
 R uses the / as the folder separator, even on Windows. So if you copy a file path from File Explorer (which uses \), be sure to either replace all backslashes (\) with forward slashes (/), or use double backslashes (\\) so R can read the path correctly.

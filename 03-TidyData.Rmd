@@ -18,7 +18,7 @@ When organizing your data, it is best to keep it in long format, where each row 
 ## Problemmatic Practices
 
 * Avoid putting units in cells
-* Avoid using problematic column Names with white spaces
+* Do not use white spaces in column names
 * Recognize the difference between zero and a missing value
 * Ensure that you consistently format your values in your spreadsheets
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Liz Siemion &amp; Dave German" />
 
 
-<meta name="date" content="2025-05-17" />
+<meta name="date" content="2025-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,20 +162,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>4</b> Tidy Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#spreadsheets-and-database-tables"><i class="fa fa-check"></i><b>4.1</b> Spreadsheets and Database Tables</a></li>
-<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.2</b> Computer Readable Data</a></li>
-<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.3</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#document"><i class="fa fa-check"></i><b>4.4</b> Document</a></li>
-<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-variables-columns-for-observations"><i class="fa fa-check"></i><b>4.5</b> Rows for variables, columns for observations</a></li>
-<li class="chapter" data-level="4.6" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.6</b> Problemmatic Practices</a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="tidy-data.html"><a href="tidy-data.html#multiple-tables-in-a-single-spreadsheet"><i class="fa fa-check"></i><b>4.6.1</b> Multiple tables in a single spreadsheet</a></li>
-<li class="chapter" data-level="4.6.2" data-path="tidy-data.html"><a href="tidy-data.html#putting-units-in-cells"><i class="fa fa-check"></i><b>4.6.2</b> Putting units in cells</a></li>
-<li class="chapter" data-level="4.6.3" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-column-names"><i class="fa fa-check"></i><b>4.6.3</b> Using Problematic Column Names</a></li>
-<li class="chapter" data-level="4.6.4" data-path="tidy-data.html"><a href="tidy-data.html#zeros-vs-missing-values"><i class="fa fa-check"></i><b>4.6.4</b> Zeros vs Missing Values</a></li>
-<li class="chapter" data-level="4.6.5" data-path="tidy-data.html"><a href="tidy-data.html#using-problematic-null-values"><i class="fa fa-check"></i><b>4.6.5</b> Using Problematic Null Values</a></li>
-<li class="chapter" data-level="4.6.6" data-path="tidy-data.html"><a href="tidy-data.html#inconsistent-value-formatting"><i class="fa fa-check"></i><b>4.6.6</b> Inconsistent Value Formatting</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data.html"><a href="tidy-data.html#computer-readable-data"><i class="fa fa-check"></i><b>4.1</b> Computer Readable Data</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-1"><i class="fa fa-check"></i><b>4.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data.html"><a href="tidy-data.html#document-your-code"><i class="fa fa-check"></i><b>4.3</b> Document your code</a></li>
+<li class="chapter" data-level="4.4" data-path="tidy-data.html"><a href="tidy-data.html#rows-for-observations-columns-for-variables"><i class="fa fa-check"></i><b>4.4</b> Rows for Observations, Columns for Variables</a></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data.html"><a href="tidy-data.html#problemmatic-practices"><i class="fa fa-check"></i><b>4.5</b> Problemmatic Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>5</b> Using R</a>
 <ul>
@@ -328,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> Main dplyr Functions<a href="tidyverse.html#main-dplyr-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>dplyr</code>, a main package of the <code>tidyverse</code>, consists of five main functions:</p>
 <ol style="list-style-type: decimal">
-<li><code>filter()</code>: Subset the data based on specific conditions.</li>
+<li><code>filter()</code>: Subset the data based on specific conditions. <strong>This is for selecting rows.</strong></li>
 </ol>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="tidyverse.html#cb100-1" tabindex="-1"></a><span class="co"># create data frame object</span></span>
 <span id="cb100-2"><a href="tidyverse.html#cb100-2" tabindex="-1"></a>snbs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">AID =</span> <span class="fu">c</span>(<span class="st">&quot;S488&quot;</span>, <span class="st">&quot;S500&quot;</span>, <span class="st">&quot;S468&quot;</span>),</span>
@@ -337,31 +328,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb100-5"><a href="tidyverse.html#cb100-5" tabindex="-1"></a>                   <span class="at">RU =</span> <span class="fu">c</span>(<span class="st">&quot;NRU&quot;</span>, <span class="st">&quot;NRU&quot;</span>, <span class="st">&quot;CRU&quot;</span>))</span>
 <span id="cb100-6"><a href="tidyverse.html#cb100-6" tabindex="-1"></a><span class="co"># filter to females</span></span>
 <span id="cb100-7"><a href="tidyverse.html#cb100-7" tabindex="-1"></a>females <span class="ot">&lt;-</span> <span class="fu">filter</span>(snbs, Sex <span class="sc">==</span> <span class="st">&quot;F&quot;</span>)</span>
-<span id="cb100-8"><a href="tidyverse.html#cb100-8" tabindex="-1"></a>females</span></code></pre></div>
+<span id="cb100-8"><a href="tidyverse.html#cb100-8" tabindex="-1"></a><span class="fu">head</span>(females, <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##    AID Sex Herd  RU
-## 1 S500   F   Gb NRU
-## 2 S468   F   Wh CRU</code></pre>
+## 1 S500   F   Gb NRU</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><code>select()</code>: Choose specific columns from the data.</li>
+<li><code>select()</code>: Choose specific columns from the data. <strong>This is for selecting columns</strong></li>
 </ol>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="tidyverse.html#cb102-1" tabindex="-1"></a><span class="co"># select AID and RU columns</span></span>
 <span id="cb102-2"><a href="tidyverse.html#cb102-2" tabindex="-1"></a>snbs_s <span class="ot">&lt;-</span> <span class="fu">select</span>(snbs, AID, RU)</span>
 <span id="cb102-3"><a href="tidyverse.html#cb102-3" tabindex="-1"></a></span>
 <span id="cb102-4"><a href="tidyverse.html#cb102-4" tabindex="-1"></a><span class="co"># remove one column with negative indexing</span></span>
-<span id="cb102-5"><a href="tidyverse.html#cb102-5" tabindex="-1"></a>snbs_s <span class="ot">&lt;-</span> <span class="fu">select</span>(snbs, <span class="sc">-</span>Sex, <span class="sc">-</span>RU)</span></code></pre></div>
+<span id="cb102-5"><a href="tidyverse.html#cb102-5" tabindex="-1"></a>snbs_s <span class="ot">&lt;-</span> <span class="fu">select</span>(snbs, <span class="sc">-</span>Sex, <span class="sc">-</span>RU)</span>
+<span id="cb102-6"><a href="tidyverse.html#cb102-6" tabindex="-1"></a><span class="fu">head</span>(snbs_s, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##    AID Herd
+## 1 S488   Ca</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><code>mutate()</code>: Modify or create new variables in the data.</li>
 </ol>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="tidyverse.html#cb103-1" tabindex="-1"></a>snbs_as <span class="ot">&lt;-</span> <span class="fu">mutate</span>(snbs, <span class="at">AID_Sex =</span> <span class="fu">paste</span>(AID, Sex, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb103-2"><a href="tidyverse.html#cb103-2" tabindex="-1"></a>  <span class="fu">select</span>(AID, Sex, AID_Sex)</span>
-<span id="cb103-3"><a href="tidyverse.html#cb103-3" tabindex="-1"></a><span class="fu">head</span>(snbs_as, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="tidyverse.html#cb104-1" tabindex="-1"></a>snbs_s <span class="ot">&lt;-</span> <span class="fu">mutate</span>(snbs, <span class="at">AID_Sex =</span> <span class="fu">paste</span>(AID, Sex, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb104-2"><a href="tidyverse.html#cb104-2" tabindex="-1"></a>  <span class="fu">select</span>(AID, Sex, AID_Sex)</span>
+<span id="cb104-3"><a href="tidyverse.html#cb104-3" tabindex="-1"></a><span class="fu">head</span>(snbs_s, <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##    AID Sex AID_Sex
 ## 1 S488   M  S488_M</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li><code>group_by()</code>: Group data based on one or more variables for grouped operations.</li>
 </ol>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="tidyverse.html#cb105-1" tabindex="-1"></a>snbs_group <span class="ot">&lt;-</span> <span class="fu">group_by</span>(snbs, RU)</span>
-<span id="cb105-2"><a href="tidyverse.html#cb105-2" tabindex="-1"></a>snbs_group</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="tidyverse.html#cb106-1" tabindex="-1"></a>snbs_group <span class="ot">&lt;-</span> <span class="fu">group_by</span>(snbs, RU)</span>
+<span id="cb106-2"><a href="tidyverse.html#cb106-2" tabindex="-1"></a>snbs_group</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ## # Groups:   RU [2]
 ##   AID   Sex   Herd  RU   
@@ -372,8 +365,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" style="list-style-type: decimal">
 <li><code>summarize()</code>: Generate summary statistics from the data. Common summary statistics include: <code>n()</code>, <code>mean()</code>, <code>mode()</code>, <code>range()</code>, <code>median()</code>, <code>sd()</code>.</li>
 </ol>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="tidyverse.html#cb107-1" tabindex="-1"></a>snbs_summ <span class="ot">&lt;-</span> <span class="fu">summarize</span>(snbs_group, <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb107-2"><a href="tidyverse.html#cb107-2" tabindex="-1"></a>snbs_summ</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="tidyverse.html#cb108-1" tabindex="-1"></a>snbs_summ <span class="ot">&lt;-</span> <span class="fu">summarize</span>(snbs_group, <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb108-2"><a href="tidyverse.html#cb108-2" tabindex="-1"></a>snbs_summ</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   RU        n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -382,15 +375,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="6" style="list-style-type: decimal">
 <li><code>arrange()</code>: Sort the data in a specific order.</li>
 </ol>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="tidyverse.html#cb109-1" tabindex="-1"></a>snbs_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(snbs, Herd)</span>
-<span id="cb109-2"><a href="tidyverse.html#cb109-2" tabindex="-1"></a><span class="co"># Sorts character values in alphabetical order by default</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="tidyverse.html#cb110-1" tabindex="-1"></a>snbs_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(snbs, Herd)</span>
+<span id="cb110-2"><a href="tidyverse.html#cb110-2" tabindex="-1"></a><span class="co"># Sorts character values in alphabetical order by default</span></span>
+<span id="cb110-3"><a href="tidyverse.html#cb110-3" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="tidyverse.html#cb110-4" tabindex="-1"></a>snbs_sorted_desc <span class="ot">&lt;-</span> <span class="fu">arrange</span>(snbs, <span class="fu">desc</span>(Herd))</span>
+<span id="cb110-5"><a href="tidyverse.html#cb110-5" tabindex="-1"></a><span class="co"># Sorts character values in descending alphabetical order</span></span></code></pre></div>
 <p>You can perform many operations in one call using the pipe operator:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="tidyverse.html#cb110-1" tabindex="-1"></a>snbs_tidy <span class="ot">&lt;-</span> <span class="fu">filter</span>(snbs, Sex <span class="sc">==</span> <span class="st">&quot;F&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb110-2"><a href="tidyverse.html#cb110-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AID_Sex =</span> <span class="fu">paste</span>(AID, Sex, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb110-3"><a href="tidyverse.html#cb110-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>RU) <span class="sc">%&gt;%</span></span>
-<span id="cb110-4"><a href="tidyverse.html#cb110-4" tabindex="-1"></a>  <span class="fu">group_by</span>(Herd) <span class="sc">%&gt;%</span></span>
-<span id="cb110-5"><a href="tidyverse.html#cb110-5" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb110-6"><a href="tidyverse.html#cb110-6" tabindex="-1"></a>  <span class="fu">arrange</span>(Herd)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="tidyverse.html#cb111-1" tabindex="-1"></a>snbs_tidy <span class="ot">&lt;-</span> <span class="fu">filter</span>(snbs, Sex <span class="sc">==</span> <span class="st">&quot;F&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb111-2"><a href="tidyverse.html#cb111-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AID_Sex =</span> <span class="fu">paste</span>(AID, Sex, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb111-3"><a href="tidyverse.html#cb111-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>RU) <span class="sc">%&gt;%</span></span>
+<span id="cb111-4"><a href="tidyverse.html#cb111-4" tabindex="-1"></a>  <span class="fu">group_by</span>(Herd) <span class="sc">%&gt;%</span></span>
+<span id="cb111-5"><a href="tidyverse.html#cb111-5" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb111-6"><a href="tidyverse.html#cb111-6" tabindex="-1"></a>  <span class="fu">arrange</span>(Herd)</span></code></pre></div>
 <hr />
 <p><strong><code>EXERCISE 1</code></strong></p>
 <ol style="list-style-type: decimal">
@@ -474,24 +470,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Each ggplot() call begins with the data and aesthetic mappings, and layers like geom_<name>() or theme_<name>() are added using the + operator. Let’s go through the main parts step by step.</p>
 <p>First we will create a fake lion dataset:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="tidyverse.html#cb111-1" tabindex="-1"></a><span class="co"># Create fake lion data</span></span>
-<span id="cb111-2"><a href="tidyverse.html#cb111-2" tabindex="-1"></a>lions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb111-3"><a href="tidyverse.html#cb111-3" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&quot;Lion&quot;</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">219</span>),</span>
-<span id="cb111-4"><a href="tidyverse.html#cb111-4" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),          <span class="co"># age in years</span></span>
-<span id="cb111-5"><a href="tidyverse.html#cb111-5" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="dv">1</span>), <span class="co"># weight in kg</span></span>
-<span id="cb111-6"><a href="tidyverse.html#cb111-6" tabindex="-1"></a>  <span class="at">sex =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb111-7"><a href="tidyverse.html#cb111-7" tabindex="-1"></a>  <span class="at">region =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Northern&quot;</span>, <span class="st">&quot;Southern&quot;</span>, <span class="st">&quot;Central&quot;</span>, <span class="st">&quot;Olancha&quot;</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb111-8"><a href="tidyverse.html#cb111-8" tabindex="-1"></a>)</span>
-<span id="cb111-9"><a href="tidyverse.html#cb111-9" tabindex="-1"></a></span>
-<span id="cb111-10"><a href="tidyverse.html#cb111-10" tabindex="-1"></a><span class="fu">head</span>(lions, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="tidyverse.html#cb112-1" tabindex="-1"></a><span class="co"># Create fake lion data</span></span>
+<span id="cb112-2"><a href="tidyverse.html#cb112-2" tabindex="-1"></a>lions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb112-3"><a href="tidyverse.html#cb112-3" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&quot;Lion&quot;</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">219</span>),</span>
+<span id="cb112-4"><a href="tidyverse.html#cb112-4" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),          <span class="co"># age in years</span></span>
+<span id="cb112-5"><a href="tidyverse.html#cb112-5" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="dv">1</span>), <span class="co"># weight in kg</span></span>
+<span id="cb112-6"><a href="tidyverse.html#cb112-6" tabindex="-1"></a>  <span class="at">sex =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb112-7"><a href="tidyverse.html#cb112-7" tabindex="-1"></a>  <span class="at">region =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Northern&quot;</span>, <span class="st">&quot;Southern&quot;</span>, <span class="st">&quot;Central&quot;</span>, <span class="st">&quot;Olancha&quot;</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb112-8"><a href="tidyverse.html#cb112-8" tabindex="-1"></a>)</span>
+<span id="cb112-9"><a href="tidyverse.html#cb112-9" tabindex="-1"></a></span>
+<span id="cb112-10"><a href="tidyverse.html#cb112-10" tabindex="-1"></a><span class="fu">head</span>(lions, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##        id age weight sex   region
-## 1 Lion200   7   59.2   F Southern
-## 2 Lion201   4   57.9   F Northern
-## 3 Lion202  18   58.6   M  Central</code></pre>
+## 1 Lion200  18   52.8   M Southern
+## 2 Lion201   4   67.5   M  Central
+## 3 Lion202   2   50.3   M Southern</code></pre>
 <ol style="list-style-type: decimal">
 <li>The main ggplot() function</li>
 </ol>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="tidyverse.html#cb113-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex))</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="tidyverse.html#cb114-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex))</span></code></pre></div>
 <p><img src="intro-to-r_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <ul>
 <li>ggplot(data = lions): This is where we tell ggplot what data we’re using. In this case, it’s the lions data frame.</li>
@@ -505,25 +501,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" style="list-style-type: decimal">
 <li>Adding Points with geom_point()</li>
 </ol>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="tidyverse.html#cb114-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb114-2"><a href="tidyverse.html#cb114-2" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="tidyverse.html#cb115-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb115-2"><a href="tidyverse.html#cb115-2" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="intro-to-r_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 * geom_point(): This part tells ggplot to plot the data as points (a scatter plot).
 * size = 3: This adjusts the size of the points on the plot to make them more visible.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Adding a trendline and labels</li>
 </ol>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="tidyverse.html#cb115-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb115-2"><a href="tidyverse.html#cb115-2" tabindex="-1"></a>  <span class="co"># Add scatterplot</span></span>
-<span id="cb115-3"><a href="tidyverse.html#cb115-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb115-4"><a href="tidyverse.html#cb115-4" tabindex="-1"></a>  <span class="co"># Adding trend line</span></span>
-<span id="cb115-5"><a href="tidyverse.html#cb115-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> sex), <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="sc">+</span>  </span>
-<span id="cb115-6"><a href="tidyverse.html#cb115-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb115-7"><a href="tidyverse.html#cb115-7" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Mountain Lion Weight by Age&quot;</span>,</span>
-<span id="cb115-8"><a href="tidyverse.html#cb115-8" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Age (years)&quot;</span>,</span>
-<span id="cb115-9"><a href="tidyverse.html#cb115-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>,</span>
-<span id="cb115-10"><a href="tidyverse.html#cb115-10" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Sex&quot;</span></span>
-<span id="cb115-11"><a href="tidyverse.html#cb115-11" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="tidyverse.html#cb116-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb116-2"><a href="tidyverse.html#cb116-2" tabindex="-1"></a>  <span class="co"># Add scatterplot</span></span>
+<span id="cb116-3"><a href="tidyverse.html#cb116-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb116-4"><a href="tidyverse.html#cb116-4" tabindex="-1"></a>  <span class="co"># Adding trend line</span></span>
+<span id="cb116-5"><a href="tidyverse.html#cb116-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> sex), <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb116-6"><a href="tidyverse.html#cb116-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb116-7"><a href="tidyverse.html#cb116-7" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Mountain Lion Weight by Age&quot;</span>,</span>
+<span id="cb116-8"><a href="tidyverse.html#cb116-8" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Age (years)&quot;</span>,</span>
+<span id="cb116-9"><a href="tidyverse.html#cb116-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>,</span>
+<span id="cb116-10"><a href="tidyverse.html#cb116-10" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Sex&quot;</span></span>
+<span id="cb116-11"><a href="tidyverse.html#cb116-11" tabindex="-1"></a>  ) </span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="intro-to-r_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 <ul>
@@ -542,31 +538,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>theme_minimal(): This is a simple and clean theme for the plot. It removes unnecessary background grids and makes the plot look more visually appealing. There are many other different themes such as <code>theme_class</code>, <code>theme_dark</code>, and <code>theme_light</code>.</li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="tidyverse.html#cb117-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb117-2"><a href="tidyverse.html#cb117-2" tabindex="-1"></a>  <span class="co"># Add scatterplot</span></span>
-<span id="cb117-3"><a href="tidyverse.html#cb117-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb117-4"><a href="tidyverse.html#cb117-4" tabindex="-1"></a>  <span class="co"># Adding trend line</span></span>
-<span id="cb117-5"><a href="tidyverse.html#cb117-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> sex), <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="sc">+</span>  </span>
-<span id="cb117-6"><a href="tidyverse.html#cb117-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb117-7"><a href="tidyverse.html#cb117-7" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Mountain Lion Weight by Age&quot;</span>,</span>
-<span id="cb117-8"><a href="tidyverse.html#cb117-8" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Age (years)&quot;</span>,</span>
-<span id="cb117-9"><a href="tidyverse.html#cb117-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>,</span>
-<span id="cb117-10"><a href="tidyverse.html#cb117-10" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Sex&quot;</span></span>
-<span id="cb117-11"><a href="tidyverse.html#cb117-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb117-12"><a href="tidyverse.html#cb117-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="tidyverse.html#cb118-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> weight, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb118-2"><a href="tidyverse.html#cb118-2" tabindex="-1"></a>  <span class="co"># Add scatterplot</span></span>
+<span id="cb118-3"><a href="tidyverse.html#cb118-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb118-4"><a href="tidyverse.html#cb118-4" tabindex="-1"></a>  <span class="co"># Adding trend line</span></span>
+<span id="cb118-5"><a href="tidyverse.html#cb118-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> sex), <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb118-6"><a href="tidyverse.html#cb118-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb118-7"><a href="tidyverse.html#cb118-7" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Mountain Lion Weight by Age&quot;</span>,</span>
+<span id="cb118-8"><a href="tidyverse.html#cb118-8" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Age (years)&quot;</span>,</span>
+<span id="cb118-9"><a href="tidyverse.html#cb118-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>,</span>
+<span id="cb118-10"><a href="tidyverse.html#cb118-10" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Sex&quot;</span></span>
+<span id="cb118-11"><a href="tidyverse.html#cb118-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb118-12"><a href="tidyverse.html#cb118-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="intro-to-r_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>Here is an example of making a barplot that is colored by different region.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="tidyverse.html#cb119-1" tabindex="-1"></a><span class="co"># Create the bar plot, colored by region</span></span>
-<span id="cb119-2"><a href="tidyverse.html#cb119-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> region)) <span class="sc">+</span> </span>
-<span id="cb119-3"><a href="tidyverse.html#cb119-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span>  <span class="co"># Bar border color</span></span>
-<span id="cb119-4"><a href="tidyverse.html#cb119-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb119-5"><a href="tidyverse.html#cb119-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Number of Lions by Region&quot;</span>,</span>
-<span id="cb119-6"><a href="tidyverse.html#cb119-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Region&quot;</span>,</span>
-<span id="cb119-7"><a href="tidyverse.html#cb119-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Count of Lions&quot;</span></span>
-<span id="cb119-8"><a href="tidyverse.html#cb119-8" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb119-9"><a href="tidyverse.html#cb119-9" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb119-10"><a href="tidyverse.html#cb119-10" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)  <span class="co"># Using a color palette for better visuals</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="tidyverse.html#cb120-1" tabindex="-1"></a><span class="co"># Create the bar plot, colored by region</span></span>
+<span id="cb120-2"><a href="tidyverse.html#cb120-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lions, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> region)) <span class="sc">+</span> </span>
+<span id="cb120-3"><a href="tidyverse.html#cb120-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span>  <span class="co"># Bar border color</span></span>
+<span id="cb120-4"><a href="tidyverse.html#cb120-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb120-5"><a href="tidyverse.html#cb120-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Number of Lions by Region&quot;</span>,</span>
+<span id="cb120-6"><a href="tidyverse.html#cb120-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Region&quot;</span>,</span>
+<span id="cb120-7"><a href="tidyverse.html#cb120-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Count of Lions&quot;</span></span>
+<span id="cb120-8"><a href="tidyverse.html#cb120-8" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb120-9"><a href="tidyverse.html#cb120-9" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb120-10"><a href="tidyverse.html#cb120-10" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)  <span class="co"># Using a color palette for better visuals</span></span></code></pre></div>
 <p><img src="intro-to-r_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 </div>
 <div id="different-plots-in-ggplot" class="section level3 hasAnchor" number="6.4.2">
@@ -622,14 +618,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Create the following object:</li>
 </ol>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="tidyverse.html#cb120-1" tabindex="-1"></a><span class="co"># Create a fake data frame for bighorn sheep</span></span>
-<span id="cb120-2"><a href="tidyverse.html#cb120-2" tabindex="-1"></a>bighorn_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb120-3"><a href="tidyverse.html#cb120-3" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">paste0</span>(<span class="st">&quot;S&quot;</span>, <span class="dv">500</span><span class="sc">:</span><span class="dv">530</span>),      <span class="co"># ID for each sheep</span></span>
-<span id="cb120-4"><a href="tidyverse.html#cb120-4" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),  <span class="co"># Random ages between 1 and 10</span></span>
-<span id="cb120-5"><a href="tidyverse.html#cb120-5" tabindex="-1"></a>  <span class="at">Weight =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">31</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">15</span>), <span class="dv">1</span>),  <span class="co"># Random weights with mean of 75 kg and sd of 15</span></span>
-<span id="cb120-6"><a href="tidyverse.html#cb120-6" tabindex="-1"></a>  <span class="at">Sex =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),     <span class="co"># Random sexes (Male, Female)</span></span>
-<span id="cb120-7"><a href="tidyverse.html#cb120-7" tabindex="-1"></a>  <span class="at">Herd =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;North&quot;</span>, <span class="st">&quot;South&quot;</span>, <span class="st">&quot;East&quot;</span>, <span class="st">&quot;West&quot;</span>), <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># Random herd names</span></span>
-<span id="cb120-8"><a href="tidyverse.html#cb120-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="tidyverse.html#cb121-1" tabindex="-1"></a><span class="co"># Create a fake data frame for bighorn sheep</span></span>
+<span id="cb121-2"><a href="tidyverse.html#cb121-2" tabindex="-1"></a>bighorn_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb121-3"><a href="tidyverse.html#cb121-3" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">paste0</span>(<span class="st">&quot;S&quot;</span>, <span class="dv">500</span><span class="sc">:</span><span class="dv">530</span>),      <span class="co"># ID for each sheep</span></span>
+<span id="cb121-4"><a href="tidyverse.html#cb121-4" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),  <span class="co"># Random ages between 1 and 10</span></span>
+<span id="cb121-5"><a href="tidyverse.html#cb121-5" tabindex="-1"></a>  <span class="at">Weight =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">31</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">15</span>), <span class="dv">1</span>),  <span class="co"># Random weights with mean of 75 kg and sd of 15</span></span>
+<span id="cb121-6"><a href="tidyverse.html#cb121-6" tabindex="-1"></a>  <span class="at">Sex =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),     <span class="co"># Random sexes (Male, Female)</span></span>
+<span id="cb121-7"><a href="tidyverse.html#cb121-7" tabindex="-1"></a>  <span class="at">Herd =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;North&quot;</span>, <span class="st">&quot;South&quot;</span>, <span class="st">&quot;East&quot;</span>, <span class="st">&quot;West&quot;</span>), <span class="dv">31</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># Random herd names</span></span>
+<span id="cb121-8"><a href="tidyverse.html#cb121-8" tabindex="-1"></a>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Create a histogram to visualize the weights of bighorn sheep.</li>
 </ol>

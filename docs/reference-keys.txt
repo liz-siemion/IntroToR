@@ -13,18 +13,11 @@ absolute-and-relative-file-paths
 navigating-outside-the-working-directory
 using-the-tab-shortcut-in-rstudio
 tidy-data
-spreadsheets-and-database-tables
 computer-readable-data
 tidy-data-1
-document
-rows-for-variables-columns-for-observations
+document-your-code
+rows-for-observations-columns-for-variables
 problemmatic-practices
-multiple-tables-in-a-single-spreadsheet
-putting-units-in-cells
-using-problematic-column-names
-zeros-vs-missing-values
-using-problematic-null-values
-inconsistent-value-formatting
 using-r
 packages
 using-comments
@@ -91,5 +84,3 @@ outlining-r-scripts
 pseudocoding
 making-readable-r-code
 class-wrap-up
-document-your-code
-rows-for-observations-columns-for-variables

@@ -35,7 +35,7 @@ Learning tidyverse provides efficient tools and workflows for data cleaning, exp
 ## Main dplyr Functions
 `dplyr`, a main package of the `tidyverse`, consists of five main functions:
 
-1. `filter()`: Subset the data based on specific conditions.
+1. `filter()`: Subset the data based on specific conditions. **This is for selecting rows.**
 
 ```{r}
 # create data frame object
@@ -45,24 +45,24 @@ snbs <- data.frame(AID = c("S488", "S500", "S468"),
                    RU = c("NRU", "NRU", "CRU"))
 # filter to females
 females <- filter(snbs, Sex == "F")
-females
-
+head(females, 1)
 ```
 
-2. `select()`: Choose specific columns from the data.
+2. `select()`: Choose specific columns from the data. **This is for selecting columns**
 ```{r}
 # select AID and RU columns
 snbs_s <- select(snbs, AID, RU)
 
 # remove one column with negative indexing
 snbs_s <- select(snbs, -Sex, -RU)
+head(snbs_s, 1)
 ```
 
 3. `mutate()`: Modify or create new variables in the data.
 ```{r}
-snbs_as <- mutate(snbs, AID_Sex = paste(AID, Sex, sep = "_")) %>%
+snbs_s <- mutate(snbs, AID_Sex = paste(AID, Sex, sep = "_")) %>%
   select(AID, Sex, AID_Sex)
-head(snbs_as, 1)
+head(snbs_s, 1)
 ```
 
 4. `group_by()`: Group data based on one or more variables for grouped operations.
@@ -82,6 +82,9 @@ snbs_summ
 ```{r}
 snbs_sorted <- arrange(snbs, Herd)
 # Sorts character values in alphabetical order by default
+
+snbs_sorted_desc <- arrange(snbs, desc(Herd))
+# Sorts character values in descending alphabetical order
 ```
 
 You can perform many operations in one call using the pipe operator:
