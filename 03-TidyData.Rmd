@@ -1,7 +1,5 @@
 # Tidy Data {#tidy-data}
 
-## Computer Readable Data
-
 ## Tidy Data 
 
 <div style="text-align: center;">
@@ -21,4 +19,3 @@ When organizing your data, it is best to keep it in long format, where each row 
 * Do not use white spaces in column names
 * Recognize the difference between zero and a missing value
 * Ensure that you consistently format your values in your spreadsheets
-

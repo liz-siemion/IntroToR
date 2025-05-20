@@ -258,8 +258,8 @@ L262_numeric <- as.numeric(L262)
 
 **`EXERCISE`**
 
-1. Assign `"S437"` to a variable called "sheep". Make sure to include the `""`.
-2. What type of data class is sheep?
+1. Assign `"S437"` to a variable called `sheep` (`sheep <- "S437"`). Make sure to include the `""`.
+2. What type of data class is sheep? This can be figured out by doing `class(sheep)`
 3. Create an object with a value of `45`. Coerce to a character class using `as.character()`.
 4. Create the following objects: `S1 <- as.numeric(as.character(1))` and `S2 <- as.logical(as.numeric("1"))`. 
 5. Do the values change? Why or why not? Think about this answer in the context of the coercian hierarchy.
@@ -340,9 +340,10 @@ my_seq
 ***
 
 **`EXERCISE`**
+
 1. Make a character vector of lion ids into a vector called `my_lion`
 2. Make a vector of deer ages into a vector called `deer_ages`
-3. Create a vector with name of your choice wish a sequence of numbers from 1 to 100 using both the `seq()` and `:` method
+3. Create a vector with variable name of your choice with a sequence of numbers from 1 to 100 using both the `seq()` and `:` method
 4. BONUS 1: Explain the logic behind coercian that occurs in making this vector. `a.new.vector <- c(FALSE, TRUE, 0)`. Check the class of `a.new.vector` using the `class()` function.
 5. BONUS 2: Create the following object: `animals <- factor(c("sheep", "lion", "deer", "deer"), labels = c("sheep", "lion", "deer"))`. Use the `class()` and `str()` functions to examine the `animals` vector. Use the `?` function to understand what `str()` does. What values are assigned to "sheep", "lion", and "deer"? Now convert (coerce) this vector of factors to show the label values instead of the internal codes.
 
