@@ -101,7 +101,7 @@ From highest to lowest precedence:
 | Subtract     | `-`         | Subtraction                     |`
 
 ```{r eval=TRUE, include=TRUE}
-1 + 100
+1 + 100 # performs addition
 3 + 5 * 2 # performs multiplication before addition
 (3 + 5) * 2 # performs addition in () before multiplication 
 2/10000 # division
@@ -159,9 +159,9 @@ Object assignment lets us assign a name to a value, making it easier to use late
 ```{r}
 x <- 1/40 # here we are telling R to assign 1/40 to the variable x so that it recognizes x as an object in our global environment
 x <-  24 # variables can easily be re-assigned/over-written
-y <- x * 2
+y <- x * 2 # We can use existing objeects in expressions to create new objects
 
-rm(y) # you can also remove objects from the environment
+rm(y) # you can also remove objects from the environment using the rm() function
 ```
 
 ### Variable names
@@ -193,7 +193,7 @@ There are 6 main classes of common data modes (i.e. data types): `numeric`, `cha
 
 | Mode        | Description                                | Example                    |
 |:------------|:-------------------------------------------|:---------------------------|
-| factor      | Categorical data (special class of integer with labels stored as characters)| "Sheep", "Lion", "Deer"    |
+| factor      | Categorical data (special class of integer with labels stored as characters)| Levels: "Sheep", "Lion", "Deer" (internally stored as: 1, 2, 3)    |
 | numeric     | Numbers (includes integers and decimals)   | 3.14, 42                   |
 | character   | Text strings                               | "Lion180"                  |
 | logical     | TRUE or FALSE values                       | TRUE, FALSE                |
@@ -225,7 +225,9 @@ using the functions `as.<desired data type>`
     * e.g. as.logical("sheep" → NA); as.logical(3.14 → TRUE) 
 4. Factor: (special case) internally stored as integers with labels. To get the original numeric value, you must coerce factor to character first, then to numeric. Direct coercion from factor to numeric returns internal integer codes (not labels)
 
+
 ```{r}
+# create numeric object
 a <- 45.6
 class(a)
 
@@ -233,14 +235,14 @@ class(a)
 a_character <- as.character(a)
 class(a_character)
 
-# Create factored variable
-lion <- factor(c("194"), levels = c("194"))
+# Create factored object
+lion <- factor(c("194", "180"), levels = c("194", "180")) # The levels must match the exact format of the values
 lion # print value into console
 as.character(lion) # coerced to character
 as.numeric(lion) # coerced to numeric
 ```
 
-You can coerce from factor to character to numeric in one call
+You can also coerce from factor to character to numeric in one call
 
 ```{r}
 as.numeric(as.character(lion))
@@ -252,6 +254,7 @@ A common mistake in R is using data of the wrong type. In the example below, an 
 # convert from character to numeric
 L262 <- "Lion262"
 L262_numeric <- as.numeric(L262)
+L262_numeric
 ```
 
 ***
@@ -266,6 +269,10 @@ L262_numeric <- as.numeric(L262)
 6. Bonus: What happens when you execute `sheep <- S437` without `""`? Explain the error. 
 
 ***
+
+## Other Object Types
+
+R includes many other object types that we won't cover in detail during this course. For instance, spatial object types are used to represent and work with geographic data. Spatial objects can take on different data types depending on if they are from the `sp` or `sf` package. 
 
 ## Data Structure Classes {#data-classes}
 
@@ -299,11 +306,16 @@ x <- 3
 ***
 
 ### Vector
-A scalar object is a special case of a vector with a length of 1. A vector in R is essentially a collection of elements **of the same basic data type**. Each 'thing' in the vector is called an element. You can combine values into one vector with different values using the concatenate function `c()`. You can also create an empty vector. If you don’t specify a data type, R will default to logical, or, you can declare an empty vector of whatever type you like.
+A scalar object is a special case of a vector with a length of 1. A vector in R is essentially a collection of elements **of the same basic data type**. Each 'thing' in the vector is called an element. You can combine values into one vector with different values using the concatenate function `c()`. 
 
 ```{r}
 my.deer <- c("GDL256", "RVD1011", "CDB567")
-my_vector <- vector(length = 3)
+```
+
+You can also create an empty vector. If you don’t specify a data type, R will default to logical, or, you can declare an empty vector of whatever type you like.
+
+```{r}
+my_vector <- vector(length = 3, mode = "numeric")
 my_vector  # this is a logical vector
 num_vector <- c(101, 222, 323, 435, 556) # numeric vector
 ```
@@ -316,21 +328,25 @@ combine_vector
 class(combine_vector) 
 ```
 
-R coerces all the elements in "combine_vector" to character. It can't make "CDB678" into a number but it can turn 211 and TRUE into text strings (think about the coercion hierarchy)
+R coerces all the elements in "combine_vector" to character. It can't make `"CDB678"` into a number but it can turn `211` and `TRUE` into text strings (think about the coercion hierarchy)
 
-You can also assign `NA` values to a vector of defined length as well. R is able to handle missing values, and these missing values are given NA. When you read in an csv file with empty cells, R will assign these values as NA. A 0 is not the same as NA, since R treats 0 as a numeric data class.   
+You can also assign `NA` values to a vector of defined length as well. R is able to handle missing values, and these missing values are given `NA`. When you read in an csv file with empty cells, R will assign these values as NA. A `0` is not the same as `NA`, since R treats `0` as a numeric data class.   
 
 ```{r}
+# create a vector of 10 NA values
 x <- rep(NA, 10)
+# set the first element in x to be the number 0
 x[1] <- 0
 # test if zero is NA
 is.na(x)
+# R returns a logical vector for TRUE if the value is NA and 
+# FALSE for non-NA values
 ```
 
 We can also make a series of numbers using `:` or the `seq()` function.
 
 ```{r}
-my_series <- 1:10 # just integers
+my_series <- 1:10 # a vector of integers of length 10
 my_series
 # make series of numbers from 1 to 10 by increments of 0.1
 my_seq <- seq(from = 1, to = 10, by = 0.1) 
@@ -345,7 +361,7 @@ my_seq
 2. Make a vector of deer ages into a vector called `deer_ages`
 3. Create a vector with variable name of your choice with a sequence of numbers from 1 to 100 using both the `seq()` and `:` method
 4. BONUS 1: Explain the logic behind coercian that occurs in making this vector. `a.new.vector <- c(FALSE, TRUE, 0)`. Check the class of `a.new.vector` using the `class()` function.
-5. BONUS 2: Create the following object: `animals <- factor(c("sheep", "lion", "deer", "deer"), labels = c("sheep", "lion", "deer"))`. Use the `class()` and `str()` functions to examine the `animals` vector. Use the `?` function to understand what `str()` does. What values are assigned to "sheep", "lion", and "deer"? Now convert (coerce) this vector of factors to show the label values instead of the internal codes.
+5. BONUS 2: Create the following object: `animals <- factor(c("sheep", "lion", "deer", "deer"), levels = c("sheep", "lion", "deer"))`. Use the `class()` and `str()` functions to examine the `animals` vector. Use the `?` function to understand what `str()` does. What values are assigned to "sheep", "lion", and "deer"? Now convert (coerce) this vector of factors to show each level's label value instead of the internal integer code.
 
 ***
 
@@ -357,11 +373,25 @@ A list in R is essentially an object with data that can be in different data typ
 my_list <- list(1, "banana", TRUE)
 your_list <- list(2, "apple", FALSE)
 my_list
-# we can also append to a list with c() like we did to a vector
-my_list <- c(my_list, c("Lion171", "S222"))
 ```
 
-The `$` is called the operator, and it is used for indexing named elements in a list. It allows you to access part of a data object for extracting or subsetting data.
+We can also append to a list with c() like we did with a vector. However, c() will now treat each element in the vector (here "Lion171" & "S222") as separate list elements to append. 
+
+```{r}
+my_new_list <- c(my_list, c("Lion171", "S222")) # here we overwrite the original 
+# "my_list" list to include two additional list elements of "Lion171" and "S222".
+my_new_list
+```
+
+If we want to add one additional list element that contain Lion171 and S222, we have to use the `list()` function in front of concatenate. 
+
+```{r}
+my_new_list2 <- c(my_list, list(c("Lion171", "S222"))) # here we overwrite the original 
+```
+
+Notice that my_new_list contains 6 elements (Lion171 and S222 are put in different lists) and my_new_list contains 5 elements (Lion171 and S222 are put into the same list).
+
+Sometimes we want to retrieve the values from a certain element in a list. We do this with the `$` operator. The `$` operator is used for indexing named elements in a list. It allows you to access part of a data object for extracting or subsetting data. 
 
 ```{r}
 my_lions <- list("L211", c("L194", "S789"), "L180")
@@ -370,7 +400,8 @@ names(my_lions) <- c("Lion211", "LionsAndSheep", "Lion180")
 my_lions$LionsAndSheep
 ```
 
-If you wanted to index a specific element in the list, you could also use brackets
+If you want to index a specific element in the list, you can also use brackets.
+
 ```{r}
 # index second list [[2]] and second element [2] of the second list
 my_lions[[2]][2]
@@ -381,9 +412,8 @@ my_lions[[2]][2]
 **`EXERCISE`**
 
 1. Create a list of length 3 with at least two different data types. 
-2. Use the `class`, `str`, and `dim` functions to explore the contents of your list. 
-3. What does the `dim function do? 
-4. Print the list you create into the Console. 
+2. Use the `class` and `str` functions to explore the contents of your list. 
+4. Print the list you create in your Script into the Console. 
 
 ***
 
@@ -401,8 +431,10 @@ MyMatrix
 
 **`EXERCISE`**
 
-1. Create a 3x1 matrix representing deer population estimates for Round Valley.
+1. Create a 3x1 matrix representing deer population estimates for Round Valley. Assign it the a variable name of your choice.
 Each row should represent the total number of individuals in the fawn, yearling, and adult age classes. The column represents a single year. 
+2. What does the dim function do? Use `?dim`. Notice dim does not work on vectors. 
+3. Use the dim function to print the dimensions of your matrix into the console. `dim(<your matrix object>)`
 
 ***
 
@@ -428,12 +460,17 @@ capt_dat <- data.frame(
   Sex = sex,
   Age = age,
   CaptureDate = capt_date,
-  CaptureLoc = capt_loc,
-  stringsAsFactors = FALSE  # Ensures character columns are maintained as characters (not factors)
+  CaptureLoc = capt_loc
 )
 
 # View the data frame
 print(capt_dat)
+```
+
+We can use the `$` operator on data frames, just like we do with lists, to extract a specific column by name. For example, `capt_dat$CaptureLoc` will return all the values in the `CaptureLoc` column and print them in the Console.
+
+```{r}
+capt_dat$CaptureLoc
 ```
 
 ***
@@ -441,17 +478,14 @@ print(capt_dat)
 **`EXERCISE`**
 
 1. Create a data frame with three columns and three rows to represent deer mortalities. 
-The columns should be named "deer_id", "COM", and "Age". Assign it a variable name of your choice. 
+The columns should be named "deer_id", "COM", and "Age". Assign (`<-`) it a variable name of your choice. 
 * "deer_id" and "COM" should be character
 * "Age" should be numeric
 2. What are the dimensions of this data frame? What function can you use to check this?
 3. Use the `nrow()` and `ncol()` functions to display the number of rows and columns in your data frame
+4. Print the `Sex` column using the `$` operator. Recall that the syntax is `<df>$<column_name>`
 
 ***
-
-### Other Object Types
-
-R includes many other object types that we won't cover in detail during this course. For instance, spatial object types are used to represent and work with geographic data. The specific structure depends on the package ecosystem—most commonly the older sp system or the more modern, tidyverse-friendly sf package.
 
 ## Indexing {#index}
 
