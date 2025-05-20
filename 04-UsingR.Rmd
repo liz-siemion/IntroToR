@@ -489,7 +489,7 @@ The columns should be named "deer_id", "COM", and "Age". Assign (`<-`) it a vari
 
 ## Indexing {#index}
 
-Indexing in R refers to the process of accessing specific elements from data structures like vectors, lists, or data frames. The type of indexing you use depends on the structure of your data and the task at hand, making it a versatile tool for data manipulation. To extract elements from a vector, use their index inside square brackets `[]`. 
+Indexing in R refers to the process of accessing specific elements from data structures like vectors, lists, or data frames. The type of indexing you use depends on the structure of your data and the task at hand. To extract elements from a vector, use their index inside square brackets `[]`. 
 
 | **Indexing Method**       | **Description**                                                                                   | **Example**                             |
 |---------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -505,10 +505,11 @@ Indexing in R refers to the process of accessing specific elements from data str
 This method involves using the position of elements in a vector, list, or other data structures. R uses 1-based indexing, meaning the first element has an index of 1, not 0 (as in some other programming languages like Python or C).
 
 ```{r}
-lion_list <- c("194", "228", "267", "272")
+lion_list <- c("194", "228", "267", "272", list("228", "223"))
 lion_list[1] # extract first element out of the lion_list vector
 lion_list[4] # extract 4th element out of the lion_list vector
 lion_list[c(2:4)] # extract elements 2 to 4 from the my_seq vector
+lion_list[[5]][1] # From the 5th list, extract the first element
 ```
 
 ### Named Indexing
@@ -533,7 +534,7 @@ horn_length[horn_length > 30] # this statement first evaluates horn_length > 7, 
 
 ### Range or Sequence Indexing
 
-You can extract a range or sequence of elements using a colon : to specify a range or a vector of indices.
+You can extract a range or sequence of elements using a colon `:` to specify a range or a vector of indices.
 
 ```{r}
 horn_length[1:3]
