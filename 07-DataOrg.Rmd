@@ -138,12 +138,3 @@ tail(mort_new) # lets you look at the last 6 lines of data
 8. Use `View()` to view you data frame
 
 ***
-
-
-***
-
-## Subsetting
-
-### baseR
-
-### Tidyverse
