@@ -13,7 +13,6 @@ absolute-and-relative-file-paths
 navigating-outside-the-working-directory
 using-the-tab-shortcut-in-rstudio
 tidy-data
-computer-readable-data
 tidy-data-1
 document-your-code
 rows-for-observations-columns-for-variables
@@ -27,13 +26,13 @@ use-r-to-compare-things
 r-objects
 variable-names
 data-types
+other-object-types
 data-classes
 scalar
 vector
 lists
 matrix
 data-frames
-other-object-types
 index
 numerical-indexing
 named-indexing
@@ -50,6 +49,12 @@ tidyverse-vs-baser
 ggplot
 components-of-ggplot
 different-plots-in-ggplot
+tidyverse-analysis-example
+load-libraries
+examine-data-frame
+manipulate-data-frame
+analysis
+plot-results-using-ggplot2
 import-export
 csv-files
 xlsx-files
@@ -60,9 +65,6 @@ data-org
 exploring-data-frames
 vectorized
 data-frame-manipulation
-subsetting
-baser
-tidyverse-1
 control
 for-loops
 troubleshooting-for-loops
@@ -84,3 +86,4 @@ outlining-r-scripts
 pseudocoding
 making-readable-r-code
 class-wrap-up
+keeping-track-of-loop

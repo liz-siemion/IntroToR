@@ -117,6 +117,10 @@ system("mdb-export /Users/a02399564/Documents/Research/PhD-SNBS/data/snbs/databa
 
 **`EXERCISE`**
 
-1. Import the bighorn mortality table and store it in a data frame named bighorn_mort.
+1. Import the bighorn mortality table and store it in a data frame named `bighorn_mort`.
+2. Import the bighorn capture table and store it in a data frame named `bighorn_capt`.
+3. Combine the two tables using a tidyverse join command (sytax below)
+* `capt_mort <- left_join(x = bighorn_capt, y = bighorn_mort, by = join_by(AnimalID == Animal_ID))` 
+    * All bighorn are in `bighorn_capt` data frame, only some bighorn are in the `bighorn_mort` data frame (i.e. this will result in bighorn have NA’s if they are still alive)
 
 ***

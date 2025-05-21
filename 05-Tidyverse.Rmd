@@ -272,3 +272,164 @@ bighorn_df <- data.frame(
 * Apply a theme to enhance the plot’s appearance.
 
 ***
+
+## Tidyverse Analysis Example
+
+Exercise -- Using a data set in R called penguins_raw to perform a simple analysis
+ 
+Explore the data set: 
+* Look at the first 5 rows (head)
+* Look at the data structure (str)
+* How many samples? (nrow)
+* Get a list of the column names (names)
+* How many species of penguins (unique)
+ 
+Question we are interested in: **We want to understand how body mass varies by species and sex**
+
+### Load libraries
+
+First let's load the required libraries. 
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+### Examine data frame
+Let's look at the first 10 rows of the penguins_raw data frame. 
+```{r}
+head(penguins_raw)
+```
+
+Let's examine the structure of the penguins_raw data frame
+```{r}
+str(penguins_raw)
+```
+
+Let's look at how many rows are in the penguins_raw data frame
+```{r}
+nrow(penguins_raw)
+```
+
+Let's look at the unique species in the `Species` column of the penguins_raw data frame using the `unique()` function. 
+```{r}
+unique(penguins_raw$Species)
+```
+
+Now let's take a look at the column names in the penguins_raw dataset.
+
+```{R}
+dput(names(penguins_raw))
+```
+
+In the previous code `dput(names(penguins_raw))`, R follows its usual order of operations by evaluating the innermost function first. So:
+
+1. `names(penguins_raw)` retrieves the column names of the dataset as a character vector.
+2. `dput()` then takes that result and prints it in a format that can be copied and reused as R code.
+
+The dput() function (short for "dump put") converts an object into valid R code.
+
+### Manipulate data frame
+Subsample the penguins_raw to create a new data set called p_measure.
+
+First we will reassign the penguins_raw dataset to a new object called p_measure
+```{r}
+p_measure<-penguins_raw
+```
+
+Let’s select the 3rd, 5th, and 9th through 14th columns. Below are examples using both Base R and tidyverse approaches.
+
+```{r}
+# base R method
+p_measure<-p_measure[,c(3,5,9:14)]
+
+# tidyverse method
+# p_measure<-select(p_measure, Species, Island, "Date Egg", "Culmen Length (mm)",
+#                   "Culmen Depth (mm)", "Flipper Length (mm)", "Body Mass (g)", Sex)
+
+```
+
+* We remove the following columns (studyName, Sample Number, Region, Stage, Clutch Completion, Delta 15 N (o/oo), Delta 13 C (o/oo) and Comments
+* We keep the following columns (Species, Island, Date Egg Culmen Length (mm), Culmen Depth (mm), Flipper Length(mm), Body Mass (g), Sex)
+
+Now let's rename the column names to eliminate spaces. Below are examples using the baseR and tidyverse methods.
+
+```{r}
+# baseR method
+names(p_measure)<-c("species","island", "date", "bill_len", "bill_dep", "flipper_len", 
+                    "body_mass", "sex")
+# tidyverse method
+# p_measure<-rename(p_measure, species = Species, island = Island, date = "Date Egg",
+#                   bill_len = "Culmen Length (mm)", bill_dep = "Culmen Depth (mm)",
+#                   flipper_len = "Flipper Length (mm)", body_mass = "Body Mass (g)", 
+#                   sex = Sex)
+```
+
+Now we'll use the pipe operator (`%>%`) to add a column called `year` using mutate `(year=year(date))`. The`mutate()` function is used to add or modify columns in a data frame, and the `year()` function extracts the year component from a date. We then remove the date column using `select()`. 
+
+```{r}
+p_measure<-p_measure%>%
+    mutate(year=year(date))%>%
+    dplyr::select(-3)%>%
+    dplyr::filter(!is.na(body_mass)& !is.na(sex))
+```
+
+Let's look at our new data frame using `head()`
+
+```{r}
+head(p_measure)
+```
+
+### Analysis
+Now let's create our final analysis data frame object called `output_analysis`. We will use the data set called penguins (it’s a cleaner version of the data set we just created from penguins_raw). The steps to perform include: 
+
+1. Remove rows with `NA` values in the `body_mass` and `sex` columns.
+2. Group the data by species and sex.
+3. Summarize each group by calculating:
+* Number of samples (n)
+* Mean body mass (mean_bm)
+* Median body mass (median_bm)
+* Standard deviation of body mass (SD_bm)
+4. Add confidence intervals
+* LCL: Lower confidence limit (mean - 2 × SD)
+* UCL: Upper confidence limit (mean + 2 × SD)
+
+```{r}
+output_analysis<-penguins%>%
+  # Filter out rows where body_mass is NA (filter using !is.na)
+  dplyr::filter(!is.na(body_mass_g)& !is.na(sex))%>%
+  # Group data by species and sex (group_by)
+  group_by(species,sex)%>%
+  # Summarize data (n, mean, median, sd)
+  summarize(n=n(), # number of samples (n)
+            mean_bm=mean(body_mass_g), # calculate mean body mass
+            median_bm=median(body_mass_g), # calculate median body mass
+            SD_bm=sd(body_mass_g))%>% # caluclate the standard deviation of body mass
+  # Add confidence intervals using mutate
+  mutate(LCL=mean_bm-2*SD_bm, # calculate the lower confidence interval level
+         UCL=mean_bm+2*SD_bm) # calculate the upper confidence interval level
+```
+
+### Plot results using ggplot2
+Finally, we will generate a ggplot from our analysis using the data frame above.
+
+```{r}
+ggplot(data = output_analysis, aes(x = paste0(sex,species), y = mean_bm, ymin=LCL, ymax=UCL, color = species)) +
+  geom_point(size = 3) +  # Add points
+  geom_errorbar(width = 0.4) + #  add error bars
+  # angle text on x axis for readability
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +  
+  # Hide x an y axis tick mark labels
+  theme(axis.text.x = element_blank()) +
+  # add annotations to graph
+  annotate("text", x = 2.25 , y = 5600, label = "Female")+  
+  annotate("segment", x = 0.5, xend = 3.4, y = 5500,  colour = "black")+
+  annotate("text", x = 5.25 , y = 3100, label = "Male")+  
+  annotate("segment", x = 3.6, xend = 6.4, y = 3000,  colour = "black")  +
+  # label axes and graph
+  labs(
+    title = "Penguin Weight by Species & Sex",
+    x = "",
+    y = "Mass (g)",
+    color = "Species"
+  ) 
+```
