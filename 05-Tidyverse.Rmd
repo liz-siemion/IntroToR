@@ -59,9 +59,7 @@ my_tibble
 
 ### Subsetting
 
-Tibbles are stricter and more consistent than base data frames when it comes to subsetting:
-
-When subsetting with tibbles using `[`, the result is always another tibble, even if you're selecting a single column. This makes the behavior more predictable, especially in pipelines.
+Tibbles are stricter and more consistent than baseR data frames when it comes to subsetting. When subsetting with tibbles using `[`, the result is always another tibble, even if you're selecting a single column. This makes the behavior more predictable, especially in pipelines.
 
 ```{r}
 my_tibble[1]      # Returns a tibble with one column
@@ -80,11 +78,13 @@ my_df[, 1]    # Returns a vector
 my_df[1, ]    # Returns a data frame (one row)
 
 ```
+
 Tibbles are also more strict with the `$` operator: Tibbles do not allow partial matching. If the column name you use doesn’t match exactly, it will return `NULL` and may show a warning. As a result, tibbles can be safer than data frames, especially with data sets with similar column names. 
 
 ```{r}
 my_tibble$na
 ```
+
 Data frames allow partial matching, which can lead to unexpected results:
 ```{r}
 my_df$name
@@ -92,7 +92,7 @@ my_df$na
 ```
 
 ### Recycling
-When constructing a tibble, only values of length 1 are recycled. The first column with length different to one determines the number of rows in the tibble, conflicts lead to an error.
+Only values of length 1 are recycled when constructing a tibble. The first column with length different to one determines the number of rows in the tibble, conflicts lead to an error.
 
 In R, recycling happens when you combine vectors of different lengths—shorter vectors are automatically repeated to match the longer ones. While this can be convenient, it can also lead to unintended results if you're not careful.
 

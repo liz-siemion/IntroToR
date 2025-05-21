@@ -351,8 +351,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="subsetting" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Subsetting<a href="tidyverse.html#subsetting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Tibbles are stricter and more consistent than base data frames when it comes to subsetting:</p>
-<p>When subsetting with tibbles using <code>[</code>, the result is always another tibble, even if you’re selecting a single column. This makes the behavior more predictable, especially in pipelines.</p>
+<p>Tibbles are stricter and more consistent than baseR data frames when it comes to subsetting. When subsetting with tibbles using <code>[</code>, the result is always another tibble, even if you’re selecting a single column. This makes the behavior more predictable, especially in pipelines.</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="tidyverse.html#cb114-1" tabindex="-1"></a>my_tibble[<span class="dv">1</span>]      <span class="co"># Returns a tibble with one column</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##   name 
@@ -388,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="recycling" class="section level3 hasAnchor" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Recycling<a href="tidyverse.html#recycling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When constructing a tibble, only values of length 1 are recycled. The first column with length different to one determines the number of rows in the tibble, conflicts lead to an error.</p>
+<p>Only values of length 1 are recycled when constructing a tibble. The first column with length different to one determines the number of rows in the tibble, conflicts lead to an error.</p>
 <p>In R, recycling happens when you combine vectors of different lengths—shorter vectors are automatically repeated to match the longer ones. While this can be convenient, it can also lead to unintended results if you’re not careful.</p>
 <p>In a data frame recycling often happens silently, even if the lengths don’t align exactly:</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="tidyverse.html#cb131-1" tabindex="-1"></a>my_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -654,10 +653,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb148-8"><a href="tidyverse.html#cb148-8" tabindex="-1"></a>)</span>
 <span id="cb148-9"><a href="tidyverse.html#cb148-9" tabindex="-1"></a></span>
 <span id="cb148-10"><a href="tidyverse.html#cb148-10" tabindex="-1"></a><span class="fu">head</span>(lions, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##        id age weight sex   region
-## 1 Lion200  18   53.8   F Southern
-## 2 Lion201  14   51.1   F Northern
-## 3 Lion202  11   48.3   M Northern</code></pre>
+<pre><code>##        id age weight sex  region
+## 1 Lion200  10   60.5   M Central
+## 2 Lion201   6   59.2   F Olancha
+## 3 Lion202   3   37.8   M Olancha</code></pre>
 <ol style="list-style-type: decimal">
 <li>The main ggplot() function</li>
 </ol>
