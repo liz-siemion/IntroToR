@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="control.html"><a href="control.html#troubleshooting-for-loops"><i class="fa fa-check"></i><b>9.2</b> Troubleshooting For-loops</a></li>
 <li class="chapter" data-level="9.3" data-path="control.html"><a href="control.html#if-else-and-ifelse-statements"><i class="fa fa-check"></i><b>9.3</b> if, else, and ifelse statements</a></li>
 <li class="chapter" data-level="9.4" data-path="control.html"><a href="control.html#next-and-break"><i class="fa fa-check"></i><b>9.4</b> next and break</a></li>
-<li class="chapter" data-level="9.5" data-path="control.html"><a href="control.html#keeping-track-of-loop"><i class="fa fa-check"></i><b>9.5</b> 9.5 Keeping track of loop</a></li>
+<li class="chapter" data-level="9.5" data-path="control.html"><a href="control.html#keeping-track-of-loop"><i class="fa fa-check"></i><b>9.5</b> Keeping track of loop</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="statistical-summaries.html"><a href="statistical-summaries.html"><i class="fa fa-check"></i><b>10</b> Statistical Summaries</a></li>
 <li class="chapter" data-level="11" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>11</b> Debugging Code</a>
@@ -420,10 +420,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-11"><a href="control.html#cb30-11" tabindex="-1"></a>}</span>
 <span id="cb30-12"><a href="control.html#cb30-12" tabindex="-1"></a></span>
 <span id="cb30-13"><a href="control.html#cb30-13" tabindex="-1"></a>my_vect</span></code></pre></div>
-<pre><code>##  [1]  8 53 97 18 71 24 65 15 87 63 28 39 89 50  6</code></pre>
+<pre><code>##  [1] 48 70 28 24 55 74  4  6 11 18  2 73 75 69 22</code></pre>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="control.html#cb32-1" tabindex="-1"></a>output_vect</span></code></pre></div>
-<pre><code>##  [1]  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE
-## [13] FALSE  TRUE  TRUE</code></pre>
+<pre><code>##  [1]  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+## [13] FALSE FALSE  TRUE</code></pre>
 <p>You can also use the ifelse() statement for a conditional statement.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="control.html#cb34-1" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;lion&quot;</span>, <span class="st">&quot;deer&quot;</span>, <span class="st">&quot;deer&quot;</span>)</span>
 <span id="cb34-2"><a href="control.html#cb34-2" tabindex="-1"></a></span>
@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Both <code>next</code> and <code>break</code> give you fine-grained control over loop behavior, allowing you to skip unnecessary steps or stop the loop early when certain conditions are met.</p>
 </div>
 <div id="keeping-track-of-loop" class="section level2 hasAnchor" number="9.5">
-<h2><span class="header-section-number">9.5</span> 9.5 Keeping track of loop<a href="control.html#keeping-track-of-loop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">9.5</span> Keeping track of loop<a href="control.html#keeping-track-of-loop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can have R print something out at each loop iteration. This is particularly useful with nested loops and determining where you have data problems, i.e. unexpected results in the middle of a loop because of a data anomaly.</p>
 <p>For this you can insert a <code>cat()</code> function (which prints to the console, so you can see what is happening in real time)</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="control.html#cb40-1" tabindex="-1"></a><span class="co"># Example</span></span>

@@ -245,7 +245,7 @@ for (i in 1:5) {
 
 Both `next` and `break` give you fine-grained control over loop behavior, allowing you to skip unnecessary steps or stop the loop early when certain conditions are met.
 
-## 9.5  Keeping track of loop
+## Keeping track of loop
  
 You can have R print something out at each loop iteration.  This is particularly useful with nested loops and determining where you have data problems, i.e. unexpected results in the middle of a loop because of a data anomaly.
  
