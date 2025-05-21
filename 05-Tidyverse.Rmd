@@ -35,7 +35,7 @@ Learning tidyverse provides efficient tools and workflows for data cleaning, exp
 
 ## Tibbles
 
-The tidyverse uses a modern type of data frame structure called a `Tibble` that has a `tbl` class, a `tbl_df` class and a `data.frame` class. 
+The tidyverse uses a modern type of data frame structure called a `Tibble` that has a `tbl` class, a `tbl_df` class and a `data.frame` class. You will see tibbles as outputs from most of the tidyverse and dplyr packages. 
 
 ```{r}
 # Create a tibble manually
@@ -46,6 +46,8 @@ my_tibble <- tibble(
 
 class(my_tibble)
 ```
+
+There are three key differences between tibbles and data frames: printing, subsetting, and recycling rules. 
 
 ### Improved printing
 
@@ -63,7 +65,7 @@ Tibbles are stricter and more consistent than baseR data frames when it comes to
 
 ```{r}
 my_tibble[1]      # Returns a tibble with one column
-my_tibble[[1]]    # Returns a vector (just the values from column x)
+my_tibble[[1]]    # Returns a vector (just the values from column name)
 
 ```
 
