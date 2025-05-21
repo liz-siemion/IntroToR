@@ -254,9 +254,9 @@ For this you can insert a `cat()` function (which prints to the console, so you 
 ```{r}
 # Example
 for (x in 1:10) {
-  cat("\nIteration n =", x, "is being executed now")
+  cat("\n Iteration n =", x, "is being executed now") # \n prints on new line
   x_sqrt <- sqrt(x)
-  cat("\nThe square root of", x, "=", x_sqrt, "\n")
+  cat("\n The square root of", x, "=", x_sqrt, "\n")
 }
 ```
  
@@ -264,12 +264,12 @@ for (x in 1:10) {
 
 **`EXERCISE`**
 
-1. **Create a data frame**
+1. **Create a data frame** <br>
 Create a data frame that includes the following columns:
 * deer_id: a unique identifier for each deer (as a character)
 * month: the month the data was recorded (as a number from 1 to 12)
 * year: the calendar year of the observation (as a number)
-2. **Add an animal year column using a for loop and ifelse**
+2. **Add an animal year column using a for loop and ifelse**<br>
 Using a for loop, add a new column called animal_year to the data frame.
 * If the month is between May (5) and December (12), add 1 to the year
 * If the month is between January (1) and April (4), keep the year unchanged

@@ -427,10 +427,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb265-11"><a href="control.html#cb265-11" tabindex="-1"></a>}</span>
 <span id="cb265-12"><a href="control.html#cb265-12" tabindex="-1"></a></span>
 <span id="cb265-13"><a href="control.html#cb265-13" tabindex="-1"></a>my_vect</span></code></pre></div>
-<pre><code>##  [1] 11 20 82 49 75 85 23 62 55 80 58 32 42  1 67</code></pre>
+<pre><code>##  [1] 70 96 18 97 99 67 55 33  8  6  7 43 11 51 29</code></pre>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="control.html#cb267-1" tabindex="-1"></a>output_vect</span></code></pre></div>
-<pre><code>##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
-## [13]  TRUE  TRUE FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE FALSE  TRUE</code></pre>
 <p>You can also use the ifelse() statement for a conditional statement.</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="control.html#cb269-1" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;snbs&quot;</span>, <span class="st">&quot;lion&quot;</span>, <span class="st">&quot;deer&quot;</span>, <span class="st">&quot;deer&quot;</span>)</span>
 <span id="cb269-2"><a href="control.html#cb269-2" tabindex="-1"></a></span>
@@ -475,44 +475,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For this you can insert a <code>cat()</code> function (which prints to the console, so you can see what is happening in real time)</p>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="control.html#cb275-1" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb275-2"><a href="control.html#cb275-2" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb275-3"><a href="control.html#cb275-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Iteration n =&quot;</span>, x, <span class="st">&quot;is being executed now&quot;</span>)</span>
+<span id="cb275-3"><a href="control.html#cb275-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st"> Iteration n =&quot;</span>, x, <span class="st">&quot;is being executed now&quot;</span>) <span class="co"># \n prints on new line</span></span>
 <span id="cb275-4"><a href="control.html#cb275-4" tabindex="-1"></a>  x_sqrt <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x)</span>
-<span id="cb275-5"><a href="control.html#cb275-5" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">The square root of&quot;</span>, x, <span class="st">&quot;=&quot;</span>, x_sqrt, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb275-5"><a href="control.html#cb275-5" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st"> The square root of&quot;</span>, x, <span class="st">&quot;=&quot;</span>, x_sqrt, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb275-6"><a href="control.html#cb275-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## 
-## Iteration n = 1 is being executed now
-## The square root of 1 = 1 
+##  Iteration n = 1 is being executed now
+##  The square root of 1 = 1 
 ## 
-## Iteration n = 2 is being executed now
-## The square root of 2 = 1.414214 
+##  Iteration n = 2 is being executed now
+##  The square root of 2 = 1.414214 
 ## 
-## Iteration n = 3 is being executed now
-## The square root of 3 = 1.732051 
+##  Iteration n = 3 is being executed now
+##  The square root of 3 = 1.732051 
 ## 
-## Iteration n = 4 is being executed now
-## The square root of 4 = 2 
+##  Iteration n = 4 is being executed now
+##  The square root of 4 = 2 
 ## 
-## Iteration n = 5 is being executed now
-## The square root of 5 = 2.236068 
+##  Iteration n = 5 is being executed now
+##  The square root of 5 = 2.236068 
 ## 
-## Iteration n = 6 is being executed now
-## The square root of 6 = 2.44949 
+##  Iteration n = 6 is being executed now
+##  The square root of 6 = 2.44949 
 ## 
-## Iteration n = 7 is being executed now
-## The square root of 7 = 2.645751 
+##  Iteration n = 7 is being executed now
+##  The square root of 7 = 2.645751 
 ## 
-## Iteration n = 8 is being executed now
-## The square root of 8 = 2.828427 
+##  Iteration n = 8 is being executed now
+##  The square root of 8 = 2.828427 
 ## 
-## Iteration n = 9 is being executed now
-## The square root of 9 = 3 
+##  Iteration n = 9 is being executed now
+##  The square root of 9 = 3 
 ## 
-## Iteration n = 10 is being executed now
-## The square root of 10 = 3.162278</code></pre>
+##  Iteration n = 10 is being executed now
+##  The square root of 10 = 3.162278</code></pre>
 <hr />
 <p><strong><code>EXERCISE</code></strong></p>
 <ol style="list-style-type: decimal">
-<li><strong>Create a data frame</strong>
+<li><strong>Create a data frame</strong> <br>
 Create a data frame that includes the following columns:</li>
 </ol>
 <ul>
@@ -521,7 +521,7 @@ Create a data frame that includes the following columns:</li>
 <li>year: the calendar year of the observation (as a number)</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Add an animal year column using a for loop and ifelse</strong>
+<li><strong>Add an animal year column using a for loop and ifelse</strong><br>
 Using a for loop, add a new column called animal_year to the data frame.</li>
 </ol>
 <ul>
