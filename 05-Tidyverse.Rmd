@@ -445,14 +445,14 @@ Subsample the penguins_raw to create a new data set called p_measure.
 
 First we will reassign the penguins_raw dataset to a new object called p_measure
 ```{r}
-p_measure<-penguins_raw
+p_measure <- penguins_raw
 ```
 
 Let’s select the 3rd, 5th, and 9th through 14th columns. Below are examples using both Base R and tidyverse approaches.
 
 ```{r}
 # base R method
-p_measure<-p_measure[,c(3,5,9:14)]
+p_measure <- p_measure[,c(3, 5, 9:14)]
 
 # tidyverse method
 # p_measure<-select(p_measure, Species, Island, "Date Egg", "Culmen Length (mm)",
@@ -467,7 +467,7 @@ Now let's rename the column names to eliminate spaces. Below are examples using 
 
 ```{r}
 # baseR method
-names(p_measure)<-c("species","island", "date", "bill_len", "bill_dep", "flipper_len", 
+names(p_measure)<-c("species", "island", "date", "bill_len", "bill_dep", "flipper_len", 
                     "body_mass", "sex")
 # tidyverse method
 # p_measure<-rename(p_measure, species = Species, island = Island, date = "Date Egg",
@@ -479,10 +479,10 @@ names(p_measure)<-c("species","island", "date", "bill_len", "bill_dep", "flipper
 Now we'll use the pipe operator (`%>%`) to add a column called `year` using mutate `(year=year(date))`. The`mutate()` function is used to add or modify columns in a data frame, and the `year()` function extracts the year component from a date. We then remove the date column using `select()`. 
 
 ```{r}
-p_measure<-p_measure%>%
-    mutate(year=year(date))%>%
-    dplyr::select(-3)%>%
-    dplyr::filter(!is.na(body_mass)& !is.na(sex))
+p_measure <- p_measure %>%
+    mutate(year = year(date)) %>%
+    dplyr::select(-3) %>%
+    dplyr::filter(!is.na(body_mass) & !is.na(sex))
 ```
 
 Let's look at our new data frame using `head()`
@@ -506,19 +506,19 @@ Now let's create our final analysis data frame object called `output_analysis`. 
 * UCL: Upper confidence limit (mean + 2 × SD)
 
 ```{r}
-output_analysis<-penguins%>%
+output_analysis <- penguins %>%
   # Filter out rows where body_mass is NA (filter using !is.na)
-  dplyr::filter(!is.na(body_mass_g)& !is.na(sex))%>%
+  dplyr::filter(!is.na(body_mass_g)& !is.na(sex)) %>%
   # Group data by species and sex (group_by)
-  group_by(species,sex)%>%
+  group_by(species, sex) %>%
   # Summarize data (n, mean, median, sd)
-  summarize(n=n(), # number of samples (n)
-            mean_bm=mean(body_mass_g), # calculate mean body mass
-            median_bm=median(body_mass_g), # calculate median body mass
-            SD_bm=sd(body_mass_g))%>% # caluclate the standard deviation of body mass
+  summarize(n = n(), # number of samples (n)
+            mean_bm = mean(body_mass_g), # calculate mean body mass
+            median_bm = median(body_mass_g), # calculate median body mass
+            SD_bm = sd(body_mass_g)) %>% # caluclate the standard deviation of body mass
   # Add confidence intervals using mutate
-  mutate(LCL=mean_bm-2*SD_bm, # calculate the lower confidence interval level
-         UCL=mean_bm+2*SD_bm) # calculate the upper confidence interval level
+  mutate(LCL = mean_bm - 2 * SD_bm, # calculate the lower confidence interval level
+         UCL = mean_bm + 2 * SD_bm) # calculate the upper confidence interval level
 ```
 
 ### Plot results using ggplot2
@@ -526,7 +526,7 @@ output_analysis<-penguins%>%
 Finally, we will generate a ggplot from our analysis using the data frame above.
 
 ```{r}
-ggplot(data = output_analysis, aes(x = paste0(sex,species), y = mean_bm, ymin=LCL, ymax=UCL, color = species)) +
+ggplot(data = output_analysis, aes(x = paste0(sex, species), y = mean_bm, ymin = LCL, ymax = UCL, color = species)) +
   geom_point(size = 3) +  # Add points
   geom_errorbar(width = 0.4) + #  add error bars
   # angle text on x axis for readability

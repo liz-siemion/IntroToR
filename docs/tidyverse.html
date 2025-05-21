@@ -653,10 +653,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb148-8"><a href="tidyverse.html#cb148-8" tabindex="-1"></a>)</span>
 <span id="cb148-9"><a href="tidyverse.html#cb148-9" tabindex="-1"></a></span>
 <span id="cb148-10"><a href="tidyverse.html#cb148-10" tabindex="-1"></a><span class="fu">head</span>(lions, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##        id age weight sex  region
-## 1 Lion200   2   49.3   F Olancha
-## 2 Lion201   5   62.1   F Olancha
-## 3 Lion202  18   63.5   M Central</code></pre>
+<pre><code>##        id age weight sex   region
+## 1 Lion200   9   65.8   F Northern
+## 2 Lion201  11   57.4   F  Central
+## 3 Lion202  15   68.0   M Southern</code></pre>
 <ol style="list-style-type: decimal">
 <li>The main ggplot() function</li>
 </ol>
@@ -910,10 +910,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.6.3</span> Manipulate data frame<a href="tidyverse.html#manipulate-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Subsample the penguins_raw to create a new data set called p_measure.</p>
 <p>First we will reassign the penguins_raw dataset to a new object called p_measure</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tidyverse.html#cb170-1" tabindex="-1"></a>p_measure<span class="ot">&lt;-</span>penguins_raw</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tidyverse.html#cb170-1" tabindex="-1"></a>p_measure <span class="ot">&lt;-</span> penguins_raw</span></code></pre></div>
 <p>Let’s select the 3rd, 5th, and 9th through 14th columns. Below are examples using both Base R and tidyverse approaches.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="tidyverse.html#cb171-1" tabindex="-1"></a><span class="co"># base R method</span></span>
-<span id="cb171-2"><a href="tidyverse.html#cb171-2" tabindex="-1"></a>p_measure<span class="ot">&lt;-</span>p_measure[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">14</span>)]</span>
+<span id="cb171-2"><a href="tidyverse.html#cb171-2" tabindex="-1"></a>p_measure <span class="ot">&lt;-</span> p_measure[,<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">9</span><span class="sc">:</span><span class="dv">14</span>)]</span>
 <span id="cb171-3"><a href="tidyverse.html#cb171-3" tabindex="-1"></a></span>
 <span id="cb171-4"><a href="tidyverse.html#cb171-4" tabindex="-1"></a><span class="co"># tidyverse method</span></span>
 <span id="cb171-5"><a href="tidyverse.html#cb171-5" tabindex="-1"></a><span class="co"># p_measure&lt;-select(p_measure, Species, Island, &quot;Date Egg&quot;, &quot;Culmen Length (mm)&quot;,</span></span>
@@ -924,7 +924,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Now let’s rename the column names to eliminate spaces. Below are examples using the baseR and tidyverse methods.</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="tidyverse.html#cb172-1" tabindex="-1"></a><span class="co"># baseR method</span></span>
-<span id="cb172-2"><a href="tidyverse.html#cb172-2" tabindex="-1"></a><span class="fu">names</span>(p_measure)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;species&quot;</span>,<span class="st">&quot;island&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;bill_len&quot;</span>, <span class="st">&quot;bill_dep&quot;</span>, <span class="st">&quot;flipper_len&quot;</span>, </span>
+<span id="cb172-2"><a href="tidyverse.html#cb172-2" tabindex="-1"></a><span class="fu">names</span>(p_measure)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;species&quot;</span>, <span class="st">&quot;island&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;bill_len&quot;</span>, <span class="st">&quot;bill_dep&quot;</span>, <span class="st">&quot;flipper_len&quot;</span>, </span>
 <span id="cb172-3"><a href="tidyverse.html#cb172-3" tabindex="-1"></a>                    <span class="st">&quot;body_mass&quot;</span>, <span class="st">&quot;sex&quot;</span>)</span>
 <span id="cb172-4"><a href="tidyverse.html#cb172-4" tabindex="-1"></a><span class="co"># tidyverse method</span></span>
 <span id="cb172-5"><a href="tidyverse.html#cb172-5" tabindex="-1"></a><span class="co"># p_measure&lt;-rename(p_measure, species = Species, island = Island, date = &quot;Date Egg&quot;,</span></span>
@@ -932,10 +932,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb172-7"><a href="tidyverse.html#cb172-7" tabindex="-1"></a><span class="co">#                   flipper_len = &quot;Flipper Length (mm)&quot;, body_mass = &quot;Body Mass (g)&quot;, </span></span>
 <span id="cb172-8"><a href="tidyverse.html#cb172-8" tabindex="-1"></a><span class="co">#                   sex = Sex)</span></span></code></pre></div>
 <p>Now we’ll use the pipe operator (<code>%&gt;%</code>) to add a column called <code>year</code> using mutate <code>(year=year(date))</code>. The<code>mutate()</code> function is used to add or modify columns in a data frame, and the <code>year()</code> function extracts the year component from a date. We then remove the date column using <code>select()</code>.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tidyverse.html#cb173-1" tabindex="-1"></a>p_measure<span class="ot">&lt;-</span>p_measure<span class="sc">%&gt;%</span></span>
-<span id="cb173-2"><a href="tidyverse.html#cb173-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">year</span>(date))<span class="sc">%&gt;%</span></span>
-<span id="cb173-3"><a href="tidyverse.html#cb173-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="dv">3</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb173-4"><a href="tidyverse.html#cb173-4" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tidyverse.html#cb173-1" tabindex="-1"></a>p_measure <span class="ot">&lt;-</span> p_measure <span class="sc">%&gt;%</span></span>
+<span id="cb173-2"><a href="tidyverse.html#cb173-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb173-3"><a href="tidyverse.html#cb173-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb173-4"><a href="tidyverse.html#cb173-4" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code></pre></div>
 <p>Let’s look at our new data frame using <code>head()</code></p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="tidyverse.html#cb174-1" tabindex="-1"></a><span class="fu">head</span>(p_measure)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
@@ -969,26 +969,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>LCL: Lower confidence limit (mean - 2 × SD)</li>
 <li>UCL: Upper confidence limit (mean + 2 × SD)</li>
 </ul>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="tidyverse.html#cb176-1" tabindex="-1"></a>output_analysis<span class="ot">&lt;-</span>penguins<span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="tidyverse.html#cb176-1" tabindex="-1"></a>output_analysis <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
 <span id="cb176-2"><a href="tidyverse.html#cb176-2" tabindex="-1"></a>  <span class="co"># Filter out rows where body_mass is NA (filter using !is.na)</span></span>
-<span id="cb176-3"><a href="tidyverse.html#cb176-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(sex))<span class="sc">%&gt;%</span></span>
+<span id="cb176-3"><a href="tidyverse.html#cb176-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span></span>
 <span id="cb176-4"><a href="tidyverse.html#cb176-4" tabindex="-1"></a>  <span class="co"># Group data by species and sex (group_by)</span></span>
-<span id="cb176-5"><a href="tidyverse.html#cb176-5" tabindex="-1"></a>  <span class="fu">group_by</span>(species,sex)<span class="sc">%&gt;%</span></span>
+<span id="cb176-5"><a href="tidyverse.html#cb176-5" tabindex="-1"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb176-6"><a href="tidyverse.html#cb176-6" tabindex="-1"></a>  <span class="co"># Summarize data (n, mean, median, sd)</span></span>
-<span id="cb176-7"><a href="tidyverse.html#cb176-7" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(), <span class="co"># number of samples (n)</span></span>
-<span id="cb176-8"><a href="tidyverse.html#cb176-8" tabindex="-1"></a>            <span class="at">mean_bm=</span><span class="fu">mean</span>(body_mass_g), <span class="co"># calculate mean body mass</span></span>
-<span id="cb176-9"><a href="tidyverse.html#cb176-9" tabindex="-1"></a>            <span class="at">median_bm=</span><span class="fu">median</span>(body_mass_g), <span class="co"># calculate median body mass</span></span>
-<span id="cb176-10"><a href="tidyverse.html#cb176-10" tabindex="-1"></a>            <span class="at">SD_bm=</span><span class="fu">sd</span>(body_mass_g))<span class="sc">%&gt;%</span> <span class="co"># caluclate the standard deviation of body mass</span></span>
+<span id="cb176-7"><a href="tidyverse.html#cb176-7" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># number of samples (n)</span></span>
+<span id="cb176-8"><a href="tidyverse.html#cb176-8" tabindex="-1"></a>            <span class="at">mean_bm =</span> <span class="fu">mean</span>(body_mass_g), <span class="co"># calculate mean body mass</span></span>
+<span id="cb176-9"><a href="tidyverse.html#cb176-9" tabindex="-1"></a>            <span class="at">median_bm =</span> <span class="fu">median</span>(body_mass_g), <span class="co"># calculate median body mass</span></span>
+<span id="cb176-10"><a href="tidyverse.html#cb176-10" tabindex="-1"></a>            <span class="at">SD_bm =</span> <span class="fu">sd</span>(body_mass_g)) <span class="sc">%&gt;%</span> <span class="co"># caluclate the standard deviation of body mass</span></span>
 <span id="cb176-11"><a href="tidyverse.html#cb176-11" tabindex="-1"></a>  <span class="co"># Add confidence intervals using mutate</span></span>
-<span id="cb176-12"><a href="tidyverse.html#cb176-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LCL=</span>mean_bm<span class="dv">-2</span><span class="sc">*</span>SD_bm, <span class="co"># calculate the lower confidence interval level</span></span>
-<span id="cb176-13"><a href="tidyverse.html#cb176-13" tabindex="-1"></a>         <span class="at">UCL=</span>mean_bm<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>SD_bm) <span class="co"># calculate the upper confidence interval level</span></span></code></pre></div>
+<span id="cb176-12"><a href="tidyverse.html#cb176-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LCL =</span> mean_bm <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> SD_bm, <span class="co"># calculate the lower confidence interval level</span></span>
+<span id="cb176-13"><a href="tidyverse.html#cb176-13" tabindex="-1"></a>         <span class="at">UCL =</span> mean_bm <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> SD_bm) <span class="co"># calculate the upper confidence interval level</span></span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;species&#39;. You can
 ## override using the `.groups` argument.</code></pre>
 </div>
 <div id="plot-results-using-ggplot2" class="section level3 hasAnchor" number="6.6.5">
 <h3><span class="header-section-number">6.6.5</span> Plot results using ggplot2<a href="tidyverse.html#plot-results-using-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, we will generate a ggplot from our analysis using the data frame above.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="tidyverse.html#cb178-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> output_analysis, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">paste0</span>(sex,species), <span class="at">y =</span> mean_bm, <span class="at">ymin=</span>LCL, <span class="at">ymax=</span>UCL, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="tidyverse.html#cb178-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> output_analysis, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">paste0</span>(sex, species), <span class="at">y =</span> mean_bm, <span class="at">ymin =</span> LCL, <span class="at">ymax =</span> UCL, <span class="at">color =</span> species)) <span class="sc">+</span></span>
 <span id="cb178-2"><a href="tidyverse.html#cb178-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Add points</span></span>
 <span id="cb178-3"><a href="tidyverse.html#cb178-3" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co">#  add error bars</span></span>
 <span id="cb178-4"><a href="tidyverse.html#cb178-4" tabindex="-1"></a>  <span class="co"># angle text on x axis for readability</span></span>
