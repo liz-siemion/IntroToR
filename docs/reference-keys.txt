@@ -44,7 +44,12 @@ indexing-different-data-types
 baser-plotting
 tidyverse
 why-tidyverse
-main-dplyr-functions
+tibbles
+improved-printing
+subsetting
+recycling
+tibble-vs.-data-frame-key-differences
+tidyverse-functions
 tidyverse-vs-baser
 ggplot
 components-of-ggplot
@@ -70,6 +75,7 @@ for-loops
 troubleshooting-for-loops
 if-else-and-ifelse-statements
 next-and-break
+keeping-track-of-loop
 statistical-summaries
 debugging
 locating-problematic-code
@@ -86,4 +92,3 @@ outlining-r-scripts
 pseudocoding
 making-readable-r-code
 class-wrap-up
-keeping-track-of-loop

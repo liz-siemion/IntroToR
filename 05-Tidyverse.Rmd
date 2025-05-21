@@ -17,7 +17,7 @@ sheep <- filter(x = sheep, herds %in% c("Bx", "Cn")) %>%
   mutate(Yr_Month = paste(Year, Month, sep = "_"))
 ```
 
-Note that I had to specify the object (sheep) in the filter() function, but not in the mutate() function. The %>% operator tells R to pass the sheep data frame through the pipeline, so it's automatically used in the subsequent function.
+Note that I had to specify the object `sheep` in the `filter()` function, but not in the `mutate()` function. The `%>%` operator tells R to pass the sheep data frame through the pipeline, so it's automatically used in the subsequent function.
 
 Learning tidyverse provides efficient tools and workflows for data cleaning, exploration, and analysis. One of the most commonly used packages within the `tidyverse` is `dplyr` (data plier), which provides a set of powerful and intuitive functions for manipulating data frames. With dplyr, you can easily filter rows, select columns, create new variables, group data, and summarize it—all using clear, readable code.
 
@@ -31,8 +31,114 @@ Learning tidyverse provides efficient tools and workflows for data cleaning, exp
 * Open-source and widely supported, with ample online learning resources
 * Provides tools for data manipulation, exploration, and visualization.
 * Uses piping (%>%) to create readable, fluent workflows (through the magrittr package)
+* The Tidyverse's `Tibble` data structure offers a modern, consistent alternative to data frames, with improved subsetting behavior, better printing, and stricter data handling
 
-## Main dplyr Functions
+## Tibbles
+
+The tidyverse uses a modern type of data frame structure called a `Tibble` that has a `tbl` class, a `tbl_df` class and a `data.frame` class. 
+
+```{r}
+# Create a tibble manually
+my_tibble <- tibble(
+  name = c("S432", "S678", "S573"),
+  age = c(4, 2, 6)
+)
+
+class(my_tibble)
+```
+
+### Improved printing
+
+Unlike data frames, tibbles only print the first 10 rows by default and only show the columns that fit on your screen, producing more readable output. The data types of each column are displayed underneath the column names, making it easier to understand your data quickly. It also prints an abbreviated description of the column type, and uses font styles and colors for highlighting.
+ 
+In addition, numbers are displayed with three significant figures by default, and a trailing dot indicates the existence of a fractional component. You can control the default appearance with options.
+ 
+```{r}
+my_tibble
+```
+
+### Subsetting
+
+Tibbles are stricter and more consistent than base data frames when it comes to subsetting:
+
+When subsetting with tibbles using `[`, the result is always another tibble, even if you're selecting a single column. This makes the behavior more predictable, especially in pipelines.
+
+```{r}
+my_tibble[1]      # Returns a tibble with one column
+my_tibble[[1]]    # Returns a vector (just the values from column x)
+
+```
+
+In contrast, subsetting with data frames using `[` may return a data frame or a vector, depending on the context:
+
+```{r}
+my_df <- data.frame(
+  name = c("S432", "S678", "S573"),
+  age = c(4, 2, 6))
+my_df[1]      # Returns a data frame
+my_df[, 1]    # Returns a vector
+my_df[1, ]    # Returns a data frame (one row)
+
+```
+Tibbles are also more strict with the `$` operator: Tibbles do not allow partial matching. If the column name you use doesn’t match exactly, it will return `NULL` and may show a warning. As a result, tibbles can be safer than data frames, especially with data sets with similar column names. 
+
+```{r}
+my_tibble$na
+```
+Data frames allow partial matching, which can lead to unexpected results:
+```{r}
+my_df$name
+my_df$na
+```
+
+### Recycling
+When constructing a tibble, only values of length 1 are recycled. The first column with length different to one determines the number of rows in the tibble, conflicts lead to an error.
+
+In R, recycling happens when you combine vectors of different lengths—shorter vectors are automatically repeated to match the longer ones. While this can be convenient, it can also lead to unintended results if you're not careful.
+
+In a data frame recycling often happens silently, even if the lengths don't align exactly:
+```{r}
+my_df <- data.frame(
+  name = c("S432", "S678", "S573", "S698"),
+  age = c(4, 2))
+my_df
+```
+Here, the shorter `age` vector `age = c(4, 2)` is silently recycled to fill the 4 rows of the data frame.
+
+Tibbles are stricter about recycling:
+
+* Tibbles only allow recycling if the shorter vector is length 1.
+* If the lengths don’t match and can’t be safely recycled, tibbles will return an error—helping you catch mistakes early.
+```{r error=TRUE}
+# This works — length 1 value recycled
+my_tibble <- tibble(
+  name = c("S432", "S678", "S573", "S698"),
+  age = c(2))
+
+# This fails — length 2 can't be recycled to length 4
+my_tibble <- tibble(
+  name = c("S432", "S678", "S573", "S698"),
+  age = c(4, 2))
+# Error: Tibble columns must have consistent lengths
+
+```
+
+### Tibble vs. Data Frame — Key Differences
+
+Below is a table summarizing the differences between data frames and tibbles. You can also see `vignette("invariants")` for a detailed comparison between tibbles and data frames.
+
+| Feature                        | Base R Data Frame                               | Tibble (from `tibble` package)                             |
+|:------------------------------|--------------------------------------------------|------------------------------------------------------------|
+| **Printing**                  | Prints entire dataset, which can flood console   | Prints first 10 rows and fits columns to screen width      |
+| **Column types shown?**       | No                                               | Yes — shows column types under names                       |
+| **Type conversion on import** | Often converts strings to factors (`read.csv`)   | Does not convert strings to factors by default             |
+| **Partial column name match** | Allows it (`df$na` may match `name`)             | Disallows it — column name must match exactly              |
+| **Subsetting with `[`**       | Can return a vector or data frame depending on syntax | Always returns a tibble (more consistent)             |
+| **Recycling of short vectors**| Silent, may lead to subtle bugs                 | Gives a warning if lengths don’t match                     |
+| **Row names**                 | Supports row names                               | Does not use row names                                     |
+| **Integration**               | Basic support for base R functions               | Seamless with tidyverse tools                              |
+
+## Tidyverse Functions
 `dplyr`, a main package of the `tidyverse`, consists of five main functions:
 
 1. `filter()`: Subset the data based on specific conditions. **This is for selecting rows.**
@@ -130,6 +236,12 @@ There are many different ways to accomplish the same task in R (e.g. using tidyv
 
 
 ## ggplot
+
+<div style="text-align: center;">
+  <img src="./docs/files/ggplot.png" alt="ggplot" width="80%">
+  <p style="font-size: 50%;"><em>Artwork by Allison Horst</em></p>
+</div>
+
 ggplot is a powerful and flexible R package used for data visualization. It is part of the tidyverse and is built on the Grammar of Graphics—a layered approach to building plots that allows you to combine data, visual elements, and aesthetics step by step. You can customize nearly every part of a ggplot, including adding titles, axis labels, and legends; adjusting colors, shapes, and sizes; applying different themes; adding trend lines or annotations; and creating multi-panel layouts using faceting.
 
 **Key Features**
@@ -410,6 +522,7 @@ output_analysis<-penguins%>%
 ```
 
 ### Plot results using ggplot2
+
 Finally, we will generate a ggplot from our analysis using the data frame above.
 
 ```{r}

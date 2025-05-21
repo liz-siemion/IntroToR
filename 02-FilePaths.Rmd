@@ -43,7 +43,9 @@ We can use `Absolute` or `Relative` file paths to give R directions to where we 
 
 ![](./docs/files/RProjectFilePath.png){width=90%})
 
-It can be a bit cumbersome to work with absolute file paths. Since R Projects automatically sets the working directory as the project folder, we can use relative paths without any sort of additional set-up. Using relative paths also makes our code more readable, and easier to share and maintain. If we want to set our working directory manually, we can either use absolute or relative file paths. I recommend not changing the working directory within your script, as this can limit reproducibility.
+It can be a bit cumbersome to work with absolute file paths. Since R Projects automatically sets the working directory as the project folder, we can use relative paths without any sort of additional set-up. 
+
+Using relative paths also makes our code more readable, and easier to share and maintain. If we want to set our working directory manually, we can either use absolute or relative file paths. I recommend not changing the working directory within your script, as this can limit reproducibility.
 
 ```{r eval=FALSE}
 # check working directory
@@ -53,6 +55,10 @@ setwd("/Users/lizsiemion/Documents/teaching/Intro-to-R-Workshop")
 # Again, I do not recommend changing the working directory from an R project.
 ```
 
+<div style="text-align: center;">
+  <img src="./docs/files/set_wd.png" alt="Set WD" width="80%">
+  <p style="font-size: 50%;"><em>Artwork by Allison Horst</em></p>
+</div>
 
 ## Navigating outside the working directory
 
