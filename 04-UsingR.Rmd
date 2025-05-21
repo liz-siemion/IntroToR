@@ -633,7 +633,7 @@ bighorn_df <- data.frame(
 )
 
 # Define grey tones based on levels of the 'Sex' factor
-grey_tones <- c("blue", "orange")  # grey50 for males, grey80 for females
+bighorn_cols <- c("blue", "orange")  # grey50 for males, grey80 for females
 ```
 
 
@@ -642,9 +642,10 @@ grey_tones <- c("blue", "orange")  # grey50 for males, grey80 for females
 plot(x = bighorn_df$Age, # x-axis
      y = bighorn_df$Weight, # y-axis
      main = "Bighorn Sheep: Weight by Age", # title
-     xlab = "Age (years)", # x-axis label
-     ylab = "Weight (kg)", # y-axis label
-     col = grey_tones[bighorn_df$Sex],  # point color (sex needs to be a factor)
+     xlab = "Age (years)", # x-axis title
+     ylab = "Weight (kg)", # y-axis title
+     las = 1, # flip y-axis labels
+     col = bighorn_cols[bighorn_df$Sex],  # point color (sex needs to be a factor)
      pch = 19,              # solid circle
      cex = 1.2)             # slightly larger points
 # Add separate trend lines for each Sex group

@@ -159,46 +159,46 @@ head(females, 1)
 2. `select()`: Choose specific columns from the data. **This is for selecting columns**
 ```{r}
 # select AID and RU columns
-snbs_s <- select(snbs, AID, RU)
+snbs_s <- select(x = snbs, AID, RU)
 
-# remove one column with negative indexing
-snbs_s <- select(snbs, -Sex, -RU)
+# remove two columns with negative indexing
+snbs_s <- select(x = snbs, -Sex, -RU)
 head(snbs_s, 1)
 ```
 
 3. `mutate()`: Modify or create new variables in the data.
 ```{r}
-snbs_s <- mutate(snbs, AID_Sex = paste(AID, Sex, sep = "_")) %>%
+snbs_s <- mutate(x = snbs, AID_Sex = paste(AID, Sex, sep = "_")) %>%
   select(AID, Sex, AID_Sex)
 head(snbs_s, 1)
 ```
 
 4. `group_by()`: Group data based on one or more variables for grouped operations.
 ```{r}
-snbs_group <- group_by(snbs, RU)
+snbs_group <- group_by(x = snbs, RU)
 snbs_group
 ```
 
 5. `summarize()`: Generate summary statistics from the data. Common summary statistics include: `n()`, `mean()`, `mode()`, `range()`, `median()`, `sd()`.
 
 ```{r}
-snbs_summ <- summarize(snbs_group, n = n())
+snbs_summ <- summarize(x = snbs_group, n = n())
 snbs_summ
 ```
 
 6. `arrange()`: Sort the data in a specific order.
 ```{r}
-snbs_sorted <- arrange(snbs, Herd)
+snbs_sorted <- arrange(x = snbs, Herd)
 # Sorts character values in alphabetical order by default
 
-snbs_sorted_desc <- arrange(snbs, desc(Herd))
+snbs_sorted_desc <- arrange(x = snbs, desc(Herd))
 # Sorts character values in descending alphabetical order
 ```
 
 You can perform many operations in one call using the pipe operator:
 
 ``` {r eval=FALSE}
-snbs_tidy <- filter(snbs, Sex == "F") %>%
+snbs_tidy <- filter(x = snbs, Sex == "F") %>%
   mutate(AID_Sex = paste(AID, Sex, sep = "_")) %>%
   select(-RU) %>%
   group_by(Herd) %>%
@@ -380,6 +380,7 @@ bighorn_df <- data.frame(
 ```
 
 2. Create a histogram to visualize the weights of bighorn sheep.
+
 * Set the bins to be blue.
 * Add a black outline to the bins.
 * Include a title as well as labels for the x and y axes.
@@ -392,6 +393,7 @@ bighorn_df <- data.frame(
 Exercise -- Using a data set in R called penguins_raw to perform a simple analysis
  
 Explore the data set: 
+
 * Look at the first 5 rows (head)
 * Look at the data structure (str)
 * How many samples? (nrow)
@@ -408,6 +410,7 @@ First let's load the required libraries.
 library(tidyverse)
 library(palmerpenguins)
 ```
+
 ### Examine data frame
 Let's look at the first 10 rows of the penguins_raw data frame. 
 ```{r}
@@ -440,7 +443,7 @@ In the previous code `dput(names(penguins_raw))`, R follows its usual order of o
 1. `names(penguins_raw)` retrieves the column names of the dataset as a character vector.
 2. `dput()` then takes that result and prints it in a format that can be copied and reused as R code.
 
-The dput() function (short for "dump put") converts an object into valid R code.
+The `dput()` function (short for "dump put") converts an object into valid R code.
 
 ### Manipulate data frame
 Subsample the penguins_raw to create a new data set called p_measure.
@@ -499,11 +502,14 @@ Now let's create our final analysis data frame object called `output_analysis`. 
 1. Remove rows with `NA` values in the `body_mass` and `sex` columns.
 2. Group the data by species and sex.
 3. Summarize each group by calculating:
+
 * Number of samples (n)
 * Mean body mass (mean_bm)
 * Median body mass (median_bm)
 * Standard deviation of body mass (SD_bm)
+
 4. Add confidence intervals
+
 * LCL: Lower confidence limit (mean - 2 × SD)
 * UCL: Upper confidence limit (mean + 2 × SD)
 

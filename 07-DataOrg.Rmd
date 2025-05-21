@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Data Organization {#data-org}
 
 Let’s start by downloading some data and exploring it in a data frame. In this example, we’ll load a CSV file. 
