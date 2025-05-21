@@ -292,15 +292,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-org" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Data Organization<a href="data-org.html#data-org" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Let’s start by downloading some data and exploring it in a data frame. In this example, we’ll load a CSV file. We’ll cover how to import and export different types of data files in more detail later.</p>
+<p>Let’s start by downloading some data and exploring it in a data frame. In this example, we’ll load a CSV file.</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-org.html#cb184-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./docs/data/BighornMortTable.csv&quot;</span>)</span></code></pre></div>
 <div id="exploring-data-frames" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Exploring Data Frames<a href="data-org.html#exploring-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s take a look at the data. Exploring your dataset is one of the most important first steps when working in R. It helps you understand the structure, types of variables, and potential issues before doing any analysis. A good place to start is by examining the structure of the data to see what you’re working with.</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-org.html#cb185-1" tabindex="-1"></a><span class="co"># str() shows us the structure of the data, including the data mode, </span></span>
-<span id="cb185-2"><a href="data-org.html#cb185-2" tabindex="-1"></a><span class="co"># the dimensions of # the dataframe including the data mode, the dimensions of </span></span>
-<span id="cb185-3"><a href="data-org.html#cb185-3" tabindex="-1"></a><span class="co"># the dataframe, and a few observations</span></span>
-<span id="cb185-4"><a href="data-org.html#cb185-4" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
+<span id="cb185-2"><a href="data-org.html#cb185-2" tabindex="-1"></a><span class="co"># the dimensions of the dataframe including the data mode, and a few observations</span></span>
+<span id="cb185-3"><a href="data-org.html#cb185-3" tabindex="-1"></a><span class="fu">str</span>(mort)  </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1061 obs. of  45 variables:
 ##  $ NecropDateDt              : chr  &quot;31-Jan-25&quot; &quot;21-Jan-25&quot; &quot;05-Jan-25&quot; &quot;08-Sep-24&quot; ...
 ##  $ NecropDate                : int  20250131 20250121 20250105 20240908 20240709 20240617 20240604 20240530 20240528 20240520 ...
@@ -379,24 +378,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [41] &quot;Mandible&quot;                   &quot;Skull&quot;                     
 ## [43] &quot;LionID&quot;                     &quot;KillLocUsingGPSData&quot;       
 ## [45] &quot;LionClusterID&quot;</code></pre>
-<p>It’s a good time to ask ourselves if the structure R is reporting matches our intuition:</p>
+<p>It’s a good time to ask ourselves if the structure of our data matches our intuition:</p>
 <ul>
 <li>Does the data type for each column make sense?</li>
-<li>If not, we need to sort out those issues now so we</li>
-<li>Don’t run into issues down the road. Once we’re happy with our data types, we can really start digging into our data!</li>
+<li>If not, we need to sort out those issues now so we don’t run into issues down the road.</li>
 </ul>
-<p>We can also examine individual columns:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-org.html#cb197-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-org.html#cb199-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data-org.html#cb201-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
-<pre><code>##  chr [1:1061] &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Unknown not Predation&quot; &quot;Lion&quot; ...</code></pre>
-<p>We can also index a dataframe column using the operator.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-org.html#cb203-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## [1] &quot;M267&quot;</code></pre>
-<p>We can use the functions <code>head()</code> and <code>tail()</code> to look at the first or last 6 rows of the data frame.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data-org.html#cb205-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="at">n =</span> <span class="dv">3</span>) <span class="co"># n = refers to how many rows to print </span></span></code></pre></div>
+<p>We can use the functions <code>head()</code> and <code>tail()</code> to also look at the first or last 6 rows of the data frame. We can adjust the number of rows that are printed using the <code>n</code> argument.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-org.html#cb197-1" tabindex="-1"></a><span class="fu">head</span>(mort, <span class="at">n =</span> <span class="dv">3</span>) <span class="co"># n = refers to how many rows to print </span></span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
 ## 1    31-Jan-25   20250131  22-Jan-25 20250122      30-Jan-25     20250130
 ## 2    21-Jan-25   20250121  25-Jun-23 20230625                          NA
@@ -441,7 +429,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1                   N              
 ## 2                   N              
 ## 3                   Y  267_20241202</code></pre>
-<p>Similarly, <code>[[</code> will act to extract a single column:</p>
+<p>We can also examine individual columns.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-org.html#cb199-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>AnimalYear) </span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data-org.html#cb201-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Animal_ID)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-org.html#cb203-1" tabindex="-1"></a><span class="fu">str</span>(mort<span class="sc">$</span>Cause_Mort)</span></code></pre></div>
+<pre><code>##  chr [1:1061] &quot;Lion&quot; &quot;Unknown&quot; &quot;Lion&quot; &quot;Unknown not Predation&quot; &quot;Lion&quot; ...</code></pre>
+<p>We can index a data frame column using the <code>$</code> operator and <code>[</code>. Below, the <code>$</code> operator accesses the <code>Animal_ID</code> columns and <code>[1]</code> grabs the first value in that column.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data-org.html#cb205-1" tabindex="-1"></a>mort<span class="sc">$</span>Animal_ID[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;M267&quot;</code></pre>
+<p>Similarly, <code>[[</code> will act to extract a single column.</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-org.html#cb207-1" tabindex="-1"></a>mort[[<span class="st">&quot;AnimalYear&quot;</span>]][<span class="dv">500</span>] <span class="co"># extract the 500th row of the AnimalYear column</span></span></code></pre></div>
 <pre><code>## [1] 2016</code></pre>
 <p>We can also use square brackets to extract specific elements from a data frame. Remember that data frame indexing follows the format [rows, columns], so the first number refers to the row, and the second to the column.</p>
@@ -472,14 +470,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vectorized" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Vectorized Operations<a href="data-org.html#vectorized" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is a natively vectorized language, which means it can automatically perform operations on entire vectors (columns of data) without the need for explicit loops. This makes data manipulation in R efficient and concise.</p>
-<p>For example, let’s say all the ages in our bighorn mortality dataset are off by one year. To correct this, we can simply add 1 to the entire Age column. This works because R applies the operation to each element of the vector. But first, we need to make sure the Age column is numeric. If it’s stored as character or factor, we need to coerce it to numeric before performing the math. Because R vectorizes math operations, the + 1 is automatically applied to every value in the Age column, and the result is stored in the new AgeNew column—no loop required.</p>
+<p>For example, let’s say all the ages in our bighorn mortality data set are off by one year. To correct this, we can simply add 1 to the entire Age column. This works because R applies the operation to each element of the vector. But first, we need to make sure the <code>Age</code> column is numeric. If it’s stored as character or factor, we need to coerce it to numeric before performing the math. Because R vectorizes math operations, the <code>+ 1</code> is automatically applied to every value in the <code>Age</code> column, and the result is stored in the new <code>AgeNew</code> column — no loop required.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-org.html#cb219-1" tabindex="-1"></a><span class="fu">class</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data-org.html#cb221-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>Age)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data-org.html#cb223-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> mort<span class="sc">$</span>AgeNew <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
-<p>We see a warning about NAs being introduced when coercing values to a numeric data type. This happens because some entries in the Age column aren’t purely numeric—for example, values like “4+” or “&gt;7” contain extra characters. Since R can’t interpret these as numbers, it replaces them with NA.</p>
-<p>In practice, we could clean this column so it contains only numeric values. One way to do that is by using the gsub() function along with a regular expression to remove non-numeric characters. I’ll show you the code below for reference, but we won’t be covering regular expressions in detail during this workshop.</p>
+<p>We see a warning about NAs being introduced when coercing values to a numeric data type. This happens because some entries in the Age column aren’t purely numeric—for example, values like “4+” or “&gt;7” contain extra characters (+ and &gt;). Since R can’t interpret these as numbers, it replaces them with <code>NA</code>.</p>
+<p>In practice, we could clean this column so it contains only numeric values. One way to do that is by using the <code>gsub()</code> function along with regular expression to remove non-numeric characters. I’ll show you the code below for reference, but we won’t be covering regular expressions in detail during this workshop.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="data-org.html#cb224-1" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[^0-9.]&quot;</span>, <span class="st">&quot;&quot;</span>, mort<span class="sc">$</span>Age)  <span class="co"># Remove all non-numeric characters</span></span>
 <span id="cb224-2"><a href="data-org.html#cb224-2" tabindex="-1"></a>mort<span class="sc">$</span>AgeNew <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mort<span class="sc">$</span>AgeNew) <span class="co"># Coerce from character to numeric data mode</span></span>
 <span id="cb224-3"><a href="data-org.html#cb224-3" tabindex="-1"></a><span class="fu">head</span>(mort<span class="sc">$</span>AgeNew, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
@@ -494,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-org.html#cb228-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> mort<span class="sc">$</span>Age <span class="sc">&lt;</span> <span class="dv">5</span></span>
 <span id="cb228-2"><a href="data-org.html#cb228-2" tabindex="-1"></a><span class="fu">head</span>(below_five)</span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
-<p>We’ve created a simple vector of TRUE/FALSE values. To add it to our data frame, we can use the cbind() function, which binds columns together. In this case, it combines our existing data frame with the new logical vector as an additional column.</p>
+<p>We’ve created a simple vector of TRUE/FALSE values. To add it to our data frame, we can use the <code>cbind()</code> function, which binds columns together. In this case, it combines our existing data frame with the new logical vector as an additional column.</p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-org.html#cb230-1" tabindex="-1"></a>mort <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mort, below_five)</span>
 <span id="cb230-2"><a href="data-org.html#cb230-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   NecropDateDt NecropDate DeadDateDt DeadDate Date1stHeardDt Date1stHeard
@@ -586,7 +584,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1                   N                    7      FALSE
 ## 2                   N                   12       TRUE
 ## 3                   Y  267_20241202      1       TRUE</code></pre>
-<p>If we try to add the below_average vector to our data frame but it has a different number of elements than there are rows in the data frame, R will return an error. The number of entries must match for the columns to align correctly.</p>
+<p>If we try to add the below_five vector to our data frame R will return an error. This is because the below_average vector has a different number of elements than rows in the mort data frame. The number of entries in the below_five vector must match the number of rows in the mort data fram to align correctly.</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="data-org.html#cb234-1" tabindex="-1"></a>below_five <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
 <span id="cb234-2"><a href="data-org.html#cb234-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(mort, below_five))</span></code></pre></div>
 <p>Now let’s look at how we might add rows to a data frame.</p>
@@ -602,9 +600,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Load the bighorn mort table from the bighorn database and assign it the variable name of “mort”</li>
 <li>Print the names of the mort dataframe using <code>names()</code> and <code>dput(names(mort))</code>. Why might using dput(names(mort)) be helpful?</li>
 <li>Select these columns: DeadDate, Animal_ID, COM, Sex, Age, Herd, Recorder</li>
-<li>Subset to just females using the <code>subset()</code>, which indexing, and the <code>filter()</code> function.</li>
-<li>Subset to herds that are not Cathedral or Big Arroyo. You will need to use <code>!</code> and the <code>%in%</code>. Any subsetting method is ok to use</li>
-<li>Subset to herds in the Souther Recovery Unit: Mt. Baxter, Mt. Langley, Taboose Creek, Sawmill Canyon, Bubbs Creek, Mt. Williamson. You will need to use <code>%in%</code>. Any subsetting method is ok to use</li>
+<li>Subset to just females using three different methods of subsetting: <code>subset()</code>, which indexing, and <code>filter()</code>. Ensure that each method provides the same results.</li>
+<li>Subset to herds that are not Cathedral or Big Arroyo. You will need to use <code>!</code> and the <code>%in%</code>. Any subsetting method is ok to use.</li>
+<li>Subset to herds in the Southern Recovery Unit: Mt. Baxter, Mt. Langley, Taboose Creek, Sawmill Canyon, Bubbs Creek, Mt. Williamson. You will need to use <code>%in%</code>. Any subsetting method is ok to use</li>
 <li>Subset to only lion caused mortalities. Use the <code>unique()</code> function on the column <code>COM</code> to print the category names in the <code>COM</code> column. This will provide information on the correct syntax to use for subsetting. For example, is it “Lion”, “lion”, or “mountain lion”. Syntax matters in R.</li>
 <li>How many rows and columns are in the mort data frame.</li>
 <li>Use <code>View()</code> to view you data frame</li>
