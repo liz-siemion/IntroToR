@@ -485,9 +485,9 @@ Now we'll use the pipe operator (`%>%`) to add a column called `year` using muta
 
 ```{r}
 p_measure <- p_measure %>%
-    mutate(year = year(date)) %>%
-    dplyr::select(-3) %>%
-    dplyr::filter(!is.na(body_mass) & !is.na(sex))
+    mutate(year = year(date)) %>% # create a year column using lubridate year() function on the date column
+    dplyr::select(-3) %>% # remove the third column
+    dplyr::filter(!is.na(body_mass) & !is.na(sex)) # remove the NA values from body_mass and sex columns; both columns must have values.
 ```
 
 Let's look at our new data frame using `head()`
